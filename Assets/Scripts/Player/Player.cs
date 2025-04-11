@@ -1,3 +1,4 @@
+using System.Collections;
 using Mono.Cecil.Cil;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -8,6 +9,7 @@ public class Player : MonoBehaviour
 
     InputAction moveAction;
     InputAction jumpAction;
+    InputAction dashAction;
 
 
     Rigidbody2D rb;
@@ -17,18 +19,36 @@ public class Player : MonoBehaviour
     Vector2 moveValue;
 
     private bool isGrounded = true;
-    
+    private bool canDash = true;
+    private bool isDashing;
 
+    private Facing faceState = Facing.right;
 
-    public float speed = 500f;
-    public float jumpForce = 5f;
-    public float landAcceleration = 2f;
-    public float landStart = 3f;
+    public float Speed = 500f;
+    public float JumpForce = 5f;
+    public float LandAcceleration = 2f;
+    public float LandStart = 3f;
+    public float DashForce;
+    public float DashDuration;
+    public float DashRecovery;
+
+    public enum MoveState {
+        Idle,
+        Dash,
+        Jump,
+        Land
+    }
+
+    public enum Facing {
+        left,
+        right
+    }
 
     void Start()
     {
         moveAction = InputSystem.actions.FindAction("Move");
         jumpAction = InputSystem.actions.FindAction("Jump");
+        dashAction = InputSystem.actions.FindAction("Dash");
         rb = GetComponent<Rigidbody2D>();
     }
     void OnCollisionEnter2D(Collision2D collision)
@@ -52,21 +72,57 @@ public class Player : MonoBehaviour
     void Update()
     {
         moveValue = moveAction.ReadValue<Vector2>();
+
+        if (dashAction.IsPressed() && canDash) {
+            StartCoroutine(Dash());
+        }
+
+        if (moveValue.x < 0) {
+            faceState = Facing.left;
+        } else if (moveValue.x > 0) {
+            faceState = Facing.right;
+        }
+        
+
     }
 
     void FixedUpdate()
     {
 
         if (jumpAction.IsPressed() && isGrounded) {
-            rb.AddForce(new Vector2(0, jumpForce), ForceMode2D.Impulse);
+            rb.AddForce(new Vector2(0, JumpForce), ForceMode2D.Impulse);
         }
 
-        float moveRate = speed * Time.fixedDeltaTime * moveValue.x;
-        rb.linearVelocityX = moveRate;
+        if (!isDashing){
 
-        if (rb.linearVelocityY < landStart && !isGrounded) {
-            rb.linearVelocityY -= landAcceleration * Time.fixedDeltaTime;
+            if (rb.linearVelocityY < LandStart && !isGrounded) {
+                rb.linearVelocityY -= LandAcceleration * Time.fixedDeltaTime;
+            }
+            
+            float moveRate = Speed * Time.fixedDeltaTime * moveValue.x;
+            rb.linearVelocityX = moveRate;
         }
 
+        Debug.Log(rb.linearVelocityX);
+
+    }
+
+    IEnumerator Dash()
+    {
+        Debug.Log("Dash invoked");
+        canDash = false;
+        isDashing = true;
+        if (faceState == Facing.left) {
+            rb.linearVelocityX = -DashForce;
+        } else if (faceState == Facing.right) {
+            rb.linearVelocityX = DashForce;
+        }
+        rb.gravityScale = 0;
+        yield return new WaitForSeconds(DashDuration);
+        rb.linearVelocityX = 0;
+        rb.gravityScale = 1;
+        isDashing = false;
+        yield return new WaitForSeconds(DashRecovery);
+        canDash = true;
     }
 }
