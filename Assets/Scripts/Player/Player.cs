@@ -10,7 +10,7 @@ public class Player : MonoBehaviour
     InputAction moveAction;
     InputAction jumpAction;
     InputAction dashAction;
-
+    InputAction attackAction;
 
     Rigidbody2D rb;
     CapsuleCollider2D col;
@@ -20,7 +20,8 @@ public class Player : MonoBehaviour
 
     private bool isGrounded = true;
     private bool canDash = true;
-    private bool isDashing;
+    private bool isDashing = false;
+    private bool isAttacking = false; 
 
     private Facing faceState = Facing.right;
 
@@ -31,6 +32,8 @@ public class Player : MonoBehaviour
     public float DashForce;
     public float DashDuration;
     public float DashRecovery;
+
+    public AttackBox attackBox;
 
     public enum MoveState {
         Idle,
@@ -49,6 +52,8 @@ public class Player : MonoBehaviour
         moveAction = InputSystem.actions.FindAction("Move");
         jumpAction = InputSystem.actions.FindAction("Jump");
         dashAction = InputSystem.actions.FindAction("Dash");
+        attackAction = InputSystem.actions.FindAction("Attack");
+        
         rb = GetComponent<Rigidbody2D>();
     }
     void OnCollisionEnter2D(Collision2D collision)
@@ -77,13 +82,16 @@ public class Player : MonoBehaviour
             StartCoroutine(Dash());
         }
 
+        if (attackAction.IsPressed() && !isAttacking)
+        {
+            StartCoroutine(Attack());
+        }
+
         if (moveValue.x < 0) {
             faceState = Facing.left;
         } else if (moveValue.x > 0) {
             faceState = Facing.right;
         }
-        
-
     }
 
     void FixedUpdate()
@@ -103,15 +111,14 @@ public class Player : MonoBehaviour
             rb.linearVelocityX = moveRate;
         }
 
-        Debug.Log(rb.linearVelocityX);
-
     }
 
     IEnumerator Dash()
     {
-        Debug.Log("Dash invoked");
         canDash = false;
         isDashing = true;
+        Debug.Log("Dash invoked");
+        rb.linearVelocityY = 0;
         if (faceState == Facing.left) {
             rb.linearVelocityX = -DashForce;
         } else if (faceState == Facing.right) {
@@ -124,5 +131,14 @@ public class Player : MonoBehaviour
         isDashing = false;
         yield return new WaitForSeconds(DashRecovery);
         canDash = true;
+    }
+
+    IEnumerator Attack()
+    {
+        Debug.Log("Attack invoked");
+        isAttacking = true;
+        attackBox.Attack();
+        yield return new WaitForSeconds(0.8f);
+        isAttacking = false;
     }
 }
