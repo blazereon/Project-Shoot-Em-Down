@@ -15,10 +15,7 @@ public class Player : MonoBehaviour
     Rigidbody2D rb;
     CapsuleCollider2D col;
 
-
     Vector2 moveValue;
-
-    private bool isGrounded = true;
     private bool canDash = true;
     private bool isDashing = false;
     private bool isAttacking = false; 
@@ -34,6 +31,7 @@ public class Player : MonoBehaviour
     public float DashRecovery;
 
     public AttackBox attackBox;
+    public GroundBox groundBox;
 
     public enum MoveState {
         Idle,
@@ -56,26 +54,13 @@ public class Player : MonoBehaviour
         
         rb = GetComponent<Rigidbody2D>();
     }
-    void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.tag == "Ground")
-        {
-            isGrounded = true;
-        }
-    }
 
-    void OnCollisionExit2D(Collision2D collision)
-    {
-        if (collision.gameObject.tag == "Ground")
-        {
-            isGrounded = false;
-        }
-    }
 
 
     // Update is called once per frame
     void Update()
     {
+        Debug.Log(groundBox.isGrounded);
         moveValue = moveAction.ReadValue<Vector2>();
 
         if (dashAction.IsPressed() && canDash) {
@@ -98,14 +83,14 @@ public class Player : MonoBehaviour
     void FixedUpdate()
     {
 
-        if (jumpAction.IsPressed() && isGrounded) {
+        if (jumpAction.IsPressed() && groundBox.isGrounded) {
 
             rb.AddForce(new Vector2(0, JumpForce), ForceMode2D.Impulse);
         }
 
         if (!isDashing){
 
-            if (rb.linearVelocityY < LandStart && !isGrounded) {
+            if (rb.linearVelocityY < LandStart && !groundBox.isGrounded) {
                 rb.linearVelocityY -= LandAcceleration * Time.fixedDeltaTime;
             }
             
