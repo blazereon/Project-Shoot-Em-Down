@@ -92,12 +92,14 @@ public class Player : MonoBehaviour
         } else if (moveValue.x > 0) {
             faceState = Facing.right;
         }
+
     }
 
     void FixedUpdate()
     {
 
         if (jumpAction.IsPressed() && isGrounded) {
+
             rb.AddForce(new Vector2(0, JumpForce), ForceMode2D.Impulse);
         }
 
@@ -117,7 +119,7 @@ public class Player : MonoBehaviour
     {
         canDash = false;
         isDashing = true;
-        Debug.Log("Dash invoked");
+
         rb.linearVelocityY = 0;
         if (faceState == Facing.left) {
             rb.linearVelocityX = -DashForce;
