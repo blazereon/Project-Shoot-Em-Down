@@ -12,6 +12,13 @@ public class EventSystem
     */
     private static EventSystem current = null;
     private static readonly object padlock = new object();
+
+    public enum DamageType
+    {
+        Melee,
+        Ranged
+    }
+
     EventSystem() {}
     public static EventSystem Current
     {
@@ -42,7 +49,7 @@ public class EventSystem
 
 
     //This is where you add the event trigger function
-    public void AttackEnemy(GameObject enemyObject, int damage)
+    public void AttackEnemy(GameObject enemyObject, int damage, DamageType damageType)
     {
         OnAttackEnemy?.Invoke(enemyObject, damage);
     }
