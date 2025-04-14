@@ -139,7 +139,7 @@ public class Player : MonoBehaviour
     {
         Debug.Log("Attack invoked");
         isAttacking = true;
-        attackBox.Attack();
+        attackBox.Attack(faceState);
         yield return new WaitForSeconds(0.8f);
         isAttacking = false;
     }
