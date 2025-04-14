@@ -41,7 +41,7 @@ public class AttackBox : MonoBehaviour
         {
             if (obj.tag == "Enemy")
             {
-                EventSystem.Current.AttackEnemy(obj.gameObject, 20);
+                EventSystem.Current.AttackEnemy(obj.gameObject, 20, EventSystem.DamageType.Melee);
             }
         }
     }
@@ -60,8 +60,6 @@ public class AttackBox : MonoBehaviour
 
         Gizmos.DrawWireSphere(AttackLeftRelPos, AttackRadius);
         Gizmos.DrawWireSphere(AttackRightRelPos, AttackRadius);
-
-
     }
 
 }
