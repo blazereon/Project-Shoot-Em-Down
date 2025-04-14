@@ -5,6 +5,11 @@ public class Enemy : MonoBehaviour
 {
     public int Health = 100;
     public int AttackDamage;
+    
+    public enum DamageType {
+        Melee,
+        Ranged
+    }
 
     public void TakeDamage(GameObject pObject, int damage)
     {
