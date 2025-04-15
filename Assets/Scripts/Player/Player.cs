@@ -60,7 +60,7 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(groundBox.isGrounded);
+        //.Log(groundBox.isGrounded);
         moveValue = moveAction.ReadValue<Vector2>();
 
         if (dashAction.IsPressed() && canDash) {

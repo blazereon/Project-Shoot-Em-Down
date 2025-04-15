@@ -1,7 +1,8 @@
 using UnityEngine;
 
-public class TestEnemy : Enemy {
-    
+public class TestEnemy : Enemy 
+{
+
     void Awake()
     {
         EventSystem.Current.OnAttackEnemy += TakeDamage;
