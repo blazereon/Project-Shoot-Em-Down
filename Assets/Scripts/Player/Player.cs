@@ -61,7 +61,7 @@ public class Player : MonoBehaviour
     void Update()
     {
         EventSystem.Current.PlayerLocation = transform.position;
-        
+
         moveValue = moveAction.ReadValue<Vector2>();
 
         if (dashAction.IsPressed() && canDash) {
