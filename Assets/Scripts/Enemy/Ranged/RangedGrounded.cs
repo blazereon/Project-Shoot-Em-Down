@@ -6,21 +6,18 @@ using UnityEngine;
 // This means, this enemy attacks while moving
 public class RangedGrounded : Enemy {
 
+    [Space(10)]
+    [Header("Enemy Unique Settings")]
     public GameObject player;
 
     public float speed;
     public float maxEngagementRange;    // attack inside this range
     public float stopChaseDistance;     // stop moving inside this range
-    public float detectionRange;
     
     public float wanderInterval = 0.5f;
 
     [HideInInspector]
     public float playerDistance;
-    [HideInInspector]
-    public int rayNumber = 36;
-    [HideInInspector]
-    public float rayMaxAngle = 360f;
     [HideInInspector]
     public Vector2 scale;
     [HideInInspector]
@@ -33,7 +30,7 @@ public class RangedGrounded : Enemy {
 
     private void Start()
     {
-        // player = GetComponent<GameObject>();
+        player = GameObject.FindWithTag("Player");
 
         scale = transform.localScale;
 
@@ -42,7 +39,6 @@ public class RangedGrounded : Enemy {
 
     private void Update()
     {
-        rayNumber = 36;
         bool _isPlayerDetected = false;
 
         for (int i = 0; i < rayNumber; i++)
