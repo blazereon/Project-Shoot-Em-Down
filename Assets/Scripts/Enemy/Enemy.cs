@@ -13,6 +13,9 @@ public class Enemy : MonoBehaviour
     public float rayStartAngle = 0f;
     public float detectionRange = 5f;
 
+    [HideInInspector]
+    public bool isPlayerDetected;
+
     public void TakeDamage(GameObject pObject, int damage)
     {
         if (pObject == gameObject){
@@ -22,13 +25,17 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    public void PlayerDetection()
+    public bool PlayerDetection()
     {
         bool _isPlayerDetected = false;
 
+        float _currentAngle = rayStartAngle;
+
+        Debug.Log("SCANNING");
+
         for (int i = 0; i < rayNumber; i++)
         {
-            Vector3 _rayDirection = Quaternion.Euler(0, 0, rayStartAngle + (i * (rayMaxAngle / rayNumber))) * transform.right * transform.localScale.x;
+            Vector3 _rayDirection = Quaternion.Euler(0, 0, _currentAngle + (i * (rayMaxAngle / rayNumber))) * transform.right * transform.localScale.x;
 
             // Cast a raycast only if no players are detected, could be more optimized this way
             if (!_isPlayerDetected)
@@ -41,23 +48,21 @@ public class Enemy : MonoBehaviour
                     // code
                     if (_hit.collider.name == "Player")
                     {
-                        Debug.DrawRay(transform.position, _rayDirection * detectionRange, Color.red);
+
+                        Debug.DrawRay(transform.position, _rayDirection * detectionRange, Color.yellow);
 
                         _isPlayerDetected = true;
-
+                        Debug.Log("HIT!");
                     }
+                }
+                else
+                {
+                    _isPlayerDetected = false;
                 }
             }
         }
 
-        if (_isPlayerDetected)
-        {
-            // Chasing logic here
-        }
-        else
-        {
-            // Wandering logic here
-        }
+        return _isPlayerDetected;
     }
 
 }

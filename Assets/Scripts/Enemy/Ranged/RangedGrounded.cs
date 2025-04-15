@@ -35,18 +35,45 @@ public class RangedGrounded : Enemy {
         scale = transform.localScale;
 
         direction = Random.value > 0.5f ? 1 : -1;
+
+        isPlayerDetected = false;
     }
 
     private void Update()
     {
+        
+        if(!isPlayerDetected)
+        {
+            isPlayerDetected = ScanPlayer();
+        }
+
+
+        if (isPlayerDetected)
+        {
+            ChasePlayer();
+            LockScanning();
+        }
+        else
+        {
+            // Wander();
+        }
+
+    }
+
+    public bool ScanPlayer()
+    {
         bool _isPlayerDetected = false;
+
+        float _currentAngle = rayStartAngle;
+
+        Debug.Log("SCANNING");
 
         for (int i = 0; i < rayNumber; i++)
         {
-            Vector3 _rayDirection = Quaternion.Euler(0, 0, i * (rayMaxAngle/rayNumber)) * transform.right;
+            Vector3 _rayDirection = Quaternion.Euler(0, 0, _currentAngle + (i * (rayMaxAngle / rayNumber))) * transform.right * transform.localScale.x;
 
             // Cast a raycast only if no players are detected, could be more optimized this way
-            if (!_isPlayerDetected )
+            if (!_isPlayerDetected)
             {
                 RaycastHit2D _hit = Physics2D.Raycast(transform.position, _rayDirection, detectionRange);
                 Debug.DrawRay(transform.position, _rayDirection * detectionRange, Color.green);
@@ -56,24 +83,51 @@ public class RangedGrounded : Enemy {
                     // code
                     if (_hit.collider.name == "Player")
                     {
-                        Debug.DrawRay(transform.position, _rayDirection * detectionRange, Color.red);
+
+                        Debug.DrawRay(transform.position, _rayDirection * detectionRange, Color.yellow);
 
                         _isPlayerDetected = true;
-
+                        Debug.Log("HIT!");
                     }
+                }
+                else
+                {
+                    _isPlayerDetected = false;
                 }
             }
         }
 
-        if (_isPlayerDetected)
-        {
-            ChasePlayer();
-        }
-        else
-        {
-            Wander();
-        }
+        return _isPlayerDetected;
+    }
 
+    public void LockScanning()
+    {
+        Debug.Log("LOCKED");
+        Vector2 _directionToPlayer = player.transform.position - transform.position;
+        float _enemyToPlayerAngle = Mathf.Atan2(_directionToPlayer.y, _directionToPlayer.x) * Mathf.Rad2Deg;
+
+        for (int i = 0; i < rayNumber; i++)
+        {
+            float angleOffset = (i - rayNumber / 2f) * (rayMaxAngle / rayNumber);
+            float currentAngle = _enemyToPlayerAngle + angleOffset;
+
+            Vector3 _rayDirection = Quaternion.Euler(0, 0, currentAngle) * transform.right * transform.localScale.x;
+            RaycastHit2D _hit = Physics2D.Raycast(transform.position, _rayDirection, detectionRange);
+
+            Debug.DrawRay(transform.position, _rayDirection * detectionRange, Color.black);
+            Debug.Log(_rayDirection);
+            if (_hit)
+            {
+                // code
+                if (_hit.collider.name == "Player")
+                {
+
+                    Debug.DrawRay(transform.position, _rayDirection * detectionRange, Color.red);
+
+                }
+            }
+        }
+        
     }
 
     public void ChasePlayer()
@@ -116,6 +170,12 @@ public class RangedGrounded : Enemy {
 
             transform.localScale = scale;
         }
+
+        if (playerDistance >= detectionRange)
+        {
+            isPlayerDetected = false;
+            return;
+        }
     }
 
     public void Wander()
@@ -123,18 +183,19 @@ public class RangedGrounded : Enemy {
         float _timer = 0;
         
         _timer += Time.deltaTime * 100;
-        Debug.Log("is wandering " + _timer);
+        // Debug.Log("is wandering " + _timer);
 
         if (_timer >= wanderInterval)
         {
             _timer = 0f;
 
             direction = Random.value > 0.5f ? 1 : -1;
-            Debug.Log("Direction chosen: " + direction);
+            // Debug.Log("Direction chosen: " + direction);
         }
 
         scale.x = Mathf.Abs(scale.x) * direction;
         transform.Translate(speed * Time.deltaTime * direction, 0, 0);
+        transform.localScale = scale;
     }
 
     void OnDestroy()
