@@ -16,6 +16,11 @@ public class Enemy : MonoBehaviour
     [HideInInspector]
     public bool isPlayerDetected;
 
+    private void Start()
+    {
+        isPlayerDetected = false;
+    }
+
     public void TakeDamage(GameObject pObject, int damage)
     {
         if (pObject == gameObject){

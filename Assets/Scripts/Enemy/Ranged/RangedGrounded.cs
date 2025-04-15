@@ -36,7 +36,7 @@ public class RangedGrounded : Enemy {
 
         direction = Random.value > 0.5f ? 1 : -1;
 
-        isPlayerDetected = false;
+        // isPlayerDetected = false;
     }
 
     private void Update()
