@@ -9,8 +9,9 @@ public class Enemy : MonoBehaviour
     [Space(10)]
     [Header("Player Detection Settings")]
     public int rayNumber = 36;
-    public float rayMaxAngle = 360;
-    public float detectionRange = 5;
+    public float rayMaxAngle = 360f;
+    public float rayStartAngle = 0f;
+    public float detectionRange = 5f;
 
     public void TakeDamage(GameObject pObject, int damage)
     {
@@ -27,7 +28,7 @@ public class Enemy : MonoBehaviour
 
         for (int i = 0; i < rayNumber; i++)
         {
-            Vector3 _rayDirection = Quaternion.Euler(0, 0, i * (rayMaxAngle / rayNumber)) * transform.right;
+            Vector3 _rayDirection = Quaternion.Euler(0, 0, rayStartAngle + (i * (rayMaxAngle / rayNumber))) * transform.right * transform.localScale.x;
 
             // Cast a raycast only if no players are detected, could be more optimized this way
             if (!_isPlayerDetected)
