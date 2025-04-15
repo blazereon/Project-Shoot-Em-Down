@@ -61,6 +61,8 @@ public class Player : MonoBehaviour
     void Update()
     {
         Debug.Log(groundBox.isGrounded);
+        EventSystem.Current.PlayerLocation = transform.position;
+        
         moveValue = moveAction.ReadValue<Vector2>();
 
         if (dashAction.IsPressed() && canDash) {
