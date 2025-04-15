@@ -1,5 +1,7 @@
+using System.Collections;
 using UnityEditor.ShaderGraph.Internal;
 using UnityEngine;
+using System.Linq;
 
 // Basic Movement of a grounded-ranged enemy. Moves towards the player, and has maxEngagementRange and minMoveDistance
 // Attacks inside the maxEngagementRange and stops moving if the distance between player is greater than maxChaseDistance
@@ -8,7 +10,8 @@ public class RangedGrounded : Enemy {
 
     [Space(10)]
     [Header("Enemy Unique Settings")]
-    public GameObject player;
+    
+    public Rigidbody2D rb;
 
     public float speed;
     public float maxEngagementRange;    // attack inside this range
@@ -30,11 +33,14 @@ public class RangedGrounded : Enemy {
 
     private void Start()
     {
-        player = GameObject.FindWithTag("Player");
+        
+        rb = GetComponent<Rigidbody2D>();
 
         scale = transform.localScale;
 
         direction = Random.value > 0.5f ? 1 : -1;
+
+        hitRays = new bool[rayNumber + 1];
 
         // isPlayerDetected = false;
     }
@@ -51,7 +57,7 @@ public class RangedGrounded : Enemy {
         if (isPlayerDetected)
         {
             ChasePlayer();
-            LockScanning();
+            StartCoroutine(LockScanning());
         }
         else
         {
@@ -100,11 +106,16 @@ public class RangedGrounded : Enemy {
         return _isPlayerDetected;
     }
 
-    public void LockScanning()
+    public IEnumerator LockScanning()
     {
-        Debug.Log("LOCKED");
-        Vector2 _directionToPlayer = player.transform.position - transform.position;
+        Vector3 _lastPlayerPosition = player.transform.position;
+
+        yield return new WaitForSeconds(delayScanTime);     // Delay the position to give chance for the player to get out of lock
+
+        Vector2 _directionToPlayer = _lastPlayerPosition - transform.position;
         float _enemyToPlayerAngle = Mathf.Atan2(_directionToPlayer.y, _directionToPlayer.x) * Mathf.Rad2Deg;
+
+        Debug.Log("player pos: " + _lastPlayerPosition + " " + player.transform.position);
 
         for (int i = 0; i < rayNumber; i++)
         {
@@ -115,19 +126,31 @@ public class RangedGrounded : Enemy {
             RaycastHit2D _hit = Physics2D.Raycast(transform.position, _rayDirection, detectionRange);
 
             Debug.DrawRay(transform.position, _rayDirection * detectionRange, Color.black);
-            Debug.Log(_rayDirection);
             if (_hit)
             {
                 // code
                 if (_hit.collider.name == "Player")
                 {
-
                     Debug.DrawRay(transform.position, _rayDirection * detectionRange, Color.red);
 
+                    hitRays[i] = true;
+                }
+                else
+                {
+                    hitRays[i] = false;
                 }
             }
+            else
+            {
+                hitRays[i] = false;
+            }
         }
-        
+
+        if (!hitRays.Contains(true))
+        {
+            isPlayerDetected = false;
+        }
+
     }
 
     public void ChasePlayer()
@@ -150,7 +173,9 @@ public class RangedGrounded : Enemy {
             // Check if the enemy would move towards the player
             if (stopChaseDistance <= playerDistance)
             {
-                transform.Translate(speed * Time.deltaTime, 0, 0);
+                float _moveRate = speed * Time.deltaTime;
+                rb.linearVelocityX = _moveRate;
+                // transform.Translate(speed * Time.deltaTime, 0, 0);
             }
         }
         else
@@ -165,17 +190,15 @@ public class RangedGrounded : Enemy {
 
             if (stopChaseDistance <= playerDistance)
             {
-                transform.Translate(speed * Time.deltaTime * -1, 0, 0);
+                float _moveRate = speed * Time.deltaTime * -1;
+                rb.linearVelocityX = _moveRate;
+                // transform.Translate(speed * Time.deltaTime * -1, 0, 0);
             }
 
             transform.localScale = scale;
         }
 
-        if (playerDistance >= detectionRange)
-        {
-            isPlayerDetected = false;
-            return;
-        }
+        
     }
 
     public void Wander()

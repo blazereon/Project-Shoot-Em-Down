@@ -401,6 +401,10 @@ PrefabInstance:
       value: 90
       objectReference: {fileID: 0}
     - target: {fileID: 6009122576112892615, guid: 47dccb7db6f14d04eada7b70e60765e1, type: 3}
+      propertyPath: delayScanTime
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6009122576112892615, guid: 47dccb7db6f14d04eada7b70e60765e1, type: 3}
       propertyPath: rayStartAngle
       value: -45
       objectReference: {fileID: 0}
@@ -409,8 +413,16 @@ PrefabInstance:
       value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 6009122576112892615, guid: 47dccb7db6f14d04eada7b70e60765e1, type: 3}
+      propertyPath: lockSweepSpeed
+      value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 6009122576112892615, guid: 47dccb7db6f14d04eada7b70e60765e1, type: 3}
       propertyPath: wanderInterval
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6009122576112892615, guid: 47dccb7db6f14d04eada7b70e60765e1, type: 3}
+      propertyPath: predictionFactor
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6009122576112892615, guid: 47dccb7db6f14d04eada7b70e60765e1, type: 3}
       propertyPath: stopChaseDistance

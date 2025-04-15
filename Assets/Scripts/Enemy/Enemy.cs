@@ -1,8 +1,10 @@
 using System.Collections;
+using System.Linq;
 using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
+    public GameObject player;
     public int Health = 100;
     public int AttackDamage;
 
@@ -12,13 +14,19 @@ public class Enemy : MonoBehaviour
     public float rayMaxAngle = 360f;
     public float rayStartAngle = 0f;
     public float detectionRange = 5f;
+    public float delayScanTime = 0.5f;
 
     [HideInInspector]
     public bool isPlayerDetected;
+    [HideInInspector]
+    public bool[] hitRays;
 
     private void Start()
     {
+        player = GameObject.FindWithTag("Player");
+
         isPlayerDetected = false;
+        
     }
 
     public void TakeDamage(GameObject pObject, int damage)
@@ -68,6 +76,53 @@ public class Enemy : MonoBehaviour
         }
 
         return _isPlayerDetected;
+    }
+
+    public IEnumerator LockOnPlayer()
+    {
+        Vector3 _lastPlayerPosition = player.transform.position;
+
+        yield return new WaitForSeconds(delayScanTime);     // Delay the position to give chance for the player to get out of lock
+
+        Vector2 _directionToPlayer = _lastPlayerPosition - transform.position;
+        float _enemyToPlayerAngle = Mathf.Atan2(_directionToPlayer.y, _directionToPlayer.x) * Mathf.Rad2Deg;
+
+        Debug.Log("player pos: " + _lastPlayerPosition + " " + player.transform.position);
+
+        for (int i = 0; i < rayNumber; i++)
+        {
+            float angleOffset = (i - rayNumber / 2f) * (rayMaxAngle / rayNumber);
+            float currentAngle = _enemyToPlayerAngle + angleOffset;
+
+            Vector3 _rayDirection = Quaternion.Euler(0, 0, currentAngle) * transform.right * transform.localScale.x;
+            RaycastHit2D _hit = Physics2D.Raycast(transform.position, _rayDirection, detectionRange);
+
+            Debug.DrawRay(transform.position, _rayDirection * detectionRange, Color.black);
+            if (_hit)
+            {
+                // code
+                if (_hit.collider.name == "Player")
+                {
+                    Debug.DrawRay(transform.position, _rayDirection * detectionRange, Color.red);
+
+                    hitRays[i] = true;
+                }
+                else
+                {
+                    hitRays[i] = false;
+                }
+            }
+            else
+            {
+                hitRays[i] = false;
+            }
+        }
+
+        if (!hitRays.Contains(true))
+        {
+            isPlayerDetected = false;
+        }
+
     }
 
 }
