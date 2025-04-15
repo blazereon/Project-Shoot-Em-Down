@@ -38,14 +38,15 @@ public class EventSystem
      ^^^^^
     It's just a singleton pattern. Ignore it
     */
-
-    private void Awake()
-    {
-        current = this;
-    }
-
     //This is where you subscribe functions to events
+
+
+    //Global variables
+    public Vector2 PlayerLocation; //player transform.position
+    
+    //Event handlers
     public event Action<GameObject, int> OnAttackEnemy;
+    public event Action OnLocatePlayer;
 
 
     //This is where you add the event trigger function
@@ -53,5 +54,4 @@ public class EventSystem
     {
         OnAttackEnemy?.Invoke(enemyObject, damage);
     }
-
 }
