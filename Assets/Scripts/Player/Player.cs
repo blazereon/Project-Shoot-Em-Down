@@ -2,10 +2,11 @@ using System.Collections;
 using Mono.Cecil.Cil;
 using UnityEngine;
 using UnityEngine.InputSystem;
-
+using UnityEngine.UI;
 public class Player : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
+
 
     InputAction moveAction;
     InputAction jumpAction;
@@ -22,6 +23,12 @@ public class Player : MonoBehaviour
 
     private Facing faceState = Facing.right;
 
+    public GameObject player;
+    public int health;
+    public int maxHealth;
+    public Image healthBar;
+    public Transform respawnPoint;
+    public bool respawned = false;
     public float Speed = 500f;
     public float JumpForce = 5f;
     public float LandAcceleration = 2f;
@@ -29,6 +36,7 @@ public class Player : MonoBehaviour
     public float DashForce;
     public float DashDuration;
     public float DashRecovery;
+
 
     public AttackBox attackBox;
     public GroundBox groundBox;
@@ -45,8 +53,26 @@ public class Player : MonoBehaviour
         right
     }
 
+    
+       
+
+
+    public void TakePlayerDamage(int damage)
+    {
+        health -= damage;
+        if (health <= 0) Destroy(this.gameObject);
+        Debug.Log("HP: " + health);
+    }
+
+    void Awake() 
+    {
+        EventSystem.Current.OnAttackPlayer += TakePlayerDamage;
+    }
+
+
     void Start()
     {
+        maxHealth = health;
         moveAction = InputSystem.actions.FindAction("Move");
         jumpAction = InputSystem.actions.FindAction("Jump");
         dashAction = InputSystem.actions.FindAction("Dash");
@@ -60,6 +86,22 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        healthBar.fillAmount = (float) health / maxHealth;
+
+
+        if(health <= 0)
+        {
+            player.transform.position = respawnPoint.position;
+            respawned = true;
+        }
+
+        if(respawned == true)
+        {
+            health = 10;
+            respawned = false;
+        }
+
         Debug.Log(groundBox.isGrounded);
         EventSystem.Current.PlayerLocation = transform.position;
         
@@ -129,5 +171,10 @@ public class Player : MonoBehaviour
         attackBox.Attack(faceState);
         yield return new WaitForSeconds(0.8f);
         isAttacking = false;
+    }
+
+    void onDestroy()
+    {
+        EventSystem.Current.OnAttackPlayer -= TakePlayerDamage;
     }
 }
