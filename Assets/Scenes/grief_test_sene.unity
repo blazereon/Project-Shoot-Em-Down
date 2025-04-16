@@ -390,6 +390,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &572249457 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8839071735322498656, guid: c3604b844efcebc4fbf1354e3862cad2, type: 3}
+  m_PrefabInstance: {fileID: 1253612749}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &619394800
 GameObject:
   m_ObjectHideFlags: 0
@@ -625,11 +630,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b02ecec884617c3a9a18ed3fdd5ff166, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
+  player: {fileID: 572249457}
   Health: 100
   AttackDamage: 0
   rayNumber: 36
-  rayMaxAngle: 360
+  rayMaxAngle: 40
   rayStartAngle: 0
   detectionRange: 5
   delayScanTime: 0.01
@@ -637,7 +642,7 @@ MonoBehaviour:
   hitRays: 
   facing: 0
   WanderSpeed: 100
-  ChasingSpeed: 150
+  ChasingSpeed: 200
   GenericEnemyRb: {fileID: 822362620}
   WallDistanceLimit: 1.5
 --- !u!50 &822362620 stripped

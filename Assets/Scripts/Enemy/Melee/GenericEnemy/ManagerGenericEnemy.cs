@@ -1,14 +1,14 @@
 using UnityEditor.ShaderGraph.Internal;
 using UnityEngine;
 
-public class GenericEnemyManager : Enemy
+public class ManagerGenericEnemy : Enemy
 {
 
-    GenericEnemyBaseState currentState;
+    BaseGenericEnemy currentState;
 
-    public GenericEnemyWanderState wanderState = new GenericEnemyWanderState();
-    public GenericEnemyChaseState chaseState = new GenericEnemyChaseState();
-    public GenericEnemyAttackState attackState = new GenericEnemyAttackState();
+    public WanderGenericEnemy wanderState = new WanderGenericEnemy();
+    public ChaseGenericEnemy chaseState = new ChaseGenericEnemy();
+    public AttackGenericEnemy attackState = new AttackGenericEnemy();
 
 
     public EnemyFacing facing = EnemyFacing.Left;
@@ -41,7 +41,7 @@ public class GenericEnemyManager : Enemy
         currentState.FixedUpdateState(this);
     }
 
-    public void SwitchState(GenericEnemyBaseState state)
+    public void SwitchState(BaseGenericEnemy state)
     {
         currentState = state;
         currentState.EnterState(this);

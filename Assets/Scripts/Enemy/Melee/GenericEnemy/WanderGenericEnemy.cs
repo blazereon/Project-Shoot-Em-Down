@@ -1,17 +1,17 @@
 using UnityEngine;
 
-public class GenericEnemyWanderState : GenericEnemyBaseState
+public class WanderGenericEnemy : BaseGenericEnemy
 {
     private float _detectRangeInstance;
     private LayerMask _layerMask;
 
-    public override void EnterState(GenericEnemyManager genericEnemy)
+    public override void EnterState(ManagerGenericEnemy genericEnemy)
     {
         _detectRangeInstance = genericEnemy.detectionRange;
         _layerMask = LayerMask.GetMask("Wall", "Player");
     }
 
-    public override void UpdateState(GenericEnemyManager genericEnemy)
+    public override void UpdateState(ManagerGenericEnemy genericEnemy)
     {
         bool _isPlayerDetected = genericEnemy.PlayerDetection(genericEnemy.facing);
 
@@ -48,7 +48,7 @@ public class GenericEnemyWanderState : GenericEnemyBaseState
         }
     }
 
-    public override void FixedUpdateState(GenericEnemyManager genericEnemy)
+    public override void FixedUpdateState(ManagerGenericEnemy genericEnemy)
     {
         if (genericEnemy.facing == Enemy.EnemyFacing.Left)
         {
