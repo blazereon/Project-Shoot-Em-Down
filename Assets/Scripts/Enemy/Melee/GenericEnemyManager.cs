@@ -1,12 +1,6 @@
 using UnityEditor.ShaderGraph.Internal;
 using UnityEngine;
 
-public enum EnemyFacing
-{
-    Left,
-    Right
-}
-
 public class GenericEnemyManager : Enemy
 {
 
