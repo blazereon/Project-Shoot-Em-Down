@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using Unity.VisualScripting;
 using Unity.VisualScripting.ReorderableList.Element_Adder_Menu;
+using UnityEditor.PackageManager;
 using UnityEditor.Tilemaps;
 using UnityEngine;
 using UnityEngine.AI;
@@ -40,7 +41,12 @@ public class GenericAhhEnemy : Enemy
     private float _chasingSpeedInstance;
     private float _detectRangeInstance;
     private bool _isChasing;
-    
+
+    void Awake()
+    {
+        EventSystem.Current.OnAttackEnemy += TakeDamage;
+    }
+
 
     void Start()
     {
