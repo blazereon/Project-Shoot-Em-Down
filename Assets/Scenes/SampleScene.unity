@@ -619,7 +619,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5eea6ce0ae857ab44939e3bd76efa20e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pHealth: {fileID: 2019119415}
+  pHealth: {fileID: 0}
   Damage: 1
 --- !u!50 &990710201
 Rigidbody2D:
@@ -870,17 +870,33 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5000683022297535511, guid: c3604b844efcebc4fbf1354e3862cad2, type: 3}
+      propertyPath: health
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 5000683022297535511, guid: c3604b844efcebc4fbf1354e3862cad2, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1349271841}
+    - target: {fileID: 5000683022297535511, guid: c3604b844efcebc4fbf1354e3862cad2, type: 3}
       propertyPath: DashForce
       value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 5000683022297535511, guid: c3604b844efcebc4fbf1354e3862cad2, type: 3}
       propertyPath: attackBox
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 929886767}
+    - target: {fileID: 5000683022297535511, guid: c3604b844efcebc4fbf1354e3862cad2, type: 3}
+      propertyPath: healthBar
+      value: 
+      objectReference: {fileID: 1996055540}
     - target: {fileID: 5000683022297535511, guid: c3604b844efcebc4fbf1354e3862cad2, type: 3}
       propertyPath: DashDuration
       value: 0.1
       objectReference: {fileID: 0}
+    - target: {fileID: 5000683022297535511, guid: c3604b844efcebc4fbf1354e3862cad2, type: 3}
+      propertyPath: respawnPoint
+      value: 
+      objectReference: {fileID: 319738506}
     - target: {fileID: 8839071735322498656, guid: c3604b844efcebc4fbf1354e3862cad2, type: 3}
       propertyPath: m_Name
       value: Player
@@ -899,10 +915,7 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 1111750116955259856, guid: c3604b844efcebc4fbf1354e3862cad2, type: 3}
       insertIndex: -1
       addedObject: {fileID: 929886766}
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 8839071735322498656, guid: c3604b844efcebc4fbf1354e3862cad2, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 2019119415}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c3604b844efcebc4fbf1354e3862cad2, type: 3}
 --- !u!1 &1342110712
 GameObject:
@@ -1277,24 +1290,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1111750116955259856, guid: c3604b844efcebc4fbf1354e3862cad2, type: 3}
   m_PrefabInstance: {fileID: 1253612749}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &2019119415
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1349271841}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e1955785c1dcb04a96b0cb89fd4aa01, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 1349271841}
-  health: 10
-  maxHealth: 0
-  healthBar: {fileID: 1996055540}
-  respawnPoint: {fileID: 319738506}
-  respawned: 0
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

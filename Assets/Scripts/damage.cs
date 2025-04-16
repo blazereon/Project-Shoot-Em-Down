@@ -2,8 +2,8 @@ using UnityEngine;
 
 public class damage : MonoBehaviour
 {
-    public playerHealth pHealth;
-    public float Damage;
+    public Player pHealth;
+    public int Damage = 1;
 
     void Start()
     {
@@ -20,7 +20,7 @@ public class damage : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            pHealth.health -= Damage;
+            EventSystem.Current.AttackPlayer(damage);
         }
     }
 
