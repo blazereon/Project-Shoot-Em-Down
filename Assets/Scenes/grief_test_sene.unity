@@ -632,7 +632,7 @@ MonoBehaviour:
   rayMaxAngle: 360
   rayStartAngle: 0
   detectionRange: 5
-  delayScanTime: 0.5
+  delayScanTime: 0.01
   isPlayerDetected: 0
   hitRays: 
   facing: 0
