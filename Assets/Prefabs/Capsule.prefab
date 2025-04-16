@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 3942592830576051237}
   - component: {fileID: 7199276411395923969}
   - component: {fileID: 3789582682850388484}
-  - component: {fileID: 2213040362237865412}
   m_Layer: 9
   m_Name: Capsule
   m_TagString: Enemy
@@ -154,25 +153,3 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Size: {x: 1, y: 2}
   m_Direction: 0
---- !u!114 &2213040362237865412
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2810335722263339416}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 32d7c6ac73eb373d9a7ba4ca37a12f86, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Health: 100
-  AttackDamage: 50
-  Rb: {fileID: 7199276411395923969}
-  RayNumber: 4
-  DetectionRange: 7
-  DetectionAngle: -1
-  WallDistanceLimit: 1
-  RayMaxAngle: 11
-  wanderSpeed: 50
-  ChasingSpeed: 100
