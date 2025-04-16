@@ -45,13 +45,24 @@ public class EventSystem
     public Vector2 PlayerLocation; //player transform.position
     
     //Event handlers
-    public event Action<GameObject, int> OnAttackEnemy;
-    public event Action OnLocatePlayer;
+    public event Action<GameObject, int> OnAttackEnemy; 
+    public event Action<int> OnAttackPlayer;
+    public event Func<GameObject> OnPlayerGameObject;
 
 
     //This is where you add the event trigger function
     public void AttackEnemy(GameObject enemyObject, int damage)
     {
         OnAttackEnemy?.Invoke(enemyObject, damage);
+    }
+
+    public void AttackPlayer(int damage)
+    {
+        OnAttackPlayer?.Invoke(damage);
+    }
+
+    public GameObject GetPlayerGameObject()
+    {
+        return OnPlayerGameObject?.Invoke();
     }
 }
