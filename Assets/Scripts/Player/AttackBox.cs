@@ -41,7 +41,7 @@ public class AttackBox : MonoBehaviour
         {
             if (obj.tag == "Enemy")
             {
-                EventSystem.Current.AttackEnemy(obj.gameObject, 20, EventSystem.DamageType.Melee);
+                EventSystem.Current.AttackEnemy(obj.gameObject, 20);
             }
         }
     }
