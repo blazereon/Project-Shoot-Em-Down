@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Enemy
   - Ground
+  - Wall
   layers:
   - Default
   - TransparentFX
@@ -14,9 +15,9 @@ TagManager:
   - Water
   - UI
   - Hitbox
-  - 
-  - 
-  - 
+  - Player
+  - Wall
+  - Enemy
   - 
   - 
   - 

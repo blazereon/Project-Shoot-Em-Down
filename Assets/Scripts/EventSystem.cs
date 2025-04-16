@@ -50,7 +50,7 @@ public class EventSystem
 
 
     //This is where you add the event trigger function
-    public void AttackEnemy(GameObject enemyObject, int damage, DamageType damageType)
+    public void AttackEnemy(GameObject enemyObject, int damage)
     {
         OnAttackEnemy?.Invoke(enemyObject, damage);
     }
