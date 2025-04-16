@@ -20,7 +20,7 @@ public class damage : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            EventSystem.Current.AttackPlayer(damage);
+            EventSystem.Current.AttackPlayer(Damage);
         }
     }
 
