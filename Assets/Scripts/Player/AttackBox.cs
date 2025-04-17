@@ -8,7 +8,7 @@ public class AttackBox : MonoBehaviour
 
     public Vector2 AttackLeftRelPos, AttackRightRelPos;
     public float AttackRadius;
-    Player.Facing facing;
+    Facing facing;
 
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -17,20 +17,20 @@ public class AttackBox : MonoBehaviour
 
     }
 
-    public void SwitchDirection(Player.Facing setFacing)
+    public void SwitchDirection(Facing setFacing)
     {
         facing = setFacing;
     }
 
-    public void Attack(Player.Facing face)
+    public void Attack(Facing face)
     {
         AttackLeftRelPos = AttackLeftPos + (Vector2)transform.position;
         AttackRightRelPos = AttackRightPos + (Vector2)transform.position;
         
         Collider2D[] collidedObject;
-        if (face == Player.Facing.left){
+        if (face == Facing.left){
             collidedObject = Physics2D.OverlapCircleAll(AttackLeftRelPos, AttackRadius);
-        } else if (face == Player.Facing.right) {
+        } else if (face == Facing.right) {
             collidedObject = Physics2D.OverlapCircleAll(AttackRightRelPos, AttackRadius);
         } else {
             Debug.LogWarning("No facing direction selected");

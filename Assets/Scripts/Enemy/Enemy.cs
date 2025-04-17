@@ -105,7 +105,7 @@ public class Enemy : MonoBehaviour
                 if (_hit)
                 {
                     // code
-                    if (_hit.collider.name == "Player")
+                    if (_hit.collider.tag == "Player")
                     {
 
                         Debug.DrawRay(transform.position, _rayDirection * detectionRange, Color.yellow);
