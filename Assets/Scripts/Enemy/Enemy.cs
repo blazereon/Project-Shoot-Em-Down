@@ -44,7 +44,7 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    public bool PlayerDetection()
+    public bool PlayerDetection(Vector3 scale)
     {
         bool _isPlayerDetected = false;
 
@@ -54,7 +54,7 @@ public class Enemy : MonoBehaviour
 
         for (int i = 0; i < rayNumber; i++)
         {
-            Vector3 _rayDirection = Quaternion.Euler(0, 0, _currentAngle + (i * (rayMaxAngle / rayNumber))) * transform.right * transform.localScale.x;
+            Vector3 _rayDirection = Quaternion.Euler(0, 0, _currentAngle + (i * (rayMaxAngle / rayNumber))) * transform.right * scale.x;
 
             // Cast a raycast only if no players are detected, could be more optimized this way
             if (!_isPlayerDetected)
@@ -84,7 +84,7 @@ public class Enemy : MonoBehaviour
         return _isPlayerDetected;
     }
 
-    public bool PlayerDetection(EnemyFacing _faceDirection)
+    public bool PlayerDetection(EnemyFacing faceDirection)
     {
         bool _isPlayerDetected = false;
 
@@ -94,7 +94,7 @@ public class Enemy : MonoBehaviour
 
         for (int i = 0; i < rayNumber; i++)
         {
-            Vector3 _rayDirection = Quaternion.Euler(0, 0, _currentAngle + (i * (rayMaxAngle / rayNumber))) * transform.right * (_faceDirection == EnemyFacing.Left ? -1 : 1);
+            Vector3 _rayDirection = Quaternion.Euler(0, 0, _currentAngle + (i * (rayMaxAngle / rayNumber))) * transform.right * (faceDirection == EnemyFacing.Left ? -1 : 1);
 
             // Cast a raycast only if no players are detected, could be more optimized this way
             if (!_isPlayerDetected)

@@ -60,7 +60,7 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(groundBox.isGrounded);
+        // Debug.Log(groundBox.isGrounded);
         EventSystem.Current.PlayerLocation = transform.position;
         
         moveValue = moveAction.ReadValue<Vector2>();
