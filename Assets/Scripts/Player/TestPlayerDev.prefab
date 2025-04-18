@@ -269,6 +269,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d2ae1c0d4f0ee575e9414ade1d50628e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Health: 20
   Speed: 500
   JumpForce: 4.8
   LandAcceleration: 60
@@ -276,6 +277,7 @@ MonoBehaviour:
   DashForce: 20
   DashDuration: 0.1
   DashRecovery: 1
+  MaxMomentum: 0
   attackBox: {fileID: 5627493016584893847}
   groundBox: {fileID: 592995727544604392}
 --- !u!1 &9013955603737723081

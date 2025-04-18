@@ -1,5 +1,6 @@
 using System.Collections;
 using Mono.Cecil.Cil;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -18,9 +19,14 @@ public class TestPlayerDev : MonoBehaviour
     Vector2 moveValue;
     private bool canDash = true;
     private bool isDashing = false;
-    private bool isAttacking = false; 
+    private bool isAttacking = false;
 
     private Facing faceState = Facing.right;
+
+    private float _currentSpeed;
+    private int _momentum;
+
+    public int Health;
 
     public float Speed = 500f;
     public float JumpForce = 5f;
@@ -29,9 +35,11 @@ public class TestPlayerDev : MonoBehaviour
     public float DashForce;
     public float DashDuration;
     public float DashRecovery;
+    public int MaxMomentum;
 
     public AttackBox attackBox;
     public GroundBox groundBox;
+
 
     public enum MoveState {
         Idle,
@@ -40,7 +48,11 @@ public class TestPlayerDev : MonoBehaviour
         Land
     }
 
-    
+    void Awake()
+    {
+        EventSystem.Current.OnAttackPlayer += TakeDamage;
+    }
+
 
     void Start()
     {
@@ -48,6 +60,8 @@ public class TestPlayerDev : MonoBehaviour
         jumpAction = InputSystem.actions.FindAction("Jump");
         dashAction = InputSystem.actions.FindAction("Dash");
         attackAction = InputSystem.actions.FindAction("Attack");
+
+        _currentSpeed = Speed;
         
         rb = GetComponent<Rigidbody2D>();
     }
@@ -64,6 +78,7 @@ public class TestPlayerDev : MonoBehaviour
 
         if (dashAction.IsPressed() && canDash) {
             StartCoroutine(Dash());
+            StartCoroutine(Momentum());
         }
 
         if (attackAction.IsPressed() && !isAttacking)
@@ -93,10 +108,16 @@ public class TestPlayerDev : MonoBehaviour
                 rb.linearVelocityY -= LandAcceleration * Time.fixedDeltaTime;
             }
             
-            float moveRate = Speed * Time.fixedDeltaTime * moveValue.x;
+            float moveRate = _currentSpeed * Time.fixedDeltaTime * moveValue.x;
             rb.linearVelocityX = moveRate;
         }
 
+    }
+
+    private void TakeDamage(int damage)
+    {
+        Health -= damage;
+        Debug.Log("Player Received Damage, Current HP: "+ Health);
     }
 
     IEnumerator Dash()
@@ -126,5 +147,16 @@ public class TestPlayerDev : MonoBehaviour
         attackBox.Attack(faceState);
         yield return new WaitForSeconds(0.8f);
         isAttacking = false;
+    }
+
+    IEnumerator Momentum()
+    {
+        yield return new WaitForSeconds(1f);
+
+    }
+
+    void OnDestroy()
+    {
+        EventSystem.Current.OnAttackPlayer -= TakeDamage;
     }
 }
