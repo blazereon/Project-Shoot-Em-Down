@@ -2,7 +2,7 @@ using UnityEngine;
 using static UnityEngine.RuleTile.TilingRuleOutput;
 
 
-// Note to myself: This enemy's has detection range and engagement range only (detection should be bigger than engagement)
+// Note to myself: This enemy has detection range and engagement range only (detection should be bigger than engagement)
 // Once detected, enemy will move until it hits the engagement range, then start attacking
 public class ChaseRangedGrounded : BaseRangedGrounded
 {
@@ -17,10 +17,11 @@ public class ChaseRangedGrounded : BaseRangedGrounded
     public override void UpdateState(ManagerRangedGrounded enemy)       // Handle Distance Detections
     {
         _distanceToPlayer = Vector2.Distance(enemy.player.transform.position, enemy.transform.position);
+
         if (enemy.startEngagementRange >= _distanceToPlayer)
         {
             _stopMoving = true;
-            // enemy.SwitchState(enemy.attackState);
+            
         }
         else
         {
@@ -60,7 +61,13 @@ public class ChaseRangedGrounded : BaseRangedGrounded
         }
         else
         {
-            enemy.enemyRb.linearVelocityX = 0;
+            enemy.enemyRb.linearVelocity = Vector3.zero;
+
+            Debug.Log("Engaging: " + enemy.enemyRb.linearVelocityX);
+            if (enemy.enemyRb.linearVelocityX == 0)
+            {
+                enemy.SwitchState(enemy.attackState);
+            }
         }
     }
 }
