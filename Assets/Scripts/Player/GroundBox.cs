@@ -11,6 +11,7 @@ public class GroundBox : MonoBehaviour
     {
         if (collision.gameObject.tag != "Player")
         {
+            Debug.Log("groundbox tag collide: "+ collision.gameObject.tag);
             isGrounded = true;
         }
     }
