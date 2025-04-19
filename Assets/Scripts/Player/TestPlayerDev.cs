@@ -26,7 +26,7 @@ public class TestPlayerDev : MonoBehaviour
     private float _currentSpeed;
     private int _momentum;
 
-    public int Health;
+    public PlayerStats PlayerStatInstance;
 
     public float Speed = 500f;
     public float JumpForce = 5f;
@@ -35,7 +35,6 @@ public class TestPlayerDev : MonoBehaviour
     public float DashForce;
     public float DashDuration;
     public float DashRecovery;
-    public int MaxMomentum;
 
     public AttackBox attackBox;
     public GroundBox groundBox;
@@ -51,6 +50,7 @@ public class TestPlayerDev : MonoBehaviour
     void Awake()
     {
         EventSystem.Current.OnAttackPlayer += TakeDamage;
+        EventSystem.Current.UpdatePlayerProperty(PlayerStatInstance);
     }
 
 
@@ -116,8 +116,9 @@ public class TestPlayerDev : MonoBehaviour
 
     private void TakeDamage(int damage)
     {
-        Health -= damage;
-        Debug.Log("Player Received Damage, Current HP: "+ Health);
+        PlayerStatInstance.Health -= damage;
+        EventSystem.Current.UpdatePlayerProperty(PlayerStatInstance);
+        Debug.Log("Player Received Damage, Current HP: "+ PlayerStatInstance.Health);
     }
 
     IEnumerator Dash()
