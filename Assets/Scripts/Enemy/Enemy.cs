@@ -54,7 +54,7 @@ public class Enemy : MonoBehaviour
 
         for (int i = 0; i < rayNumber; i++)
         {
-            Vector3 _rayDirection = Quaternion.Euler(0, 0, _currentAngle + (i * (rayMaxAngle / rayNumber))) * transform.right * scale.x;
+            Vector3 _rayDirection = Quaternion.Euler(0, 0, (_currentAngle - (rayMaxAngle / 2)) + (i * (rayMaxAngle / (rayNumber - 1)))) * (transform.localScale.x > 0 ? Vector3.right : Vector3.left);
 
             // Cast a raycast only if no players are detected, could be more optimized this way
             if (!_isPlayerDetected)

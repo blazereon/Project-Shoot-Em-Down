@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 8074721881138741803}
   - component: {fileID: 7255823586710530253}
   - component: {fileID: 1197726589855281261}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: grounded_ranged_enemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -171,7 +171,7 @@ MonoBehaviour:
   AttackDamage: 0
   rayNumber: 20
   rayMaxAngle: 40
-  rayStartAngle: -10
+  rayStartAngle: 0
   detectionRange: 10
   delayScanTime: 0.5
   isPlayerDetected: 0

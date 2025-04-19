@@ -759,7 +759,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7144354307194853485, guid: 47dccb7db6f14d04eada7b70e60765e1, type: 3}
       propertyPath: m_Layer
-      value: 0
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 7144354307194853485, guid: 47dccb7db6f14d04eada7b70e60765e1, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
       objectReference: {fileID: 0}
     - target: {fileID: 7255823586710530253, guid: 47dccb7db6f14d04eada7b70e60765e1, type: 3}
       propertyPath: m_Mass
@@ -781,7 +785,7 @@ GameObject:
   - component: {fileID: 812009924}
   - component: {fileID: 812009923}
   - component: {fileID: 812009922}
-  m_Layer: 8
+  m_Layer: 3
   m_Name: Square
   m_TagString: Ground
   m_Icon: {fileID: 0}

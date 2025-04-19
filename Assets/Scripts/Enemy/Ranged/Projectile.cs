@@ -28,7 +28,6 @@ public class Projectile : MonoBehaviour
     private void FixedUpdate()
     {
         rb.linearVelocity = trajectory * speed;
-        Debug.Log("vel: " + rb.linearVelocity);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
