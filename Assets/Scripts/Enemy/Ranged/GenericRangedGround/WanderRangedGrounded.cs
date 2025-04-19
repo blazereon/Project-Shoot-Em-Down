@@ -23,27 +23,26 @@ public class WanderRangedGrounded : BaseRangedGrounded
 
         if (enemy.transform.localScale.x == -1)
         {
-            RaycastHit2D hit = Physics2D.Raycast(enemy.transform.position, Vector2.left, enemy.wallDistanceLimit);
+            RaycastHit2D hit = Physics2D.Raycast(enemy.transform.position, Vector2.left, enemy.wallDistanceLimit, _layerMask);
             Debug.DrawRay(enemy.transform.position, Vector2.left * enemy.wallDistanceLimit, Color.red);
             if (hit.collider == null) return;
             if (hit.collider.tag == "Wall")
             {
                 Debug.LogWarning("Wall hit");
-                enemy.transform.localScale *= -1;
+                enemy.Flip();
             }
         }
         else if (enemy.transform.localScale.x == 1)
         {
-            RaycastHit2D hit = Physics2D.Raycast(enemy.transform.position, Vector2.right, enemy.wallDistanceLimit);
+            RaycastHit2D hit = Physics2D.Raycast(enemy.transform.position, Vector2.right, enemy.wallDistanceLimit, _layerMask);
             Debug.DrawRay(enemy.transform.position, Vector2.right * enemy.wallDistanceLimit, Color.red);
             if (hit.collider == null) return;
             if (hit.collider.tag == "Wall")
             {
                 Debug.LogWarning("Wall hit");
-                enemy.transform.localScale *= -1;
+                enemy.Flip();
             }
         }
-
     }
 
     public override void FixedUpdateState(ManagerRangedGrounded enemy)

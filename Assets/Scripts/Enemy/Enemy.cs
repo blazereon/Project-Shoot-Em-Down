@@ -59,13 +59,13 @@ public class Enemy : MonoBehaviour
             // Cast a raycast only if no players are detected, could be more optimized this way
             if (!_isPlayerDetected)
             {
-                RaycastHit2D _hit = Physics2D.Raycast(transform.position, _rayDirection, detectionRange);
+                RaycastHit2D _hit = Physics2D.Raycast(transform.position, _rayDirection, detectionRange, LayerMask.GetMask("Wall", "Player"));
                 Debug.DrawRay(transform.position, _rayDirection * detectionRange, Color.green);
 
                 if (_hit)
                 {
                     // code
-                    if (_hit.collider.name == "Player")
+                    if (_hit.collider.tag == "Player")
                     {
 
                         Debug.DrawRay(transform.position, _rayDirection * detectionRange, Color.yellow);
@@ -99,7 +99,7 @@ public class Enemy : MonoBehaviour
             // Cast a raycast only if no players are detected, could be more optimized this way
             if (!_isPlayerDetected)
             {
-                RaycastHit2D _hit = Physics2D.Raycast(transform.position, _rayDirection, detectionRange);
+                RaycastHit2D _hit = Physics2D.Raycast(transform.position, _rayDirection, detectionRange, LayerMask.GetMask("Wall", "Player"));
                 Debug.DrawRay(transform.position, _rayDirection * detectionRange, Color.green);
 
                 if (_hit)

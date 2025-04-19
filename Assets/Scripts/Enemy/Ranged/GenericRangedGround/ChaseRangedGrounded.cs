@@ -16,7 +16,7 @@ public class ChaseRangedGrounded : BaseRangedGrounded
 
     public override void UpdateState(ManagerRangedGrounded enemy)       // Handle Distance Detections
     {
-        _distanceToPlayer = Vector2.Distance(enemy.player.transform.position, enemy.transform.position);
+        _distanceToPlayer = Vector2.Distance(EventSystem.Current.PlayerLocation, enemy.transform.position);
 
         if (enemy.startEngagementRange >= _distanceToPlayer)
         {
@@ -38,11 +38,11 @@ public class ChaseRangedGrounded : BaseRangedGrounded
     {
         if (!_stopMoving)
         {
-            if (enemy.player.transform.position.x > enemy.transform.position.x)     // player on the right
+            if (EventSystem.Current.PlayerLocation.x > enemy.transform.position.x)     // player on the right
             {
                 if (!(enemy.transform.localScale.x > 0))    // enemy is not facing to the right
                 {
-                    enemy.transform.localScale *= -1;
+                    enemy.Flip();
                 }
 
                 enemy.enemyRb.linearVelocityX = Vector2.right.x * enemy.chaseSpeed * Time.fixedDeltaTime;
@@ -52,7 +52,7 @@ public class ChaseRangedGrounded : BaseRangedGrounded
             {
                 if (!(enemy.transform.localScale.x < 0))    // enemy is not facing to the left
                 {
-                    enemy.transform.localScale *= -1;
+                    enemy.Flip();
                 }
 
                 enemy.enemyRb.linearVelocityX = Vector2.left.x * enemy.chaseSpeed * Time.fixedDeltaTime;
@@ -63,7 +63,6 @@ public class ChaseRangedGrounded : BaseRangedGrounded
         {
             enemy.enemyRb.linearVelocity = Vector3.zero;
 
-            Debug.Log("Engaging: " + enemy.enemyRb.linearVelocityX);
             if (enemy.enemyRb.linearVelocityX == 0)
             {
                 enemy.SwitchState(enemy.attackState);
