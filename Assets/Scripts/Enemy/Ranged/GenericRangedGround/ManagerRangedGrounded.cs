@@ -24,8 +24,6 @@ public class ManagerRangedGrounded : Enemy
         Burst
     }
     public shootType shootMode;
-    [Tooltip("For burst mode, Center Angle of the projectiles")]
-    public float burstCenterAngle;
     [Tooltip("For burst mode, max spread angle of the burst")]
     public float burstSpread;
     [Tooltip("For burst mode, number of projectiles to be launch per burst")]
