@@ -19,6 +19,15 @@ public class ManagerRangedGrounded : Enemy
     [Space(10)]
     [Header("ATTACK")]
     public GameObject projectile;
+    public enum shootType{
+        Single,
+        Burst
+    }
+    public shootType shootMode;
+    [Tooltip("For burst mode, max spread angle of the burst")]
+    public float burstSpread;
+    [Tooltip("For burst mode, number of projectiles to be launch per burst")]
+    public int burstCount;
     public int attackDmg;
     public float attackSpd;
     public float projectileSpd;

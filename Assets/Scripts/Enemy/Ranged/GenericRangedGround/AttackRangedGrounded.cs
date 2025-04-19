@@ -2,6 +2,9 @@ using System.Threading;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static Enemy;
+using static UnityEngine.RuleTile.TilingRuleOutput;
+using System.Security.Cryptography;
 
 public class AttackRangedGrounded : BaseRangedGrounded
 {
@@ -11,6 +14,7 @@ public class AttackRangedGrounded : BaseRangedGrounded
     private GameObject _spawnProjectile;
     private GameObject _projectileParent;
     private Projectile _projectileScript;
+    private Vector2 _projectileTrajectory;
 
     public override void EnterState(ManagerRangedGrounded enemy)
     {
@@ -33,23 +37,31 @@ public class AttackRangedGrounded : BaseRangedGrounded
         {
             if (attackTimer > enemy.attackSpd)
             {
-                // _projectileParent.transform.position = enemy.transform.position;
-
-                _spawnProjectile = GameObject.Instantiate(enemy.projectile, enemy.transform.position, enemy.transform.rotation);
-                _projectileScript = _spawnProjectile.GetComponent<Projectile>();
-
-                // _spawnProjectile.transform.parent = _projectileParent.transform;
 
                 Vector3 _playerVec3 = EventSystem.Current.PlayerLocation;
-                Vector2 _projectileTrajectory = (_playerVec3 - enemy.transform.position).normalized;
 
-                _projectileScript.atkDmg = enemy.attackDmg;
-                _projectileScript.speed = enemy.projectileSpd;
-                _projectileScript.trajectory = _projectileTrajectory;
+                if (enemy.shootMode == ManagerRangedGrounded.shootType.Single)
+                {
+                    _projectileTrajectory = (_playerVec3 - enemy.transform.position).normalized;
 
-                // _spawnProjectile.GetComponent<Rigidbody2D>().linearVelocity(_projectileTrajectory * enemy.projectileSpd);
+                    InstantiateProjectile(enemy, _projectileTrajectory);
+                }
+                else
+                {
+                    float _burstStep = enemy.burstSpread / enemy.burstCount;
+
+                    Vector2 _direction2player = (_playerVec3 - enemy.transform.position);
+                    float _startAngle = (Mathf.Atan2(_direction2player.y, _direction2player.x) * Mathf.Rad2Deg) - (enemy.burstSpread / 2);
+
+                    for (int i = 0; i < enemy.burstCount; i++)
+                    {
+                        _projectileTrajectory = (Quaternion.Euler(0, 0, _startAngle + (i * _burstStep)) * enemy.transform.right);
+                        InstantiateProjectile(enemy, _projectileTrajectory);
+                    }
+                }
 
                 attackTimer = 0f;
+
             }
         }
 
@@ -72,5 +84,16 @@ public class AttackRangedGrounded : BaseRangedGrounded
                 enemy.Flip();
             }
         }
+    }
+
+    public void InstantiateProjectile (ManagerRangedGrounded enemy, Vector2 trajectory)
+    {
+        _spawnProjectile = GameObject.Instantiate(enemy.projectile, enemy.transform.position, enemy.transform.rotation);
+
+        _projectileScript = _spawnProjectile.GetComponent<Projectile>();
+
+        _projectileScript.atkDmg = enemy.attackDmg;
+        _projectileScript.speed = enemy.projectileSpd;
+        _projectileScript.trajectory = trajectory;
     }
 }
