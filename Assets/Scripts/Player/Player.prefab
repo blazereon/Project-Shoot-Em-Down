@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 899338212395839939}
   - component: {fileID: 3135586215796538819}
   - component: {fileID: 6397718521625496067}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: GroundBox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -153,8 +153,8 @@ GameObject:
   - component: {fileID: 9195467265803727239}
   - component: {fileID: 5994025490158946138}
   - component: {fileID: 7704584900331094390}
-  - component: {fileID: 5000683022297535511}
-  m_Layer: 0
+  - component: {fileID: 7420772079929029946}
+  m_Layer: 7
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -297,7 +297,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
---- !u!114 &5000683022297535511
+--- !u!114 &7420772079929029946
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -306,15 +306,62 @@ MonoBehaviour:
   m_GameObject: {fileID: 8839071735322498656}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2629cc66378210dc79b94d7509c50e36, type: 3}
+  m_Script: {fileID: 11500000, guid: b9e1d52e7c0576f009e9189468b3d11f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Speed: 500
-  JumpForce: 4.8
+  moveAction:
+    m_Name: Move
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: c83e9d4f-f42d-4fdb-97a8-6594ce39f40c
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
+  jumpAction:
+    m_Name: Jump
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: fe249560-8b53-47db-9821-5ad8827143c5
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
+  dashAction:
+    m_Name: Dash
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 80bd711d-653e-4dfb-b1b4-cef70e6dee10
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
+  attackAction:
+    m_Name: Attack
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: c2d0b81d-2f1d-48e6-9dd3-3ea3d4dd99e0
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
+  PlayerRb: {fileID: 7704584900331094390}
+  PlayerCurrentStats:
+    Health: 0
+    MaxHealth: 0
+    Momentum: 0
+    MaxMomentum: 100
+    Pneumatic: 0
+    MaxPneumatic: 0
+  Speed: 300
+  JumpForce: 20
   LandAcceleration: 60
-  LandStart: 7
+  LandStart: 3
   DashForce: 20
-  DashDuration: 0.1
-  DashRecovery: 1
+  DashDuration: 0.2
+  DashRecovery: 2
+  MomentumDecayRate: 0
   attackBox: {fileID: 2749053302236607332}
   groundBox: {fileID: 6397718521625496067}
+  facing: 1
+  isDashCooldown: 0

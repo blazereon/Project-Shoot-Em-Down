@@ -60,7 +60,7 @@ public class EventSystem
         OnAttackPlayer?.Invoke(damage);
     }
     
-    public void UpdatePlayerProperty(PlayerStats stats)
+    public void UpdatePlayerStats(PlayerStats stats)
     {
         OnUpdatePlayerStats?.Invoke(stats);
     }
