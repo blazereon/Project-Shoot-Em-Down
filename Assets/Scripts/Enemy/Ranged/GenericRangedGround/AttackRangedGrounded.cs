@@ -42,12 +42,27 @@ public class AttackRangedGrounded : BaseRangedGrounded
 
                 if (enemy.shootMode == ManagerRangedGrounded.shootType.Single)
                 {
+
                     _projectileTrajectory = (_playerVec3 - enemy.transform.position).normalized;
 
                     InstantiateProjectile(enemy, _projectileTrajectory);
+
+                }
+                else if (enemy.shootMode == ManagerRangedGrounded.shootType.SingleFileBurst)
+                {
+
+                    enemy.StartCoroutine(SingleFileBurst(enemy, _playerVec3, enemy.projectileInterval));
+
+                }
+                else if (enemy.shootMode == ManagerRangedGrounded.shootType.TrackingBurst)
+                {
+
+                    enemy.StartCoroutine(TrackingBurst(enemy, enemy.projectileInterval));
+
                 }
                 else
                 {
+
                     float _burstStep = enemy.burstSpread / enemy.burstCount;
 
                     Vector2 _direction2player = (_playerVec3 - enemy.transform.position);
@@ -58,6 +73,7 @@ public class AttackRangedGrounded : BaseRangedGrounded
                         _projectileTrajectory = (Quaternion.Euler(0, 0, _startAngle + (i * _burstStep)) * enemy.transform.right);
                         InstantiateProjectile(enemy, _projectileTrajectory);
                     }
+
                 }
 
                 attackTimer = 0f;
@@ -95,5 +111,28 @@ public class AttackRangedGrounded : BaseRangedGrounded
         _projectileScript.atkDmg = enemy.attackDmg;
         _projectileScript.speed = enemy.projectileSpd;
         _projectileScript.trajectory = trajectory;
+    }
+
+    IEnumerator SingleFileBurst (ManagerRangedGrounded enemy, Vector3 playerPos, float bulletInterval)
+    {
+        for (int i = 0; i < enemy.burstCount; i++)
+        {
+            _projectileTrajectory = (playerPos - enemy.transform.position).normalized;
+            InstantiateProjectile(enemy, _projectileTrajectory);
+
+            yield return new WaitForSeconds(bulletInterval);
+        }
+    }
+
+    IEnumerator TrackingBurst (ManagerRangedGrounded enemy,  float bulletInterval)
+    {
+        for (int i = 0; i < enemy.burstCount; i++)
+        {
+            Vector3 _playerPos = EventSystem.Current.PlayerLocation;
+            _projectileTrajectory = (_playerPos - enemy.transform.position).normalized;
+            InstantiateProjectile(enemy, _projectileTrajectory);
+
+            yield return new WaitForSeconds(bulletInterval);
+        }
     }
 }
