@@ -50,7 +50,7 @@ public class TestPlayerDev : MonoBehaviour
     void Awake()
     {
         EventSystem.Current.OnAttackPlayer += TakeDamage;
-        EventSystem.Current.UpdatePlayerProperty(PlayerStatInstance);
+        EventSystem.Current.UpdatePlayerStats(PlayerStatInstance);
     }
 
 
@@ -117,7 +117,7 @@ public class TestPlayerDev : MonoBehaviour
     private void TakeDamage(int damage)
     {
         PlayerStatInstance.Health -= damage;
-        EventSystem.Current.UpdatePlayerProperty(PlayerStatInstance);
+        EventSystem.Current.UpdatePlayerStats(PlayerStatInstance);
         Debug.Log("Player Received Damage, Current HP: "+ PlayerStatInstance.Health);
     }
 
