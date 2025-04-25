@@ -1,31 +1,22 @@
 using UnityEngine;
 
-public class JumpPlayerState : BasePlayerState
+public class LandPlayerState : BasePlayerState
 {
+
     public override void EnterState(ManagerPlayerState player)
     {
-        Debug.Log("Jump State!!");
-        if (player.groundBox.isGrounded) player.PlayerRb.AddForce(new Vector2(0, player.JumpForce), ForceMode2D.Impulse);
     }
-
     public override void UpdateState(ManagerPlayerState player)
     {
-        if (player.PlayerRb.linearVelocityY <= player.LandStart)
+        if (player.groundBox.isGrounded)
         {
-            player.SwitchState(player.LandState);
-            return;
-        }
-
-        if (player.dashAction.IsPressed() && !player.isDashCooldown)
-        {
-            Debug.Log("Jump to Dash state");
-            player.SwitchState(player.DashState);
-            return;
+            player.PopState();
         }
     }
-
     public override void FixedUpdateState(ManagerPlayerState player)
     {
+        player.PlayerRb.linearVelocityY -= player.LandAcceleration;
+
         if (player.facing == Facing.right && player.moveAction.IsPressed())
         {
             player.PlayerRb.linearVelocityX = player.Speed * Time.fixedDeltaTime * Vector3.right.x;
@@ -35,7 +26,6 @@ public class JumpPlayerState : BasePlayerState
             player.PlayerRb.linearVelocityX = player.Speed * Time.fixedDeltaTime * Vector3.left.x;
         }
     }
-
     public override void OnCollisionEnter2DState(Collision2D collision, ManagerPlayerState player)
     {
         if (collision.collider.tag == "Wall")
@@ -43,9 +33,9 @@ public class JumpPlayerState : BasePlayerState
             player.SwitchState(player.WallGrabState);
         }
     }
-
     public override void OnCollisionExit2DState(Collision2D collision, ManagerPlayerState player)
     {
-        
+
     }
+
 }

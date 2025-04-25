@@ -11,16 +11,21 @@ public class RunPlayerState : BasePlayerState
 
     public override void UpdateState(ManagerPlayerState player)
     {
+        if (!player.groundBox.isGrounded)
+        {
+            player.SwitchState(player.LandState);
+        }
         //return to the previous current state (idle most likely)
         if (!player.moveAction.IsPressed())
         {
-            player.SwitchState();
+            player.PopState();
             return;
         }
 
         //proceeds to jump state
         if (player.jumpAction.IsPressed() && player.groundBox.isGrounded)
         {
+            player.PushCurrentState();
             player.SwitchState(player.JumpState);
             return;
         }
@@ -28,6 +33,7 @@ public class RunPlayerState : BasePlayerState
         //proceeds to dash
         if (player.dashAction.IsPressed() && !player.isDashCooldown)
         {
+            player.PushCurrentState();
             player.SwitchState(player.DashState);
             return;
         }
@@ -43,5 +49,18 @@ public class RunPlayerState : BasePlayerState
         {
             player.PlayerRb.linearVelocityX = player.Speed * Time.fixedDeltaTime * Vector3.left.x;
         }
+    }
+
+    public override void OnCollisionEnter2DState(Collision2D collision, ManagerPlayerState player)
+    {
+        if (collision.collider.tag == "Wall")
+        {
+            player.SwitchState(player.WallGrabState);
+        }
+    }
+
+    public override void OnCollisionExit2DState(Collision2D collision, ManagerPlayerState player)
+    {
+        
     }
 }
