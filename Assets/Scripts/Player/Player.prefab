@@ -243,7 +243,7 @@ CapsuleCollider2D:
   m_Enabled: 1
   serializedVersion: 3
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 97092c0284f6f9fd2b55348b2f6cd88a, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -347,16 +347,16 @@ MonoBehaviour:
     m_Flags: 0
   PlayerRb: {fileID: 7704584900331094390}
   PlayerCurrentStats:
-    Health: 0
-    MaxHealth: 0
+    Health: 30
+    MaxHealth: 30
     Momentum: 0
     MaxMomentum: 100
     Pneumatic: 0
     MaxPneumatic: 0
   Speed: 300
-  JumpForce: 20
-  LandAcceleration: 60
-  LandStart: 3
+  JumpForce: 8
+  LandAcceleration: 2
+  LandStart: 4
   DashForce: 20
   DashDuration: 0.2
   DashRecovery: 2

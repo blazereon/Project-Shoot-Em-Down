@@ -1,6 +1,7 @@
 using System.Numerics;
 using Unity.VisualScripting;
 using UnityEditor.Callbacks;
+using UnityEngine;
 
 public class IdlePlayerState : BasePlayerState
 {
@@ -14,6 +15,7 @@ public class IdlePlayerState : BasePlayerState
         //proceeds to run
         if (player.moveAction.IsPressed())
         {
+            player.PushCurrentState();
             player.SwitchState(player.RunState);
             return;
         }
@@ -21,6 +23,7 @@ public class IdlePlayerState : BasePlayerState
         //proceeds to jump state
         if (player.jumpAction.IsPressed() && player.groundBox.isGrounded)
         {
+            player.PushCurrentState();
             player.SwitchState(player.JumpState);
             return;
         }
@@ -28,6 +31,7 @@ public class IdlePlayerState : BasePlayerState
         //proceeds to dash
         if (player.dashAction.IsPressed() && !player.isDashCooldown)
         {
+            player.PushCurrentState();
             player.SwitchState(player.DashState);
         }
     }
@@ -35,5 +39,15 @@ public class IdlePlayerState : BasePlayerState
     public override void FixedUpdateState(ManagerPlayerState player)
     {
         player.PlayerRb.linearVelocityX = 0;
+    }
+
+    public override void OnCollisionEnter2DState(Collision2D collision, ManagerPlayerState player)
+    {
+        throw new System.NotImplementedException();
+    }
+
+    public override void OnCollisionExit2DState(Collision2D collision, ManagerPlayerState player)
+    {
+        throw new System.NotImplementedException();
     }
 }

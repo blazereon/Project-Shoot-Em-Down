@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -12,8 +13,11 @@ public class ManagerPlayerState :  Player
     public WalkPlayerState WalkState = new WalkPlayerState();
     public RunPlayerState RunState = new RunPlayerState();
     public JumpPlayerState JumpState = new JumpPlayerState();
+    public LandPlayerState LandState = new LandPlayerState();
     public AttackPlayerState AttackState = new AttackPlayerState();
     public DashPlayerState DashState = new DashPlayerState();
+    public WallGrabPlayerState WallGrabState = new WallGrabPlayerState();
+    public WallJumpPlayerState WallJumpState = new WallJumpPlayerState();
 
     public Facing facing = Facing.left;
     public bool isDashCooldown = false;
@@ -44,8 +48,6 @@ public class ManagerPlayerState :  Player
         } else if (_moveValue.x > 0) {
             facing = Facing.right;
         }
-
-        Debug.Log(_currentState);
         
 
         _currentState.UpdateState(this);
@@ -54,20 +56,34 @@ public class ManagerPlayerState :  Player
     void FixedUpdate()
     {
         _currentState.FixedUpdateState(this);
-        PlayerRb.linearVelocityY -= LandAcceleration * Time.fixedDeltaTime;
     }
 
-    //pop current state from the stackfontaine battle theme ostfontaine battle theme ost
-    public void SwitchState()
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        _currentState.OnCollisionEnter2DState(collision, this);
+    }
+
+    void OnCollisionExit2D(Collision2D collision)
+    {
+        _currentState.OnCollisionExit2DState(collision, this);
+    }
+
+    //pop state from the stack and use it as a current state
+    public void PopState()
     {
         _currentState = _stateStack.Pop();
         _currentState.EnterState(this);
     }
 
     //push current state to the stack and switch to the new state
-    public void SwitchState(BasePlayerState state)
+    public void PushCurrentState()
     {
         _stateStack.Push(_currentState);
+    }
+
+    //switch the current state (no prev state will be pushed)
+    public void SwitchState(BasePlayerState state)
+    {
         _currentState = state;
         _currentState.EnterState(this);
     }

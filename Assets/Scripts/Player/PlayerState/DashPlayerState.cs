@@ -19,7 +19,7 @@ public class DashPlayerState : BasePlayerState
 
     public override void UpdateState(ManagerPlayerState player)
     {
-        
+
     }
 
     public override void FixedUpdateState(ManagerPlayerState player)
@@ -41,8 +41,18 @@ public class DashPlayerState : BasePlayerState
         yield return new WaitForSeconds(_dashDuration);
         player.isDashCooldown = true;
         player.PlayerRb.linearVelocityX = 0;
-        player.SwitchState();
+        player.SwitchState(player.LandState);
         yield return new WaitForSeconds(_dashCooldown);
         player.isDashCooldown = false;
+    }
+
+    public override void OnCollisionEnter2DState(Collision2D collision, ManagerPlayerState player)
+    {
+        throw new System.NotImplementedException();
+    }
+
+    public override void OnCollisionExit2DState(Collision2D collision, ManagerPlayerState player)
+    {
+        throw new System.NotImplementedException();
     }
 }

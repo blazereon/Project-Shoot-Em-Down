@@ -11,7 +11,7 @@ public class MomentumMeter : MonoBehaviour
         float momentumPercentage = (float) momentumAmount / MaxMomentumAmount;
         if (momentumPercentage >= 0.75f)
         {
-            MomentumBar75.fillAmount = 0.75f;
+            MomentumBar75.fillAmount = 0.76f;
             MomentumBar25.fillAmount = (momentumAmount - (MaxMomentumAmount * 0.75f)) / (MaxMomentumAmount * 0.25f);
             return;
         }
