@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 8074721881138741803}
   - component: {fileID: 7255823586710530253}
   - component: {fileID: 7469308891118116376}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Enemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -166,5 +166,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01050c776a27c8610ac68059045306f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 0}
   Health: 1000
   AttackDamage: 0
+  rayNumber: 36
+  rayMaxAngle: 360
+  rayStartAngle: 0
+  detectionRange: 5
+  delayScanTime: 0.5
+  isPlayerDetected: 0
+  hitRays: 

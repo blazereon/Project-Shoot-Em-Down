@@ -48,8 +48,7 @@ public class ManagerPlayerState :  Player
         } else if (_moveValue.x > 0) {
             facing = Facing.right;
         }
-        
-
+        EventSystem.Current.PlayerLocation = transform.position;
         _currentState.UpdateState(this);
     }
 
