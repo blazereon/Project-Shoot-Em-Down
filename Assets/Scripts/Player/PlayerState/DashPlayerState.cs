@@ -1,25 +1,32 @@
 using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class DashPlayerState : BasePlayerState
 {
-    private bool _isDashing = false;
-    private float _dashDuration;
     private float _dashCooldown;
+    private float _dashTimer;
     private Facing _currentFacing;
     public override void EnterState(ManagerPlayerState player)
     {
-        _dashDuration = player.DashDuration;
         _dashCooldown = player.DashRecovery;
         _currentFacing = player.facing;
-        player.StartCoroutine(Dash(player));
+        _dashTimer = 0;
+        
         player.PlayerCurrentStats.Momentum = Mathf.Clamp(player.PlayerCurrentStats.Momentum + 25, 0, player.PlayerCurrentStats.MaxMomentum);
         EventSystem.Current.UpdatePlayerStats(player.PlayerCurrentStats);
     }
 
     public override void UpdateState(ManagerPlayerState player)
     {
+        if (_dashTimer >= player.DashDuration)
+        {
+            player.StartCoroutine(DashCooldown(player));
+            player.SwitchState(player.LandState);
+            return;
+        }
 
+        _dashTimer += Time.deltaTime;
     }
 
     public override void FixedUpdateState(ManagerPlayerState player)
@@ -36,23 +43,27 @@ public class DashPlayerState : BasePlayerState
         player.PlayerRb.linearVelocityY = 0;
     }
 
-    IEnumerator Dash(ManagerPlayerState player)
-    {
-        yield return new WaitForSeconds(_dashDuration);
-        player.isDashCooldown = true;
-        player.PlayerRb.linearVelocityX = 0;
-        player.SwitchState(player.LandState);
-        yield return new WaitForSeconds(_dashCooldown);
-        player.isDashCooldown = false;
-    }
-
     public override void OnCollisionEnter2DState(Collision2D collision, ManagerPlayerState player)
     {
-        throw new System.NotImplementedException();
+        if (collision.collider.tag == "Wall")
+        {
+            Debug.Log("Wall Grabbed while dashing");
+            player.PlayerRb.linearVelocityX = 0;
+            player.StartCoroutine(DashCooldown(player));
+            player.SwitchState(player.WallGrabState);
+            return;
+        }
     }
 
     public override void OnCollisionExit2DState(Collision2D collision, ManagerPlayerState player)
     {
-        throw new System.NotImplementedException();
+        
+    }
+
+    IEnumerator DashCooldown(ManagerPlayerState player)
+    {
+        player.isDashCooldown = true;
+        yield return new WaitForSeconds(player.DashRecovery);
+        player.isDashCooldown = false;
     }
 }

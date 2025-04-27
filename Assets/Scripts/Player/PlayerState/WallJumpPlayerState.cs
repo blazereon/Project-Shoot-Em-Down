@@ -5,6 +5,9 @@ public class WallJumpPlayerState : BasePlayerState
     
     public override void EnterState(ManagerPlayerState player)
     {
+        player.PlayerCurrentStats.Momentum -= 10;
+        EventSystem.Current.UpdatePlayerStats(player.PlayerCurrentStats);
+        
         Debug.Log("Entered wall jump");
         if (player.facing == Facing.left)
         {
@@ -23,6 +26,12 @@ public class WallJumpPlayerState : BasePlayerState
         if (player.PlayerRb.linearVelocityY <= player.LandStart)
         {
             player.SwitchState(player.LandState);
+            return;
+        }
+
+        if (player.dashAction.triggered && !player.isDashCooldown)
+        {
+            player.SwitchState(player.DashState);
             return;
         }
     }

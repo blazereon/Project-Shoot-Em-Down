@@ -5,6 +5,8 @@ public class PlayerUI : MonoBehaviour
 
     public HealthMeter HealthMeterInstance;
     public MomentumMeter MomentumMeterInstance;
+    public PneumaticMeter PneumaticMeterInstance;
+
     void Awake()
     {
         EventSystem.Current.OnUpdatePlayerStats += updatePlayerProperties;
@@ -12,9 +14,9 @@ public class PlayerUI : MonoBehaviour
 
     private void updatePlayerProperties(PlayerStats stats)
     {
-        Debug.Log("receivedPlayerUpdates");
         HealthMeterInstance.UpdateValue(stats.Health, stats.MaxHealth);
         MomentumMeterInstance.UpdateValue(stats.Momentum, stats.MaxMomentum);
+        PneumaticMeterInstance.UpdateValue(stats.Pneumatic, stats.MaxPneumatic);
     }
 
     void OnDestroy()

@@ -41,14 +41,23 @@ public class ManagerPlayerState :  Player
 
     void Update()
     {
+        //for controlling player face
         Vector2 _moveValue = moveAction.ReadValue<Vector2>();
-
         if (_moveValue.x < 0) {
             facing = Facing.left;
         } else if (_moveValue.x > 0) {
             facing = Facing.right;
         }
         EventSystem.Current.PlayerLocation = transform.position;
+
+        //Helps devs debug states. 
+        PlayerDebug _debugData = new PlayerDebug
+        {
+            playerState = _currentState,
+        };
+        EventSystem.Current.UpdatePlayerDebug(_debugData);
+
+        //Actual state update
         _currentState.UpdateState(this);
     }
 

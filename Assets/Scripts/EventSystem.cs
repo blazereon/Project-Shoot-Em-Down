@@ -49,6 +49,8 @@ public class EventSystem
     public event Action<int> OnAttackPlayer;
     public event Func<GameObject> OnPlayerGameObject;
     public event Action<PlayerStats> OnUpdatePlayerStats;
+    public event Action<PlayerDebug> OnUpdatePlayerDebug;
+
     //This is where you add the event trigger function
     public void AttackEnemy(GameObject enemyObject, int damage)
     {
@@ -65,6 +67,10 @@ public class EventSystem
         OnUpdatePlayerStats?.Invoke(stats);
     }
 
+    public void UpdatePlayerDebug(PlayerDebug playerDebugData)
+    {
+        OnUpdatePlayerDebug?.Invoke(playerDebugData);
+    }
     public GameObject GetPlayerGameObject()
     {
         return OnPlayerGameObject?.Invoke();
