@@ -14,7 +14,6 @@ public class PlayerUI : MonoBehaviour
 
     private void updatePlayerProperties(PlayerStats stats)
     {
-        Debug.Log("receivedPlayerUpdates");
         HealthMeterInstance.UpdateValue(stats.Health, stats.MaxHealth);
         MomentumMeterInstance.UpdateValue(stats.Momentum, stats.MaxMomentum);
         PneumaticMeterInstance.UpdateValue(stats.Pneumatic, stats.MaxPneumatic);

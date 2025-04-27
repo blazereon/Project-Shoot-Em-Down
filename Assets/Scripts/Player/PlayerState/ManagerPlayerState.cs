@@ -42,7 +42,7 @@ public class ManagerPlayerState :  Player
     void Update()
     {
         Vector2 _moveValue = moveAction.ReadValue<Vector2>();
-
+        DebugUI.Current.updatePlayerState(_currentState); //comment this if not using DebugUI
         if (_moveValue.x < 0) {
             facing = Facing.left;
         } else if (_moveValue.x > 0) {

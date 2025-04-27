@@ -1,4 +1,5 @@
 using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class DashPlayerState : BasePlayerState
@@ -48,11 +49,16 @@ public class DashPlayerState : BasePlayerState
 
     public override void OnCollisionEnter2DState(Collision2D collision, ManagerPlayerState player)
     {
-        throw new System.NotImplementedException();
+        if (collision.collider.tag == "Wall")
+        {
+            Debug.Log("Wall Grabbed while dashing");
+            player.PlayerRb.linearVelocityX = 0;
+            player.SwitchState(player.WallGrabState);
+        }
     }
 
     public override void OnCollisionExit2DState(Collision2D collision, ManagerPlayerState player)
     {
-        throw new System.NotImplementedException();
+        
     }
 }

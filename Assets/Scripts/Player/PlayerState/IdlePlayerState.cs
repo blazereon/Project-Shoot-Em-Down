@@ -52,11 +52,11 @@ public class IdlePlayerState : BasePlayerState
 
     public override void OnCollisionEnter2DState(Collision2D collision, ManagerPlayerState player)
     {
-        throw new System.NotImplementedException();
+        
     }
 
     public override void OnCollisionExit2DState(Collision2D collision, ManagerPlayerState player)
     {
-        throw new System.NotImplementedException();
+        
     }
 }

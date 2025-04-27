@@ -331,7 +331,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6060863872132947734, guid: f3e09934ec66726dc8b32a4b9bb96a29, type: 3}
       propertyPath: m_FillAmount
-      value: 1
+      value: 0.438
       objectReference: {fileID: 0}
     - target: {fileID: 6060863872132947734, guid: f3e09934ec66726dc8b32a4b9bb96a29, type: 3}
       propertyPath: m_FillClockwise
