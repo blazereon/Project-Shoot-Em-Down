@@ -352,7 +352,7 @@ MonoBehaviour:
     Momentum: 0
     MaxMomentum: 100
     Pneumatic: 0
-    MaxPneumatic: 0
+    MaxPneumatic: 100
   Speed: 300
   JumpForce: 8
   LandAcceleration: 2
