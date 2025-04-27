@@ -148,6 +148,7 @@ GameObject:
   - component: {fileID: 843784213170020645}
   - component: {fileID: 4518322147910761902}
   - component: {fileID: 5321511598137152333}
+  - component: {fileID: 3184438258094371584}
   m_Layer: 5
   m_Name: DebugUI
   m_TagString: Untagged
@@ -238,3 +239,16 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &3184438258094371584
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3834758321071130256}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e2b95747d287178d8259735c14df7d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PlayerStateTMP: {fileID: 7449951758561094476}

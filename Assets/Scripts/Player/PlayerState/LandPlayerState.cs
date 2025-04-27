@@ -12,6 +12,12 @@ public class LandPlayerState : BasePlayerState
         {
             player.PopState();
         }
+
+        if (player.dashAction.triggered && !player.isDashCooldown)
+        {
+            player.SwitchState(player.DashState);
+            return;
+        }
     }
     public override void FixedUpdateState(ManagerPlayerState player)
     {

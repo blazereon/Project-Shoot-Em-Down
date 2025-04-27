@@ -3,20 +3,12 @@ using UnityEngine;
 
 public class DebugUI : MonoBehaviour
 {
-    private static DebugUI _instance;
-    public static DebugUI Current { get { return _instance; }}
 
     [SerializeField] public TextMeshProUGUI PlayerStateTMP;
-    
 
-    private void Awake()
+    void Awake()
     {
-        if (_instance != null && _instance != this)
-        {
-            Destroy(this.gameObject);
-        } else {
-            _instance = this;
-        }
+        EventSystem.Current.OnUpdatePlayerDebug += UpdateData;
     }
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -30,6 +22,10 @@ public class DebugUI : MonoBehaviour
         
     }
 
+    private void UpdateData(PlayerDebug data)
+    {
+        updatePlayerState(data.playerState);
+    }
     public void updatePlayerState(BasePlayerState state)
     {
         PlayerStateTMP.text = "Player State: " + state;
