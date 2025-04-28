@@ -347,8 +347,8 @@ MonoBehaviour:
     m_Flags: 0
   PlayerRb: {fileID: 7704584900331094390}
   PlayerCurrentStats:
-    Health: 30
-    MaxHealth: 30
+    Health: 3
+    MaxHealth: 5
     Momentum: 0
     MaxMomentum: 100
     Pneumatic: 0

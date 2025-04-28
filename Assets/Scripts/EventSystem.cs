@@ -47,6 +47,7 @@ public class EventSystem
     //Event handlers
     public event Action<GameObject, int> OnAttackEnemy; 
     public event Action<int> OnAttackPlayer;
+    public event Action<int> OnSendPlayerPneuma;
     public event Func<GameObject> OnPlayerGameObject;
     public event Action<PlayerStats> OnUpdatePlayerStats;
     public event Action<PlayerDebug> OnUpdatePlayerDebug;
@@ -60,6 +61,11 @@ public class EventSystem
     public void AttackPlayer(int damage)
     {
         OnAttackPlayer?.Invoke(damage);
+    }
+
+    public void SendPlayerPneuma(int Pneuma)
+    {
+        OnSendPlayerPneuma?.Invoke(Pneuma);
     }
     
     public void UpdatePlayerStats(PlayerStats stats)

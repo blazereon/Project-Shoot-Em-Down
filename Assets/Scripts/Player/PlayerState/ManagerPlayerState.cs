@@ -26,6 +26,7 @@ public class ManagerPlayerState :  Player
     void Awake()
     {
         EventSystem.Current.OnAttackPlayer += TakePlayerDamage;
+        EventSystem.Current.OnSendPlayerPneuma += ReceivePneuma;
     }
     void Start()
     {
@@ -130,6 +131,7 @@ public class ManagerPlayerState :  Player
     void OnDestroy()
     {
         EventSystem.Current.OnAttackPlayer -= TakePlayerDamage;
+        EventSystem.Current.OnSendPlayerPneuma -= ReceivePneuma;
     }
 
     

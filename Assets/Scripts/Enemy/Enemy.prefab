@@ -167,8 +167,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
-  Health: 1000
+  Health: 20
   AttackDamage: 0
+  PneumaAmount: 20
   rayNumber: 36
   rayMaxAngle: 360
   rayStartAngle: 0
