@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using Mono.Cecil.Cil;
 using UnityEngine;
@@ -35,4 +36,15 @@ public class Player : MonoBehaviour
         Debug.Log("HP: " + PlayerCurrentStats.Health);
     }
 
+    public void ReceivePneuma(int Pneuma)
+    {
+        int _PnGain = (int) Pneuma * (1 + (PlayerCurrentStats.Momentum / PlayerCurrentStats.MaxMomentum));
+        int _PnDiff = (PlayerCurrentStats.Pneumatic + _PnGain) - PlayerCurrentStats.MaxPneumatic;
+        PlayerCurrentStats.Pneumatic = Mathf.Clamp(PlayerCurrentStats.Pneumatic + _PnGain, 0, PlayerCurrentStats.MaxPneumatic);
+        if (PlayerCurrentStats.Pneumatic == PlayerCurrentStats.MaxPneumatic)
+        {
+            PlayerCurrentStats.Health += 1;
+            PlayerCurrentStats.Pneumatic = _PnDiff;
+        }
+    }
 }

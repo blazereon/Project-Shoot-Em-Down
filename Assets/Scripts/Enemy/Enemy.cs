@@ -7,6 +7,7 @@ public class Enemy : MonoBehaviour
     public GameObject player;
     public int Health = 100;
     public int AttackDamage;
+    public int PneumaAmount;
 
     [Space(10)]
     [Header("Player Detection Settings")]
@@ -39,7 +40,11 @@ public class Enemy : MonoBehaviour
     {
         if (pObject == gameObject){
             Health -= damage;
-            if (Health <= 0) Destroy(this.gameObject);
+            if (Health <= 0)
+            {
+                EventSystem.Current.SendPlayerPneuma(PneumaAmount);
+                Destroy(this.gameObject);
+            }
             Debug.Log("HP: " + Health);
         }
     }
