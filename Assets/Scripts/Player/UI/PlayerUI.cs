@@ -3,10 +3,11 @@ using UnityEngine;
 public class PlayerUI : MonoBehaviour
 {
 
-    public HealthMeter HealthMeterInstance;
+    public HeartMeter HeartMeterInstance;
     public MomentumMeter MomentumMeterInstance;
     public PneumaticMeter PneumaticMeterInstance;
 
+    
     void Awake()
     {
         EventSystem.Current.OnUpdatePlayerStats += updatePlayerProperties;
@@ -14,7 +15,7 @@ public class PlayerUI : MonoBehaviour
 
     private void updatePlayerProperties(PlayerStats stats)
     {
-        HealthMeterInstance.UpdateValue(stats.Health, stats.MaxHealth);
+        HeartMeterInstance.UpdateValue(stats.Health, stats.MaxHealth);
         MomentumMeterInstance.UpdateValue(stats.Momentum, stats.MaxMomentum);
         PneumaticMeterInstance.UpdateValue(stats.Pneumatic, stats.MaxPneumatic);
     }
