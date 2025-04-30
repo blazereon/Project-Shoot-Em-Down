@@ -39,7 +39,7 @@ public class Player : MonoBehaviour
 
     public void ReceivePneuma(int Pneuma)
     {
-        int _PnGain = (int) Pneuma * (1 + (PlayerCurrentStats.Momentum / PlayerCurrentStats.MaxMomentum));
+        int _PnGain = Pneuma * (1 + (PlayerCurrentStats.Momentum / PlayerCurrentStats.MaxMomentum)) + (Pneuma * PlayerCurrentStats.Chain);
         int _PnDiff = (PlayerCurrentStats.Pneumatic + _PnGain) - PlayerCurrentStats.MaxPneumatic;
         PlayerCurrentStats.Pneumatic = Mathf.Clamp(PlayerCurrentStats.Pneumatic + _PnGain, 0, PlayerCurrentStats.MaxPneumatic);
         if (PlayerCurrentStats.Pneumatic == PlayerCurrentStats.MaxPneumatic)
