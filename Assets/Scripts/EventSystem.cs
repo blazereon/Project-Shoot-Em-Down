@@ -45,13 +45,19 @@ public class EventSystem
     public Vector2 PlayerLocation; //player transform.position
     
     //Event handlers
-    public event Action<GameObject, int> OnAttackEnemy; 
+    public event Action<GameObject, int> OnAttackEnemy;
+
     public event Action<int> OnAttackPlayer;
     public event Action<int> OnSendPlayerPneuma;
+    public event Action OnEnemyKill;
+
+
     public event Func<GameObject> OnPlayerGameObject;
     public event Action<PlayerStats> OnUpdatePlayerStats;
     public event Action<PlayerDebug> OnUpdatePlayerDebug;
 
+
+    
     //This is where you add the event trigger function
     public void AttackEnemy(GameObject enemyObject, int damage)
     {
@@ -66,6 +72,11 @@ public class EventSystem
     public void SendPlayerPneuma(int Pneuma)
     {
         OnSendPlayerPneuma?.Invoke(Pneuma);
+    }
+
+    public void EnemyKill()
+    {
+        OnEnemyKill?.Invoke();
     }
     
     public void UpdatePlayerStats(PlayerStats stats)
