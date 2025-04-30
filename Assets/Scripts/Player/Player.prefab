@@ -353,6 +353,9 @@ MonoBehaviour:
     MaxMomentum: 100
     Pneumatic: 0
     MaxPneumatic: 100
+    Chain: 0
+    MaxChain: 4
+    ChainDuration: 3
   Speed: 300
   JumpForce: 8
   LandAcceleration: 2

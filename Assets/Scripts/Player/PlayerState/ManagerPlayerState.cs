@@ -27,6 +27,7 @@ public class ManagerPlayerState :  Player
     {
         EventSystem.Current.OnAttackPlayer += TakePlayerDamage;
         EventSystem.Current.OnSendPlayerPneuma += ReceivePneuma;
+        EventSystem.Current.OnEnemyKill += OnKillResponse;
     }
     void Start()
     {

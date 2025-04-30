@@ -43,6 +43,7 @@ public class Enemy : MonoBehaviour
             if (Health <= 0)
             {
                 EventSystem.Current.SendPlayerPneuma(PneumaAmount);
+                EventSystem.Current.EnemyKill();
                 Destroy(this.gameObject);
             }
             Debug.Log("HP: " + Health);

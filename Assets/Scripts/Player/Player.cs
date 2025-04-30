@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using Mono.Cecil.Cil;
+using UnityEditor.PackageManager;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
@@ -46,5 +47,36 @@ public class Player : MonoBehaviour
             PlayerCurrentStats.Health += 1;
             PlayerCurrentStats.Pneumatic = _PnDiff;
         }
+    }
+
+    public void OnKillResponse()
+    {
+        PlayerCurrentStats.Chain = Mathf.Min(PlayerCurrentStats.Chain + 1, PlayerCurrentStats.MaxChain);
+        if (PlayerCurrentStats.Chain >= 1)
+        {
+            if (PlayerCurrentStats.Chain <= 1)
+            {
+                StartCoroutine(StartChain());
+                Debug.Log("Player Chain: x" + PlayerCurrentStats.Chain);
+                return;
+            }
+            PlayerCurrentStats.ChainTimer = PlayerCurrentStats.ChainDuration;
+            Debug.Log("Player Chain: x" + PlayerCurrentStats.Chain);
+        }
+    }
+
+    IEnumerator StartChain()
+    {
+        PlayerCurrentStats.ChainTimer = PlayerCurrentStats.ChainDuration;
+        while (PlayerCurrentStats.ChainTimer >= 1)
+        {
+            yield return new WaitForSeconds(0.1f);
+            PlayerCurrentStats.ChainTimer -= 0.1f;
+            Debug.Log("Chain Timer: " + PlayerCurrentStats.ChainTimer);
+            EventSystem.Current.UpdatePlayerStats(PlayerCurrentStats);
+        }
+        
+        PlayerCurrentStats.Chain = 0;
+        Debug.Log("Player Chain: x" + PlayerCurrentStats.Chain);
     }
 }
