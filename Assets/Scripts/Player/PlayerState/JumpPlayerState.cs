@@ -5,7 +5,7 @@ public class JumpPlayerState : BasePlayerState
     public override void EnterState(ManagerPlayerState player)
     {
         Debug.Log("Jump State!!");
-        if (player.groundBox.isGrounded) player.PlayerRb.AddForce(new Vector2(0, player.JumpForce), ForceMode2D.Impulse);
+        player.PlayerRb.AddForce(new Vector2(0, player.JumpForce), ForceMode2D.Impulse);
     }
 
     public override void UpdateState(ManagerPlayerState player)

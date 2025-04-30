@@ -2,21 +2,35 @@ using UnityEngine;
 
 public class LandPlayerState : BasePlayerState
 {
+    public float coyoteTime = 0.5f;
+    private float coyoteTimer = 0f;
 
     public override void EnterState(ManagerPlayerState player)
     {
+        coyoteTimer = coyoteTime;
     }
     public override void UpdateState(ManagerPlayerState player)
     {
-        if (player.groundBox.isGrounded)
+        if (!player.groundBox.isGrounded)
         {
-            player.PopState();
+            coyoteTimer -= Time.deltaTime;
+        }
+
+        if (player.jumpAction.triggered && (coyoteTimer > 0f))
+        {
+            player.SwitchState(player.JumpState);
+            return;
         }
 
         if (player.dashAction.triggered && !player.isDashCooldown)
         {
             player.SwitchState(player.DashState);
             return;
+        }
+
+        if (player.groundBox.isGrounded)
+        {
+            player.PopState();
         }
     }
     public override void FixedUpdateState(ManagerPlayerState player)
