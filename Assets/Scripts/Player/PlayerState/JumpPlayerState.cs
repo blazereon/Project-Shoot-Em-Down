@@ -5,6 +5,7 @@ public class JumpPlayerState : BasePlayerState
     public override void EnterState(ManagerPlayerState player)
     {
         Debug.Log("Jump State!!");
+        player.PlayerRb.linearVelocityY = 0;
         player.PlayerRb.AddForce(new Vector2(0, player.JumpForce), ForceMode2D.Impulse);
     }
 

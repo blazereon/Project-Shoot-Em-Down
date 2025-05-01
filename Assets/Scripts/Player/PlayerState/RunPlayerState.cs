@@ -13,6 +13,7 @@ public class RunPlayerState : BasePlayerState
     {
         if (!player.groundBox.isGrounded)
         {
+            player.LandState.canCayote = true;
             player.SwitchState(player.LandState);
         }
         //return to the previous current state (idle most likely)

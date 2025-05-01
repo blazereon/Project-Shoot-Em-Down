@@ -4,6 +4,7 @@ public class LandPlayerState : BasePlayerState
 {
     public float coyoteTime = 1f;
     private float coyoteTimer = 0f;
+    public bool canCayote = false;
 
     public override void EnterState(ManagerPlayerState player)
     {
@@ -15,9 +16,14 @@ public class LandPlayerState : BasePlayerState
             Debug.Log("Coyote Timer: " + coyoteTimer);
             coyoteTimer -= Time.deltaTime;
 
-        if (player.jumpAction.triggered && (coyoteTimer > 0f))
+        if (player.jumpAction.triggered && (coyoteTimer >= 0f) && canCayote)
         {
+<<<<<<< Updated upstream
             Debug.Log("Coyote Timer: " + coyoteTimer);
+=======
+            Debug.Log("Cayote jump!!");
+            canCayote = false;
+>>>>>>> Stashed changes
             player.SwitchState(player.JumpState);
             return;
         }

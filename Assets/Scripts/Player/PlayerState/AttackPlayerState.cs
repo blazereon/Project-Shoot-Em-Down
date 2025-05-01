@@ -66,6 +66,11 @@ public class AttackPlayerState : BasePlayerState
             if (hit.transform.tag == "Enemy")
             {
                 EventSystem.Current.AttackEnemy(hit.collider.gameObject, 15 + (15/2 * _player.PlayerCurrentStats.Chain));
+                return;
+            }
+            if (hit.transform.tag == "Projectile")
+            {
+                //Modify projectile trajectory and shit
             }
         }
     }
