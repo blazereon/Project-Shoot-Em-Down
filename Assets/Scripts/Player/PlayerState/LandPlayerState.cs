@@ -2,22 +2,22 @@ using UnityEngine;
 
 public class LandPlayerState : BasePlayerState
 {
-    public float coyoteTime = 0.5f;
+    public float coyoteTime = 1f;
     private float coyoteTimer = 0f;
 
     public override void EnterState(ManagerPlayerState player)
     {
         coyoteTimer = coyoteTime;
+        Debug.Log("Coyote Time Start!: " + coyoteTimer);
     }
     public override void UpdateState(ManagerPlayerState player)
     {
-        if (!player.groundBox.isGrounded)
-        {
+            Debug.Log("Coyote Timer: " + coyoteTimer);
             coyoteTimer -= Time.deltaTime;
-        }
 
         if (player.jumpAction.triggered && (coyoteTimer > 0f))
         {
+            Debug.Log("Coyote Timer: " + coyoteTimer);
             player.SwitchState(player.JumpState);
             return;
         }
