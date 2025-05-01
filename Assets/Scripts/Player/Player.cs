@@ -44,6 +44,10 @@ public class Player : MonoBehaviour
         PlayerCurrentStats.Pneumatic = Mathf.Clamp(PlayerCurrentStats.Pneumatic + _PnGain, 0, PlayerCurrentStats.MaxPneumatic);
         if (PlayerCurrentStats.Pneumatic == PlayerCurrentStats.MaxPneumatic)
         {
+            if (PlayerCurrentStats.Health == PlayerCurrentStats.MaxHealth)
+            {
+                return;
+            }
             PlayerCurrentStats.Health += 1;
             PlayerCurrentStats.Pneumatic = _PnDiff;
         }
