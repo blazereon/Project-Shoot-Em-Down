@@ -18,12 +18,8 @@ public class LandPlayerState : BasePlayerState
 
         if (player.jumpAction.triggered && (coyoteTimer >= 0f) && canCayote)
         {
-<<<<<<< Updated upstream
-            Debug.Log("Coyote Timer: " + coyoteTimer);
-=======
             Debug.Log("Cayote jump!!");
             canCayote = false;
->>>>>>> Stashed changes
             player.SwitchState(player.JumpState);
             return;
         }
