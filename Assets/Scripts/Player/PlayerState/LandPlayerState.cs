@@ -26,12 +26,14 @@ public class LandPlayerState : BasePlayerState
 
         if (player.dashAction.triggered && !player.isDashCooldown)
         {
+            canCayote = false;
             player.SwitchState(player.DashState);
             return;
         }
 
         if (player.groundBox.isGrounded)
         {
+            canCayote = false;
             player.PopState();
         }
     }
