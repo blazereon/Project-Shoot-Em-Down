@@ -1,3 +1,6 @@
+using System.Collections.Generic;
+using System.Runtime.Serialization;
+using NUnit.Framework;
 using UnityEngine;
 
 public class Projectile : MonoBehaviour
@@ -7,9 +10,18 @@ public class Projectile : MonoBehaviour
     public Vector2 trajectory;
     public Rigidbody2D rb;
 
+    public List<LayerMask> destroyOnly;
+    public enum layerDestinations
+    {
+        Player,
+        Enemy
+    }
+    public layerDestinations destination;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     private void Start()
     {
+        // destroyOnly = new List<LayerMask>();
         rb = GetComponent<Rigidbody2D>();
     }
 
@@ -32,14 +44,20 @@ public class Projectile : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.layer == LayerMask.NameToLayer("Wall") || collision.gameObject.layer == LayerMask.NameToLayer("Ground"))
+
+        if (collision.gameObject.layer == LayerMask.NameToLayer(layerDestinations.Player.ToString()))
         {
+            EventSystem.Current.AttackPlayer(atkDmg);
+            Destroy(gameObject);
+        }
+        else if (collision.gameObject.layer == LayerMask.NameToLayer(layerDestinations.Enemy.ToString()))
+        {
+            EventSystem.Current.AttackEnemy(collision.gameObject, atkDmg);
             Destroy(gameObject);
         }
 
-        if (collision.gameObject.layer == LayerMask.NameToLayer("Player"))
+        foreach (LayerMask layerMask in destroyOnly)
         {
-            EventSystem.Current.AttackPlayer(atkDmg);
             Destroy(gameObject);
         }
     }
