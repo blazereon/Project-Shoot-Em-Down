@@ -2,21 +2,39 @@ using UnityEngine;
 
 public class LandPlayerState : BasePlayerState
 {
+    public float coyoteTime = 1f;
+    private float coyoteTimer = 0f;
+    public bool canCayote = false;
 
     public override void EnterState(ManagerPlayerState player)
     {
+        coyoteTimer = coyoteTime;
+        Debug.Log("Coyote Time Start!: " + coyoteTimer);
     }
     public override void UpdateState(ManagerPlayerState player)
     {
-        if (player.groundBox.isGrounded)
+            Debug.Log("Coyote Timer: " + coyoteTimer);
+            coyoteTimer -= Time.deltaTime;
+
+        if (player.jumpAction.triggered && (coyoteTimer >= 0f) && canCayote)
         {
-            player.PopState();
+            Debug.Log("Cayote jump!!");
+            canCayote = false;
+            player.SwitchState(player.JumpState);
+            return;
         }
 
         if (player.dashAction.triggered && !player.isDashCooldown)
         {
+            canCayote = false;
             player.SwitchState(player.DashState);
             return;
+        }
+
+        if (player.groundBox.isGrounded)
+        {
+            canCayote = false;
+            player.PopState();
         }
     }
     public override void FixedUpdateState(ManagerPlayerState player)
