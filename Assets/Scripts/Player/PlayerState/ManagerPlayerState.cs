@@ -56,6 +56,7 @@ public class ManagerPlayerState :  Player
         PlayerDebug _debugData = new PlayerDebug
         {
             playerState = _currentState,
+            playerStats = PlayerCurrentStats
         };
         EventSystem.Current.UpdatePlayerDebug(_debugData);
 

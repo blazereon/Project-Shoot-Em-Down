@@ -24,10 +24,9 @@ public class DebugUI : MonoBehaviour
 
     private void UpdateData(PlayerDebug data)
     {
-        updatePlayerState(data.playerState);
-    }
-    public void updatePlayerState(BasePlayerState state)
-    {
-        PlayerStateTMP.text = "Player State: " + state;
+        PlayerStateTMP.text = string.Format("Player State: {0}\n Chain Multiplier: {1}\n Chain Timer: {2}", 
+            data.playerState, 
+            data.playerStats.Chain, 
+            data.playerStats.ChainTimer < 1 ? 0 : data.playerStats.ChainTimer);
     }
 }

@@ -4,4 +4,5 @@ using UnityEngine;
 public struct PlayerDebug
 {
     public BasePlayerState playerState;
+    public PlayerStats playerStats;
 }
