@@ -1011,10 +1011,6 @@ PrefabInstance:
       propertyPath: m_ReferenceResolution.y
       value: 1080
       objectReference: {fileID: 0}
-    - target: {fileID: 7449951758561094476, guid: e41ed91c2b375924690b98b99e2ddc87, type: 3}
-      propertyPath: m_text
-      value: 'Player State:'
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
