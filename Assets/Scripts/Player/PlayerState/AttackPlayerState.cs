@@ -1,5 +1,6 @@
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class AttackPlayerState : BasePlayerState
 {
@@ -70,7 +71,7 @@ public class AttackPlayerState : BasePlayerState
     private void MeleeAttack(ManagerPlayerState player)
     {
         _player = player;
-        Debug.Log("Attack Invoked");
+        Debug.Log("Melee attack invoked");
         _layerMask = LayerMask.GetMask("Wall", "Enemy");
         RaycastHit2D[] hits;
 
@@ -79,7 +80,6 @@ public class AttackPlayerState : BasePlayerState
             hits = Physics2D.RaycastAll(player.transform.position, Vector2.right, _meleeRange, _layerMask);
             Debug.DrawRay(player.transform.position, Vector2.right * _meleeRange, Color.cyan, 0.2f);
             DamageEnemy(hits);
-            player.PopState();
             return;
         }
         else if (player.facing == Facing.left)
@@ -87,13 +87,24 @@ public class AttackPlayerState : BasePlayerState
             hits = Physics2D.RaycastAll(player.transform.position, Vector2.left, _meleeRange, _layerMask);
             Debug.DrawRay(player.transform.position, Vector2.right * _meleeRange, Color.cyan, 0.2f);
             DamageEnemy(hits);
-            player.PopState();
             return;
         }
     }
 
     private void RangeAttack(ManagerPlayerState player)
     {
+        if (Camera.main == null)
+        {
+            Debug.LogError("Camera.main is null");
+        }
 
+        var _projectile = GameObject.Instantiate(player.projectileObject, player.transform.position, player.transform.rotation);
+        var _projectileProps = _projectile.GetComponent<Projectile>();
+                
+        Vector2 _playerToMouseDistance = (Vector2)(Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue()) - player.transform.position).normalized;
+        _projectileProps.destroyOnly.Add(LayerMask.GetMask("Wall"));
+        _projectileProps.destroyOnly.Add(LayerMask.GetMask("Ground"));
+        _projectileProps.trajectory = _playerToMouseDistance.normalized;
+        Debug.Log("Ranged attack invoked");
     }
 }

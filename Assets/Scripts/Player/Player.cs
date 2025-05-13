@@ -14,11 +14,13 @@ public class Player : MonoBehaviour
     }
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 
+    public GameObject projectileObject;
 
     public InputAction moveAction;
     public InputAction jumpAction;
     public InputAction dashAction;
     public InputAction attackAction;
+    public InputAction switchWeaponAction;
 
     
     public Rigidbody2D PlayerRb;

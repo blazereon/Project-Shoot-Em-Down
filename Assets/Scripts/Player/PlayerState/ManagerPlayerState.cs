@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 public class ManagerPlayerState :  Player
 {
@@ -36,6 +37,8 @@ public class ManagerPlayerState :  Player
         jumpAction = InputSystem.actions.FindAction("Jump");
         dashAction = InputSystem.actions.FindAction("Dash");
         attackAction = InputSystem.actions.FindAction("Attack");
+        switchWeaponAction = InputSystem.actions.FindAction("SwitchWeapon");
+
         EventSystem.Current.UpdatePlayerStats(PlayerCurrentStats);
         StartCoroutine(MomentumDecay());
         _currentState = IdleState;
@@ -45,6 +48,7 @@ public class ManagerPlayerState :  Player
     void Update()
     {
         Debug.Log(Mouse.current.position.ReadValue());
+
         //for controlling player face
         Vector2 _moveValue = moveAction.ReadValue<Vector2>();
         if (_moveValue.x < 0) {
@@ -52,6 +56,18 @@ public class ManagerPlayerState :  Player
         } else if (_moveValue.x > 0) {
             facing = Facing.right;
         }
+
+        //for toggling weapon (ranged, melee)
+        if (switchWeaponAction.triggered)
+        {
+            if (attackType == AttackType.Melee) {
+                attackType = AttackType.Ranged;
+            } else {
+                attackType = AttackType.Melee;
+            }
+        }
+
+        //send player position to event script to be used by other game objects
         EventSystem.Current.PlayerLocation = transform.position;
 
         //Helps devs debug states. 
