@@ -1196,6 +1196,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1197726589855281261, guid: 47dccb7db6f14d04eada7b70e60765e1, type: 3}
+      propertyPath: attackSpd
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1197726589855281261, guid: 47dccb7db6f14d04eada7b70e60765e1, type: 3}
       propertyPath: burstCount
       value: 1
       objectReference: {fileID: 0}
@@ -1204,8 +1208,8 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2632042839795995729, guid: a16ceab2eb4945a4fb8ebd03f1660660, type: 3}
     - target: {fileID: 1197726589855281261, guid: 47dccb7db6f14d04eada7b70e60765e1, type: 3}
-      propertyPath: projectileInterval
-      value: 2
+      propertyPath: projectileSpd
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 7144354307194853485, guid: 47dccb7db6f14d04eada7b70e60765e1, type: 3}
       propertyPath: m_Name
@@ -2315,6 +2319,10 @@ PrefabInstance:
     - target: {fileID: 3689717396988052238, guid: 02e8e2ded19e42b1baaf4312f6691088, type: 3}
       propertyPath: m_Name
       value: PlayerUI
+      objectReference: {fileID: 0}
+    - target: {fileID: 5880976631927117355, guid: 02e8e2ded19e42b1baaf4312f6691088, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 58.04004
       objectReference: {fileID: 0}
     - target: {fileID: 6210203377224231262, guid: 02e8e2ded19e42b1baaf4312f6691088, type: 3}
       propertyPath: m_Pivot.x
