@@ -102,9 +102,13 @@ public class AttackPlayerState : BasePlayerState
         var _projectileProps = _projectile.GetComponent<Projectile>();
                 
         Vector2 _playerToMouseDistance = (Vector2)(Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue()) - player.transform.position).normalized;
-        _projectileProps.destroyOnly.Add(LayerMask.GetMask("Wall"));
-        _projectileProps.destroyOnly.Add(LayerMask.GetMask("Ground"));
+        
         _projectileProps.trajectory = _playerToMouseDistance.normalized;
+        _projectileProps.speed = 15;    // note: you can add public var for projectile speed
+
+        _projectileProps.firedBy = Projectile.projectileOwner.Player;   // both of these can be set in the inspector... or runtime
+        _projectileProps.destination = Projectile.layerDestinations.Enemy;
+
         Debug.Log("Ranged attack invoked");
     }
 }

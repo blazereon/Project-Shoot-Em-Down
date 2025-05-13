@@ -112,8 +112,7 @@ public class AttackRangedGrounded : BaseRangedGrounded
         _projectileScript.speed = enemy.projectileSpd;
         _projectileScript.trajectory = trajectory;
 
-        _projectileScript.destroyOnly.Add(LayerMask.GetMask("Wall"));
-        _projectileScript.destroyOnly.Add(LayerMask.GetMask("Ground"));
+        _projectileScript.firedBy = Projectile.projectileOwner.Enemy;
     }
 
     IEnumerator SingleFileBurst (ManagerRangedGrounded enemy, Vector3 playerPos, float bulletInterval)
