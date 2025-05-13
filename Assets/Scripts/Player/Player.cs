@@ -7,13 +7,20 @@ using UnityEngine.InputSystem;
 using UnityEngine.UI;
 public class Player : MonoBehaviour
 {
+    public enum AttackType
+    {
+        Melee,
+        Ranged
+    }
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 
+    public GameObject projectileObject;
 
     public InputAction moveAction;
     public InputAction jumpAction;
     public InputAction dashAction;
     public InputAction attackAction;
+    public InputAction switchWeaponAction;
 
     
     public Rigidbody2D PlayerRb;
