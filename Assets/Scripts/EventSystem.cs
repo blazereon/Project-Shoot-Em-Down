@@ -46,9 +46,10 @@ public class EventSystem
     
     //Event handlers
     public event Action<GameObject, int> OnAttackEnemy;
-
     public event Action<int> OnAttackPlayer;
     public event Action<int> OnSendPlayerPneuma;
+    public event Action<GameObject> OnMeleeDeflect;
+    
     public event Action OnEnemyKill;
 
 
@@ -56,6 +57,8 @@ public class EventSystem
     public event Action<PlayerStats> OnUpdatePlayerStats;
     public event Action<PlayerDebug> OnUpdatePlayerDebug;
 
+    public event Action<GameObject, ProjectileProps> OnModifyProjectile;
+    public event Action<GameObject, float> OnSimpleDeflectProjectile;
 
     
     //This is where you add the event trigger function
@@ -74,6 +77,15 @@ public class EventSystem
         OnSendPlayerPneuma?.Invoke(Pneuma);
     }
 
+    public void ModifyProjectile(GameObject projectile, ProjectileProps props)
+    {
+        OnModifyProjectile?.Invoke(projectile, props);
+    }
+
+    public void SimpleDeflectProjectile(GameObject projectile, float speed)
+    {
+        OnSimpleDeflectProjectile?.Invoke(projectile, speed);
+    }
     public void EnemyKill()
     {
         OnEnemyKill?.Invoke();

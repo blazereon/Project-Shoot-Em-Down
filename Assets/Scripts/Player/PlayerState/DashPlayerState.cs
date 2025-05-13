@@ -19,6 +19,7 @@ public class DashPlayerState : BasePlayerState
 
     public override void UpdateState(ManagerPlayerState player)
     {
+        
         if (_dashTimer >= player.DashDuration)
         {
             player.StartCoroutine(DashCooldown(player));

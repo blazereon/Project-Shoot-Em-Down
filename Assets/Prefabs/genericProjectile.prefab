@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 3632759921535178760}
   m_Layer: 10
   m_Name: genericProjectile
-  m_TagString: Untagged
+  m_TagString: EnemyProjectile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -175,12 +175,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5df8eb7663ba8094aaa261effc7f3d56, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  atkDmg: 0
-  speed: 0
-  trajectory: {x: 0, y: 0}
+  ProjectileCurrentProperties:
+    ProjectileSpeed: 0
+    AttackDamage: 0
+    Trajectory: {x: 0, y: 0}
+    DestroyOnly:
+      serializedVersion: 2
+      m_Bits: 0
+    FiredBy: 0
+    Destination: 0
   rb: {fileID: 0}
-  destroyOnly:
-    serializedVersion: 2
-    m_Bits: 264
-  firedBy: 1
-  destination: 0

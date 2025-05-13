@@ -108,11 +108,11 @@ public class AttackRangedGrounded : BaseRangedGrounded
 
         _projectileScript = _spawnProjectile.GetComponent<Projectile>();
 
-        _projectileScript.atkDmg = enemy.attackDmg;
-        _projectileScript.speed = enemy.projectileSpd;
-        _projectileScript.trajectory = trajectory;
+        _projectileScript.ProjectileCurrentProperties.AttackDamage = enemy.attackDmg;
+        _projectileScript.ProjectileCurrentProperties.ProjectileSpeed = enemy.projectileSpd;
+        _projectileScript.ProjectileCurrentProperties.Trajectory = trajectory;
 
-        _projectileScript.firedBy = Projectile.projectileOwner.Enemy;
+        _projectileScript.ProjectileCurrentProperties.FiredBy = ProjectileOwner.Enemy;
     }
 
     IEnumerator SingleFileBurst (ManagerRangedGrounded enemy, Vector3 playerPos, float bulletInterval)

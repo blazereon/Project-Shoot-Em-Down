@@ -52,14 +52,4 @@ public class AttackBox : MonoBehaviour
 
     }
 
-    void OnDrawGizmosSelected()
-    {
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(AttackLeftPos, AttackRadius);
-        Gizmos.DrawWireSphere(AttackRightPos, AttackRadius);
-
-        Gizmos.DrawWireSphere(AttackLeftRelPos, AttackRadius);
-        Gizmos.DrawWireSphere(AttackRightRelPos, AttackRadius);
-    }
-
 }

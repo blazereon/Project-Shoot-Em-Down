@@ -47,8 +47,6 @@ public class ManagerPlayerState :  Player
 
     void Update()
     {
-        Debug.Log(Mouse.current.position.ReadValue());
-
         //for controlling player face
         Vector2 _moveValue = moveAction.ReadValue<Vector2>();
         if (_moveValue.x < 0) {
@@ -144,8 +142,6 @@ public class ManagerPlayerState :  Player
             }
 
         }
-        
-
     }
 
     void OnDestroy()
@@ -154,5 +150,15 @@ public class ManagerPlayerState :  Player
         EventSystem.Current.OnSendPlayerPneuma -= ReceivePneuma;
     }
 
-    
+    private void OnDrawGizmos()
+    {
+        if (facing == Facing.right)
+        {
+            Gizmos.DrawWireSphere(new Vector2(transform.position.x + MeleePadding, transform.position.y), MeleeRadius);
+        } else if (facing == Facing.left)
+        {
+            Gizmos.DrawWireSphere(new Vector2(transform.position.x - MeleePadding, transform.position.y), MeleeRadius);
+        }
+    }
+
 }

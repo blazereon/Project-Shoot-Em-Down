@@ -178,7 +178,7 @@ MonoBehaviour:
   atkDmg: 0
   speed: 0
   trajectory: {x: 0, y: 0}
-  rb: {fileID: 0}
+  rb: {fileID: 964628502704300292}
   destroyOnly:
     serializedVersion: 2
     m_Bits: 264

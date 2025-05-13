@@ -1,30 +1,19 @@
 using System.Collections.Generic;
 using System.Runtime.Serialization;
 using NUnit.Framework;
+using UnityEditor.PackageManager;
 using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
-    public int atkDmg;
-    public float speed;
-    public Vector2 trajectory;
+    public ProjectileProps ProjectileCurrentProperties;
     public Rigidbody2D rb;
 
-    public LayerMask destroyOnly;
-
-    public enum projectileOwner
+    private void Awake()
     {
-        Player,
-        Enemy
+        EventSystem.Current.OnModifyProjectile += ModifyProjectile;
+        EventSystem.Current.OnSimpleDeflectProjectile += SimpleDeflect;
     }
-    public projectileOwner firedBy;
-
-    public enum layerDestinations
-    {
-        Player,
-        Enemy
-    }
-    public layerDestinations destination;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     private void Start()
@@ -48,34 +37,67 @@ public class Projectile : MonoBehaviour
 
     private void FixedUpdate()
     {
-        rb.linearVelocity = trajectory * speed;
+        rb.linearVelocity = ProjectileCurrentProperties.Trajectory * ProjectileCurrentProperties.ProjectileSpeed;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        int playerLayer = LayerMask.NameToLayer(layerDestinations.Player.ToString());
-        int enemyLayer = LayerMask.NameToLayer(layerDestinations.Enemy.ToString());
+        int playerLayer = LayerMask.NameToLayer(LayerDestinations.Player.ToString());
+        int enemyLayer = LayerMask.NameToLayer(LayerDestinations.Enemy.ToString());
 
-        Debug.Log("hit rec: " + collision.gameObject.layer + " " + firedBy + " " + enemyLayer);
+        Debug.Log("hit rec: " + collision.gameObject.layer + " " + ProjectileCurrentProperties.FiredBy + " " + enemyLayer);
 
-        if ((collision.gameObject.layer == playerLayer && firedBy == projectileOwner.Enemy))
+        if ((collision.gameObject.layer == playerLayer && ProjectileCurrentProperties.FiredBy == ProjectileOwner.Enemy))
         {
             Debug.Log("Player hit!");
-            EventSystem.Current.AttackPlayer(atkDmg);
+            EventSystem.Current.AttackPlayer(ProjectileCurrentProperties.AttackDamage);
             Destroy(gameObject);
         }
-        else if (collision.gameObject.layer == enemyLayer && firedBy == projectileOwner.Player)
+        else if (collision.gameObject.layer == enemyLayer && ProjectileCurrentProperties.FiredBy == ProjectileOwner.Player)
         {
             Debug.Log("Enemy hit!");
-            EventSystem.Current.AttackEnemy(collision.gameObject, atkDmg);
+            EventSystem.Current.AttackEnemy(collision.gameObject, ProjectileCurrentProperties.AttackDamage);
             Destroy(gameObject);
         }
         else
         {
-            if (((1 << collision.gameObject.layer) & destroyOnly.value) != 0)
+            if (((1 << collision.gameObject.layer) & ProjectileCurrentProperties.DestroyOnly.value) != 0)
             {
                 Destroy(gameObject);
             }
         }
+    }
+
+    private void ModifyProjectile(GameObject sentGameObject, ProjectileProps props)
+    {
+        //if the sent game object is not this game object itself. do not run
+        if (sentGameObject != this.gameObject)
+        {
+            return;
+        }
+        //do not forget to handle sprite logic
+        ProjectileCurrentProperties = props;
+    }
+
+    private void SimpleDeflect(GameObject sentGameObject, float speed)
+    {
+        
+        //if the sent game object is not this game object itself. do not run
+        if (sentGameObject != this.gameObject)
+        {
+            return;
+        }
+        Debug.Log("Deflect!!");
+        //do not forget to handle sprite logic
+        ProjectileCurrentProperties.FiredBy = ProjectileOwner.Player;
+        ProjectileCurrentProperties.Destination = LayerDestinations.Enemy;
+        ProjectileCurrentProperties.Trajectory.x *= -1;
+        ProjectileCurrentProperties.ProjectileSpeed = speed;
+    }
+
+    private void OnDestroy()
+    {
+        EventSystem.Current.OnModifyProjectile -= ModifyProjectile;
+        EventSystem.Current.OnSimpleDeflectProjectile -= SimpleDeflect;
     }
 }

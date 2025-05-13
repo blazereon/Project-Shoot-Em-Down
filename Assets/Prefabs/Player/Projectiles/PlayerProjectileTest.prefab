@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 1391386299078173314}
   m_Layer: 10
   m_Name: PlayerProjectileTest
-  m_TagString: PlayerProjectile
+  m_TagString: ProjectileParent
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -134,10 +134,9 @@ MonoBehaviour:
   trajectory: {x: 0, y: 0}
   rb: {fileID: 7567414657586066913}
   destroyOnly:
-  - serializedVersion: 2
-    m_Bits: 8
-  - serializedVersion: 2
-    m_Bits: 256
+    serializedVersion: 2
+    m_Bits: 264
+  firedBy: 0
   destination: 1
 --- !u!61 &1391386299078173314
 BoxCollider2D:

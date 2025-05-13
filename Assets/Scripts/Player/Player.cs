@@ -34,6 +34,9 @@ public class Player : MonoBehaviour
     public float DashRecovery;
     public float MomentumDecayRate;
 
+    public float MeleePadding;
+    public float MeleeRadius;
+
     public AttackBox attackBox;
     public GroundBox groundBox;
 

@@ -309,6 +309,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9e1d52e7c0576f009e9189468b3d11f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  projectileObject: {fileID: 2632042839795995729, guid: 715dd6d5ab9d7af45b2eccba3fd0d999, type: 3}
   moveAction:
     m_Name: Move
     m_Type: 0
@@ -345,15 +346,21 @@ MonoBehaviour:
     m_Interactions: 
     m_SingletonActionBindings: []
     m_Flags: 0
+  switchWeaponAction:
+    m_Name: 
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 4c9250ad-9573-423e-8575-2e1dffe2027c
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
   PlayerRb: {fileID: 7704584900331094390}
   PlayerCurrentStats:
     Health: 3
     MaxHealth: 5
-    Momentum: 0
     MaxMomentum: 100
-    Pneumatic: 0
     MaxPneumatic: 100
-    Chain: 0
     MaxChain: 4
     ChainDuration: 3
   Speed: 300
@@ -364,7 +371,10 @@ MonoBehaviour:
   DashDuration: 0.2
   DashRecovery: 2
   MomentumDecayRate: 1
+  MeleePadding: 0.64
+  MeleeRadius: 1.01
   attackBox: {fileID: 2749053302236607332}
   groundBox: {fileID: 6397718521625496067}
   facing: 1
+  attackType: 0
   isDashCooldown: 0
