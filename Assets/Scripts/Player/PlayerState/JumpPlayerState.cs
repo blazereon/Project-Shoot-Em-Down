@@ -7,6 +7,8 @@ public class JumpPlayerState : BasePlayerState
         Debug.Log("Jump State!!");
         player.PlayerRb.linearVelocityY = 0;
         player.PlayerRb.AddForce(new Vector2(0, player.JumpForce), ForceMode2D.Impulse);
+
+        AudioManager.instance.RandomSFX(AudioManager.instance.playerJump);
     }
 
     public override void UpdateState(ManagerPlayerState player)

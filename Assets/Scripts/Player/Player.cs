@@ -42,8 +42,14 @@ public class Player : MonoBehaviour
 
     public void TakePlayerDamage(int damage)
     {
+        AudioManager.instance.RandomSFX(AudioManager.instance.playerTakeDmg);
         PlayerCurrentStats.Health -= damage;
-        if (PlayerCurrentStats.Health <= 0) Destroy(this.gameObject);
+        if (PlayerCurrentStats.Health <= 0) 
+        {
+            Destroy(this.gameObject);
+            AudioManager.instance.PlayFX(AudioManager.instance.playerDeath);
+        }
+        
         Debug.Log("HP: " + PlayerCurrentStats.Health);
     }
 

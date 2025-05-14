@@ -19,6 +19,8 @@ public class WallJumpPlayerState : BasePlayerState
             player.facing = Facing.left;
             player.PlayerRb.AddForce(new Vector2(-5, player.JumpForce), ForceMode2D.Impulse);
         }
+
+        AudioManager.instance.RandomSFX(AudioManager.instance.playerWallJump);
     }
     public override void UpdateState(ManagerPlayerState player)
     {

@@ -9,6 +9,8 @@ public class WallGrabPlayerState : BasePlayerState
     {
         Debug.Log("wall grab state");
         player.PlayerRb.linearVelocity = Vector2.zero;
+
+        AudioManager.instance.RandomSFX(AudioManager.instance.playerWallGrab);
     }
 
     public override void UpdateState(ManagerPlayerState player)

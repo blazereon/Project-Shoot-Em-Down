@@ -7,6 +7,7 @@ public class DashPlayerState : BasePlayerState
     private float _dashCooldown;
     private float _dashTimer;
     private Facing _currentFacing;
+
     public override void EnterState(ManagerPlayerState player)
     {
         _dashCooldown = player.DashRecovery;
@@ -15,11 +16,12 @@ public class DashPlayerState : BasePlayerState
         
         player.PlayerCurrentStats.Momentum = Mathf.Clamp(player.PlayerCurrentStats.Momentum + 25, 0, player.PlayerCurrentStats.MaxMomentum);
         EventSystem.Current.UpdatePlayerStats(player.PlayerCurrentStats);
+
+        AudioManager.instance.RandomSFX(AudioManager.instance.playerDash);
     }
 
     public override void UpdateState(ManagerPlayerState player)
     {
-        
         if (_dashTimer >= player.DashDuration)
         {
             player.StartCoroutine(DashCooldown(player));
