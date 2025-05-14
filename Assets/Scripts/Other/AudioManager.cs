@@ -44,13 +44,12 @@ public class AudioManager : MonoBehaviour
 
         DontDestroyOnLoad(gameObject);
 
-        fxSource.volume = 0.5f;
-        musicSource.volume = 0.5f;
     }
 
     void Start()
     {
-        
+        fxSource.volume = 0.5f;
+        musicSource.volume = 0.5f;
     }
 
     public void PlayFX(AudioClip clip)
