@@ -17,4 +17,6 @@ public struct PlayerStats
     [NonSerialized] public int Chain;
     [NonSerialized] public int Pneumatic;
     [NonSerialized] public float ChainTimer;
+
+    [NonSerialized] public Player.AttackType CurrentAttackType;
 }

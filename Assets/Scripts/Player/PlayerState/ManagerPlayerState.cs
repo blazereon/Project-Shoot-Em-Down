@@ -21,7 +21,6 @@ public class ManagerPlayerState :  Player
     public WallJumpPlayerState WallJumpState = new WallJumpPlayerState();
 
     public Facing facing = Facing.left;
-    public AttackType attackType = AttackType.Melee;
 
     public bool isDashCooldown = false;
 
@@ -58,10 +57,10 @@ public class ManagerPlayerState :  Player
         //for toggling weapon (ranged, melee)
         if (switchWeaponAction.triggered)
         {
-            if (attackType == AttackType.Melee) {
-                attackType = AttackType.Ranged;
+            if (PlayerCurrentStats.CurrentAttackType == AttackType.Melee) {
+                PlayerCurrentStats.CurrentAttackType = AttackType.Ranged;
             } else {
-                attackType = AttackType.Melee;
+                PlayerCurrentStats.CurrentAttackType = AttackType.Melee;
             }
         }
 
