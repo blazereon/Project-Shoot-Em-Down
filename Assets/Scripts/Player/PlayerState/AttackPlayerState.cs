@@ -9,7 +9,7 @@ public class AttackPlayerState : BasePlayerState
     private LayerMask _layerMask;
     public override void EnterState(ManagerPlayerState player)
     {
-        switch (player.attackType)
+        switch (player.PlayerCurrentStats.CurrentAttackType)
         {
             case Player.AttackType.Melee:
                 MeleeAttack(player);
