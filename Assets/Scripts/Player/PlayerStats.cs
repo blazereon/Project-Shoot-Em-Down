@@ -8,8 +8,12 @@ public struct PlayerStats
     //Can be edited using inspector menu
     public int Health;
     public int MaxHealth;
+    public int Violence;
     public int MaxMomentum;
     public int MaxPneumatic;
+
+    public int MaxAggression;
+    public int MaxViolence;
     public int MaxChain;
     public float ChainDuration;
     //This should not be edited thru inspector and must only be accessed via code

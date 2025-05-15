@@ -40,7 +40,7 @@ public class GenericAhhEnemy : Enemy
 
     void Awake()
     {
-        EventSystem.Current.OnAttackEnemy += TakeDamage;
+        EventSystem.Current.OnDamageEnemy += TakeDamage;
     }
 
 
