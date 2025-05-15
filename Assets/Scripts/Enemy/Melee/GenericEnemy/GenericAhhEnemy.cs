@@ -8,11 +8,7 @@ using UnityEngine;
 using UnityEngine.AI;
 
 
-public enum Facing
-{
-    left,
-    right
-}
+
 
 public enum EnemyState
 {

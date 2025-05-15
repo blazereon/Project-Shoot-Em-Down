@@ -2,7 +2,7 @@ using System.Collections;
 using System.Linq;
 using UnityEngine;
 
-public class Enemy : MonoBehaviour
+public class Enemy : Entity
 {
     public GameObject player;
     public int Health = 100;
@@ -29,8 +29,6 @@ public class Enemy : MonoBehaviour
         Left,
         Right
     }
-
-
 
     private void Start()
     {
