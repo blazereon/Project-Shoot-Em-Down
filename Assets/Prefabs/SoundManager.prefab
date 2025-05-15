@@ -251,9 +251,11 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 67ee286d9f62712449e139a9c30c18a7, type: 3}
   playerJump:
   - {fileID: 8300000, guid: a3186b51efaaf5242bcbd911d5765293, type: 3}
-  playerLand: []
-  playerAttack:
+  playerLand:
+  - {fileID: 8300000, guid: e4b7fc7ada67f1444867ae68de6703ed, type: 3}
+  playerAttackMelee:
   - {fileID: 8300000, guid: a93c9e3bab72a634b98848ec79bcd063, type: 3}
+  playerAttackRanged:
   - {fileID: 8300000, guid: 274efb36223c14b42a7dbcdfc1434041, type: 3}
   playerDash:
   - {fileID: 8300000, guid: 3f94176bf4a10fe4195dc3681291553c, type: 3}
@@ -264,4 +266,15 @@ MonoBehaviour:
   playerTakeDmg:
   - {fileID: 8300000, guid: 832888b4b103b5146821953640772678, type: 3}
   playerDeath: {fileID: 8300000, guid: 3c5db00f0f520a64fbc6acd32a96af97, type: 3}
+  enemyChaseAlert:
+  - {fileID: 8300000, guid: e7826bf072d07504c947d31dc9987920, type: 3}
+  enemyAttackMelee:
+  - {fileID: 0}
+  enemyAttackRanged:
+  - {fileID: 8300000, guid: 81c8fd2d306dbe14fa2f349a6383a4cc, type: 3}
+  enemyTakeDmg:
+  - {fileID: 8300000, guid: bf37d06677ecaa142b25b72f09dad945, type: 3}
+  - {fileID: 8300000, guid: 87275b595f22a494c8f3818f94aaba94, type: 3}
+  enemyDeath:
+  - {fileID: 8300000, guid: 56107a7f9d0278346af32de6df459f4e, type: 3}
   levelBGM: {fileID: 8300000, guid: 6c04d2aa5696a5b42a1c1fb8a321912e, type: 3}

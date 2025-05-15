@@ -12,11 +12,11 @@ public class AttackPlayerState : BasePlayerState
         switch (player.PlayerCurrentStats.CurrentAttackType)
         {
             case Player.AttackType.Melee:
-                AudioManager.instance.PlayFXOneShot(AudioManager.instance.playerAttack[0], true);
+                AudioManager.instance.RandomSFX(AudioManager.instance.playerAttackMelee);
                 MeleeAttack(player);
                 break;
             case Player.AttackType.Ranged:
-                AudioManager.instance.PlayFXOneShot(AudioManager.instance.playerAttack[1], true);
+                AudioManager.instance.RandomSFX(AudioManager.instance.playerAttackRanged);
                 RangeAttack(player);
                 break;
             default:

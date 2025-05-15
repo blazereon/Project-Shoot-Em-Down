@@ -39,9 +39,11 @@ public class Enemy : MonoBehaviour
     public void TakeDamage(GameObject pObject, int damage)
     {
         if (pObject == gameObject){
+            AudioManager.instance.RandomSFX(AudioManager.instance.enemyTakeDmg);
             Health -= damage;
             if (Health <= 0)
             {
+                AudioManager.instance.RandomSFX(AudioManager.instance.enemyDeath);
                 EventSystem.Current.SendPlayerPneuma(PneumaAmount);
                 EventSystem.Current.EnemyKill();
                 Destroy(this.gameObject);

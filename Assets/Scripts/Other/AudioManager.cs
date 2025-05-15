@@ -16,12 +16,20 @@ public class AudioManager : MonoBehaviour
     public AudioClip[] playerRun;
     public AudioClip[] playerJump;
     public AudioClip[] playerLand;
-    public AudioClip[] playerAttack;
+    public AudioClip[] playerAttackMelee;
+    public AudioClip[] playerAttackRanged;
     public AudioClip[] playerDash;
     public AudioClip[] playerWallGrab;
     public AudioClip[] playerWallJump;
     public AudioClip[] playerTakeDmg;
     public AudioClip playerDeath;
+
+    [Header("Enemy Audio Clips")]
+    public AudioClip[] enemyChaseAlert;
+    public AudioClip[] enemyAttackMelee;
+    public AudioClip[] enemyAttackRanged;
+    public AudioClip[] enemyTakeDmg;
+    public AudioClip[] enemyDeath;
 
     [Header("Music BGM")]
     public AudioClip levelBGM;

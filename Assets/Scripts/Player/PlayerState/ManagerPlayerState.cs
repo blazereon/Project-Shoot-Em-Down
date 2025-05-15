@@ -20,6 +20,8 @@ public class ManagerPlayerState :  Player
     public WallGrabPlayerState WallGrabState = new WallGrabPlayerState();
     public WallJumpPlayerState WallJumpState = new WallJumpPlayerState();
 
+    public Collider2D PlayerCollider;
+
     public Facing facing = Facing.left;
 
     public bool isDashCooldown = false;
@@ -37,6 +39,8 @@ public class ManagerPlayerState :  Player
         dashAction = InputSystem.actions.FindAction("Dash");
         attackAction = InputSystem.actions.FindAction("Attack");
         switchWeaponAction = InputSystem.actions.FindAction("SwitchWeapon");
+
+        PlayerCollider = GetComponent<Collider2D>();
 
         EventSystem.Current.UpdatePlayerStats(PlayerCurrentStats);
         StartCoroutine(MomentumDecay());
@@ -64,8 +68,9 @@ public class ManagerPlayerState :  Player
             }
         }
 
-        //send player position to event script to be used by other game objects
+        //send player position and collider information to event script to be used by other game objects
         EventSystem.Current.PlayerLocation = transform.position;
+        EventSystem.Current.PlayerCollider = PlayerCollider;
 
         //Helps devs debug states. 
         PlayerDebug _debugData = new PlayerDebug
