@@ -266,4 +266,15 @@ MonoBehaviour:
   playerTakeDmg:
   - {fileID: 8300000, guid: 832888b4b103b5146821953640772678, type: 3}
   playerDeath: {fileID: 8300000, guid: 3c5db00f0f520a64fbc6acd32a96af97, type: 3}
+  enemyChaseAlert:
+  - {fileID: 8300000, guid: e7826bf072d07504c947d31dc9987920, type: 3}
+  enemyAttackMelee:
+  - {fileID: 0}
+  enemyAttackRanged:
+  - {fileID: 8300000, guid: 81c8fd2d306dbe14fa2f349a6383a4cc, type: 3}
+  enemyTakeDmg:
+  - {fileID: 8300000, guid: bf37d06677ecaa142b25b72f09dad945, type: 3}
+  - {fileID: 8300000, guid: 87275b595f22a494c8f3818f94aaba94, type: 3}
+  enemyDeath:
+  - {fileID: 8300000, guid: 56107a7f9d0278346af32de6df459f4e, type: 3}
   levelBGM: {fileID: 8300000, guid: 6c04d2aa5696a5b42a1c1fb8a321912e, type: 3}
