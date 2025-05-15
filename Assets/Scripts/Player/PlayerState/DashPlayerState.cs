@@ -13,10 +13,10 @@ public class DashPlayerState : BasePlayerState
         _dashCooldown = player.DashRecovery;
         _currentFacing = player.facing;
         _dashTimer = 0;
-        
+
         player.PlayerCurrentStats.Momentum = Mathf.Clamp(player.PlayerCurrentStats.Momentum + 25, 0, player.PlayerCurrentStats.MaxMomentum);
         EventSystem.Current.UpdatePlayerStats(player.PlayerCurrentStats);
-
+        Physics2D.IgnoreLayerCollision(7, 9, true);
         AudioManager.instance.RandomSFX(AudioManager.instance.playerDash);
     }
 
@@ -25,6 +25,7 @@ public class DashPlayerState : BasePlayerState
         if (_dashTimer >= player.DashDuration)
         {
             player.StartCoroutine(DashCooldown(player));
+            Physics2D.IgnoreLayerCollision(7, 9, false);
             player.SwitchState(player.LandState);
             return;
         }
@@ -53,6 +54,7 @@ public class DashPlayerState : BasePlayerState
             Debug.Log("Wall Grabbed while dashing");
             player.PlayerRb.linearVelocityX = 0;
             player.StartCoroutine(DashCooldown(player));
+            Physics2D.IgnoreLayerCollision(7, 9, false);
             player.SwitchState(player.WallGrabState);
             return;
         }
