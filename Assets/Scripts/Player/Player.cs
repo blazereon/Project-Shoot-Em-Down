@@ -24,6 +24,7 @@ public class Player : MonoBehaviour
 
     
     public Rigidbody2D PlayerRb;
+    public SpriteRenderer PlayerSprite;
     public PlayerStats PlayerCurrentStats;
     public float Speed = 500f;
     public float JumpForce = 10f;

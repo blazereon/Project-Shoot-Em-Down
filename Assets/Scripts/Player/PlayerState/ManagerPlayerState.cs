@@ -58,12 +58,29 @@ public class ManagerPlayerState :  Player
             facing = Facing.right;
         }
 
+        //facing sprite logic
+        switch (facing)
+        {
+            case Facing.right:
+                PlayerSprite.flipX = false;
+                break;
+            case Facing.left:
+                PlayerSprite.flipX = true;
+                break;
+            default:
+                Debug.LogError("Invalid facing value");
+                break;
+        }
+
         //for toggling weapon (ranged, melee)
         if (switchWeaponAction.triggered)
         {
-            if (PlayerCurrentStats.CurrentAttackType == AttackType.Melee) {
+            if (PlayerCurrentStats.CurrentAttackType == AttackType.Melee)
+            {
                 PlayerCurrentStats.CurrentAttackType = AttackType.Ranged;
-            } else {
+            }
+            else
+            {
                 PlayerCurrentStats.CurrentAttackType = AttackType.Melee;
             }
         }
