@@ -14,7 +14,5 @@ public enum Facing
 
 public class Entity : MonoBehaviour
 {
-    public int MeleeResistance;
-    public int RangeResistance;
 
 }

@@ -6,6 +6,8 @@ public class Enemy : Entity
 {
     public GameObject player;
     public int Health = 100;
+    public int MeleeResistance;
+    public int RangeResistance;
     public int AttackDamage;
     public int PneumaAmount;
 
@@ -37,10 +39,38 @@ public class Enemy : Entity
         isPlayerDetected = false;
         
     }
+    public void TakeDamage(GameObject pObject, DamageType type, int damage, int violence)
+    {
+        if (pObject != this.gameObject) return;
+        int _rawDamage = 0;
+        float _rawViolence;
+        switch (type)
+        {
+            case DamageType.Melee:
+                _rawViolence = MeleeResistance * violence;
+                _rawDamage = (int)(damage - (MeleeResistance - _rawViolence));
+                Health -= _rawDamage;
+                break;
+            case DamageType.Range:
+                _rawViolence = RangeResistance * violence;
+                _rawDamage = (int)(damage - (RangeResistance - _rawViolence));
+                Health -= _rawDamage;
+                break;
+        }
+        if (Health <= 0)
+        {
+            AudioManager.instance.RandomSFX(AudioManager.instance.enemyDeath);
+            EventSystem.Current.SendPlayerPneuma(PneumaAmount);
+            EventSystem.Current.EnemyKill();
+            Destroy(this.gameObject);
+        }
+
+    }
 
     public void TakeDamage(GameObject pObject, int damage)
     {
-        if (pObject == gameObject){
+        if (pObject == gameObject)
+        {
             AudioManager.instance.RandomSFX(AudioManager.instance.enemyTakeDmg);
             Health -= damage;
             if (Health <= 0)

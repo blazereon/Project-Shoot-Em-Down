@@ -46,7 +46,9 @@ public class EventSystem
     public Collider2D PlayerCollider;
     
     //Event handlers
+    
     public event Action<GameObject, int> OnAttackEnemy;
+    public event Action<GameObject, DamageType, int, int> OnDamageEnemy;
     public event Action<int> OnAttackPlayer;
     public event Action<int> OnSendPlayerPneuma;
     public event Action<GameObject> OnMeleeDeflect;
@@ -63,6 +65,11 @@ public class EventSystem
 
     
     //This is where you add the event trigger function
+    public void DamageEnemy(GameObject enemyObject, DamageType type, int damage, int violence)
+    {
+        OnDamageEnemy?.Invoke(enemyObject, type, damage, violence);
+    }
+
     public void AttackEnemy(GameObject enemyObject, int damage)
     {
         OnAttackEnemy?.Invoke(enemyObject, damage);
