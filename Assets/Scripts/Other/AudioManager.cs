@@ -24,6 +24,13 @@ public class AudioManager : MonoBehaviour
     public AudioClip[] playerTakeDmg;
     public AudioClip playerDeath;
 
+    [Header("Enemy Audio Clips")]
+    public AudioClip[] enemyChaseAlert;
+    public AudioClip[] enemyAttackMelee;
+    public AudioClip[] enemyAttackRanged;
+    public AudioClip[] enemyTakeDmg;
+    public AudioClip[] enemyDeath;
+
     [Header("Music BGM")]
     public AudioClip levelBGM;
 

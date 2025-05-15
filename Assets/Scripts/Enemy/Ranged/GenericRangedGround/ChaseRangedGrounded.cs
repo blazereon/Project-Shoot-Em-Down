@@ -11,6 +11,7 @@ public class ChaseRangedGrounded : BaseRangedGrounded
 
     public override void EnterState(ManagerRangedGrounded enemy)
     {
+        AudioManager.instance.PlayFX(AudioManager.instance.enemyChaseAlert[0]);
         _stopMoving = false;
     }
 
