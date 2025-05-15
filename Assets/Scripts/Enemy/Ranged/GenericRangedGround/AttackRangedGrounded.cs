@@ -104,6 +104,7 @@ public class AttackRangedGrounded : BaseRangedGrounded
 
     public void InstantiateProjectile (ManagerRangedGrounded enemy, Vector2 trajectory)
     {
+        AudioManager.instance.RandomSFX(AudioManager.instance.enemyAttackRanged);
         _spawnProjectile = GameObject.Instantiate(enemy.projectile, enemy.transform.position, enemy.transform.rotation);
 
         _projectileScript = _spawnProjectile.GetComponent<Projectile>();

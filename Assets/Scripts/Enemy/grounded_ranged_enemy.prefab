@@ -167,8 +167,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 7174554433546007196, guid: d30c08a37501f66489cde3eec51fdcd8, type: 3}
-  Health: 100
+  Health: 10
   AttackDamage: 0
+  PneumaAmount: 0
   rayNumber: 20
   rayMaxAngle: 40
   rayStartAngle: 0
@@ -183,9 +184,9 @@ MonoBehaviour:
   startEngagementRange: 6
   projectile: {fileID: 2632042839795995729, guid: a16ceab2eb4945a4fb8ebd03f1660660, type: 3}
   shootMode: 0
-  burstCenterAngle: 0
-  burstSpread: 40
   burstCount: 4
+  projectileInterval: 0
+  burstSpread: 40
   attackDmg: 2
   attackSpd: 0.2
   projectileSpd: 10

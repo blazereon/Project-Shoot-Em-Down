@@ -51,6 +51,11 @@ public class ManagerRangedGrounded : Enemy
     [HideInInspector]
     public GameObject[] projectileParents;
 
+    private void Awake()
+    {
+        EventSystem.Current.OnAttackEnemy += TakeDamage;
+    }
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -96,6 +101,11 @@ public class ManagerRangedGrounded : Enemy
         {
             spriteRenderer.flipX = true;
         }
+    }
+
+    void OnDestroy()
+    {
+        EventSystem.Current.OnAttackEnemy -= TakeDamage;
     }
 }
 
