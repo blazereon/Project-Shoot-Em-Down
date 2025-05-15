@@ -132,6 +132,13 @@ public class Enemy : MonoBehaviour
         return _isPlayerDetected;
     }
 
+    public bool ColliderPlayerDetection(Vector3 scale)
+    {
+
+
+        return false;
+    }
+
     public IEnumerator LockOnPlayer()
     {
         Vector3 _lastPlayerPosition = player.transform.position;
