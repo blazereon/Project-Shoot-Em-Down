@@ -11,27 +11,40 @@ public class ChaseRangedGrounded : BaseRangedGrounded
 
     public override void EnterState(ManagerRangedGrounded enemy)
     {
-        AudioManager.instance.PlayFX(AudioManager.instance.enemyChaseAlert[0]);
         _stopMoving = false;
     }
 
     public override void UpdateState(ManagerRangedGrounded enemy)       // Handle Distance Detections
     {
-        _distanceToPlayer = Vector2.Distance(EventSystem.Current.PlayerLocation, enemy.transform.position);
-
-        if (enemy.startEngagementRange >= _distanceToPlayer)
+        if (enemy.enemyCollider == EventSystem.Current.PlayerCollider)
         {
-            _stopMoving = true;
-            
+            Debug.LogWarning("Player and Enemy colliders are the same! " + enemy.enemyCollider + " " + EventSystem.Current.PlayerCollider);
+        }
+        if (enemy.enemyCollider == null || EventSystem.Current.PlayerCollider == null)
+        {
+            enemy.hasPlayerDetected = false;
+            enemy.SwitchState(enemy.wanderState);
         }
         else
         {
-            _stopMoving = false;
-        }
+            _distanceToPlayer = Physics2D.Distance(EventSystem.Current.PlayerCollider, enemy.enemyCollider).distance;
 
-        if (enemy.detectionRange < _distanceToPlayer)
-        {
-            enemy.SwitchState(enemy.wanderState);
+            if (enemy.startEngagementRange >= _distanceToPlayer)
+            {
+                _stopMoving = true;
+
+            }
+            else
+            {
+                _stopMoving = false;
+            }
+
+            if (enemy.detectionRange < _distanceToPlayer)
+            {
+                Debug.Log("EXITING WANDER STATE: " + _distanceToPlayer);
+                enemy.hasPlayerDetected = false;
+                enemy.SwitchState(enemy.wanderState);
+            }
         }
     }
 

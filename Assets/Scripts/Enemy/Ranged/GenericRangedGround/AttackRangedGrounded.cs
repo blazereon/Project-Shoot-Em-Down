@@ -25,62 +25,73 @@ public class AttackRangedGrounded : BaseRangedGrounded
 
     public override void UpdateState(ManagerRangedGrounded enemy)
     {
-        _distanceToPlayer = Vector2.Distance(EventSystem.Current.PlayerLocation, enemy.transform.position);
-
-        attackTimer += Time.deltaTime;
-
-        if (enemy.startEngagementRange < _distanceToPlayer)
+        if (enemy.enemyCollider == EventSystem.Current.PlayerCollider)
         {
-            enemy.SwitchState(enemy.chaseState);
+            Debug.LogWarning("Player and Enemy colliders are the same! " + enemy.enemyCollider + " " + EventSystem.Current.PlayerCollider);
+        }
+        if (enemy.enemyCollider == null || EventSystem.Current.PlayerCollider == null)
+        {
+            enemy.hasPlayerDetected = false;
+            enemy.SwitchState(enemy.wanderState);
         }
         else
         {
-            if (attackTimer > enemy.attackSpd)
+            _distanceToPlayer = Physics2D.Distance(EventSystem.Current.PlayerCollider, enemy.enemyCollider).distance;
+
+            attackTimer += Time.deltaTime;
+
+            if (enemy.startEngagementRange < _distanceToPlayer)
             {
-
-                Vector3 _playerVec3 = EventSystem.Current.PlayerLocation;
-
-                if (enemy.shootMode == ManagerRangedGrounded.shootType.Single)
+                enemy.SwitchState(enemy.chaseState);
+            }
+            else
+            {
+                if (attackTimer > enemy.attackSpd)
                 {
 
-                    _projectileTrajectory = (_playerVec3 - enemy.transform.position).normalized;
+                    Vector3 _playerVec3 = EventSystem.Current.PlayerLocation;
 
-                    InstantiateProjectile(enemy, _projectileTrajectory);
-
-                }
-                else if (enemy.shootMode == ManagerRangedGrounded.shootType.SingleFileBurst)
-                {
-
-                    enemy.StartCoroutine(SingleFileBurst(enemy, _playerVec3, enemy.projectileInterval));
-
-                }
-                else if (enemy.shootMode == ManagerRangedGrounded.shootType.TrackingBurst)
-                {
-
-                    enemy.StartCoroutine(TrackingBurst(enemy, enemy.projectileInterval));
-
-                }
-                else
-                {
-
-                    float _burstStep = enemy.burstSpread / enemy.burstCount;
-
-                    Vector2 _direction2player = (_playerVec3 - enemy.transform.position);
-                    float _startAngle = (Mathf.Atan2(_direction2player.y, _direction2player.x) * Mathf.Rad2Deg) - (enemy.burstSpread / 2);
-
-                    for (int i = 0; i < enemy.burstCount; i++)
+                    if (enemy.shootMode == ManagerRangedGrounded.shootType.Single)
                     {
-                        _projectileTrajectory = (Quaternion.Euler(0, 0, _startAngle + (i * _burstStep)) * enemy.transform.right);
+
+                        _projectileTrajectory = (_playerVec3 - enemy.transform.position).normalized;
+
                         InstantiateProjectile(enemy, _projectileTrajectory);
+
+                    }
+                    else if (enemy.shootMode == ManagerRangedGrounded.shootType.SingleFileBurst)
+                    {
+
+                        enemy.StartCoroutine(SingleFileBurst(enemy, _playerVec3, enemy.projectileInterval));
+
+                    }
+                    else if (enemy.shootMode == ManagerRangedGrounded.shootType.TrackingBurst)
+                    {
+
+                        enemy.StartCoroutine(TrackingBurst(enemy, enemy.projectileInterval));
+
+                    }
+                    else
+                    {
+
+                        float _burstStep = enemy.burstSpread / enemy.burstCount;
+
+                        Vector2 _direction2player = (_playerVec3 - enemy.transform.position);
+                        float _startAngle = (Mathf.Atan2(_direction2player.y, _direction2player.x) * Mathf.Rad2Deg) - (enemy.burstSpread / 2);
+
+                        for (int i = 0; i < enemy.burstCount; i++)
+                        {
+                            _projectileTrajectory = (Quaternion.Euler(0, 0, _startAngle + (i * _burstStep)) * enemy.transform.right);
+                            InstantiateProjectile(enemy, _projectileTrajectory);
+                        }
+
                     }
 
+                    attackTimer = 0f;
+
                 }
-
-                attackTimer = 0f;
-
             }
         }
-
     }
 
     public override void FixedUpdateState(ManagerRangedGrounded enemy)

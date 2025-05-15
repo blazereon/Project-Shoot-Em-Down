@@ -167,7 +167,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 7174554433546007196, guid: d30c08a37501f66489cde3eec51fdcd8, type: 3}
-  Health: 10
+  Health: 20
   AttackDamage: 0
   PneumaAmount: 0
   rayNumber: 20
@@ -176,6 +176,7 @@ MonoBehaviour:
   detectionRange: 10
   delayScanTime: 0.5
   isPlayerDetected: 0
+  hasPlayerDetected: 0
   hitRays: 
   enemyRb: {fileID: 0}
   wanderSpeed: 60
@@ -188,8 +189,9 @@ MonoBehaviour:
   projectileInterval: 0
   burstSpread: 40
   attackDmg: 2
-  attackSpd: 0.2
+  attackSpd: 30
   projectileSpd: 10
   spriteRenderer: {fileID: 0}
   hasProjectileParent: 0
   projectileParents: []
+  enemyCollider: {fileID: 0}

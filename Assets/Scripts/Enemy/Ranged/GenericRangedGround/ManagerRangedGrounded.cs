@@ -50,6 +50,8 @@ public class ManagerRangedGrounded : Enemy
     public bool hasProjectileParent;
     [HideInInspector]
     public GameObject[] projectileParents;
+    [HideInInspector]
+    public Collider2D enemyCollider;
 
     private void Awake()
     {
@@ -59,6 +61,8 @@ public class ManagerRangedGrounded : Enemy
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        enemyCollider = GetComponent<Collider2D>();
+
         currentState = wanderState;
         currentState.EnterState(this);
     }

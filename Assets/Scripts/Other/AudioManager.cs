@@ -60,23 +60,10 @@ public class AudioManager : MonoBehaviour
         musicSource.volume = 0.5f;
     }
 
-    public void PlayFX(AudioClip clip)
+    public void PlayFX(AudioClip clip, bool random)
     {
         fxSource.clip = clip;
-        fxSource.Play();
-    }
-
-    public void PlayMusic(AudioClip clip)
-    {
-        musicSource.clip = clip;
-        musicSource.loop = true;
-        musicSource.Play();
-    }
-
-    public void PlayFXOneShot(AudioClip clip, bool random)
-    {
-        fxSource.clip = clip;
-
+        fxSource.pitch = 1f;
         if (random)
         {
             float _randomPitch = Random.Range(pitchLow, pitchHigh);
@@ -86,8 +73,15 @@ public class AudioManager : MonoBehaviour
         }
         else
         {
-            fxSource.Play();
+            fxSource.PlayOneShot(clip);
         }
+    }
+
+    public void PlayMusic(AudioClip clip)
+    {
+        musicSource.clip = clip;
+        musicSource.loop = true;
+        musicSource.Play();
     }
 
     public void RandomSFX(params AudioClip[] clips)
@@ -97,7 +91,7 @@ public class AudioManager : MonoBehaviour
 
         fxSource.pitch = _randomPitch;
         fxSource.clip = clips[_randomIndex];
-        fxSource.Play();
+        fxSource.PlayOneShot(clips[_randomIndex]);
     }
 }
 

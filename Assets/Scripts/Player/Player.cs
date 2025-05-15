@@ -47,7 +47,7 @@ public class Player : MonoBehaviour
         if (PlayerCurrentStats.Health <= 0) 
         {
             Destroy(this.gameObject);
-            AudioManager.instance.PlayFX(AudioManager.instance.playerDeath);
+            AudioManager.instance.PlayFX(AudioManager.instance.playerDeath, false);
         }
         
         Debug.Log("HP: " + PlayerCurrentStats.Health);
