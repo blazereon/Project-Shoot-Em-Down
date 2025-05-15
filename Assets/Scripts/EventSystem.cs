@@ -43,6 +43,7 @@ public class EventSystem
 
     //Global variables
     public Vector2 PlayerLocation; //player transform.position
+    public Collider2D PlayerCollider;
     
     //Event handlers
     public event Action<GameObject, int> OnAttackEnemy;
