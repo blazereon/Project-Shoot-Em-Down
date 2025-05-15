@@ -221,7 +221,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_Sprite: {fileID: -9095717837082945937, guid: f338b74b58fadea78ba8f9ad64405c94, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -375,5 +375,6 @@ MonoBehaviour:
   MeleeRadius: 1.01
   attackBox: {fileID: 2749053302236607332}
   groundBox: {fileID: 6397718521625496067}
+  PlayerCollider: {fileID: 0}
   facing: 1
   isDashCooldown: 0
