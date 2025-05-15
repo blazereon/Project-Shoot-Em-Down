@@ -34,6 +34,7 @@ public class LandPlayerState : BasePlayerState
         if (player.groundBox.isGrounded)
         {
             canCayote = false;
+            AudioManager.instance.RandomSFX(AudioManager.instance.playerLand);
             player.PopState();
         }
     }
