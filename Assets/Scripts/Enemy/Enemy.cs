@@ -20,6 +20,8 @@ public class Enemy : MonoBehaviour
     [HideInInspector]
     public bool isPlayerDetected;
     [HideInInspector]
+    public bool hasPlayerDetected = false;
+    [HideInInspector]
     public bool[] hitRays;
     [HideInInspector]
     public enum EnemyFacing
@@ -27,6 +29,8 @@ public class Enemy : MonoBehaviour
         Left,
         Right
     }
+
+
 
     private void Start()
     {
@@ -54,37 +58,33 @@ public class Enemy : MonoBehaviour
 
     public bool PlayerDetection(Vector3 scale)
     {
-        bool _isPlayerDetected = false;
-
+        bool _isPlayerDetected = hasPlayerDetected;
         float _currentAngle = rayStartAngle;
 
         Debug.Log("SCANNING");
 
-        for (int i = 0; i < rayNumber; i++)
+        if (!_isPlayerDetected)
         {
-            Vector3 _rayDirection = Quaternion.Euler(0, 0, (_currentAngle - (rayMaxAngle / 2)) + (i * (rayMaxAngle / (rayNumber - 1)))) * (transform.localScale.x > 0 ? Vector3.right : Vector3.left);
-
-            // Cast a raycast only if no players are detected, could be more optimized this way
-            if (!_isPlayerDetected)
+            for (int i = 0; i < rayNumber; i++)
             {
+                Vector3 _rayDirection = Quaternion.Euler(0, 0, (_currentAngle - (rayMaxAngle / 2)) + (i * (rayMaxAngle / (rayNumber - 1)))) * (transform.localScale.x > 0 ? Vector3.right : Vector3.left);
+
+                // Cast a raycast only if no players are detected, could be more optimized this way
                 RaycastHit2D _hit = Physics2D.Raycast(transform.position, _rayDirection, detectionRange, LayerMask.GetMask("Wall", "Player"));
                 Debug.DrawRay(transform.position, _rayDirection * detectionRange, Color.green);
 
                 if (_hit)
                 {
-                    // code
                     if (_hit.collider.tag == "Player")
                     {
 
                         Debug.DrawRay(transform.position, _rayDirection * detectionRange, Color.yellow);
 
                         _isPlayerDetected = true;
-                        Debug.Log("HIT!");
+                        hasPlayerDetected = true;
+
+                        break;
                     }
-                }
-                else
-                {
-                    _isPlayerDetected = false;
                 }
             }
         }

@@ -4,6 +4,7 @@ public class WanderRangedGrounded : BaseRangedGrounded
 {
     private float _detectRangeInstance;
     private LayerMask _layerMask;
+    bool _isPlayerDetected;
 
     public override void EnterState(ManagerRangedGrounded enemy)
     {
@@ -14,10 +15,12 @@ public class WanderRangedGrounded : BaseRangedGrounded
 
     public override void UpdateState(ManagerRangedGrounded enemy)
     {
-        bool _isPlayerDetected = enemy.PlayerDetection(enemy.transform.localScale);
+        _isPlayerDetected = enemy.PlayerDetection(enemy.transform.localScale);
 
         if (_isPlayerDetected)
         {
+            enemy.hasPlayerDetected = true;
+            AudioManager.instance.PlayFX(AudioManager.instance.enemyChaseAlert[0], false);
             enemy.SwitchState(enemy.chaseState);
         }
 
