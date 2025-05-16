@@ -17,6 +17,7 @@ public class AttackStaticRanged : BaseStaticRanged
         Debug.Log("StR Enter Attack ");
         _startAttack = true;
 
+        AudioManager.instance.PlayFX(AudioManager.instance.enemyChaseAlert[0], false);
     }
 
     public override void UpdateState(ManagerStaticRanged enemy)
