@@ -27,7 +27,7 @@ public class ManagerStaticRanged : Enemy
     public int burstCount;
 
     [Space(5)]
-    [Tooltip("For single file and tracking Burst mode, time interval between bullets in the bullets")]
+    [Tooltip("For single file and tracking Burst mode, time interval between bullets burst")]
     public float projectileInterval;
 
     [Space(5)]
@@ -39,6 +39,9 @@ public class ManagerStaticRanged : Enemy
     public float attackSpd;
     public float projectileSpd;
 
+    [HideInInspector]
+    public Collider2D enemyCollider;
+
     private void Awake()
     {
         EventSystem.Current.OnAttackEnemy += TakeDamage;
@@ -48,6 +51,8 @@ public class ManagerStaticRanged : Enemy
     {
         scanBox = transform.Find("ScanBox").GetComponent<BoxCollider2D>();
         hitDetect = transform.Find("ScanBox").GetComponent<HitDetect>();
+
+        enemyCollider = GetComponent<Collider2D>();
 
         if (scanBox == null || hitDetect == null)
         {

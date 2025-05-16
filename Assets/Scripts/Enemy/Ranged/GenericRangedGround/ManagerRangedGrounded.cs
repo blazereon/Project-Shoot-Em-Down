@@ -32,7 +32,7 @@ public class ManagerRangedGrounded : Enemy
     public int burstCount;
 
     [Space(5)]
-    [Tooltip("For single file and tracking Burst mode, time interval between bullets in the bullets")]
+    [Tooltip("For single file and tracking Burst mode, time interval between bullets burst")]
     public float projectileInterval;
 
     [Space(5)]
@@ -61,6 +61,7 @@ public class ManagerRangedGrounded : Enemy
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+
         enemyCollider = GetComponent<Collider2D>();
 
         currentState = wanderState;

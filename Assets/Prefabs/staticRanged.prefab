@@ -190,7 +190,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2810335722263339416}
-  m_BodyType: 0
+  m_BodyType: 2
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -271,11 +271,13 @@ MonoBehaviour:
   hasPlayerDetected: 0
   hitRays: 
   scanBox: {fileID: 0}
-  projectile: {fileID: 0}
-  shootMode: 0
-  burstCount: 0
-  projectileInterval: 0
-  burstSpread: 0
-  attackDmg: 0
-  attackSpd: 0
-  projectileSpd: 0
+  hitDetect: {fileID: 0}
+  projectile: {fileID: 2632042839795995729, guid: a16ceab2eb4945a4fb8ebd03f1660660, type: 3}
+  shootMode: 2
+  burstCount: 4
+  projectileInterval: 2
+  burstSpread: 90
+  attackDmg: 2
+  attackSpd: 0.4
+  projectileSpd: 6
+  enemyCollider: {fileID: 0}
