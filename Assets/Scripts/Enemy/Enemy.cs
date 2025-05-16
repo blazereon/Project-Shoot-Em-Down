@@ -2,10 +2,12 @@ using System.Collections;
 using System.Linq;
 using UnityEngine;
 
-public class Enemy : MonoBehaviour
+public class Enemy : Entity
 {
     public GameObject player;
     public int Health = 100;
+    public int MeleeResistancePercentage;
+    public int RangeResistancePercentage;
     public int AttackDamage;
     public int PneumaAmount;
 
@@ -30,13 +32,48 @@ public class Enemy : MonoBehaviour
         Right
     }
 
-    public bool isFiringBurst { get; private set; } = false;
-
     private void Start()
     {
         player = GameObject.FindWithTag("Player");
 
         isPlayerDetected = false;
+        
+    }
+    public void TakeDamage(GameObject pObject, DamageType type, int damage, int violencePercentage)
+    {
+        Debug.Log("New damage system invoked");
+        if (pObject != this.gameObject) return;
+        float _rawDamage = 0;
+        float _rawViolence;
+        float _rawResPercent;
+        switch (type)
+        {
+            case DamageType.Melee:
+                _rawResPercent = (float)MeleeResistancePercentage / 100;
+                _rawViolence = _rawResPercent * ((float)violencePercentage / 100);
+                Debug.Log("Raw Violence: " + _rawViolence);
+                _rawDamage = damage - (damage * (_rawResPercent - _rawViolence));
+                Debug.Log("Raw damage: " + _rawDamage);
+                Health -= (int)_rawDamage;
+                break;
+
+            case DamageType.Range:
+                _rawResPercent = (float)RangeResistancePercentage / 100;
+                _rawViolence = _rawResPercent * ((float)violencePercentage / 100);
+                Debug.Log("Raw Violence: " + _rawViolence);
+                _rawDamage = damage - (damage * (_rawResPercent - _rawViolence));
+                Debug.Log("Raw damage: " + _rawDamage);
+                Health -= (int)_rawDamage;
+                break;
+        }
+        
+        if (Health <= 0)
+        {
+            AudioManager.instance.RandomSFX(AudioManager.instance.enemyDeath);
+            EventSystem.Current.SendPlayerPneuma(PneumaAmount);
+            EventSystem.Current.EnemyKill();
+            Destroy(this.gameObject);
+        }
 
     }
 
@@ -133,13 +170,6 @@ public class Enemy : MonoBehaviour
         return _isPlayerDetected;
     }
 
-    public bool ColliderPlayerDetection(Vector3 scale)
-    {
-
-
-        return false;
-    }
-
     public IEnumerator LockOnPlayer()
     {
         Vector3 _lastPlayerPosition = player.transform.position;
@@ -187,71 +217,4 @@ public class Enemy : MonoBehaviour
 
     }
 
-    public void InstantiateProjectile(int attackDmg, float projectileSpd, Vector2 trajectory, GameObject projectile)
-    {
-        AudioManager.instance.RandomSFX(AudioManager.instance.enemyAttackRanged);
-        GameObject _spawnProjectile = GameObject.Instantiate(projectile, transform.position, transform.rotation);
-
-        Projectile _projectileScript = _spawnProjectile.GetComponent<Projectile>();
-
-        _projectileScript.ProjectileCurrentProperties.AttackDamage = attackDmg;
-        _projectileScript.ProjectileCurrentProperties.ProjectileSpeed = projectileSpd;
-        _projectileScript.ProjectileCurrentProperties.Trajectory = trajectory;
-
-        _projectileScript.ProjectileCurrentProperties.FiredBy = ProjectileOwner.Enemy;
-    }
-
-    public IEnumerator SingleFileBurst(bool startAttack, int attackDmg, float projectileSpd, int burstCount, float atkSpd, Vector3 playerPos, GameObject projectile)
-    {
-        isFiringBurst = true;
-
-        if (player == null || !startAttack)
-        {
-            Debug.Log("STOPPING ATTACK");
-            yield break;
-        }
-
-        for (int i = 0; i < burstCount; i++)
-        {
-            if (player == null || !startAttack)
-            {
-                Debug.Log("STOPPING ATTACK");
-                yield break;
-            }
-
-            Vector2 _projectileTrajectory = (playerPos - transform.position).normalized;
-            InstantiateProjectile(attackDmg, projectileSpd, _projectileTrajectory, projectile);
-
-            yield return new WaitForSeconds(atkSpd);
-        }
-
-        isFiringBurst = false;
-    }
-
-    public IEnumerator TrackingBurst(bool startAttack, int attackDmg, float projectileSpd, int burstCount, float atkSpd, Vector3 enemyPos, GameObject projectile)
-    {
-        isFiringBurst= true;
-
-        if (player == null || !startAttack)
-        {
-            Debug.Log("STOPPING ATTACK");
-            yield break;
-        }
-
-        for (int i = 0; i < burstCount; i++)
-        {
-            if (player == null || !startAttack)
-            {
-                yield break;
-            }
-
-            Vector3 _playerPos = EventSystem.Current.PlayerLocation;
-            Vector2 _projectileTrajectory = (_playerPos - enemyPos).normalized;
-            InstantiateProjectile(attackDmg, projectileSpd, _projectileTrajectory, projectile);
-
-            yield return new WaitForSeconds(atkSpd);
-        }
-
-        isFiringBurst = false;
-    }
 }

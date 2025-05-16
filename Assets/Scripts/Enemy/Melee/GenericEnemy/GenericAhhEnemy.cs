@@ -8,11 +8,7 @@ using UnityEngine;
 using UnityEngine.AI;
 
 
-public enum Facing
-{
-    left,
-    right
-}
+
 
 public enum EnemyState
 {
@@ -44,7 +40,7 @@ public class GenericAhhEnemy : Enemy
 
     void Awake()
     {
-        EventSystem.Current.OnAttackEnemy += TakeDamage;
+        EventSystem.Current.OnDamageEnemy += TakeDamage;
     }
 
 

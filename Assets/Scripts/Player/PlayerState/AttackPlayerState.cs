@@ -80,7 +80,8 @@ public class AttackPlayerState : BasePlayerState
             //melee deflect 
             else if (hit.gameObject.tag == "Enemy")
             {
-                EventSystem.Current.AttackEnemy(hit.gameObject, 15 + (15/2 * player.PlayerCurrentStats.Chain));
+                Debug.Log("enemy melee hit!!");
+                EventSystem.Current.AttackEnemy(hit.gameObject, DamageType.Melee, 15 /*+ (15/2 * player.PlayerCurrentStats.Chain)*/, player.PlayerCurrentStats.Violence);
             }
         }
 

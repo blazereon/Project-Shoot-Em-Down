@@ -362,6 +362,7 @@ MonoBehaviour:
     MaxHealth: 5
     MaxMomentum: 100
     MaxPneumatic: 100
+    MaxViolence: 100
     MaxChain: 4
     ChainDuration: 3
   Speed: 300
