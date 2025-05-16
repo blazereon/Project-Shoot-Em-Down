@@ -347,7 +347,7 @@ MonoBehaviour:
     m_SingletonActionBindings: []
     m_Flags: 0
   switchWeaponAction:
-    m_Name: 
+    m_Name: Switch Weapon
     m_Type: 0
     m_ExpectedControlType: 
     m_Id: 4c9250ad-9573-423e-8575-2e1dffe2027c
@@ -376,5 +376,4 @@ MonoBehaviour:
   attackBox: {fileID: 2749053302236607332}
   groundBox: {fileID: 6397718521625496067}
   facing: 1
-  attackType: 0
   isDashCooldown: 0
