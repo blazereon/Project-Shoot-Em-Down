@@ -18,7 +18,8 @@ public class ManagerStaticRanged : Enemy
         Single,
         SingleFileBurst,
         TrackingBurst,
-        AOEBurst
+        AOEBurst,
+        TwirlBurst
     }
     public shootType shootMode;
 
