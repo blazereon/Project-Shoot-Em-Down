@@ -184,12 +184,12 @@ MonoBehaviour:
   wallDistanceLimit: 2.5
   startEngagementRange: 6
   projectile: {fileID: 2632042839795995729, guid: a16ceab2eb4945a4fb8ebd03f1660660, type: 3}
-  shootMode: 0
-  burstCount: 4
-  projectileInterval: 0
+  shootMode: 1
+  burstCount: 2
+  projectileInterval: 1
   burstSpread: 40
   attackDmg: 2
-  attackSpd: 30
+  attackSpd: 0.4
   projectileSpd: 10
   spriteRenderer: {fileID: 0}
   hasProjectileParent: 0
