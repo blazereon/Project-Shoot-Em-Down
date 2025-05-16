@@ -33,7 +33,7 @@ public class Enemy : Entity
         Right
     }
 
-    public bool isFiringBurst { get; private set; } = false;
+    public bool isFiringBurst { get; set; } = false;
 
     private void Start()
     {
@@ -239,17 +239,17 @@ public class Enemy : Entity
     {
         isFiringBurst = true;
 
-        if (player == null || !startAttack)
+        if (EventSystem.Current.PlayerLocation == null || !startAttack)
         {
-            Debug.Log("STOPPING ATTACK");
+            isFiringBurst = false;
             yield break;
         }
 
         for (int i = 0; i < burstCount; i++)
         {
-            if (player == null || !startAttack)
+            if (EventSystem.Current.PlayerLocation == null || !startAttack)
             {
-                Debug.Log("STOPPING ATTACK");
+                isFiringBurst = false;
                 yield break;
             }
 
@@ -266,7 +266,7 @@ public class Enemy : Entity
     {
         isFiringBurst = true;
 
-        if (player == null || !startAttack)
+        if (EventSystem.Current.PlayerLocation == null || !startAttack)
         {
             Debug.Log("STOPPING ATTACK");
             yield break;
@@ -274,13 +274,35 @@ public class Enemy : Entity
 
         for (int i = 0; i < burstCount; i++)
         {
-            if (player == null || !startAttack)
+            if (EventSystem.Current.PlayerLocation == null || !startAttack)
             {
                 yield break;
             }
 
             Vector3 _playerPos = EventSystem.Current.PlayerLocation;
             Vector2 _projectileTrajectory = (_playerPos - enemyPos).normalized;
+            InstantiateProjectile(attackDmg, projectileSpd, _projectileTrajectory, projectile);
+
+            yield return new WaitForSeconds(atkSpd);
+        }
+
+        isFiringBurst = false;
+    }
+
+    public IEnumerator TwirlBurst(bool startAttack, int attackDmg, float projectileSpd, int burstCount, float startAngle, float burstStep, float atkSpd, Vector3 enemyTransform, GameObject projectile)
+    {
+        isFiringBurst = true;
+        Vector2 _projectileTrajectory;
+
+        for (int i = 0; i < burstCount; i++)
+        {
+            if (EventSystem.Current.PlayerLocation == null || !startAttack)
+            {
+                yield break;
+            }
+
+            _projectileTrajectory = (Quaternion.Euler(0, 0, startAngle + (i * burstStep)) * enemyTransform);
+            // InstantiateProjectile(enemy, _projectileTrajectory);
             InstantiateProjectile(attackDmg, projectileSpd, _projectileTrajectory, projectile);
 
             yield return new WaitForSeconds(atkSpd);
