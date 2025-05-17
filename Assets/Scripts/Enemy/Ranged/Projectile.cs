@@ -55,8 +55,19 @@ public class Projectile : MonoBehaviour
         }
         else if (collision.gameObject.layer == enemyLayer && ProjectileCurrentProperties.FiredBy == ProjectileOwner.Player)
         {
-            Debug.Log("Enemy hit!");
-            EventSystem.Current.AttackEnemy(collision.gameObject, ProjectileCurrentProperties.AttackDamage);
+            
+            // EventSystem.Current.AttackEnemy(collision.gameObject, ProjectileCurrentProperties.AttackDamage);
+            if(collision.gameObject.tag == "WeakSpot")
+            {
+                Debug.Log("Enemy hit! On weak spot");
+                EventSystem.Current.AttackEnemy(collision.gameObject, DamageType.Range, ProjectileCurrentProperties.AttackDamage, 0, true);
+            }
+            else
+            {
+                Debug.Log("Enemy hit! On Non weak spot");
+                EventSystem.Current.AttackEnemy(collision.gameObject, DamageType.Range, ProjectileCurrentProperties.AttackDamage, 0, false);
+            }
+                
             Destroy(gameObject);
         }
         else

@@ -43,7 +43,8 @@ public class EventSystem
     //Event handlers
     
     public event Action<GameObject, int> OnAttackEnemy;
-    public event Action<GameObject, DamageType, int, int> OnDamageEnemy;
+    public event System.Action<GameObject, DamageType, int, int, bool> OnDamageEnemy;
+    public event Action<GameObject, DamageType, int, int> OnDamageEnemy1;
     public event Action<int> OnAttackPlayer;
     public event Action<int> OnSendPlayerPneuma;
     public event Action<GameObject> OnMeleeDeflect;
@@ -60,9 +61,14 @@ public class EventSystem
 
     
     //This is where you add the event trigger function
+    public void AttackEnemy(GameObject enemyObject, DamageType type, int damage, int violence, bool weakSpotHit)
+    {
+        OnDamageEnemy?.Invoke(enemyObject, type, damage, violence, weakSpotHit);
+    }
+    
     public void AttackEnemy(GameObject enemyObject, DamageType type, int damage, int violence)
     {
-        OnDamageEnemy?.Invoke(enemyObject, type, damage, violence);
+        OnDamageEnemy1?.Invoke(enemyObject, type, damage, violence);
     }
 
     public void AttackEnemy(GameObject enemyObject, int damage)
