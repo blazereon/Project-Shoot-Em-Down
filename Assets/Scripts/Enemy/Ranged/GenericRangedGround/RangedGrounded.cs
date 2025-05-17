@@ -28,7 +28,7 @@ public class RangedGrounded : Enemy {
 
     void Awake()
     {
-        EventSystem.Current.OnAttackEnemy += TakeDamage;
+        EventSystem.Current.OnAttackEnemy += TakeDamageOld;
     }
 
     private void Start()
@@ -223,6 +223,6 @@ public class RangedGrounded : Enemy {
 
     void OnDestroy()
     {
-        EventSystem.Current.OnAttackEnemy -= TakeDamage;
+        EventSystem.Current.OnAttackEnemy -= TakeDamageOld;
     }
 }

@@ -24,7 +24,7 @@ public class ManagerGenericEnemy : Enemy
 
     void Awake()
     {
-        EventSystem.Current.OnAttackEnemy += TakeDamage;   
+        // EventSystem.Current.OnAttackEnemy += TakeDamage;   
     }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -78,6 +78,6 @@ public class ManagerGenericEnemy : Enemy
 
     void OnDestroy()
     {
-        EventSystem.Current.OnAttackEnemy -= TakeDamage;
+        // EventSystem.Current.OnAttackEnemy -= TakeDamage;
     }
 }

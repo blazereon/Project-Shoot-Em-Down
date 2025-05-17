@@ -74,7 +74,7 @@ public class AttackStaticRanged : BaseStaticRanged
             }
             else
             {
-                if (_attackTimer > enemy.projectileInterval && !enemy.isFiringBurst)
+                if (_attackTimer > enemy.burstInterval && !enemy.isFiringBurst)
                 {
                     Vector3 _playerVec3 = EventSystem.Current.PlayerLocation;
 
