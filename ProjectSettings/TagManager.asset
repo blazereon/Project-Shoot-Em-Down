@@ -10,6 +10,7 @@ TagManager:
   - EnemyProjectile
   - ProjectileParent
   - PlayerProjectile
+  - WeakSpot
   layers:
   - Default
   - TransparentFX
@@ -24,7 +25,7 @@ TagManager:
   - Projectile
   - GroundCheck
   - ScanBox
-  - 
+  - Shield
   - 
   - 
   - 
