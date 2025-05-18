@@ -42,18 +42,21 @@ public class Projectile : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        int playerLayer = LayerMask.NameToLayer(LayerDestinations.Player.ToString());
-        int enemyLayer = LayerMask.NameToLayer(LayerDestinations.Enemy.ToString());
+        int _playerLayer = LayerMask.NameToLayer(LayerDestinations.Player.ToString());
+        int _enemyLayer = LayerMask.NameToLayer(LayerDestinations.Enemy.ToString());
+        int _nonCollideEnemy = LayerMask.NameToLayer("NonCollideEnemy");
 
-        Debug.Log("hit rec: " + collision.gameObject.layer + " " + ProjectileCurrentProperties.FiredBy + " " + enemyLayer);
+        Debug.Log("Collided to layer: " + collision.gameObject.layer);
 
-        if ((collision.gameObject.layer == playerLayer && ProjectileCurrentProperties.FiredBy == ProjectileOwner.Enemy))
+        Debug.Log("hit rec: " + collision.gameObject.layer + " " + ProjectileCurrentProperties.FiredBy + " " + _enemyLayer);
+
+        if ((collision.gameObject.layer == _playerLayer && ProjectileCurrentProperties.FiredBy == ProjectileOwner.Enemy))
         {
             Debug.Log("Player hit!");
             EventSystem.Current.AttackPlayer(ProjectileCurrentProperties.AttackDamage);
             Destroy(gameObject);
         }
-        else if (collision.gameObject.layer == enemyLayer && ProjectileCurrentProperties.FiredBy == ProjectileOwner.Player)
+        else if ((collision.gameObject.layer == _enemyLayer || collision.gameObject.layer == _nonCollideEnemy) && ProjectileCurrentProperties.FiredBy == ProjectileOwner.Player)
         {
             
             // EventSystem.Current.AttackEnemy(collision.gameObject, ProjectileCurrentProperties.AttackDamage);
