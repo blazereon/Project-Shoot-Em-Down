@@ -26,7 +26,7 @@ TagManager:
   - GroundCheck
   - ScanBox
   - Shield
-  - 
+  - NonCollideEnemy
   - 
   - 
   - 
