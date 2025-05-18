@@ -181,7 +181,7 @@ MonoBehaviour:
     Trajectory: {x: 0, y: 0}
     DestroyOnly:
       serializedVersion: 2
-      m_Bits: 0
+      m_Bits: 8456
     FiredBy: 0
     Destination: 0
   rb: {fileID: 964628502704300292}
