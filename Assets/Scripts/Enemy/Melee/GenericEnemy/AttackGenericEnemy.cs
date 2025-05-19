@@ -17,8 +17,7 @@ public class AttackGenericEnemy: BaseGenericEnemy
             genericEnemy.SwitchState(genericEnemy.chaseState);
         }
         if (_canAttack == true){
-            EventSystem.Current.AttackPlayer(1);
-            Debug.Log("Enemy Attack Invoked on Player");
+            genericEnemy.StartCoroutine(HandleMultiHit(genericEnemy));
             _canAttack = false;
             genericEnemy.StartCoroutine(HandleAttackCooldown());
         }
@@ -33,5 +32,14 @@ public class AttackGenericEnemy: BaseGenericEnemy
     {
         yield return new WaitForSeconds(1.5f);
         _canAttack = true;
+    }
+
+    IEnumerator HandleMultiHit(ManagerGenericEnemy genericEnemy)
+    {
+        for (int i = 0; i < 2; i++)
+        {
+            EventSystem.Current.AttackPlayer(genericEnemy.AttackDamage);
+            yield return new WaitForSeconds(0.5F);
+        }
     }
 }

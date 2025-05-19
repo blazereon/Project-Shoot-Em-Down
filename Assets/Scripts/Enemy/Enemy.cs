@@ -33,7 +33,8 @@ public class Enemy : Entity
         Right
     }
 
-    public bool isFiringBurst { get; private set; } = false;
+    public bool isFiringBurst { get; set; } = false;
+    public bool isWeakSpotActive { get; set; } = false;
 
     private void Start()
     {
@@ -42,16 +43,16 @@ public class Enemy : Entity
         isPlayerDetected = false;
         
     }
-    public void TakeDamage(GameObject pObject, DamageType type, int damage, int violencePercentage)
+    public void TakeDamage(GameObject pObject, DamageType type, int damage, int violencePercentage, bool weakSpotHit)
     {
-        Debug.Log("New damage system invoked");
+        Debug.Log("New damage system invoked " + pObject + " " + type + " " + damage + " " + violencePercentage + " " + weakSpotHit);
         AudioManager.instance.RandomSFX(AudioManager.instance.enemyTakeDmg);
         if (pObject != this.gameObject) return;
         float _rawDamage = 0;
         float _rawViolence;
         float _rawResPercent;
         switch (type)
-        {
+        {   
             case DamageType.Melee:
                 _rawResPercent = (float)MeleeResistancePercentage / 100;
                 _rawViolence = _rawResPercent * ((float)violencePercentage / 100);
@@ -68,6 +69,15 @@ public class Enemy : Entity
                 _rawDamage = damage - (damage * (_rawResPercent - _rawViolence));
                 Debug.Log("Raw damage: " + _rawDamage);
                 Health -= (int)_rawDamage;
+
+                Debug.Log("PN Range Hurt " + isWeakSpotActive + weakSpotHit);
+                if (isWeakSpotActive && weakSpotHit)
+                {
+                    Debug.Log("Weak Spot hit, sending pneuma!");
+
+                    EventSystem.Current.SendPlayerPneuma(PneumaAmount);
+                }
+
                 break;
         }
         
@@ -81,7 +91,7 @@ public class Enemy : Entity
 
     }
 
-    public void TakeDamage(GameObject pObject, int damage)
+    public void TakeDamageOld(GameObject pObject, int damage)
     {
         if (pObject == gameObject)
         {
@@ -232,24 +242,26 @@ public class Enemy : Entity
         _projectileScript.ProjectileCurrentProperties.ProjectileSpeed = projectileSpd;
         _projectileScript.ProjectileCurrentProperties.Trajectory = trajectory;
 
+        _projectileScript.ProjectileCurrentProperties.DestroyOnly = LayerMask.GetMask("Ground", "Wall");
         _projectileScript.ProjectileCurrentProperties.FiredBy = ProjectileOwner.Enemy;
+        _projectileScript.ProjectileCurrentProperties.Destination = LayerDestinations.Player;
     }
 
     public IEnumerator SingleFileBurst(bool startAttack, int attackDmg, float projectileSpd, int burstCount, float atkSpd, Vector3 playerPos, GameObject projectile)
     {
         isFiringBurst = true;
 
-        if (player == null || !startAttack)
+        if (EventSystem.Current.PlayerLocation == null || !startAttack)
         {
-            Debug.Log("STOPPING ATTACK");
+            isFiringBurst = false;
             yield break;
         }
 
         for (int i = 0; i < burstCount; i++)
         {
-            if (player == null || !startAttack)
+            if (EventSystem.Current.PlayerLocation == null || !startAttack)
             {
-                Debug.Log("STOPPING ATTACK");
+                isFiringBurst = false;
                 yield break;
             }
 
@@ -266,7 +278,7 @@ public class Enemy : Entity
     {
         isFiringBurst = true;
 
-        if (player == null || !startAttack)
+        if (EventSystem.Current.PlayerLocation == null || !startAttack)
         {
             Debug.Log("STOPPING ATTACK");
             yield break;
@@ -274,13 +286,35 @@ public class Enemy : Entity
 
         for (int i = 0; i < burstCount; i++)
         {
-            if (player == null || !startAttack)
+            if (EventSystem.Current.PlayerLocation == null || !startAttack)
             {
                 yield break;
             }
 
             Vector3 _playerPos = EventSystem.Current.PlayerLocation;
             Vector2 _projectileTrajectory = (_playerPos - enemyPos).normalized;
+            InstantiateProjectile(attackDmg, projectileSpd, _projectileTrajectory, projectile);
+
+            yield return new WaitForSeconds(atkSpd);
+        }
+
+        isFiringBurst = false;
+    }
+
+    public IEnumerator TwirlBurst(bool startAttack, int attackDmg, float projectileSpd, int burstCount, float startAngle, float burstStep, float atkSpd, Vector3 enemyTransform, GameObject projectile)
+    {
+        isFiringBurst = true;
+        Vector2 _projectileTrajectory;
+
+        for (int i = 0; i < burstCount; i++)
+        {
+            if (EventSystem.Current.PlayerLocation == null || !startAttack)
+            {
+                yield break;
+            }
+
+            _projectileTrajectory = (Quaternion.Euler(0, 0, startAngle + (i * burstStep)) * enemyTransform);
+            // InstantiateProjectile(enemy, _projectileTrajectory);
             InstantiateProjectile(attackDmg, projectileSpd, _projectileTrajectory, projectile);
 
             yield return new WaitForSeconds(atkSpd);

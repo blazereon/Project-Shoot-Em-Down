@@ -12,9 +12,9 @@ GameObject:
   - component: {fileID: 8781605290604055258}
   - component: {fileID: 8074721881138741803}
   - component: {fileID: 7255823586710530253}
-  - component: {fileID: 2244486906729362588}
-  m_Layer: 0
-  m_Name: flying_ranged_enemy
+  - component: {fileID: 1197726589855281261}
+  m_Layer: 14
+  m_Name: grounded_ranged_enemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -80,8 +80,8 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: -9095717837082945937, guid: f338b74b58fadea78ba8f9ad64405c94, type: 3}
-  m_Color: {r: 1, g: 0.6076496, b: 0, a: 1}
-  m_FlipX: 1
+  m_Color: {r: 0.91372555, g: 0.9960785, b: 0, a: 1}
+  m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 1, y: 2}
@@ -139,10 +139,10 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 100
+  m_Mass: 1
   m_LinearDamping: 0
   m_AngularDamping: 0.05
-  m_GravityScale: 0
+  m_GravityScale: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -154,7 +154,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &2244486906729362588
+--- !u!114 &1197726589855281261
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -166,18 +166,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0f85e9d08bac3d479f3f76cf86f659b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
-  Health: 100
+  player: {fileID: 7174554433546007196, guid: d30c08a37501f66489cde3eec51fdcd8, type: 3}
+  Health: 20
+  MeleeResistancePercentage: 0
+  RangeResistancePercentage: 0
   AttackDamage: 0
-  rayNumber: 36
-  rayMaxAngle: 360
+  PneumaAmount: 0
+  rayNumber: 20
+  rayMaxAngle: 40
   rayStartAngle: 0
-  detectionRange: 5
+  detectionRange: 10
   delayScanTime: 0.5
   isPlayerDetected: 0
+  hasPlayerDetected: 0
   hitRays: 
   enemyRb: {fileID: 0}
-  wanderSpeed: 0
-  chaseSpeed: 0
-  wallDistanceLimit: 0
-  startEngagementRange: 0
+  wanderSpeed: 60
+  chaseSpeed: 80
+  wallDistanceLimit: 2.5
+  startEngagementRange: 6
+  projectile: {fileID: 2293672932219427466, guid: e05d3644ec341dc4eb06436dcb3e0904, type: 3}
+  attackSpd: 0.4
+  projectileSpd: 10
+  shootMode: 1
+  burstCount: 2
+  projectileInterval: 1
+  burstSpread: 40
+  spriteRenderer: {fileID: 0}
+  hasProjectileParent: 0
+  projectileParents: []
+  enemyCollider: {fileID: 0}
+  attackDmg: 2

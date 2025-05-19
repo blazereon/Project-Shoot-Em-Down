@@ -1,12 +1,7 @@
-using System.Threading;
-using System.Collections;
-using System.Collections.Generic;
+using Unity.VisualScripting.FullSerializer;
 using UnityEngine;
-using static Enemy;
-using static UnityEngine.RuleTile.TilingRuleOutput;
-using System.Security.Cryptography;
 
-public class AttackRangedGrounded : BaseRangedGrounded
+public class AttackShieldRanged: BaseShieldRanged
 {
     private float _distanceToPlayer;
     private float _attackTimer;
@@ -18,37 +13,13 @@ public class AttackRangedGrounded : BaseRangedGrounded
     private Coroutine _attackCoroutine;
     private Vector2 _projectileTrajectory;
 
-    public override void EnterState(ManagerRangedGrounded enemy)
+    public override void EnterState(ManagerShieldRanged enemy)
     {
         _attackTimer = 0f;
         _startAttack = true;
-
-        // Check if Player still exist and shoot instantly without waiting for the initial cooldown
-        if (enemy.enemyCollider == EventSystem.Current.PlayerCollider)
-        {
-            Debug.LogWarning("Player and Enemy colliders are the same! " + enemy.enemyCollider + " " + EventSystem.Current.PlayerCollider);
-        }
-        if (enemy.enemyCollider == null || EventSystem.Current.PlayerCollider == null)
-        {
-            enemy.hasPlayerDetected = false;
-            enemy.SwitchState(enemy.wanderState);
-        }
-        else
-        {
-            _distanceToPlayer = Physics2D.Distance(EventSystem.Current.PlayerCollider, enemy.enemyCollider).distance;
-
-            if (enemy.shootMode == ManagerRangedGrounded.shootType.Single || enemy.shootMode == ManagerRangedGrounded.shootType.AOEBurst)
-            {
-                SingleShoot(enemy);
-            }
-            else
-            {
-                BurstShoot(enemy);
-            }
-        }
     }
 
-    public override void UpdateState(ManagerRangedGrounded enemy)
+    public override void UpdateState(ManagerShieldRanged enemy)
     {
         if (enemy.enemyCollider == EventSystem.Current.PlayerCollider)
         {
@@ -67,6 +38,7 @@ public class AttackRangedGrounded : BaseRangedGrounded
 
             if (enemy.startEngagementRange < _distanceToPlayer)
             {
+                enemy.hitDetect.weakSpotActive = false;
                 enemy.SwitchState(enemy.chaseState);
             }
             else
@@ -75,12 +47,16 @@ public class AttackRangedGrounded : BaseRangedGrounded
 
                 _attackTimer += Time.deltaTime;
 
-                if (enemy.shootMode == ManagerRangedGrounded.shootType.Single || enemy.shootMode == ManagerRangedGrounded.shootType.AOEBurst)
+                if (enemy.shootMode == ManagerShieldRanged.shootType.Single || enemy.shootMode == ManagerShieldRanged.shootType.AOEBurst)
                 {
+                    // Put weakspot activation and dertection here since we dont want to turn it on/off every atkSpd which is very short
+                    enemy.hitDetect.weakSpotActive = true;
+
                     if (_attackTimer > enemy.attackSpd)
                     {
-
+                        // Debug.Log("ws hit stat: " + enemy.hitDetect.weakSpotActive + " " + enemy.isWeakSpotActive + " " + enemy.hitDetect.WeakSpotHitDetected());
                         SingleShoot(enemy);
+                        // enemy.hitDetect.weakSpotActive = false;
 
                         _attackTimer = 0f;
 
@@ -90,8 +66,11 @@ public class AttackRangedGrounded : BaseRangedGrounded
                 {
                     if (_attackTimer > enemy.projectileInterval && !enemy.isFiringBurst)
                     {
+                        // Put weakspot activation and dertection inside the timer since there's could be enough time inside burst shooting duration
+                        enemy.hitDetect.weakSpotActive = true;
 
                         BurstShoot(enemy);
+                        enemy.hitDetect.weakSpotActive = false;
 
                         _attackTimer = 0f;
                     }
@@ -101,7 +80,7 @@ public class AttackRangedGrounded : BaseRangedGrounded
         }
     }
 
-    public override void FixedUpdateState(ManagerRangedGrounded enemy)
+    public override void FixedUpdateState(ManagerShieldRanged enemy)
     {
         if (EventSystem.Current.PlayerLocation.x > enemy.transform.position.x)     // player on the right
         {
@@ -120,11 +99,11 @@ public class AttackRangedGrounded : BaseRangedGrounded
         }
     }
 
-    private void SingleShoot(ManagerRangedGrounded enemy)
+    private void SingleShoot(ManagerShieldRanged enemy)
     {
         Vector3 _playerVec3 = EventSystem.Current.PlayerLocation;
 
-        if (enemy.shootMode == ManagerRangedGrounded.shootType.Single)
+        if (enemy.shootMode == ManagerShieldRanged.shootType.Single)
         {
 
             _projectileTrajectory = (_playerVec3 - enemy.transform.position).normalized;
@@ -133,7 +112,7 @@ public class AttackRangedGrounded : BaseRangedGrounded
             enemy.InstantiateProjectile(enemy.attackDmg, enemy.projectileSpd, _projectileTrajectory, enemy.projectile);
 
         }
-        else if (enemy.shootMode == ManagerRangedGrounded.shootType.AOEBurst)
+        else if (enemy.shootMode == ManagerShieldRanged.shootType.AOEBurst)
         {
 
             float _burstStep = enemy.burstSpread / enemy.burstCount;
@@ -150,12 +129,14 @@ public class AttackRangedGrounded : BaseRangedGrounded
 
         }
     }
-    
-    private void BurstShoot(ManagerRangedGrounded enemy)
+
+    private void BurstShoot(ManagerShieldRanged enemy)
     {
+        enemy.hitDetect.weakSpotActive = true;
+
         Vector3 _playerVec3 = EventSystem.Current.PlayerLocation;
 
-        if (enemy.shootMode == ManagerRangedGrounded.shootType.SingleFileBurst)
+        if (enemy.shootMode == ManagerShieldRanged.shootType.SingleFileBurst)
         {
             if (_attackCoroutine != null)
             {
@@ -165,7 +146,7 @@ public class AttackRangedGrounded : BaseRangedGrounded
             _attackCoroutine = enemy.StartCoroutine(enemy.SingleFileBurst(_startAttack, enemy.attackDmg, enemy.projectileSpd, enemy.burstCount, enemy.attackSpd, _playerVec3, enemy.projectile));
 
         }
-        else if (enemy.shootMode == ManagerRangedGrounded.shootType.TrackingBurst)
+        else if (enemy.shootMode == ManagerShieldRanged.shootType.TrackingBurst)
         {
             if (_attackCoroutine != null)
             {
@@ -175,7 +156,7 @@ public class AttackRangedGrounded : BaseRangedGrounded
             _attackCoroutine = enemy.StartCoroutine(enemy.TrackingBurst(_startAttack, enemy.attackDmg, enemy.projectileSpd, enemy.burstCount, enemy.attackSpd, enemy.transform.position, enemy.projectile));
 
         }
-        else if (enemy.shootMode == ManagerRangedGrounded.shootType.TwirlBurst)
+        else if (enemy.shootMode == ManagerShieldRanged.shootType.TwirlBurst)
         {
             if (_attackCoroutine != null)
             {
@@ -191,5 +172,4 @@ public class AttackRangedGrounded : BaseRangedGrounded
             _attackCoroutine = enemy.StartCoroutine(enemy.TwirlBurst(_startAttack, enemy.attackDmg, enemy.projectileSpd, enemy.burstCount, _startAngle, _burstStep, enemy.attackSpd, enemy.transform.right, enemy.projectile));
         }
     }
-
 }

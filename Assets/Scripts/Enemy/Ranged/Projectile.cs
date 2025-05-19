@@ -42,21 +42,35 @@ public class Projectile : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        int playerLayer = LayerMask.NameToLayer(LayerDestinations.Player.ToString());
-        int enemyLayer = LayerMask.NameToLayer(LayerDestinations.Enemy.ToString());
+        int _playerLayer = LayerMask.NameToLayer(LayerDestinations.Player.ToString());
+        int _enemyLayer = LayerMask.NameToLayer(LayerDestinations.Enemy.ToString());
+        int _nonCollideEnemy = LayerMask.NameToLayer("NonCollideEnemy");
 
-        Debug.Log("hit rec: " + collision.gameObject.layer + " " + ProjectileCurrentProperties.FiredBy + " " + enemyLayer);
+        Debug.Log("Collided to layer: " + collision.gameObject.layer);
 
-        if ((collision.gameObject.layer == playerLayer && ProjectileCurrentProperties.FiredBy == ProjectileOwner.Enemy))
+        Debug.Log("hit rec: " + collision.gameObject.layer + " " + ProjectileCurrentProperties.FiredBy + " " + _enemyLayer);
+
+        if ((collision.gameObject.layer == _playerLayer && ProjectileCurrentProperties.FiredBy == ProjectileOwner.Enemy))
         {
             Debug.Log("Player hit!");
             EventSystem.Current.AttackPlayer(ProjectileCurrentProperties.AttackDamage);
             Destroy(gameObject);
         }
-        else if (collision.gameObject.layer == enemyLayer && ProjectileCurrentProperties.FiredBy == ProjectileOwner.Player)
+        else if ((collision.gameObject.layer == _enemyLayer || collision.gameObject.layer == _nonCollideEnemy) && ProjectileCurrentProperties.FiredBy == ProjectileOwner.Player)
         {
-            Debug.Log("Enemy hit!");
-            EventSystem.Current.AttackEnemy(collision.gameObject, ProjectileCurrentProperties.AttackDamage);
+            
+            // EventSystem.Current.AttackEnemy(collision.gameObject, ProjectileCurrentProperties.AttackDamage);
+            if(collision.gameObject.tag == "WeakSpot")
+            {
+                Debug.Log("Enemy hit! On weak spot");
+                EventSystem.Current.AttackEnemy(collision.gameObject, DamageType.Range, ProjectileCurrentProperties.AttackDamage, 0, true);
+            }
+            else
+            {
+                Debug.Log("Enemy hit! On Non weak spot");
+                EventSystem.Current.AttackEnemy(collision.gameObject, DamageType.Range, ProjectileCurrentProperties.AttackDamage, 0, false);
+            }
+                
             Destroy(gameObject);
         }
         else
