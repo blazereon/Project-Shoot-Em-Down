@@ -64,6 +64,7 @@ public class AudioManager : MonoBehaviour
     {
         fxSource.clip = clip;
         fxSource.pitch = 1f;
+        Debug.Log("playing this clip: " + clip);
         if (random)
         {
             float _randomPitch = Random.Range(pitchLow, pitchHigh);
