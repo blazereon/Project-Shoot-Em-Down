@@ -275,7 +275,7 @@ MonoBehaviour:
   hitRays: 
   scanBox: {fileID: 0}
   hitDetect: {fileID: 0}
-  projectile: {fileID: 2632042839795995729, guid: a16ceab2eb4945a4fb8ebd03f1660660, type: 3}
+  projectile: {fileID: 2293672932219427466, guid: e05d3644ec341dc4eb06436dcb3e0904, type: 3}
   attackSpd: 0.4
   projectileSpd: 6
   shootMode: 2

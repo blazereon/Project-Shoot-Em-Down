@@ -242,7 +242,9 @@ public class Enemy : Entity
         _projectileScript.ProjectileCurrentProperties.ProjectileSpeed = projectileSpd;
         _projectileScript.ProjectileCurrentProperties.Trajectory = trajectory;
 
+        _projectileScript.ProjectileCurrentProperties.DestroyOnly = LayerMask.GetMask("Ground", "Wall");
         _projectileScript.ProjectileCurrentProperties.FiredBy = ProjectileOwner.Enemy;
+        _projectileScript.ProjectileCurrentProperties.Destination = LayerDestinations.Player;
     }
 
     public IEnumerator SingleFileBurst(bool startAttack, int attackDmg, float projectileSpd, int burstCount, float atkSpd, Vector3 playerPos, GameObject projectile)
