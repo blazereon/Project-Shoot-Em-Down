@@ -22,7 +22,7 @@ public class Player : Entity
     public InputAction attackAction;
     public InputAction switchWeaponAction;
 
-    public Dash DashAbility;
+    public Dash DashAbility = new Dash();
 
     
     public Rigidbody2D PlayerRb;

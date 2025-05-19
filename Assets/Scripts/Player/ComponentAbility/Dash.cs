@@ -14,9 +14,9 @@ public class Dash : ComponentAbility
 
     //Cooldown variables
     public bool IsCooldownActive = false;
-    public float Cooldown;
-    public float CooldownUpdateInterval;
-    private float _dashTimer = 0f;
+    public float Cooldown = 5;
+    public float CooldownUpdateInterval = 0.2f;
+    private float _cooldownTimer = 0f;
 
     public override void UpgradeComponentHandler()
     {
@@ -40,23 +40,21 @@ public class Dash : ComponentAbility
         }
     }
 
-    public bool isDashAvailable()
+    public bool IsDashAvailable()
     {
         if (DashCount > 0) return true;
         return false;
     }
 
-    public void ConsumeDash(Player player, out bool status)
+    public void ConsumeDash(Player player)
     {
         if (DashCount <= 0)
         {
             Debug.Log("Dash in cooldown");
-            status = false;
             return;
         }
         DashCount--;
-        if (IsCooldownActive) player.StartCoroutine(DashCooldown());
-        status = true;
+        if (!IsCooldownActive) player.StartCoroutine(DashCooldown());
     }
 
     IEnumerator DashCooldown()
@@ -68,10 +66,11 @@ public class Dash : ComponentAbility
         while (DashCount < MaxDashCount)
         {
             yield return new WaitForSeconds(CooldownUpdateInterval);
-            _dashTimer += CooldownUpdateInterval;
-            if (_dashTimer >= Cooldown)
+            Debug.Log("Dash cooldown: " + _cooldownTimer);
+            _cooldownTimer += CooldownUpdateInterval;
+            if (_cooldownTimer >= Cooldown)
             {
-                _dashTimer = 0;
+                _cooldownTimer = 0;
                 DashCount++;
             }
         }

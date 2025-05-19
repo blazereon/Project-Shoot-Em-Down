@@ -29,8 +29,9 @@ public class IdlePlayerState : BasePlayerState
         }
 
         //proceeds to dash
-        if (player.dashAction.IsPressed() && !player.isDashCooldown)
+        if (player.dashAction.IsPressed() && player.DashAbility.IsDashAvailable())
         {
+            player.DashAbility.ConsumeDash(player);
             player.PushCurrentState();
             player.SwitchState(player.DashState);
             return;
