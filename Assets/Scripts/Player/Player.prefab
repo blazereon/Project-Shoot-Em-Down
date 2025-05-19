@@ -309,7 +309,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9e1d52e7c0576f009e9189468b3d11f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectileObject: {fileID: 2632042839795995729, guid: 715dd6d5ab9d7af45b2eccba3fd0d999, type: 3}
+  projectileObject: {fileID: 2293672932219427466, guid: 1c92483c0f11ee0439033259504311d8, type: 3}
   moveAction:
     m_Name: Move
     m_Type: 0
@@ -360,8 +360,10 @@ MonoBehaviour:
   PlayerCurrentStats:
     Health: 3
     MaxHealth: 5
+    Violence: 0
     MaxMomentum: 100
     MaxPneumatic: 100
+    MaxAggression: 0
     MaxViolence: 100
     MaxChain: 4
     ChainDuration: 3
