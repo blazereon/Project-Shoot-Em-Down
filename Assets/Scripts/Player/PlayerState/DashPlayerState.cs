@@ -12,7 +12,7 @@ public class DashPlayerState : BasePlayerState
     {
         _currentFacing = player.facing;
         _dashTimer = 0;
-
+        if (player.DashAbility.IsEnableDashDamage) player.DashAttackBox.SetActive(true);
         player.PlayerCurrentStats.Momentum = Mathf.Clamp(player.PlayerCurrentStats.Momentum + 25, 0, player.PlayerCurrentStats.MaxMomentum);
         EventSystem.Current.UpdatePlayerStats(player.PlayerCurrentStats);
         Physics2D.IgnoreLayerCollision(7, 9, true);
@@ -23,6 +23,7 @@ public class DashPlayerState : BasePlayerState
     {
         if (_dashTimer >= player.DashDuration)
         {
+            player.DashAttackBox.SetActive(false);
             Physics2D.IgnoreLayerCollision(7, 9, false);
             player.SwitchState(player.LandState);
             return;

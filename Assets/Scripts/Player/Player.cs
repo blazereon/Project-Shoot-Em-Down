@@ -40,7 +40,7 @@ public class Player : Entity
     public float MeleePadding;
     public float MeleeRadius;
 
-    public AttackBox attackBox;
+    public GameObject DashAttackBox;
     public GroundBox groundBox;
 
     public void TakePlayerDamage(int damage)
