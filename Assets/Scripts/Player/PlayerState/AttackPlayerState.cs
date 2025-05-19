@@ -50,7 +50,7 @@ public class AttackPlayerState : BasePlayerState
     {
         // _player = player;
         // Debug.Log("Melee attack invoked");
-        _layerMask = LayerMask.GetMask("Wall", "Enemy", "Projectile");
+        _layerMask = LayerMask.GetMask("Wall", "Enemy", "NonCollideEnemy", "Projectile");
         Collider2D[] hits;
 
         if (player.facing == Facing.right)
@@ -78,10 +78,10 @@ public class AttackPlayerState : BasePlayerState
                 return;
             }
             //melee deflect 
-            else if (hit.gameObject.tag == "Enemy" || hit.gameObject.tag == "NonCollideEnemy")
+            else if (hit.gameObject.tag == "Enemy")
             {
                 Debug.Log("enemy melee hit!!");
-                EventSystem.Current.AttackEnemy(hit.gameObject, DamageType.Melee, 15 /*+ (15/2 * player.PlayerCurrentStats.Chain)*/, player.PlayerCurrentStats.Violence);
+                EventSystem.Current.AttackEnemy(hit.gameObject, DamageType.Melee, 15 /*+ (15/2 * player.PlayerCurrentStats.Chain)*/, player.PlayerCurrentStats.Violence, false);
             }
         }
 
