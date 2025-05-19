@@ -22,6 +22,8 @@ public class Player : Entity
     public InputAction attackAction;
     public InputAction switchWeaponAction;
 
+    public Dash DashAbility;
+
     
     public Rigidbody2D PlayerRb;
     public SpriteRenderer PlayerSprite;
