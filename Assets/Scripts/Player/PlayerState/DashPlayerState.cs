@@ -4,13 +4,12 @@ using UnityEngine;
 
 public class DashPlayerState : BasePlayerState
 {
-    private float _dashCooldown;
+
     private float _dashTimer;
     private Facing _currentFacing;
 
     public override void EnterState(ManagerPlayerState player)
     {
-        _dashCooldown = player.DashRecovery;
         _currentFacing = player.facing;
         _dashTimer = 0;
 
@@ -24,7 +23,6 @@ public class DashPlayerState : BasePlayerState
     {
         if (_dashTimer >= player.DashDuration)
         {
-            player.StartCoroutine(DashCooldown(player));
             Physics2D.IgnoreLayerCollision(7, 9, false);
             player.SwitchState(player.LandState);
             return;
@@ -53,7 +51,6 @@ public class DashPlayerState : BasePlayerState
         {
             Debug.Log("Wall Grabbed while dashing");
             player.PlayerRb.linearVelocityX = 0;
-            player.StartCoroutine(DashCooldown(player));
             Physics2D.IgnoreLayerCollision(7, 9, false);
             player.SwitchState(player.WallGrabState);
             return;
@@ -63,12 +60,5 @@ public class DashPlayerState : BasePlayerState
     public override void OnCollisionExit2DState(Collision2D collision, ManagerPlayerState player)
     {
         
-    }
-
-    IEnumerator DashCooldown(ManagerPlayerState player)
-    {
-        player.isDashCooldown = true;
-        yield return new WaitForSeconds(player.DashRecovery);
-        player.isDashCooldown = false;
     }
 }

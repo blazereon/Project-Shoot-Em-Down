@@ -45,7 +45,11 @@ public class ManagerPlayerState :  Player
         EventSystem.Current.UpdatePlayerStats(PlayerCurrentStats);
         StartCoroutine(MomentumDecay());
         _currentState = IdleState;
-        _currentState.EnterState(this); 
+        _currentState.EnterState(this);
+
+
+        //for debugging purposes: dash upgrade
+        DashAbility.UpgradeComponent();
     }
 
     void Update()
