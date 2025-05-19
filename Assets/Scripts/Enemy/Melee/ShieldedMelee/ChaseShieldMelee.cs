@@ -11,12 +11,15 @@ public class ChaseShieldMelee : BaseShieldMelee
     private float _chaseDistance = 5f;
     private float _attackDistance = 1.3f;
 
+    private Coroutine _movementCoroutine;
+
     private LayerMask _layerMask;
     public override void EnterState(ManagerShieldMelee enemy)
     {
         _layerMask = LayerMask.GetMask("Wall", "Player");
         _isPlayerInSight = true;
         _isChaseMode = true;
+        _movementCoroutine = null;
         enemy.StartCoroutine(CheckPlayer(enemy));
     }
 
@@ -46,25 +49,13 @@ public class ChaseShieldMelee : BaseShieldMelee
 
     public override void FixedUpdateState(ManagerShieldMelee enemy)
     {
-        if (EventSystem.Current.PlayerLocation.x > enemy.transform.position.x)     // player on the right
+        Debug.Log("movement coroute stat " + _movementCoroutine);
+        if (_movementCoroutine == null)
         {
-            if (!(enemy.transform.localScale.x > 0))    // enemy is not facing to the right
-            {
-                enemy.ScaleFlip();
-            }
-
-            enemy.enemyRb.linearVelocityX = Vector2.right.x * enemy.chaseSpeed * Time.fixedDeltaTime;
-
+            _movementCoroutine = enemy.StartCoroutine(DelayTurn(enemy));
         }
-        else
-        {
-            if (!(enemy.transform.localScale.x < 0))    // enemy is not facing to the left
-            {
-                enemy.ScaleFlip();
-            }
 
-            enemy.enemyRb.linearVelocityX = Vector2.left.x * enemy.chaseSpeed * Time.fixedDeltaTime;
-        }
+        enemy.enemyRb.linearVelocityX = enemy.transform.localScale.x * enemy.chaseSpeed * Time.fixedDeltaTime;
     }
 
     public bool CheckIfPlayerInSight(ManagerShieldMelee genericEnemy)
@@ -108,5 +99,34 @@ public class ChaseShieldMelee : BaseShieldMelee
             }
             _isChaseMode = true;
         }
+    }
+
+    IEnumerator DelayTurn(ManagerShieldMelee enemy)
+    {
+
+        yield return new WaitForSeconds(1.5f);
+
+        if (EventSystem.Current.PlayerLocation.x > enemy.transform.position.x)     // player on the right
+        {
+            if (!(enemy.transform.localScale.x > 0))    // enemy is not facing to the right
+            {
+                enemy.ScaleFlip();
+            }
+
+            // enemy.enemyRb.linearVelocityX = Vector2.right.x * enemy.chaseSpeed * Time.fixedDeltaTime;
+
+        }
+        else
+        {
+            if (!(enemy.transform.localScale.x < 0))    // enemy is not facing to the left
+            {
+                enemy.ScaleFlip();
+            }
+
+            // enemy.enemyRb.linearVelocityX = Vector2.left.x * enemy.chaseSpeed * Time.fixedDeltaTime;
+        }
+        
+        _movementCoroutine = null;
+
     }
 }
