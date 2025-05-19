@@ -12,9 +12,9 @@ GameObject:
   - component: {fileID: 8781605290604055258}
   - component: {fileID: 8074721881138741803}
   - component: {fileID: 7255823586710530253}
-  - component: {fileID: 7469308891118116376}
-  m_Layer: 9
-  m_Name: Enemy
+  - component: {fileID: -7512979861327016088}
+  m_Layer: 14
+  m_Name: BasicMelee
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -154,7 +154,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &7469308891118116376
+--- !u!114 &-7512979861327016088
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -163,20 +163,25 @@ MonoBehaviour:
   m_GameObject: {fileID: 7144354307194853485}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 01050c776a27c8610ac68059045306f4, type: 3}
+  m_Script: {fileID: 11500000, guid: b02ecec884617c3a9a18ed3fdd5ff166, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
   Health: 100
-  MeleeResistancePercentage: 80
-  RangeResistancePercentage: 20
+  MeleeResistancePercentage: 0
+  RangeResistancePercentage: 0
   AttackDamage: 0
-  PneumaAmount: 20
-  rayNumber: 36
-  rayMaxAngle: 360
+  PneumaAmount: 0
+  rayNumber: 20
+  rayMaxAngle: 40
   rayStartAngle: 0
   detectionRange: 5
   delayScanTime: 0.5
   isPlayerDetected: 0
   hasPlayerDetected: 0
   hitRays: 
+  facing: 1
+  WanderSpeed: 60
+  ChasingSpeed: 80
+  GenericEnemyRb: {fileID: 0}
+  WallDistanceLimit: 2.5
