@@ -6,6 +6,7 @@ public class Dash : ComponentAbility
     //Regular dash
     public int DashCount = 1;
     public int MaxDashCount = 1;
+    public bool IsEnableDashDamage = false;
 
     //Empowered dash
     public int EmpoweredDashCount = 1;
@@ -30,6 +31,7 @@ public class Dash : ComponentAbility
         if (UpgradeTier == 2)
         {
             //Enable Penetrating Dash
+            IsEnableDashDamage = true;
             return;
         }
 

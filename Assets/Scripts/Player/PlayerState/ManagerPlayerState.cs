@@ -47,8 +47,8 @@ public class ManagerPlayerState :  Player
         _currentState = IdleState;
         _currentState.EnterState(this);
 
-
         //for debugging purposes: dash upgrade
+        DashAbility.UpgradeComponent();
         DashAbility.UpgradeComponent();
     }
 
