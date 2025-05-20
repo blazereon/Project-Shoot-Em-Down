@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using static UnityEngine.RuleTile.TilingRuleOutput;
 
@@ -5,10 +6,12 @@ public class ChaseShieldRanged: BaseShieldRanged
 {
     private bool _stopMoving;
     private float _distanceToPlayer;
+    private Coroutine _turnCoroutine;
 
     public override void EnterState(ManagerShieldRanged enemy)
     {
         _stopMoving = false;
+        _turnCoroutine = null;
     }
 
     public override void UpdateState(ManagerShieldRanged enemy)       // Handle Distance Detections
@@ -49,26 +52,12 @@ public class ChaseShieldRanged: BaseShieldRanged
     {
         if (!_stopMoving)
         {
-            if (EventSystem.Current.PlayerLocation.x > enemy.transform.position.x)     // player on the right
+            if (_turnCoroutine == null)
             {
-                if (!(enemy.transform.localScale.x > 0))    // enemy is not facing to the right
-                {
-                    enemy.Flip();
-                }
-
-                enemy.enemyRb.linearVelocityX = Vector2.right.x * enemy.chaseSpeed * Time.fixedDeltaTime;
-
-            }
-            else
-            {
-                if (!(enemy.transform.localScale.x < 0))    // enemy is not facing to the left
-                {
-                    enemy.Flip();
-                }
-
-                enemy.enemyRb.linearVelocityX = Vector2.left.x * enemy.chaseSpeed * Time.fixedDeltaTime;
+                _turnCoroutine = enemy.StartCoroutine(DelayTurn(enemy));
             }
 
+            enemy.enemyRb.linearVelocityX = enemy.transform.localScale.x * enemy.chaseSpeed * Time.fixedDeltaTime;
         }
         else
         {
@@ -79,5 +68,33 @@ public class ChaseShieldRanged: BaseShieldRanged
                 enemy.SwitchState(enemy.attackState);
             }
         }
+    }
+
+    IEnumerator DelayTurn(ManagerShieldRanged enemy)
+    {
+
+        yield return new WaitForSeconds(1.5f);
+
+        if (EventSystem.Current.PlayerLocation.x > enemy.transform.position.x)     // player on the right
+        {
+            if (!(enemy.transform.localScale.x > 0))    // enemy is not facing to the right
+            {
+                enemy.Flip();
+            }
+
+            // enemy.enemyRb.linearVelocityX = Vector2.right.x * enemy.chaseSpeed * Time.fixedDeltaTime;
+
+        }
+        else
+        {
+            if (!(enemy.transform.localScale.x < 0))    // enemy is not facing to the left
+            {
+                enemy.Flip();
+            }
+
+            // enemy.enemyRb.linearVelocityX = Vector2.left.x * enemy.chaseSpeed * Time.fixedDeltaTime;
+        }
+
+        _turnCoroutine = null;
     }
 }

@@ -3,7 +3,8 @@ using UnityEngine;
 public enum DamageType
 {
     Range,
-    Melee
+    Melee,
+    Suicide
 }
 
 public enum Facing
