@@ -11,7 +11,7 @@ public class ChaseShieldMelee : BaseShieldMelee
     private float _chaseDistance = 5f;
     private float _attackDistance = 1.3f;
 
-    private Coroutine _movementCoroutine;
+    private Coroutine _turnCoroutine;
 
     private LayerMask _layerMask;
     public override void EnterState(ManagerShieldMelee enemy)
@@ -19,7 +19,7 @@ public class ChaseShieldMelee : BaseShieldMelee
         _layerMask = LayerMask.GetMask("Wall", "Player");
         _isPlayerInSight = true;
         _isChaseMode = true;
-        _movementCoroutine = null;
+        _turnCoroutine = null;
         enemy.StartCoroutine(CheckPlayer(enemy));
     }
 
@@ -49,10 +49,9 @@ public class ChaseShieldMelee : BaseShieldMelee
 
     public override void FixedUpdateState(ManagerShieldMelee enemy)
     {
-        Debug.Log("movement coroute stat " + _movementCoroutine);
-        if (_movementCoroutine == null)
+        if (_turnCoroutine == null)
         {
-            _movementCoroutine = enemy.StartCoroutine(DelayTurn(enemy));
+            _turnCoroutine = enemy.StartCoroutine(DelayTurn(enemy));
         }
 
         enemy.enemyRb.linearVelocityX = enemy.transform.localScale.x * enemy.chaseSpeed * Time.fixedDeltaTime;
@@ -126,7 +125,6 @@ public class ChaseShieldMelee : BaseShieldMelee
             // enemy.enemyRb.linearVelocityX = Vector2.left.x * enemy.chaseSpeed * Time.fixedDeltaTime;
         }
         
-        _movementCoroutine = null;
-
+        _turnCoroutine = null;
     }
 }
