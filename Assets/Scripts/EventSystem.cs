@@ -48,8 +48,9 @@ public class EventSystem
     public event Action<int> OnAttackPlayer;
     public event Action<int> OnSendPlayerPneuma;
     public event Action<GameObject> OnMeleeDeflect;
-    
+    public event Action<ComponentAbility> OnPlayerEmpowermentTrigger;
     public event Action OnEnemyKill;
+    public event Action<GameObject, Effect> OnApplyEffect;
 
 
     public event Func<GameObject> OnPlayerGameObject;
@@ -98,6 +99,11 @@ public class EventSystem
     public void EnemyKill()
     {
         OnEnemyKill?.Invoke();
+    }
+
+    public void ApplyEffect(GameObject pObject, Effect effect)
+    {
+        OnApplyEffect?.Invoke(pObject, effect);
     }
     
     public void UpdatePlayerStats(PlayerStats stats)

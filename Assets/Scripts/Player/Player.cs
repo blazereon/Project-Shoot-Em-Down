@@ -15,13 +15,17 @@ public class Player : Entity
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 
     public GameObject projectileObject;
+    public Action<ComponentAbility> OnTriggerEmpowerment;
 
+    //will be migrated in the future
     public InputAction moveAction;
     public InputAction jumpAction;
     public InputAction dashAction;
     public InputAction attackAction;
     public InputAction switchWeaponAction;
+    public InputAction empowerAbility;
 
+    public Dash DashAbility = new Dash();
     
     public Rigidbody2D PlayerRb;
     public SpriteRenderer PlayerSprite;
@@ -38,19 +42,27 @@ public class Player : Entity
     public float MeleePadding;
     public float MeleeRadius;
 
-    public AttackBox attackBox;
+    public GameObject DashAttackBox;
     public GroundBox groundBox;
+
+    [NonSerialized] public bool IsEmpowerementInvoke;
+
+    public void TriggerEmpowerment(ComponentAbility ability)
+    {
+        IsEmpowerementInvoke = false;
+        OnTriggerEmpowerment?.Invoke(ability);
+    }
 
     public void TakePlayerDamage(int damage)
     {
         AudioManager.instance.RandomSFX(AudioManager.instance.playerTakeDmg);
         PlayerCurrentStats.Health -= damage;
-        if (PlayerCurrentStats.Health <= 0) 
+        if (PlayerCurrentStats.Health <= 0)
         {
             Destroy(this.gameObject);
             AudioManager.instance.PlayFX(AudioManager.instance.playerDeath, false);
         }
-        
+
         Debug.Log("HP: " + PlayerCurrentStats.Health);
     }
 

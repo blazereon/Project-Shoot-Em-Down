@@ -32,7 +32,7 @@ public class RunPlayerState : BasePlayerState
         }
 
         //proceeds to dash
-        if (player.dashAction.IsPressed() && !player.isDashCooldown)
+        if (player.dashAction.IsPressed() && player.DashAbility.IsDashAvailable())
         {
             player.PushCurrentState();
             player.SwitchState(player.DashState);

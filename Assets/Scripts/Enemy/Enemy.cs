@@ -5,6 +5,7 @@ using static UnityEngine.RuleTile.TilingRuleOutput;
 
 public class Enemy : Entity
 {
+    
     public GameObject player;
     public int Health = 100;
     public int MeleeResistancePercentage;
@@ -41,8 +42,13 @@ public class Enemy : Entity
         player = GameObject.FindWithTag("Player");
 
         isPlayerDetected = false;
-        
+
     }
+
+    // public void TakeDamageEffect(GameObject pObject, DamageType type, int damage, int violencePercentage, bool weakSpotHit)
+    // {
+    //     TakeDamage(pObject, type,damage,violencePercentage,weakSpotHit);
+    // }
     public void TakeDamage(GameObject pObject, DamageType type, int damage, int violencePercentage, bool weakSpotHit)
     {
         Debug.Log("New damage system invoked " + pObject + " " + type + " " + damage + " " + violencePercentage + " " + weakSpotHit);
@@ -52,7 +58,7 @@ public class Enemy : Entity
         float _rawViolence;
         float _rawResPercent;
         switch (type)
-        {   
+        {
             case DamageType.Melee:
                 _rawResPercent = (float)MeleeResistancePercentage / 100;
                 _rawViolence = _rawResPercent * ((float)violencePercentage / 100);
@@ -80,7 +86,7 @@ public class Enemy : Entity
 
                 break;
         }
-        
+
         if (Health <= 0)
         {
             AudioManager.instance.PlayFX(AudioManager.instance.enemyDeath, false);
@@ -88,6 +94,9 @@ public class Enemy : Entity
             EventSystem.Current.EnemyKill();
             Destroy(this.gameObject);
         }
+
+        //if the damage is not a consumption of mark, all marks will be consumed preventing stackoverflow error
+        if (!isConsumingMark) ConsumeMark();
 
     }
 

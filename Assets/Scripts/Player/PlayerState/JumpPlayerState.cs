@@ -19,9 +19,10 @@ public class JumpPlayerState : BasePlayerState
             return;
         }
 
-        if (player.dashAction.IsPressed() && !player.isDashCooldown)
+        //proceeds to dash
+        if (player.dashAction.IsPressed() && player.DashAbility.IsDashAvailable())
         {
-            Debug.Log("Jump to Dash state");
+            player.PushCurrentState();
             player.SwitchState(player.DashState);
             return;
         }
