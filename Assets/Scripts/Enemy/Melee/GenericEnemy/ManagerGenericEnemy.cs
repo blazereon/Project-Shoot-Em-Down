@@ -25,6 +25,7 @@ public class ManagerGenericEnemy : Enemy
     void Awake()
     {
         EventSystem.Current.OnDamageEnemy += TakeDamage;
+        EventSystem.Current.OnApplyEffect += ReceiveEffect;
         GenericEnemyRb = GetComponent<Rigidbody2D>();
     }
 
@@ -80,5 +81,6 @@ public class ManagerGenericEnemy : Enemy
     void OnDestroy()
     {
         EventSystem.Current.OnDamageEnemy -= TakeDamage;
+        EventSystem.Current.OnApplyEffect -= ReceiveEffect;
     }
 }

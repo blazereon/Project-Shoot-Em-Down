@@ -183,6 +183,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ad65efac836997e6a0d559ae125991d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 7420772079929029946}
 --- !u!1 &4702214852580540241
 GameObject:
   m_ObjectHideFlags: 0
@@ -401,6 +402,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9e1d52e7c0576f009e9189468b3d11f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isConsumingMark: 0
   projectileObject: {fileID: 2293672932219427466, guid: 1c92483c0f11ee0439033259504311d8, type: 3}
   moveAction:
     m_Name: Move
@@ -443,6 +445,15 @@ MonoBehaviour:
     m_Type: 0
     m_ExpectedControlType: 
     m_Id: 4c9250ad-9573-423e-8575-2e1dffe2027c
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
+  empowerAbility:
+    m_Name: 
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 47e704da-1b77-4d4a-8869-c26b11cc86dd
     m_Processors: 
     m_Interactions: 
     m_SingletonActionBindings: []
