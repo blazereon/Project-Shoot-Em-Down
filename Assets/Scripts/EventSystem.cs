@@ -48,7 +48,7 @@ public class EventSystem
     public event Action<int> OnAttackPlayer;
     public event Action<int> OnSendPlayerPneuma;
     public event Action<GameObject> OnMeleeDeflect;
-    
+    public event Action<ComponentAbility> OnPlayerEmpowermentTrigger;
     public event Action OnEnemyKill;
 
 

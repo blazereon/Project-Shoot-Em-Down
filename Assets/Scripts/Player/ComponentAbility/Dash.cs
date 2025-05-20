@@ -6,12 +6,12 @@ public class Dash : ComponentAbility
     //Regular dash
     public int DashCount = 1;
     public int MaxDashCount = 1;
-    public bool IsEnableDashDamage = false;
 
     //Empowered dash
     public int EmpoweredDashCount = 1;
     public int MaximumEmpoweredDashCount = 1;
 
+    Coroutine CooldownRoutineInstance;
 
     //Cooldown variables
     public bool IsCooldownActive = false;
@@ -31,7 +31,6 @@ public class Dash : ComponentAbility
         if (UpgradeTier == 2)
         {
             //Enable Penetrating Dash
-            IsEnableDashDamage = true;
             return;
         }
 
@@ -42,13 +41,20 @@ public class Dash : ComponentAbility
         }
     }
 
+    public override void EmpowermentHandler()
+    {
+        //Nothing
+    }
+
+
+
     public bool IsDashAvailable()
     {
         if (DashCount > 0) return true;
         return false;
     }
 
-    public void ConsumeDash(Player player)
+    public void ConsumeDash(ManagerPlayerState player)
     {
         if (DashCount <= 0)
         {
@@ -56,7 +62,21 @@ public class Dash : ComponentAbility
             return;
         }
         DashCount--;
-        if (!IsCooldownActive) player.StartCoroutine(DashCooldown());
+        if (Empowered) EmpoweredDashCount--;
+        if (EmpoweredDashCount < 1)
+        {
+            EmpoweredDashCount = MaximumEmpoweredDashCount;
+            Empowered = false;
+        }
+        if (!IsCooldownActive) CooldownRoutineInstance = player.StartCoroutine(DashCooldown());
+    }
+
+    public void ResetCooldown(ManagerPlayerState player)
+    {
+        player.StopCoroutine(CooldownRoutineInstance);
+        CooldownRoutineInstance = null;
+        IsCooldownActive = false;
+        DashCount = MaxDashCount;
     }
 
     IEnumerator DashCooldown()

@@ -3,6 +3,7 @@ using UnityEngine;
 public abstract class ComponentAbility
 {
     public int UpgradeTier = 0;
+    public bool Empowered = false;
 
     public void UpgradeComponent()
     {
@@ -14,5 +15,15 @@ public abstract class ComponentAbility
         UpgradeComponentHandler();
     }
 
+    public void SetEmpowered(ComponentAbility abilityToEmpower)
+    {
+        if (abilityToEmpower == this)
+        {
+            Empowered = true;
+            EmpowermentHandler();
+        }
+    }
+
+    public abstract void EmpowermentHandler();
     public abstract void UpgradeComponentHandler();
 }

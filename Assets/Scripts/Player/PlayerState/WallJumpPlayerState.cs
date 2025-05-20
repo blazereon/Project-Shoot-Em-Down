@@ -31,8 +31,10 @@ public class WallJumpPlayerState : BasePlayerState
             return;
         }
 
-        if (player.dashAction.triggered && !player.isDashCooldown)
+        //proceeds to dash
+        if (player.dashAction.IsPressed() && player.DashAbility.IsDashAvailable())
         {
+            player.PushCurrentState();
             player.SwitchState(player.DashState);
             return;
         }

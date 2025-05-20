@@ -31,6 +31,9 @@ public class ManagerPlayerState :  Player
         EventSystem.Current.OnAttackPlayer += TakePlayerDamage;
         EventSystem.Current.OnSendPlayerPneuma += ReceivePneuma;
         EventSystem.Current.OnEnemyKill += OnKillResponse;
+
+        //Component Abilities
+        OnTriggerEmpowerment += DashAbility.SetEmpowered;
     }
     void Start()
     {
@@ -39,6 +42,7 @@ public class ManagerPlayerState :  Player
         dashAction = InputSystem.actions.FindAction("Dash");
         attackAction = InputSystem.actions.FindAction("Attack");
         switchWeaponAction = InputSystem.actions.FindAction("SwitchWeapon");
+        empowerAbility = InputSystem.actions.FindAction("Empower");
 
         PlayerCollider = GetComponent<Collider2D>();
 
@@ -48,9 +52,10 @@ public class ManagerPlayerState :  Player
         _currentState.EnterState(this);
 
         //for debugging purposes: dash upgrade
-        DashAbility.UpgradeComponent();
-        DashAbility.UpgradeComponent();
+        // DashAbility.UpgradeComponent();
+        // DashAbility.UpgradeComponent();
     }
+
 
     void Update()
     {
@@ -62,19 +67,25 @@ public class ManagerPlayerState :  Player
             facing = Facing.right;
         }
 
-        //facing sprite logic
-        switch (facing)
+        //Invoking empowerment upon full aggression
+        if (empowerAbility.triggered && !IsEmpowerementInvoke)
         {
-            case Facing.right:
-                PlayerSprite.flipX = false;
-                break;
-            case Facing.left:
-                PlayerSprite.flipX = true;
-                break;
-            default:
-                Debug.LogError("Invalid facing value");
-                break;
+            IsEmpowerementInvoke = true;
         }
+
+        //facing sprite logic
+            switch (facing)
+            {
+                case Facing.right:
+                    PlayerSprite.flipX = false;
+                    break;
+                case Facing.left:
+                    PlayerSprite.flipX = true;
+                    break;
+                default:
+                    Debug.LogError("Invalid facing value");
+                    break;
+            }
 
         //for toggling weapon (ranged, melee)
         if (switchWeaponAction.triggered)
