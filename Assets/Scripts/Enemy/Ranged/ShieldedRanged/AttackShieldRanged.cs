@@ -1,3 +1,4 @@
+using System.Collections;
 using Unity.VisualScripting.FullSerializer;
 using UnityEngine;
 
@@ -11,12 +12,14 @@ public class AttackShieldRanged: BaseShieldRanged
     private GameObject _projectileParent;
     private Projectile _projectileScript;
     private Coroutine _attackCoroutine;
+    private Coroutine _turnCoroutine;
     private Vector2 _projectileTrajectory;
 
     public override void EnterState(ManagerShieldRanged enemy)
     {
         _attackTimer = 0f;
         _startAttack = true;
+        _turnCoroutine = null;
     }
 
     public override void UpdateState(ManagerShieldRanged enemy)
@@ -82,25 +85,15 @@ public class AttackShieldRanged: BaseShieldRanged
 
     public override void FixedUpdateState(ManagerShieldRanged enemy)
     {
-        if (EventSystem.Current.PlayerLocation.x > enemy.transform.position.x)     // player on the right
+        if (_turnCoroutine == null)
         {
-            if (!(enemy.transform.localScale.x > 0))    // enemy is not facing to the right
-            {
-                enemy.Flip();
-            }
-
-        }
-        else
-        {
-            if (!(enemy.transform.localScale.x < 0))    // enemy is not facing to the left
-            {
-                enemy.Flip();
-            }
+            _turnCoroutine = enemy.StartCoroutine(DelayTurn(enemy));
         }
     }
 
     private void SingleShoot(ManagerShieldRanged enemy)
     {
+        // Single shoot tracks player in real time, thus, not affected by delayed shooting
         Vector3 _playerVec3 = EventSystem.Current.PlayerLocation;
 
         if (enemy.shootMode == ManagerShieldRanged.shootType.Single)
@@ -163,6 +156,8 @@ public class AttackShieldRanged: BaseShieldRanged
                 enemy.StopCoroutine(_attackCoroutine);
             }
 
+            Debug.Log("Atk coroutine status: " + _attackCoroutine);
+
             float _burstStep = enemy.burstSpread / enemy.burstCount;
 
             Vector2 _direction2player = (_playerVec3 - enemy.transform.position);
@@ -171,5 +166,47 @@ public class AttackShieldRanged: BaseShieldRanged
 
             _attackCoroutine = enemy.StartCoroutine(enemy.TwirlBurst(_startAttack, enemy.attackDmg, enemy.projectileSpd, enemy.burstCount, _startAngle, _burstStep, enemy.attackSpd, enemy.transform.right, enemy.projectile));
         }
+    }
+
+    IEnumerator DelayTurn(ManagerShieldRanged enemy)
+    {
+
+        yield return new WaitForSeconds(1.5f);
+
+        if (EventSystem.Current.PlayerLocation.x > enemy.transform.position.x)     // player on the right
+        {
+            if (!(enemy.transform.localScale.x > 0))    // enemy is not facing to the right
+            {
+                enemy.Flip();
+
+                if (_attackCoroutine != null)
+                {
+                    enemy.StopCoroutine(_attackCoroutine);
+                    enemy.isFiringBurst = false;
+                }
+            }
+
+            // enemy.enemyRb.linearVelocityX = Vector2.right.x * enemy.chaseSpeed * Time.fixedDeltaTime;
+
+        }
+        else
+        {
+            if (!(enemy.transform.localScale.x < 0))    // enemy is not facing to the left
+            {
+                enemy.Flip();
+
+                if (_attackCoroutine != null)
+                {
+                    enemy.StopCoroutine(_attackCoroutine);
+                    enemy.isFiringBurst = false;
+                }
+            }
+
+            // enemy.enemyRb.linearVelocityX = Vector2.left.x * enemy.chaseSpeed * Time.fixedDeltaTime;
+        }
+
+        
+
+        _turnCoroutine = null;
     }
 }
