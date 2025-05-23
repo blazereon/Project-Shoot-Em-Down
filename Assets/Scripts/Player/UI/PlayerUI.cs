@@ -8,6 +8,8 @@ public class PlayerUI : MonoBehaviour
     public PneumaticMeter PneumaticMeterInstance;
     public ChainMeter ChainMeterInstance;
 
+    public WeaponsUI WeaponsUIInstance;
+
     
     void Awake()
     {
@@ -20,10 +22,11 @@ public class PlayerUI : MonoBehaviour
         MomentumMeterInstance.UpdateValue(stats.Momentum, stats.MaxMomentum);
         PneumaticMeterInstance.UpdateValue(stats.Pneumatic, stats.MaxPneumatic);
         ChainMeterInstance.UpdateValue(stats);
+        WeaponsUIInstance.UpdateValue(stats);
     }
 
     void OnDestroy()
     {
-        EventSystem.Current.OnUpdatePlayerStats += updatePlayerProperties;
+        EventSystem.Current.OnUpdatePlayerStats -= updatePlayerProperties;
     }
 }
