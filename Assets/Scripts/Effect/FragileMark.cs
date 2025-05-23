@@ -13,6 +13,7 @@ public class FragileMark : Effect
     public override void OnEffectStart()
     {
         Debug.Log("Fragile mark applied");
+        EnemyInstance.AddEffect(this);
         EnemyInstance.OnConsumeMark += ConsumeMark;
         CoroutineHandler.Instance.StartCoroutine(EffectExpiration());
     }
@@ -20,6 +21,7 @@ public class FragileMark : Effect
     public override void OnEffectEnd()
     {
         Debug.Log("Fragile mark end");
+        EnemyInstance.RemoveEffect(this);
         EnemyInstance.OnConsumeMark -= ConsumeMark;
     }
 

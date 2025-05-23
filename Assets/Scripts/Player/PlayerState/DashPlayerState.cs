@@ -33,7 +33,7 @@ public class DashPlayerState : BasePlayerState
         if (player.DashAbility.Empowered && player.DashAbility.UpgradeTier >= 2)
         {
             Physics2D.IgnoreLayerCollision(7, 13, true);
-            Physics2D.IgnoreLayerCollision(7, 14, true);
+            Physics2D.IgnoreLayerCollision(7, 9, true);
         }
 
         AudioManager.instance.RandomSFX(AudioManager.instance.playerDash);
@@ -45,7 +45,7 @@ public class DashPlayerState : BasePlayerState
         {
             player.DashAttackBox.SetActive(false);
             Physics2D.IgnoreLayerCollision(7, 13, false);
-            Physics2D.IgnoreLayerCollision(7, 14, false);
+            Physics2D.IgnoreLayerCollision(7, 9, false);
             player.SwitchState(player.LandState);
             return;
         }
@@ -74,7 +74,7 @@ public class DashPlayerState : BasePlayerState
             Debug.Log("Wall Grabbed while dashing");
             player.PlayerRb.linearVelocityX = 0;
             Physics2D.IgnoreLayerCollision(7, 13, false);
-            Physics2D.IgnoreLayerCollision(7, 14, false);
+            Physics2D.IgnoreLayerCollision(7, 9, false);
             player.SwitchState(player.WallGrabState);
             return;
         }
