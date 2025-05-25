@@ -19,6 +19,7 @@ public class ManagerPlayerState :  Player
     public DashPlayerState DashState = new DashPlayerState();
     public WallGrabPlayerState WallGrabState = new WallGrabPlayerState();
     public WallJumpPlayerState WallJumpState = new WallJumpPlayerState();
+    public PlungePlayerState PlungeState = new PlungePlayerState();
 
     public Collider2D PlayerCollider;
 
