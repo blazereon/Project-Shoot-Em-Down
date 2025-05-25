@@ -5,9 +5,12 @@ using static UnityEngine.RuleTile.TilingRuleOutput;
 
 public class Enemy : Entity
 {
-    
+
     public GameObject player;
+
+    public EnemyStatUI EnemyStatUIInstance;
     public int Health = 100;
+    public int MaxHealth = 100;
     public int MeleeResistancePercentage;
     public int RangeResistancePercentage;
     public int AttackDamage;
@@ -66,6 +69,7 @@ public class Enemy : Entity
                 _rawDamage = damage - (damage * (_rawResPercent - _rawViolence));
                 Debug.Log("Raw damage: " + _rawDamage);
                 Health -= (int)_rawDamage;
+                UpdateUIData();
                 break;
 
             case DamageType.Range:
@@ -83,7 +87,7 @@ public class Enemy : Entity
 
                     EventSystem.Current.SendPlayerPneuma(PneumaAmount);
                 }
-
+                UpdateUIData();
                 break;
         }
 
@@ -330,5 +334,15 @@ public class Enemy : Entity
         }
 
         isFiringBurst = false;
+    }
+
+    public override void UpdateUIData()
+    {
+        EnemyStatUIInstance.UpdateValues(new EnemyStatProps
+        {
+            Health = this.Health,
+            MaxHealth = this.MaxHealth,
+            Effects = this.CurrentEffect
+        });
     }
 }
