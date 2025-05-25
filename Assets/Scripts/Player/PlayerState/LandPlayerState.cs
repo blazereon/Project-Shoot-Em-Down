@@ -25,7 +25,7 @@ public class LandPlayerState : BasePlayerState
         }
 
         //proceeds to dash
-        if (player.dashAction.IsPressed() && player.DashAbility.IsDashAvailable())
+        if (player.dashAction.triggered && player.DashAbility.IsDashAvailable())
         {
             player.PushCurrentState();
             player.SwitchState(player.DashState);
