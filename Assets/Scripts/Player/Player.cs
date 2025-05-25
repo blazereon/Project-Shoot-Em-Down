@@ -98,6 +98,11 @@ public class Player : Entity
         }
     }
 
+    public override void UpdateUIData()
+    {
+        //does nothing yet
+    }
+
     IEnumerator StartChain()
     {
         PlayerCurrentStats.ChainTimer = PlayerCurrentStats.ChainDuration;

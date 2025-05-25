@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using NUnit.Framework.Constraints;
 using UnityEngine;
 
@@ -15,8 +16,9 @@ public enum Facing
     right
 }
 
-public class Entity : MonoBehaviour
+public abstract class Entity : MonoBehaviour
 {
+    public List<Effect> CurrentEffect = new List<Effect>();
     public Action OnConsumeMark;
 
     public bool isConsumingMark;
@@ -28,10 +30,30 @@ public class Entity : MonoBehaviour
         isConsumingMark = false;
     }
 
+    public void AddEffect(Effect effect)
+    {
+        Debug.Log(effect);
+        CurrentEffect.Add(effect);
+        //update effect handler
+        // CurrentEffectHandler.UpdateEffect(CurrentEffect);
+        UpdateUIData();
+    }
+
+    public void RemoveEffect(Effect effect)
+    {
+        CurrentEffect.Remove(effect);
+        //update effect handler
+        // CurrentEffectHandler.UpdateEffect(CurrentEffect);
+        UpdateUIData();
+    }
+
     public void ReceiveEffect(GameObject pObject, Effect effect)
     {
         if (pObject != this.gameObject) return;
-
         effect.OnEffectStart();
     }
+
+    public abstract void UpdateUIData();
+
+    
 }
