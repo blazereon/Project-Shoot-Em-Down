@@ -13,6 +13,10 @@ public class FragileMark : Effect
     }
     public override void OnEffectStart()
     {
+        if (EnemyInstance == null)
+        {
+            EnemyInstance = (Enemy)EntityHolder;
+        }
         Debug.Log("Fragile mark applied");
         EnemyInstance.AddEffect(this);
         EnemyInstance.OnConsumeMark += ConsumeMark;

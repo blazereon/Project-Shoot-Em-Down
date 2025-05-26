@@ -8,6 +8,7 @@ public class Projectile : MonoBehaviour
 {
     public ProjectileProps ProjectileCurrentProperties;
     public Rigidbody2D rb;
+    public List<Effect> EffectsList = new List<Effect>();
 
     private void Awake()
     {
@@ -58,9 +59,14 @@ public class Projectile : MonoBehaviour
         }
         else if ((collision.gameObject.layer == _enemyLayer || collision.gameObject.layer == _nonCollideEnemy) && ProjectileCurrentProperties.FiredBy == ProjectileOwner.Player)
         {
-            
+            var _enemyInstance = collision.gameObject.GetComponent<Enemy>();
+            foreach (Effect effect in EffectsList)
+            {
+                effect.EntityHolder = _enemyInstance;
+                EventSystem.Current.ApplyEffect(collision.gameObject, effect);
+            }
             // EventSystem.Current.AttackEnemy(collision.gameObject, ProjectileCurrentProperties.AttackDamage);
-            if(collision.gameObject.tag == "WeakSpot")
+            if (collision.gameObject.tag == "WeakSpot")
             {
                 Debug.Log("Enemy hit! On weak spot");
                 EventSystem.Current.AttackEnemy(collision.gameObject, DamageType.Range, ProjectileCurrentProperties.AttackDamage, 0, true);

@@ -198,6 +198,15 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""KeenAbility"",
+                    ""type"": ""Button"",
+                    ""id"": ""6e4fab31-a4bc-4da4-8d6d-fb7661c1708c"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -627,6 +636,17 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Empower"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b0aecb70-32d2-4af9-a7fd-7a36791a376b"",
+                    ""path"": ""<Keyboard>/x"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""KeenAbility"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -1226,6 +1246,7 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
         m_Player_Dash = m_Player.FindAction("Dash", throwIfNotFound: true);
         m_Player_SwitchWeapon = m_Player.FindAction("SwitchWeapon", throwIfNotFound: true);
         m_Player_Empower = m_Player.FindAction("Empower", throwIfNotFound: true);
+        m_Player_KeenAbility = m_Player.FindAction("KeenAbility", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -1331,6 +1352,7 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Dash;
     private readonly InputAction m_Player_SwitchWeapon;
     private readonly InputAction m_Player_Empower;
+    private readonly InputAction m_Player_KeenAbility;
     /// <summary>
     /// Provides access to input actions defined in input action map "Player".
     /// </summary>
@@ -1390,6 +1412,10 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "Player/Empower".
         /// </summary>
         public InputAction @Empower => m_Wrapper.m_Player_Empower;
+        /// <summary>
+        /// Provides access to the underlying input action "Player/KeenAbility".
+        /// </summary>
+        public InputAction @KeenAbility => m_Wrapper.m_Player_KeenAbility;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -1452,6 +1478,9 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
             @Empower.started += instance.OnEmpower;
             @Empower.performed += instance.OnEmpower;
             @Empower.canceled += instance.OnEmpower;
+            @KeenAbility.started += instance.OnKeenAbility;
+            @KeenAbility.performed += instance.OnKeenAbility;
+            @KeenAbility.canceled += instance.OnKeenAbility;
         }
 
         /// <summary>
@@ -1499,6 +1528,9 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
             @Empower.started -= instance.OnEmpower;
             @Empower.performed -= instance.OnEmpower;
             @Empower.canceled -= instance.OnEmpower;
+            @KeenAbility.started -= instance.OnKeenAbility;
+            @KeenAbility.performed -= instance.OnKeenAbility;
+            @KeenAbility.canceled -= instance.OnKeenAbility;
         }
 
         /// <summary>
@@ -1883,6 +1915,13 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnEmpower(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "KeenAbility" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnKeenAbility(InputAction.CallbackContext context);
     }
     /// <summary>
     /// Interface to implement callback methods for all input action callbacks associated with input actions defined by "UI" which allows adding and removing callbacks.

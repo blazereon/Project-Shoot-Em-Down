@@ -13,8 +13,8 @@ public class LandPlayerState : BasePlayerState
     }
     public override void UpdateState(ManagerPlayerState player)
     {
-            Debug.Log("Coyote Timer: " + coyoteTimer);
-            coyoteTimer -= Time.deltaTime;
+        Debug.Log("Coyote Timer: " + coyoteTimer);
+        coyoteTimer -= Time.deltaTime;
 
         if (player.jumpAction.triggered && (coyoteTimer >= 0f) && canCayote)
         {
@@ -25,20 +25,27 @@ public class LandPlayerState : BasePlayerState
         }
 
         //proceeds to dash
-        if (player.dashAction.IsPressed() && player.DashAbility.IsDashAvailable())
+        if (player.dashAction.triggered && player.DashAbility.IsDashAvailable())
         {
             player.PushCurrentState();
             player.SwitchState(player.DashState);
             return;
         }
 
-        if (player.groundBox.isGrounded)
+        if (player.attackAction.triggered)
         {
-            canCayote = false;
-            AudioManager.instance.RandomSFX(AudioManager.instance.playerLand);
-            player.PopState();
+            player.SwitchState(player.PlungeState);
         }
+
+        if (player.groundBox.isGrounded)
+            {
+                canCayote = false;
+                AudioManager.instance.RandomSFX(AudioManager.instance.playerLand);
+                player.PopState();
+            }
+
     }
+
     public override void FixedUpdateState(ManagerPlayerState player)
     {
         player.PlayerRb.linearVelocityY -= player.LandAcceleration;
@@ -52,6 +59,7 @@ public class LandPlayerState : BasePlayerState
             player.PlayerRb.linearVelocityX = player.Speed * Time.fixedDeltaTime * Vector3.left.x;
         }
     }
+
     public override void OnCollisionEnter2DState(Collision2D collision, ManagerPlayerState player)
     {
         if (collision.collider.tag == "Wall")
