@@ -6,6 +6,7 @@ public abstract class Effect
     public float Duration;
     public abstract void OnEffectStart();
     public abstract void OnEffectEnd();
+    public Entity EntityHolder;
 
     public IEnumerator EffectExpiration()
     {

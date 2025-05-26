@@ -112,6 +112,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "KeenAbility",
+                    "type": "Button",
+                    "id": "6e4fab31-a4bc-4da4-8d6d-fb7661c1708c",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -541,6 +550,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "Empower",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "b0aecb70-32d2-4af9-a7fd-7a36791a376b",
+                    "path": "<Keyboard>/x",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "KeenAbility",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

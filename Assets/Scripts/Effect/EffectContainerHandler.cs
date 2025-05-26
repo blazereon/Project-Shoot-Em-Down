@@ -6,8 +6,8 @@ public class EffectContainerHandler : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 
 
-    //Element 0 = Aether Mark
-    //Element 1 = Fragile Mark
+    //Element 0 = Fragile Mark
+    //Element 1 = Aether Mark
     //Element 2 = Stun
     public List<GameObject> Indicators;
 
@@ -34,6 +34,9 @@ public class EffectContainerHandler : MonoBehaviour
             {
                 case FragileMark:
                     Indicators[0].SetActive(true);
+                    break;
+                case AetherMark:
+                    Indicators[1].SetActive(true);
                     break;
             }
         }

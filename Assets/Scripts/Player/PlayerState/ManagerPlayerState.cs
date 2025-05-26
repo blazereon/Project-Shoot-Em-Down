@@ -35,6 +35,7 @@ public class ManagerPlayerState :  Player
 
         //Component Abilities
         OnTriggerEmpowerment += DashAbility.SetEmpowered;
+        OnTriggerEmpowerment += KeenAbility.SetEmpowered;
     }
     void Start()
     {
@@ -44,6 +45,7 @@ public class ManagerPlayerState :  Player
         attackAction = InputSystem.actions.FindAction("Attack");
         switchWeaponAction = InputSystem.actions.FindAction("SwitchWeapon");
         empowerAbility = InputSystem.actions.FindAction("Empower");
+        keenAbility = InputSystem.actions.FindAction("KeenAbility");
 
         PlayerCollider = GetComponent<Collider2D>();
 
@@ -56,6 +58,11 @@ public class ManagerPlayerState :  Player
         DashAbility.UpgradeComponent();
         DashAbility.UpgradeComponent();
         DashAbility.UpgradeComponent();
+
+        //for debugging purposes: keen upgrade
+        KeenAbility.UpgradeComponent();
+        KeenAbility.UpgradeComponent();
+        KeenAbility.UpgradeComponent();
     }
 
 
@@ -73,6 +80,13 @@ public class ManagerPlayerState :  Player
         if (empowerAbility.triggered && !IsEmpowerementInvoke)
         {
             IsEmpowerementInvoke = true;
+        }
+
+        //Invoking keen ability (test)
+        if (keenAbility.triggered)
+        {
+            Debug.Log("Keen Ability Triggered");
+            TriggerEmpowerment(KeenAbility);
         }
 
         //facing sprite logic

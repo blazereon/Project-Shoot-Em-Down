@@ -82,6 +82,7 @@ public class AttackPlayerState : BasePlayerState
             {
                 Debug.Log("enemy melee hit!!");
                 EventSystem.Current.AttackEnemy(hit.gameObject, DamageType.Melee, 15 /*+ (15/2 * player.PlayerCurrentStats.Chain)*/, player.PlayerCurrentStats.Violence, false);
+                if (!player.KeenAbility.IsTandemCooldown && player.KeenAbility.UpgradeTier >= 3) player.KeenAbility.TriggerTandem();
             }
         }
 
@@ -108,6 +109,17 @@ public class AttackPlayerState : BasePlayerState
             FiredBy = ProjectileOwner.Player,   // both of these can be set in the inspector... or runtime
             Destination = LayerDestinations.Enemy
         };
+
+        Debug.Log("Tandem status: " + player.KeenAbility.IsTandemTriggered);
+
+        //Add keen to effects list in projectile
+        if (player.KeenAbility.IsTandemTriggered && player.KeenAbility.UpgradeTier >= 3)
+        {
+            player.KeenAbility.ConsumeTandem();
+            var _aetherMark = new AetherMark(null, 4);
+            _aetherMark.KeenInstance = player.KeenAbility;
+            _projectileProps.EffectsList.Add(_aetherMark);
+        }
 
         Debug.Log("Ranged attack invoked");
     }

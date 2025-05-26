@@ -31,7 +31,6 @@ public class PlungePlayerState : BasePlayerState
 
         if (player.groundBox.isGrounded)
         {
-            isDropping = false;
             DropAoE(player);
             player.PopState();
         }

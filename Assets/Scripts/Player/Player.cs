@@ -24,8 +24,10 @@ public class Player : Entity
     public InputAction attackAction;
     public InputAction switchWeaponAction;
     public InputAction empowerAbility;
+    public InputAction keenAbility;
 
     public Dash DashAbility = new Dash();
+    public Keen KeenAbility = new Keen();
     
     public Rigidbody2D PlayerRb;
     public SpriteRenderer PlayerSprite;
@@ -49,6 +51,7 @@ public class Player : Entity
 
     public void TriggerEmpowerment(ComponentAbility ability)
     {
+        if (!IsEmpowerementInvoke) return;
         IsEmpowerementInvoke = false;
         OnTriggerEmpowerment?.Invoke(ability);
     }
