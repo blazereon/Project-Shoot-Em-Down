@@ -1356,7 +1356,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7144354307194853485, guid: eba7b37b26e606e4e9cc54d74bcc6d28, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2570,23 +2570,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2810335722263339416, guid: e6eadeb8dc563b544a200b12cd9b23d8, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8624141555746524545, guid: e6eadeb8dc563b544a200b12cd9b23d8, type: 3}
       propertyPath: attackSpd
-      value: 0.1
+      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 8624141555746524545, guid: e6eadeb8dc563b544a200b12cd9b23d8, type: 3}
       propertyPath: shootMode
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8624141555746524545, guid: e6eadeb8dc563b544a200b12cd9b23d8, type: 3}
       propertyPath: burstCount
-      value: 10
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8624141555746524545, guid: e6eadeb8dc563b544a200b12cd9b23d8, type: 3}
       propertyPath: AttackDamage
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8624141555746524545, guid: e6eadeb8dc563b544a200b12cd9b23d8, type: 3}
+      propertyPath: burstInterval
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2785,6 +2789,14 @@ PrefabInstance:
     - target: {fileID: 16334354220689217, guid: 47dccb7db6f14d04eada7b70e60765e1, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1197726589855281261, guid: 47dccb7db6f14d04eada7b70e60765e1, type: 3}
+      propertyPath: attackSpd
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1197726589855281261, guid: 47dccb7db6f14d04eada7b70e60765e1, type: 3}
+      propertyPath: burstCount
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1197726589855281261, guid: 47dccb7db6f14d04eada7b70e60765e1, type: 3}
       propertyPath: AttackDamage
@@ -3411,10 +3423,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1942204295011232120, guid: 137cc6ae3dcf69e4488a1ca21fa63680, type: 3}
+      propertyPath: playerAttackRanged.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1942204295011232120, guid: 137cc6ae3dcf69e4488a1ca21fa63680, type: 3}
+      propertyPath: 'playerAttackRanged.Array.data[1]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 9ab7ee18023a00f46af5947e4180f5d0, type: 3}
     - target: {fileID: 3687795523081152696, guid: 137cc6ae3dcf69e4488a1ca21fa63680, type: 3}
       propertyPath: m_Name
       value: SoundManager
       objectReference: {fileID: 0}
+    - target: {fileID: 4964433077650642272, guid: 137cc6ae3dcf69e4488a1ca21fa63680, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: 8690390362936981200, guid: 98ca58353fc629645a334e87e5c8b52d, type: 2}
     - target: {fileID: 5698707832160012649, guid: 137cc6ae3dcf69e4488a1ca21fa63680, type: 3}
       propertyPath: m_LocalPosition.x
       value: 6.2256365
@@ -3455,6 +3479,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5810277416283959490, guid: 137cc6ae3dcf69e4488a1ca21fa63680, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: -3604734517669866313, guid: 98ca58353fc629645a334e87e5c8b52d, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
