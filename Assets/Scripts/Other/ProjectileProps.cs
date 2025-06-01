@@ -20,6 +20,7 @@ public struct ProjectileProps
 {
     public float ProjectileSpeed;
     public int AttackDamage;
+    public bool isPiercing;
     public Vector2 Trajectory;
     public LayerMask DestroyOnly;
     public ProjectileOwner FiredBy;

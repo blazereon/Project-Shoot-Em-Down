@@ -55,7 +55,12 @@ public class Projectile : MonoBehaviour
         {
             Debug.Log("Player hit!");
             EventSystem.Current.AttackPlayer(ProjectileCurrentProperties.AttackDamage);
-            Destroy(gameObject);
+
+            if (!ProjectileCurrentProperties.isPiercing)
+            {
+                Destroy(gameObject);
+            }
+            
         }
         else if ((collision.gameObject.layer == _enemyLayer || collision.gameObject.layer == _nonCollideEnemy) && ProjectileCurrentProperties.FiredBy == ProjectileOwner.Player)
         {
@@ -76,8 +81,11 @@ public class Projectile : MonoBehaviour
                 Debug.Log("Enemy hit! On Non weak spot");
                 EventSystem.Current.AttackEnemy(collision.gameObject, DamageType.Range, ProjectileCurrentProperties.AttackDamage, 0, false);
             }
-                
-            Destroy(gameObject);
+
+            if (!ProjectileCurrentProperties.isPiercing)
+            {
+                Destroy(gameObject);
+            }
         }
         else
         {
