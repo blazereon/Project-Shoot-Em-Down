@@ -34,6 +34,19 @@ public class Projectile : MonoBehaviour
         {
             Destroy(gameObject);
         }
+
+        // Backup Collision via ray casting
+        RaycastHit2D _ray = Physics2D.Raycast(transform.position, rb.linearVelocity.normalized, transform.localScale.x + 0.05f);
+
+        // Debugging
+        Vector2 rayEndPoint = (Vector2)transform.position + rb.linearVelocity.normalized * (transform.localScale.x + 0.05f);
+        Debug.DrawRay(transform.position, rayEndPoint - (Vector2)transform.position, Color.red);
+
+        if (_ray.collider == null) return;
+        if (_ray.collider)
+        {
+            DetectHit(_ray.collider);
+        }
     }
 
     private void FixedUpdate()
@@ -42,6 +55,12 @@ public class Projectile : MonoBehaviour
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
+    {
+        DetectHit(collision);
+    }
+
+
+    private void DetectHit(Collider2D collision)
     {
         int _playerLayer = LayerMask.NameToLayer(LayerDestinations.Player.ToString());
         int _enemyLayer = LayerMask.NameToLayer(LayerDestinations.Enemy.ToString());
@@ -60,7 +79,7 @@ public class Projectile : MonoBehaviour
             {
                 Destroy(gameObject);
             }
-            
+
         }
         else if ((collision.gameObject.layer == _enemyLayer || collision.gameObject.layer == _nonCollideEnemy) && ProjectileCurrentProperties.FiredBy == ProjectileOwner.Player)
         {
