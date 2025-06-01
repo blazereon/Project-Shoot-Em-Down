@@ -29,13 +29,20 @@ public class ManagerPlayerState :  Player
 
     void Awake()
     {
+
+        //Set Component abilities to player
+        KeenAbility = new Keen(this);
+
+        //Some functions to be subscribed on events system
         EventSystem.Current.OnAttackPlayer += TakePlayerDamage;
         EventSystem.Current.OnSendPlayerPneuma += ReceivePneuma;
         EventSystem.Current.OnEnemyKill += OnKillResponse;
+        EventSystem.Current.OnApplyEffect += ReceiveEffect;
 
         //Component Abilities
         OnTriggerEmpowerment += DashAbility.SetEmpowered;
         OnTriggerEmpowerment += KeenAbility.SetEmpowered;
+
     }
     void Start()
     {
@@ -86,6 +93,7 @@ public class ManagerPlayerState :  Player
         if (keenAbility.triggered)
         {
             Debug.Log("Keen Ability Triggered");
+            KeenAbility.ConsumeKeen();
             TriggerEmpowerment(KeenAbility);
         }
 
@@ -124,7 +132,8 @@ public class ManagerPlayerState :  Player
         PlayerDebug _debugData = new PlayerDebug
         {
             playerState = _currentState,
-            playerStats = PlayerCurrentStats
+            playerStats = PlayerCurrentStats,
+            EffectsList = CurrentEffect,
         };
         EventSystem.Current.UpdatePlayerDebug(_debugData);
 

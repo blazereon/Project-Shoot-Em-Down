@@ -14,7 +14,7 @@ public class EventSystem
     private static readonly object padlock = new object();
 
 
-    EventSystem() {}
+    EventSystem() { }
     public static EventSystem Current
     {
         get
@@ -29,47 +29,44 @@ public class EventSystem
             }
         }
     }
-     /*
-     ^^^^^
-    It's just a singleton pattern. Ignore it
-    */
+    /*
+    ^^^^^
+   It's just a singleton pattern. Ignore it
+   */
     //This is where you subscribe functions to events
 
 
     //Global variables
     public Vector2 PlayerLocation; //player transform.position
     public Collider2D PlayerCollider;
-    
+
     //Event handlers
-    
     public event Action<GameObject, int> OnAttackEnemy;
     public event System.Action<GameObject, DamageType, int, int, bool> OnDamageEnemy;
-    public event Action<GameObject, DamageType, int, int> OnDamageEnemy1;
     public event Action<int> OnAttackPlayer;
     public event Action<int> OnSendPlayerPneuma;
     public event Action<GameObject> OnMeleeDeflect;
     public event Action<ComponentAbility> OnPlayerEmpowermentTrigger;
     public event Action OnEnemyKill;
+
+    //Player Related Events
     public event Action<GameObject, Effect> OnApplyEffect;
-
-
     public event Func<GameObject> OnPlayerGameObject;
     public event Action<PlayerStats> OnUpdatePlayerStats;
     public event Action<PlayerDebug> OnUpdatePlayerDebug;
 
+    //Player Comonent Ability related Events
+    public event Action<DashAbilityStatus> OnUpdateDashAbilityUI;
+    public event Action<KeenAbilityStatus> OnUpdateKeenAbilityStatus;
+
     public event Action<GameObject, ProjectileProps> OnModifyProjectile;
     public event Action<GameObject, float> OnSimpleDeflectProjectile;
 
-    
+
     //This is where you add the event trigger function
     public void AttackEnemy(GameObject enemyObject, DamageType type, int damage, int violence, bool weakSpotHit)
     {
         OnDamageEnemy?.Invoke(enemyObject, type, damage, violence, weakSpotHit);
-    }
-    
-    public void AttackEnemy(GameObject enemyObject, DamageType type, int damage, int violence)
-    {
-        OnDamageEnemy1?.Invoke(enemyObject, type, damage, violence);
     }
 
     public void AttackEnemy(GameObject enemyObject, int damage)
@@ -105,7 +102,7 @@ public class EventSystem
     {
         OnApplyEffect?.Invoke(pObject, effect);
     }
-    
+
     public void UpdatePlayerStats(PlayerStats stats)
     {
         OnUpdatePlayerStats?.Invoke(stats);
@@ -118,5 +115,16 @@ public class EventSystem
     public GameObject GetPlayerGameObject()
     {
         return OnPlayerGameObject?.Invoke();
+    }
+
+    //Events related to Player Component Abilities
+    public void UpdateDashAbilityUI(DashAbilityStatus dashStatus)
+    {
+        OnUpdateDashAbilityUI?.Invoke(dashStatus);
+    }
+
+    public void UpdateKeenAbilityStatus(KeenAbilityStatus keenStatus)
+    {
+        OnUpdateKeenAbilityStatus?.Invoke(keenStatus);
     }
 }

@@ -1,6 +1,21 @@
 using System.Collections;
 using UnityEngine;
 
+public struct DashAbilityStatus
+{
+
+    public ComponentAbilityData AbilityData;
+    public int DashCount;
+    public int MaxDashCount;
+    public int EmpoweredDashCount;
+    public int MaximumEmpoweredDashCount;
+
+    public bool IsCooldownActive;
+    public float Cooldown;
+    public float CooldownTimer;
+}
+
+
 public class Dash : ComponentAbility
 {
     //Regular dash
@@ -25,28 +40,30 @@ public class Dash : ComponentAbility
         {
             MaxDashCount = 2;
             MaximumEmpoweredDashCount = 2;
+            EventSystem.Current.UpdateDashAbilityUI(GetCurrentStatus());
             return;
         }
 
         if (UpgradeTier == 2)
         {
             //Enable Penetrating Dash
+            EventSystem.Current.UpdateDashAbilityUI(GetCurrentStatus());
             return;
         }
 
         if (UpgradeTier == 3)
         {
             //Enable Fragile Mark
+            EventSystem.Current.UpdateDashAbilityUI(GetCurrentStatus());
             return;
         }
     }
 
     public override void EmpowermentHandler()
     {
+        EventSystem.Current.UpdateDashAbilityUI(GetCurrentStatus());
         //Nothing
     }
-
-
 
     public bool IsDashAvailable()
     {
@@ -69,6 +86,7 @@ public class Dash : ComponentAbility
             Empowered = false;
         }
         if (!IsCooldownActive) CooldownRoutineInstance = player.StartCoroutine(DashCooldown());
+        EventSystem.Current.UpdateDashAbilityUI(GetCurrentStatus());
     }
 
     public void ResetCooldown(ManagerPlayerState player)
@@ -77,6 +95,22 @@ public class Dash : ComponentAbility
         CooldownRoutineInstance = null;
         IsCooldownActive = false;
         DashCount = MaxDashCount;
+        EventSystem.Current.UpdateDashAbilityUI(GetCurrentStatus());
+    }
+
+    private DashAbilityStatus GetCurrentStatus()
+    {
+        return new DashAbilityStatus
+        {
+            AbilityData = GetComponentAbilityData(),
+            DashCount = this.DashCount,
+            MaxDashCount = this.MaxDashCount,
+            EmpoweredDashCount = this.EmpoweredDashCount,
+            MaximumEmpoweredDashCount = this.MaximumEmpoweredDashCount,
+            IsCooldownActive = this.IsCooldownActive,
+            Cooldown = this.Cooldown,
+            CooldownTimer = this._cooldownTimer
+        };
     }
 
     IEnumerator DashCooldown()
@@ -95,12 +129,9 @@ public class Dash : ComponentAbility
                 _cooldownTimer = 0;
                 DashCount++;
             }
+            EventSystem.Current.UpdateDashAbilityUI(GetCurrentStatus());
         }
         IsCooldownActive = false;
-    }
-
-    IEnumerator EmpoweredDash()
-    {
-        yield return null;
+        EventSystem.Current.UpdateDashAbilityUI(GetCurrentStatus());
     }
 }

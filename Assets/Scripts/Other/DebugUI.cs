@@ -1,3 +1,4 @@
+using System;
 using TMPro;
 using UnityEngine;
 
@@ -24,9 +25,15 @@ public class DebugUI : MonoBehaviour
 
     private void UpdateData(PlayerDebug data)
     {
-        PlayerStateTMP.text = string.Format("Player State: {0}\n Chain Multiplier: {1}\n Chain Timer: {2}", 
-            data.playerState, 
-            data.playerStats.Chain, 
-            data.playerStats.ChainTimer < 1 ? 0 : data.playerStats.ChainTimer);
+        string effectsList = "\n";
+        foreach (Effect effect in data.EffectsList)
+        {
+            effectsList += effect + "\n";
+        }
+        PlayerStateTMP.text = string.Format("Player State: {0}\n Chain Multiplier: {1}\n Chain Timer: {2} \nEffects: {3}",
+            data.playerState,
+            data.playerStats.Chain,
+            data.playerStats.ChainTimer < 1 ? 0 : data.playerStats.ChainTimer,
+            effectsList);
     }
 }
