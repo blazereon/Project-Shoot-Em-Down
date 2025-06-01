@@ -28,6 +28,7 @@ public class Projectile : MonoBehaviour
     private void Update()
     {
         Vector3 _playerVec3 = EventSystem.Current.PlayerLocation;
+        Vector2 _bulletPrevPos = transform.position;
         float _distance = Vector2.Distance(EventSystem.Current.PlayerLocation, transform.position);
 
         if (_distance > 50)
@@ -35,12 +36,13 @@ public class Projectile : MonoBehaviour
             Destroy(gameObject);
         }
 
+        
         // Backup Collision via ray casting
-        RaycastHit2D _ray = Physics2D.Raycast(transform.position, rb.linearVelocity.normalized, transform.localScale.x + 0.05f);
+        RaycastHit2D _ray = Physics2D.Raycast(transform.position, rb.linearVelocity.normalized, transform.localScale.x + 0.5f);
 
         // Debugging
-        Vector2 rayEndPoint = (Vector2)transform.position + rb.linearVelocity.normalized * (transform.localScale.x + 0.05f);
-        Debug.DrawRay(transform.position, rayEndPoint - (Vector2)transform.position, Color.red);
+        Vector2 rayEndPoint = (Vector2)transform.position + rb.linearVelocity.normalized * (transform.localScale.x + 0.5f);
+        // Debug.DrawRay(transform.position, rayEndPoint - (Vector2)transform.position, Color.red);
 
         if (_ray.collider == null) return;
         if (_ray.collider)

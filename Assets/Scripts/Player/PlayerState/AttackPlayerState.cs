@@ -103,7 +103,7 @@ public class AttackPlayerState : BasePlayerState
 
         _projectileProps.ProjectileCurrentProperties = new ProjectileProps {
             Trajectory = _playerToMouseDistance.normalized,
-            ProjectileSpeed = 15,    // note: you can add public var for projectile speed
+            ProjectileSpeed = 25,    // note: you can add public var for projectile speed
             AttackDamage = (int)(8 + (8 / 2 * player.PlayerCurrentStats.Chain)),
             DestroyOnly = LayerMask.GetMask("Ground", "Wall", "Shield"),
             FiredBy = ProjectileOwner.Player,   // both of these can be set in the inspector... or runtime
