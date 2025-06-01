@@ -46,7 +46,7 @@ public class Keen : ComponentAbility
 
     public override void UpgradeComponentHandler()
     {
-        EventSystem.Current.UpdateKeenAbilityStatus(GetCurrentStatus());
+        EventSystem.Current.UpdateKeenAbilityUI(GetCurrentStatus());
     }
 
     public void TriggerTandem()
@@ -57,7 +57,7 @@ public class Keen : ComponentAbility
             return;
         }
         Debug.Log("Tandem Triggered");
-        EventSystem.Current.UpdateKeenAbilityStatus(GetCurrentStatus());
+        EventSystem.Current.UpdateKeenAbilityUI(GetCurrentStatus());
         TandemExpirationTimer = 0;
         if (IsTandemTriggered == false)
         {
@@ -89,7 +89,7 @@ public class Keen : ComponentAbility
         }
 
         EventSystem.Current.ApplyEffect(PlayerInstance.gameObject, _InvincibilityInstance);
-        EventSystem.Current.UpdateKeenAbilityStatus(GetCurrentStatus());
+        EventSystem.Current.UpdateKeenAbilityUI(GetCurrentStatus());
     }
 
     public void ConsumeTandem()
@@ -110,7 +110,7 @@ public class Keen : ComponentAbility
         {
             CoroutineHandler.Instance.StartCoroutine(TandemCooldownCoroutine());
         }
-        EventSystem.Current.UpdateKeenAbilityStatus(GetCurrentStatus());
+        EventSystem.Current.UpdateKeenAbilityUI(GetCurrentStatus());
     }
 
     private KeenAbilityStatus GetCurrentStatus()
@@ -140,10 +140,10 @@ public class Keen : ComponentAbility
         {
             yield return new WaitForSeconds(updateTimerRate);
             KeenCooldownTimer += updateTimerRate;
-            EventSystem.Current.UpdateKeenAbilityStatus(GetCurrentStatus());
+            EventSystem.Current.UpdateKeenAbilityUI(GetCurrentStatus());
         }
         IsKeenCooldown = false;
-        EventSystem.Current.UpdateKeenAbilityStatus(GetCurrentStatus());
+        EventSystem.Current.UpdateKeenAbilityUI(GetCurrentStatus());
     }
 
     IEnumerator TandemCooldownCoroutine()
@@ -154,10 +154,10 @@ public class Keen : ComponentAbility
         {
             yield return new WaitForSeconds(updateTimerRate);
             TandemCooldownTimer += updateTimerRate;
-            EventSystem.Current.UpdateKeenAbilityStatus(GetCurrentStatus());
+            EventSystem.Current.UpdateKeenAbilityUI(GetCurrentStatus());
         }
         IsTandemCooldown = false;
-        EventSystem.Current.UpdateKeenAbilityStatus(GetCurrentStatus());
+        EventSystem.Current.UpdateKeenAbilityUI(GetCurrentStatus());
         yield return null;
     }
 
@@ -169,10 +169,10 @@ public class Keen : ComponentAbility
         {
             yield return new WaitForSeconds(updateTimerRate);
             TandemExpirationTimer += updateTimerRate;
-            EventSystem.Current.UpdateKeenAbilityStatus(GetCurrentStatus());
+            EventSystem.Current.UpdateKeenAbilityUI(GetCurrentStatus());
         }
         IsTandemTriggered = false;
-        EventSystem.Current.UpdateKeenAbilityStatus(GetCurrentStatus());
+        EventSystem.Current.UpdateKeenAbilityUI(GetCurrentStatus());
         yield return null;
     }
 
