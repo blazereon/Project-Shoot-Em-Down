@@ -23,6 +23,8 @@ public abstract class Entity : MonoBehaviour
 
     public bool isConsumingMark;
 
+    public bool CanTakeDamage = true;
+
     public void ConsumeMark()
     {
         isConsumingMark = true;

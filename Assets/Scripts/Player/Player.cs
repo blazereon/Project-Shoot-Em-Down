@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using Mono.Cecil.Cil;
+using Unity.VisualScripting;
 using UnityEditor.PackageManager;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -27,7 +28,7 @@ public class Player : Entity
     public InputAction keenAbility;
 
     public Dash DashAbility = new Dash();
-    public Keen KeenAbility = new Keen();
+    public Keen KeenAbility;
     
     public Rigidbody2D PlayerRb;
     public SpriteRenderer PlayerSprite;
@@ -58,6 +59,11 @@ public class Player : Entity
 
     public void TakePlayerDamage(int damage)
     {
+        if (!CanTakeDamage)
+        {
+            //you may put sfx for this
+            return;
+        }
         AudioManager.instance.RandomSFX(AudioManager.instance.playerTakeDmg);
         PlayerCurrentStats.Health -= damage;
         if (PlayerCurrentStats.Health <= 0)

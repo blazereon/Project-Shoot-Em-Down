@@ -1,5 +1,11 @@
 using UnityEngine;
 
+
+public struct ComponentAbilityData
+{
+    public int UpgradeTier;
+    public bool Empowered;
+}
 public abstract class ComponentAbility
 {
     public int UpgradeTier = 0;
@@ -22,6 +28,15 @@ public abstract class ComponentAbility
             Empowered = true;
             EmpowermentHandler();
         }
+    }
+
+    public ComponentAbilityData GetComponentAbilityData()
+    {
+        return new ComponentAbilityData
+        {
+            UpgradeTier = this.UpgradeTier,
+            Empowered = this.Empowered
+        };
     }
 
     public abstract void EmpowermentHandler();
