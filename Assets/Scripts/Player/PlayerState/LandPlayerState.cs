@@ -69,7 +69,7 @@ public class LandPlayerState : BasePlayerState
     }
     public override void OnCollisionExit2DState(Collision2D collision, ManagerPlayerState player)
     {
-
+        
     }
 
 }

@@ -58,6 +58,7 @@ public class EventSystem
     //Player Comonent Ability related Events
     public event Action<DashAbilityStatus> OnUpdateDashAbilityUI;
     public event Action<KeenAbilityStatus> OnUpdateKeenAbilityUI;
+    public event Action OnReleaseStunningField;
 
     public event Action<GameObject, ProjectileProps> OnModifyProjectile;
     public event Action<GameObject, float> OnSimpleDeflectProjectile;
@@ -126,5 +127,10 @@ public class EventSystem
     public void UpdateKeenAbilityUI(KeenAbilityStatus keenStatus)
     {
         OnUpdateKeenAbilityUI?.Invoke(keenStatus);
+    }
+
+    public void ReleaseStunningField()
+    {
+        OnReleaseStunningField?.Invoke();
     }
 }

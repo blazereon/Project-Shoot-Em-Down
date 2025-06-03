@@ -24,11 +24,13 @@ public class Player : Entity
     public InputAction dashAction;
     public InputAction attackAction;
     public InputAction switchWeaponAction;
-    public InputAction empowerAbility;
-    public InputAction keenAbility;
+    public InputAction empowerAbilityAction;
+    public InputAction keenAbilityAction;
+    public InputAction destructiveAbilityAction;
 
     public Dash DashAbility = new Dash();
     public Keen KeenAbility;
+    public DestructiveBolt DestructiveBoltAbility;
     
     public Rigidbody2D PlayerRb;
     public SpriteRenderer PlayerSprite;

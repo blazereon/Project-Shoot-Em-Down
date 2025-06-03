@@ -121,6 +121,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "DestructiveBolt",
+                    "type": "Button",
+                    "id": "d86b3673-570c-45f6-b57e-7b9bc001acbb",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -561,6 +570,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "KeenAbility",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "182ad04a-210a-4dc0-890b-c8103a3a04cc",
+                    "path": "<Keyboard>/e",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "DestructiveBolt",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

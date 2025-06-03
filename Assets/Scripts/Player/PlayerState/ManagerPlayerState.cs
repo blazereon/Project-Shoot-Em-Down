@@ -32,6 +32,7 @@ public class ManagerPlayerState :  Player
 
         //Set Component abilities to player
         KeenAbility = new Keen(this);
+        DestructiveBoltAbility = new DestructiveBolt(this);
 
         //Some functions to be subscribed on events system
         EventSystem.Current.OnAttackPlayer += TakePlayerDamage;
@@ -51,8 +52,9 @@ public class ManagerPlayerState :  Player
         dashAction = InputSystem.actions.FindAction("Dash");
         attackAction = InputSystem.actions.FindAction("Attack");
         switchWeaponAction = InputSystem.actions.FindAction("SwitchWeapon");
-        empowerAbility = InputSystem.actions.FindAction("Empower");
-        keenAbility = InputSystem.actions.FindAction("KeenAbility");
+        empowerAbilityAction = InputSystem.actions.FindAction("Empower");
+        keenAbilityAction = InputSystem.actions.FindAction("KeenAbility");
+        destructiveAbilityAction = InputSystem.actions.FindAction("DestructiveBolt");
 
         PlayerCollider = GetComponent<Collider2D>();
 
@@ -84,32 +86,39 @@ public class ManagerPlayerState :  Player
         }
 
         //Invoking empowerment upon full aggression
-        if (empowerAbility.triggered && !IsEmpowerementInvoke)
+        if (empowerAbilityAction.triggered && !IsEmpowerementInvoke)
         {
             IsEmpowerementInvoke = true;
         }
 
         //Invoking keen ability (test)
-        if (keenAbility.triggered)
+        if (keenAbilityAction.triggered)
         {
             Debug.Log("Keen Ability Triggered");
             KeenAbility.ConsumeKeen();
             TriggerEmpowerment(KeenAbility);
         }
 
+        //Invoking Destructive Bolt
+        if (destructiveAbilityAction.triggered)
+        {
+            Debug.Log("Destructive Bolt Triggered");
+            TriggerEmpowerment(DestructiveBoltAbility);
+        }
+        
         //facing sprite logic
-            switch (facing)
-            {
-                case Facing.right:
-                    PlayerSprite.flipX = false;
-                    break;
-                case Facing.left:
-                    PlayerSprite.flipX = true;
-                    break;
-                default:
-                    Debug.LogError("Invalid facing value");
-                    break;
-            }
+        switch (facing)
+        {
+            case Facing.right:
+                PlayerSprite.flipX = false;
+                break;
+            case Facing.left:
+                PlayerSprite.flipX = true;
+                break;
+            default:
+                Debug.LogError("Invalid facing value");
+                break;
+        }
 
         //for toggling weapon (ranged, melee)
         if (switchWeaponAction.triggered)

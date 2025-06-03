@@ -207,6 +207,15 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""DestructiveBolt"",
+                    ""type"": ""Button"",
+                    ""id"": ""d86b3673-570c-45f6-b57e-7b9bc001acbb"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -647,6 +656,17 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""KeenAbility"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""182ad04a-210a-4dc0-890b-c8103a3a04cc"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""DestructiveBolt"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -1247,6 +1267,7 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
         m_Player_SwitchWeapon = m_Player.FindAction("SwitchWeapon", throwIfNotFound: true);
         m_Player_Empower = m_Player.FindAction("Empower", throwIfNotFound: true);
         m_Player_KeenAbility = m_Player.FindAction("KeenAbility", throwIfNotFound: true);
+        m_Player_DestructiveBolt = m_Player.FindAction("DestructiveBolt", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -1353,6 +1374,7 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_SwitchWeapon;
     private readonly InputAction m_Player_Empower;
     private readonly InputAction m_Player_KeenAbility;
+    private readonly InputAction m_Player_DestructiveBolt;
     /// <summary>
     /// Provides access to input actions defined in input action map "Player".
     /// </summary>
@@ -1416,6 +1438,10 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "Player/KeenAbility".
         /// </summary>
         public InputAction @KeenAbility => m_Wrapper.m_Player_KeenAbility;
+        /// <summary>
+        /// Provides access to the underlying input action "Player/DestructiveBolt".
+        /// </summary>
+        public InputAction @DestructiveBolt => m_Wrapper.m_Player_DestructiveBolt;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -1481,6 +1507,9 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
             @KeenAbility.started += instance.OnKeenAbility;
             @KeenAbility.performed += instance.OnKeenAbility;
             @KeenAbility.canceled += instance.OnKeenAbility;
+            @DestructiveBolt.started += instance.OnDestructiveBolt;
+            @DestructiveBolt.performed += instance.OnDestructiveBolt;
+            @DestructiveBolt.canceled += instance.OnDestructiveBolt;
         }
 
         /// <summary>
@@ -1531,6 +1560,9 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
             @KeenAbility.started -= instance.OnKeenAbility;
             @KeenAbility.performed -= instance.OnKeenAbility;
             @KeenAbility.canceled -= instance.OnKeenAbility;
+            @DestructiveBolt.started -= instance.OnDestructiveBolt;
+            @DestructiveBolt.performed -= instance.OnDestructiveBolt;
+            @DestructiveBolt.canceled -= instance.OnDestructiveBolt;
         }
 
         /// <summary>
@@ -1922,6 +1954,13 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnKeenAbility(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "DestructiveBolt" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnDestructiveBolt(InputAction.CallbackContext context);
     }
     /// <summary>
     /// Interface to implement callback methods for all input action callbacks associated with input actions defined by "UI" which allows adding and removing callbacks.

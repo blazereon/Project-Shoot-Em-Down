@@ -22,7 +22,7 @@ public abstract class Entity : MonoBehaviour
     public Action OnConsumeMark;
 
     public bool isConsumingMark;
-
+    public bool IsStunned;
     public bool CanTakeDamage = true;
 
     public void ConsumeMark()
@@ -34,7 +34,6 @@ public abstract class Entity : MonoBehaviour
 
     public void AddEffect(Effect effect)
     {
-        Debug.Log(effect);
         CurrentEffect.Add(effect);
         //update effect handler
         // CurrentEffectHandler.UpdateEffect(CurrentEffect);
