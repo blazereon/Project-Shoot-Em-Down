@@ -95,21 +95,44 @@ public class AttackPlayerState : BasePlayerState
         {
             Debug.LogError("Camera.main is null");
         }
-        
+
         var _projectile = Object.Instantiate(player.projectileObject, player.transform.position, player.transform.rotation);
-  
+
         Vector2 _playerToMouseDistance = (Vector2)(Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue()) - player.transform.position).normalized;
         var _projectileProps = _projectile.GetComponent<Projectile>();
 
-        _projectileProps.ProjectileCurrentProperties = new ProjectileProps {
+        _projectileProps.ProjectileCurrentProperties = new ProjectileProps
+        {
             Trajectory = _playerToMouseDistance.normalized,
-            ProjectileSpeed = 25,    // note: you can add public var for projectile speed
-            isPiercing = true,
+            ProjectileSpeed = player.PlayerCurrentStats.ProjectileSpeed,    // note: you can add public var for projectile speed
+            isPiercing = false,
             AttackDamage = (int)(8 + (8 / 2 * player.PlayerCurrentStats.Chain)),
             DestroyOnly = LayerMask.GetMask("Ground", "Wall", "Shield"),
             FiredBy = ProjectileOwner.Player,   // both of these can be set in the inspector... or runtime
             Destination = LayerDestinations.Enemy
         };
+
+        if (player.DestructiveBoltAbility.UpgradeTier >= 1)
+        {
+            _projectileProps.ProjectileCurrentProperties.isPiercing = true;
+
+            if (player.DestructiveBoltAbility.IsNextBulletEmpowered)
+            {
+                _projectileProps.ProjectileCurrentProperties.DestroyOnly = LayerMask.GetMask("Ground", "Wall");
+            }
+        }
+
+        if (player.DestructiveBoltAbility.UpgradeTier >= 2)
+        {
+            if (Random.Range(0, 100) > 25) return;
+            var _stun = new Stun(null, 1f);
+            _projectileProps.EffectsList.Add(_stun);
+        }
+
+        if (player.DestructiveBoltAbility.UpgradeTier >= 3)
+        {
+            _projectileProps.ProjectileCurrentProperties.ProjectileSpeed = player.PlayerCurrentStats.ProjectileSpeed * 1.5f;
+        }
 
         Debug.Log("Tandem status: " + player.KeenAbility.IsTandemTriggered);
 
@@ -123,5 +146,6 @@ public class AttackPlayerState : BasePlayerState
         }
 
         Debug.Log("Ranged attack invoked");
+        player.DestructiveBoltAbility.IsNextBulletEmpowered = false;
     }
 }

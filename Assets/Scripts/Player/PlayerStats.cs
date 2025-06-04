@@ -11,7 +11,7 @@ public struct PlayerStats
     public int Violence;
     public int MaxMomentum;
     public int MaxPneumatic;
-
+    public float ProjectileSpeed;
     public int MaxAggression;
     public int MaxViolence;
     public int MaxChain;

@@ -38,6 +38,9 @@ public class EffectContainerHandler : MonoBehaviour
                 case AetherMark:
                     Indicators[1].SetActive(true);
                     break;
+                case Stun:
+                    Indicators[2].SetActive(true);
+                    break;
             }
         }
     }
