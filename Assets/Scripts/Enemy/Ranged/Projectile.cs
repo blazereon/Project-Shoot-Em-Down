@@ -9,6 +9,7 @@ public class Projectile : MonoBehaviour
     public ProjectileProps ProjectileCurrentProperties;
     public Rigidbody2D rb;
     public List<Effect> EffectsList = new List<Effect>();
+    private HashSet<int> objectHitID = new HashSet<int>();
 
     private void Awake()
     {
@@ -35,9 +36,6 @@ public class Projectile : MonoBehaviour
         {
             Destroy(gameObject);
         }
-
-        
-        
     }
 
     private void FixedUpdate()
@@ -54,7 +52,16 @@ public class Projectile : MonoBehaviour
         if (_ray.collider == null) return;
         if (_ray.collider)
         {
-            DetectHit(_ray.collider);
+            int _objID = _ray.collider.GetInstanceID();
+            if (!objectHitID.Contains(_objID))
+            {
+                objectHitID.Add(_objID);
+                DetectHit(_ray.collider);
+            }
+            else
+            {
+
+            }
         }
     }
 
