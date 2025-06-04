@@ -37,11 +37,6 @@ public class Projectile : MonoBehaviour
         {
             Destroy(gameObject);
         }
-    }
-
-    private void FixedUpdate()
-    {
-        rb.linearVelocity = ProjectileCurrentProperties.Trajectory * ProjectileCurrentProperties.ProjectileSpeed;
 
         // Backup Collision via ray casting
         RaycastHit2D _ray = Physics2D.Raycast(transform.position, rb.linearVelocity.normalized, transform.localScale.x + 0.5f);
@@ -64,6 +59,11 @@ public class Projectile : MonoBehaviour
 
             }
         }
+    }
+
+    private void FixedUpdate()
+    {
+        rb.linearVelocity = ProjectileCurrentProperties.Trajectory * ProjectileCurrentProperties.ProjectileSpeed;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
