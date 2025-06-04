@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
 using NUnit.Framework;
@@ -95,11 +96,12 @@ public class Projectile : MonoBehaviour
         }
         else if ((collision.gameObject.layer == _enemyLayer || collision.gameObject.layer == _nonCollideEnemy) && ProjectileCurrentProperties.FiredBy == ProjectileOwner.Player)
         {
-            var _enemyInstance = collision.gameObject.GetComponent<Enemy>();
+            var _enemyInstance = collision.gameObject.GetComponent<Entity>();
             foreach (Effect effect in EffectsList)
             {
-                effect.EntityHolder = _enemyInstance;
-                EventSystem.Current.ApplyEffect(collision.gameObject, effect);
+                var _clonedEffect = effect.Clone();
+                _clonedEffect.EntityHolder = _enemyInstance;
+                EventSystem.Current.ApplyEffect(collision.gameObject, _clonedEffect);
             }
             // EventSystem.Current.AttackEnemy(collision.gameObject, ProjectileCurrentProperties.AttackDamage);
             if (collision.gameObject.tag == "WeakSpot")

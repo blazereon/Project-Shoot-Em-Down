@@ -16,4 +16,9 @@ public class Stun : Effect
         EntityHolder.RemoveEffect(this);
         EntityHolder.IsStunned = false;
     }
+
+    public override Effect Clone()
+    {
+        return new Stun(EntityHolder, Duration);
+    }
 }
