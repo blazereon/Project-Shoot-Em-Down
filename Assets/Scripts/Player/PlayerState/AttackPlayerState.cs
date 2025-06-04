@@ -124,14 +124,18 @@ public class AttackPlayerState : BasePlayerState
 
         if (player.DestructiveBoltAbility.UpgradeTier >= 2)
         {
-            if (Random.Range(0, 100) > 25) return;
-            var _stun = new Stun(null, 1f);
-            _projectileProps.EffectsList.Add(_stun);
+            if (Random.Range(0, 100) > 25)
+            {
+                var _stun = new Stun(null, 1f);
+                _projectileProps.EffectsList.Add(_stun);
+            }
+            
         }
 
         if (player.DestructiveBoltAbility.UpgradeTier >= 3)
         {
             _projectileProps.ProjectileCurrentProperties.ProjectileSpeed = player.PlayerCurrentStats.ProjectileSpeed * 1.5f;
+            _projectileProps.EffectsList.Add(new Instakill(null, 4));
         }
 
         Debug.Log("Tandem status: " + player.KeenAbility.IsTandemTriggered);
@@ -143,6 +147,7 @@ public class AttackPlayerState : BasePlayerState
             var _aetherMark = new AetherMark(null, 4);
             _aetherMark.KeenInstance = player.KeenAbility;
             _projectileProps.EffectsList.Add(_aetherMark);
+            
         }
 
         Debug.Log("Ranged attack invoked");
