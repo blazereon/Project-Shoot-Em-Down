@@ -38,4 +38,9 @@ public class FragileMark : Effect
         CoroutineHandler.Instance.StopCoroutine(durationCouroutine);
         Debug.Log("Fragile mark consumed");
     }
+
+    public override Effect Clone()
+    {
+        return new FragileMark(null, Duration);
+    }
 }

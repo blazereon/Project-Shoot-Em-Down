@@ -72,6 +72,10 @@ public class ManagerPlayerState :  Player
         KeenAbility.UpgradeComponent();
         KeenAbility.UpgradeComponent();
         KeenAbility.UpgradeComponent();
+
+        //for debugging purposes: destructive bolt
+        DestructiveBoltAbility.UpgradeComponent();
+        DestructiveBoltAbility.UpgradeComponent();
     }
 
 

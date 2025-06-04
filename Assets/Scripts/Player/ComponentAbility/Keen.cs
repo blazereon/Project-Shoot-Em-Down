@@ -75,7 +75,7 @@ public class Keen : ComponentAbility
         }
 
         //Apply Invincibility Effect
-        var _InvincibilityInstance = new Invincibility();
+        var _InvincibilityInstance = new Invincibility(PlayerInstance, 1f);
         _InvincibilityInstance.EntityHolder = PlayerInstance;
 
         if (Empowered)

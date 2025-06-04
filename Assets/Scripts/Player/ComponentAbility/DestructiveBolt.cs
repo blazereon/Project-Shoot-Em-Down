@@ -4,6 +4,7 @@ using UnityEngine;
 public class DestructiveBolt : ComponentAbility
 {
     ManagerPlayerState player;
+    public bool IsNextBulletEmpowered = false;
 
     public DestructiveBolt(ManagerPlayerState player)
     {
@@ -14,12 +15,13 @@ public class DestructiveBolt : ComponentAbility
     public override void EmpowermentHandler()
     {
         Debug.Log("Stunning field activated");
-        EventSystem.Current.ReleaseStunningField();
+        if (UpgradeTier >= 2) EventSystem.Current.ReleaseStunningField();
+        IsNextBulletEmpowered = true;
         Empowered = false;
     }
 
     public override void UpgradeComponentHandler()
     {
-        
+
     }
 }

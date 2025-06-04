@@ -54,4 +54,11 @@ public class AetherMark : Effect
 
         Debug.Log("Aether mark consumed");
     }
+
+    public override Effect Clone()
+    {
+        var _clonedAetherMark = new AetherMark(null, Duration);
+        _clonedAetherMark.KeenInstance = KeenInstance;
+        return _clonedAetherMark;
+    }
 }

@@ -403,6 +403,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isConsumingMark: 0
+  IsStunned: 0
+  CanTakeDamage: 1
   projectileObject: {fileID: 2293672932219427466, guid: 1c92483c0f11ee0439033259504311d8, type: 3}
   moveAction:
     m_Name: Move
@@ -449,11 +451,29 @@ MonoBehaviour:
     m_Interactions: 
     m_SingletonActionBindings: []
     m_Flags: 0
-  empowerAbility:
+  empowerAbilityAction:
     m_Name: 
     m_Type: 0
     m_ExpectedControlType: 
-    m_Id: 47e704da-1b77-4d4a-8869-c26b11cc86dd
+    m_Id: 682be890-43f6-4914-90e1-7d7b4516b589
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
+  keenAbilityAction:
+    m_Name: 
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: b47a1c85-5240-4ea0-9278-aa10f3fc7ab6
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
+  destructiveAbilityAction:
+    m_Name: 
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 8cbb70e2-884b-499a-94a6-aaea34ca8385
     m_Processors: 
     m_Interactions: 
     m_SingletonActionBindings: []
@@ -466,6 +486,7 @@ MonoBehaviour:
     Violence: 0
     MaxMomentum: 100
     MaxPneumatic: 100
+    ProjectileSpeed: 12
     MaxAggression: 0
     MaxViolence: 100
     MaxChain: 4
