@@ -111,4 +111,9 @@ public class HitDetect : MonoBehaviour
             _playerDetected = false;
         }
     }
+
+    private void OnDestroy()
+    {
+        EventSystem.Current.OnApplyEffect -= ReceiveEffect;
+    }
 }
