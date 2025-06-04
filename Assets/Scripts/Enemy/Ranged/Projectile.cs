@@ -11,6 +11,7 @@ public class Projectile : MonoBehaviour
     public Rigidbody2D rb;
     public List<Effect> EffectsList = new List<Effect>();
     private HashSet<int> objectHitID = new HashSet<int>();
+    public bool Empowered = true;
 
     private void Awake()
     {
@@ -56,7 +57,7 @@ public class Projectile : MonoBehaviour
             }
             else
             {
-
+                
             }
         }
     }
@@ -107,7 +108,15 @@ public class Projectile : MonoBehaviour
             if (collision.gameObject.tag == "WeakSpot")
             {
                 Debug.Log("Enemy hit! On weak spot");
-                EventSystem.Current.AttackEnemy(collision.gameObject, DamageType.Range, ProjectileCurrentProperties.AttackDamage, 0, true);
+                if (Empowered)
+                {
+                    Debug.Log("Instakill");
+                    EventSystem.Current.AttackEnemy(collision.gameObject.transform.parent.gameObject, DamageType.Range, 9999999, 100, false);
+                }
+                else
+                {
+                    EventSystem.Current.AttackEnemy(collision.gameObject.transform.parent.gameObject, DamageType.Range, ProjectileCurrentProperties.AttackDamage, 0, false);
+                }
             }
             else
             {

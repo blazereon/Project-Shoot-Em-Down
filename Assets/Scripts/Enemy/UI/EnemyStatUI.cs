@@ -11,7 +11,6 @@ public struct EnemyStatProps {
 
 public class EnemyStatUI : MonoBehaviour
 {
-
     public HealthMeter HealthMeterInstance;
     public EffectContainerHandler EffectContainerHandlerInstance;
 
