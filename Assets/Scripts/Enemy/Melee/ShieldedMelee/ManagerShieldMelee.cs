@@ -30,6 +30,7 @@ public class ManagerShieldMelee : Enemy
     void Awake()
     {
         EventSystem.Current.OnDamageEnemy += TakeDamage;
+        EventSystem.Current.OnApplyEffect += ReceiveEffect;
         enemyRb = GetComponent<Rigidbody2D>();
     }
 
@@ -107,5 +108,6 @@ public class ManagerShieldMelee : Enemy
     void OnDestroy()
     {
         EventSystem.Current.OnDamageEnemy -= TakeDamage;
+        EventSystem.Current.OnApplyEffect -= ReceiveEffect;
     }
 }

@@ -16,6 +16,7 @@ public class HitDetect : MonoBehaviour
     {
         _enemy = GetComponentInParent<Enemy>();
         _parent = this.transform.parent.gameObject;
+        EventSystem.Current.OnApplyEffect += ReceiveEffect;
     }
 
     // Update is called once per frame
@@ -45,6 +46,13 @@ public class HitDetect : MonoBehaviour
 
         // Unnecessary for now but just in case we need it
         return _wasHit;
+    }
+
+    void ReceiveEffect(GameObject pObject, Effect effect)
+    {
+        if (pObject != this.gameObject) return;
+        effect.EntityHolder = _enemy;
+        effect.OnEffectStart();
     }
 
     void OnTriggerEnter2D(Collider2D collider)
