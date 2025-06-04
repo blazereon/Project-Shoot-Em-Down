@@ -44,6 +44,7 @@ public class ManagerStaticRanged : Enemy
     private void Awake()
     {
         EventSystem.Current.OnDamageEnemy += TakeDamage;
+        EventSystem.Current.OnApplyEffect += ReceiveEffect;
     }
 
     void Start()
@@ -83,5 +84,6 @@ public class ManagerStaticRanged : Enemy
     void OnDestroy()
     {
         EventSystem.Current.OnDamageEnemy -= TakeDamage;
+        EventSystem.Current.OnApplyEffect -= ReceiveEffect;
     }
 }

@@ -26,6 +26,7 @@ public class ManagerExplosive : Enemy
     void Awake()
     {
         EventSystem.Current.OnDamageEnemy += TakeDamage;
+        EventSystem.Current.OnApplyEffect += ReceiveEffect;
         enemyRb = GetComponent<Rigidbody2D>();
     }
 
@@ -79,5 +80,6 @@ public class ManagerExplosive : Enemy
     void OnDestroy()
     {
         EventSystem.Current.OnDamageEnemy -= TakeDamage;
+        EventSystem.Current.OnApplyEffect -= ReceiveEffect;
     }
 }

@@ -55,6 +55,7 @@ public class ManagerRangedGrounded : Enemy
     private void Awake()
     {
         EventSystem.Current.OnDamageEnemy += TakeDamage;
+        EventSystem.Current.OnApplyEffect += ReceiveEffect;
     }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -112,6 +113,7 @@ public class ManagerRangedGrounded : Enemy
     void OnDestroy()
     {
         EventSystem.Current.OnDamageEnemy -= TakeDamage;
+        EventSystem.Current.OnApplyEffect -= ReceiveEffect;
     }
 }
 
