@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Linq;
 using UnityEngine;
@@ -60,6 +61,9 @@ public class Enemy : Entity
         float _rawDamage = 0;
         float _rawViolence;
         float _rawResPercent;
+
+        int _pneuma, _aggression;
+
         switch (type)
         {
             case DamageType.Melee:
@@ -68,6 +72,11 @@ public class Enemy : Entity
                 Debug.Log("Raw Violence: " + _rawViolence);
                 _rawDamage = damage - (damage * (_rawResPercent - _rawViolence));
                 Debug.Log("Raw damage: " + _rawDamage);
+
+                //Calculate amount of pneuma and aggression based on damage dealt
+                _pneuma = (int)(Mathf.Min(Health, _rawDamage) * 0.20f);
+                _aggression = (int)(Mathf.Min(Health, _rawDamage) * 0.10f);
+
                 Health -= (int)_rawDamage;
                 UpdateUIData();
                 break;
@@ -80,22 +89,30 @@ public class Enemy : Entity
                 Debug.Log("Raw damage: " + _rawDamage);
                 Health -= (int)_rawDamage;
 
+                //Calculate amount of pneuma and aggression based on damage dealt
+                _pneuma = (int)(Mathf.Min(Health, _rawDamage) * 0.20f);
+                _aggression = (int)(Mathf.Min(Health, _rawDamage) * 0.10f);
+
                 Debug.Log("PN Range Hurt " + isWeakSpotActive + weakSpotHit);
                 if (isWeakSpotActive && weakSpotHit)
                 {
-                    Debug.Log("Weak Spot hit, sending pneuma!");
+                    Debug.Log("Weak Spot hit, sending orbs!");
 
-                    EventSystem.Current.SendPlayerPneuma(PneumaAmount);
+                    OrbManager.Current.GetOrb(OrbType.Pneuma, 5, transform.position);
+                    OrbManager.Current.GetOrb(OrbType.Aggression, 5, transform.position);
                 }
                 UpdateUIData();
                 break;
+            default:
+                Debug.Log("Invalid Damage Type");
+                return;
         }
-        OrbManager.Current.GetOrb(OrbType.Pneuma, 10, transform.position);
+        OrbManager.Current.GetOrb(OrbType.Pneuma, _pneuma, transform.position);
+        OrbManager.Current.GetOrb(OrbType.Aggression, _aggression, transform.position);
 
         if (Health <= 0)
         {
             AudioManager.instance.PlayFX(AudioManager.instance.enemyDeath, false);
-            EventSystem.Current.SendPlayerPneuma(PneumaAmount);
             EventSystem.Current.EnemyKill();
             Destroy(this.gameObject);
         }
@@ -114,7 +131,6 @@ public class Enemy : Entity
             if (Health <= 0)
             {
                 AudioManager.instance.RandomSFX(AudioManager.instance.enemyDeath);
-                EventSystem.Current.SendPlayerPneuma(PneumaAmount);
                 EventSystem.Current.EnemyKill();
                 Destroy(this.gameObject);
             }

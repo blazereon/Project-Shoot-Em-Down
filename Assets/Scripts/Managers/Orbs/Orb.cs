@@ -9,10 +9,31 @@ public enum OrbType
 public class Orb : MonoBehaviour
 {
     public OrbManager orbManagerInstance;
+    private SpriteRenderer spriteRenderer;
     private float OrbMovementSpeed = 2f;
     private Rigidbody2D Rb;
     private CircleCollider2D _col;
-    public OrbType Type;
+    private OrbType type;
+    public OrbType Type
+    {
+        get
+        {
+            return type;
+        }
+        set
+        {
+            type = value;
+            switch (value)
+            {
+                case OrbType.Pneuma:
+                    spriteRenderer.color = Color.cyan;
+                    break;
+                case OrbType.Aggression:
+                    spriteRenderer.color = Color.magenta;
+                    break;
+            }
+        }
+    }
     public int value;
     public float IdleDuration = 2f;
     private bool _isIdle = true;
@@ -21,6 +42,7 @@ public class Orb : MonoBehaviour
     {
         Rb = gameObject.GetComponent<Rigidbody2D>();
         _col = gameObject.GetComponent<CircleCollider2D>();
+        spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
     }
     void Update()
     {
@@ -38,7 +60,7 @@ public class Orb : MonoBehaviour
     {
         Physics2D.IgnoreCollision(_col, EventSystem.Current.PlayerCollider, true);
         transform.position = position;
-        Rb.AddForce(new Vector2(Random.Range(-1f, 1f) * 5, Random.Range(-1f, 1f) * 5), ForceMode2D.Impulse);
+        Rb.AddForce(new Vector2(Random.Range(-1f, 1f) * 5, 3), ForceMode2D.Impulse);
         _isIdle = true;
         StartCoroutine(IdleCoroutine());
     }
@@ -48,6 +70,12 @@ public class Orb : MonoBehaviour
         if (collision.tag == "Player")
         {
             //Send player values
+            switch (type)
+            {
+                case OrbType.Pneuma:
+                    EventSystem.Current.SendPlayerOrb(type, value);
+                    break;
+            }
             orbManagerInstance.ReturnOrb(gameObject);
         }
     }

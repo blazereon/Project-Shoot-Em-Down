@@ -36,7 +36,7 @@ public class ManagerPlayerState :  Player
 
         //Some functions to be subscribed on events system
         EventSystem.Current.OnAttackPlayer += TakePlayerDamage;
-        EventSystem.Current.OnSendPlayerPneuma += ReceivePneuma;
+        EventSystem.Current.OnSendPlayerOrb += ReceiveOrb;
         EventSystem.Current.OnEnemyKill += OnKillResponse;
         EventSystem.Current.OnApplyEffect += ReceiveEffect;
 
@@ -222,7 +222,7 @@ public class ManagerPlayerState :  Player
     void OnDestroy()
     {
         EventSystem.Current.OnAttackPlayer -= TakePlayerDamage;
-        EventSystem.Current.OnSendPlayerPneuma -= ReceivePneuma;
+        EventSystem.Current.OnSendPlayerOrb -= ReceiveOrb;
     }
 
     private void OnDrawGizmos()

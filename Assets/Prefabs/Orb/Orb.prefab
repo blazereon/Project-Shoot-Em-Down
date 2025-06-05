@@ -29,8 +29,8 @@ Transform:
   m_GameObject: {fileID: 5032146779722692965}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 11.1985, y: -2.2485, z: 0}
-  m_LocalScale: {x: 0.27696794, y: 0.27696794, z: 0.27696794}
+  m_LocalPosition: {x: 11.1284, y: -2.1784, z: 0}
+  m_LocalScale: {x: 0.13671137, y: 0.13671137, z: 0.13671137}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -103,7 +103,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   orbManagerInstance: {fileID: 0}
-  Type: 0
   value: 0
   IdleDuration: 2
 --- !u!58 &6825916191161381696
@@ -116,7 +115,7 @@ CircleCollider2D:
   m_Enabled: 1
   serializedVersion: 3
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: e365dc9c93f25e5ff9ba0724779165d1, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -158,7 +157,7 @@ Rigidbody2D:
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_GravityScale: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: e365dc9c93f25e5ff9ba0724779165d1, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0

@@ -77,20 +77,28 @@ public class Player : Entity
         Debug.Log("HP: " + PlayerCurrentStats.Health);
     }
 
-    public void ReceivePneuma(int Pneuma)
+    public void ReceiveOrb(OrbType type, int value)
     {
-        int _PnGain = Pneuma * (1 + (PlayerCurrentStats.Momentum / PlayerCurrentStats.MaxMomentum)) + (Pneuma * PlayerCurrentStats.Chain);
-        int _PnDiff = (PlayerCurrentStats.Pneumatic + _PnGain) - PlayerCurrentStats.MaxPneumatic;
-        PlayerCurrentStats.Pneumatic = Mathf.Clamp(PlayerCurrentStats.Pneumatic + _PnGain, 0, PlayerCurrentStats.MaxPneumatic);
-        if (PlayerCurrentStats.Pneumatic == PlayerCurrentStats.MaxPneumatic)
+        switch (type)
         {
-            if (PlayerCurrentStats.Health == PlayerCurrentStats.MaxHealth)
-            {
-                return;
-            }
-            PlayerCurrentStats.Health += 1;
-            PlayerCurrentStats.Pneumatic = _PnDiff;
+            case OrbType.Pneuma:
+                int _PnGain = value * (1 + (PlayerCurrentStats.Momentum / PlayerCurrentStats.MaxMomentum)) + (value * PlayerCurrentStats.Chain);
+                int _PnDiff = (PlayerCurrentStats.Pneumatic + _PnGain) - PlayerCurrentStats.MaxPneumatic;
+                PlayerCurrentStats.Pneumatic = Mathf.Clamp(PlayerCurrentStats.Pneumatic + _PnGain, 0, PlayerCurrentStats.MaxPneumatic);
+                if (PlayerCurrentStats.Pneumatic == PlayerCurrentStats.MaxPneumatic)
+                {
+                    if (PlayerCurrentStats.Health == PlayerCurrentStats.MaxHealth)
+                    {
+                        return;
+                    }
+                    PlayerCurrentStats.Health += 1;
+                    PlayerCurrentStats.Pneumatic = _PnDiff;
+                }
+                break;
+            case OrbType.Aggression:
+                break;
         }
+        EventSystem.Current.UpdatePlayerStats(PlayerCurrentStats);
     }
 
     public void OnKillResponse()

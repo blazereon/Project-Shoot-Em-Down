@@ -19,8 +19,6 @@ public class OrbManager : MonoBehaviour
     }
     void Start()
     {
-        AggressionOrbs = new Stack<GameObject>();
-        PneumaOrbs = new Stack<GameObject>();
 
         //Instantiates Pneuma Orb object
         for (int i = 0; i < PoolCount; i++)
@@ -38,7 +36,7 @@ public class OrbManager : MonoBehaviour
         {
             GameObject newOrb = Instantiate(Orb);
             newOrb.SetActive(false);
-            PneumaOrbs.Push(newOrb);
+            AggressionOrbs.Push(newOrb);
             OrbDictionary[newOrb] = newOrb.GetComponent<Orb>();
             OrbDictionary[newOrb].Type = OrbType.Aggression;
             OrbDictionary[newOrb].orbManagerInstance = this;

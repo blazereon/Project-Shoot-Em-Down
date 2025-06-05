@@ -44,7 +44,7 @@ public class EventSystem
     public event Action<GameObject, int> OnAttackEnemy;
     public event System.Action<GameObject, DamageType, int, int, bool> OnDamageEnemy;
     public event Action<int> OnAttackPlayer;
-    public event Action<int> OnSendPlayerPneuma;
+    public event Action<OrbType, int> OnSendPlayerOrb;
     public event Action<GameObject> OnMeleeDeflect;
     public event Action<ComponentAbility> OnPlayerEmpowermentTrigger;
     public event Action OnEnemyKill;
@@ -81,9 +81,9 @@ public class EventSystem
         OnAttackPlayer?.Invoke(damage);
     }
 
-    public void SendPlayerPneuma(int Pneuma)
+    public void SendPlayerOrb(OrbType type, int value)
     {
-        OnSendPlayerPneuma?.Invoke(Pneuma);
+        OnSendPlayerOrb?.Invoke(type, value);
     }
 
     public void ModifyProjectile(GameObject projectile, ProjectileProps props)
