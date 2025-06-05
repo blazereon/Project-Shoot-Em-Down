@@ -135,8 +135,15 @@ public class AttackPlayerState : BasePlayerState
         if (player.DestructiveBoltAbility.UpgradeTier >= 3)
         {
             _projectileProps.ProjectileCurrentProperties.ProjectileSpeed = player.PlayerCurrentStats.ProjectileSpeed * 1.5f;
-            _projectileProps.EffectsList.Add(new Instakill(null, 4));
+
+            //If bullet is empowered
+            if (player.DestructiveBoltAbility.IsNextBulletEmpowered)
+            {
+                _projectileProps.EffectsList.Add(new Instakill(null, 4));
+            }
+
         }
+            
 
         Debug.Log("Tandem status: " + player.KeenAbility.IsTandemTriggered);
 
