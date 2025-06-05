@@ -24,6 +24,13 @@ public class WanderRangedGrounded : BaseRangedGrounded
             enemy.SwitchState(enemy.chaseState);
         }
 
+        // switch to stun
+        if (enemy.IsStunned)
+        {
+            enemy.prevState = this;
+            enemy.SwitchState(enemy.stunState);
+        }
+
         if (enemy.transform.localScale.x == -1)
         {
             RaycastHit2D hit = Physics2D.Raycast(enemy.transform.position, Vector2.left, enemy.wallDistanceLimit, _layerMask);

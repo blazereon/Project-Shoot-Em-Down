@@ -3,10 +3,12 @@ using UnityEngine;
 public class ManagerShieldMelee : Enemy
 {
     BaseShieldMelee currentState;
+    public BaseShieldMelee prevState { get; set; }
 
     public WanderShieldMelee wanderState = new WanderShieldMelee();
     public ChaseShieldMelee chaseState = new ChaseShieldMelee();
     public AttackShieldMelee attackState = new AttackShieldMelee();
+    public StunShieldedMelee stunState = new StunShieldedMelee();
 
 
     public BoxCollider2D weakSpotBox;

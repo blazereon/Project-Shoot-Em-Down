@@ -3,10 +3,12 @@ using UnityEngine;
 public class ManagerRangedGrounded : Enemy
 {
     BaseRangedGrounded currentState;
+    public BaseRangedGrounded prevState { get; set; }
 
     public WanderRangedGrounded wanderState = new WanderRangedGrounded();
     public ChaseRangedGrounded chaseState = new ChaseRangedGrounded();
     public AttackRangedGrounded attackState = new AttackRangedGrounded();
+    public StunRangedGrounded stunState = new StunRangedGrounded();
 
     [Space(10)]
     [Header("MOVEMENT")]

@@ -3,10 +3,12 @@ using UnityEngine;
 public class ManagerShieldRanged : Enemy
 {
     BaseShieldRanged currentState;
+    public BaseShieldRanged prevState {  get; set; }
 
     public WanderShieldRanged wanderState = new WanderShieldRanged();
     public ChaseShieldRanged chaseState = new ChaseShieldRanged();
     public AttackShieldRanged attackState = new AttackShieldRanged();
+    public StunShieldRanged stunState = new StunShieldRanged();
 
     public BoxCollider2D weakSpotBox;
     public HitDetect hitDetect;

@@ -42,7 +42,13 @@ public class ChaseGenericEnemy : BaseGenericEnemy
 
         Debug.Log("Player In Sight: " +  _isPlayerInSight);
 
-        
+        // switch to stun
+        if (genericEnemy.IsStunned)
+        {
+            genericEnemy.prevState = this;
+            genericEnemy.SwitchState(genericEnemy.stunState);
+        }
+
     }
 
     public override void FixedUpdateState(ManagerGenericEnemy genericEnemy)

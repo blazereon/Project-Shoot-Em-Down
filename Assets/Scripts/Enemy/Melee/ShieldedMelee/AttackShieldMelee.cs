@@ -5,29 +5,36 @@ public class AttackShieldMelee : BaseShieldMelee
 {
     public bool _canAttack = true;
     private float _attackDistance = 1.3f;
-    public override void EnterState(ManagerShieldMelee genericEnemy)
+    public override void EnterState(ManagerShieldMelee enemy)
     {
         _canAttack = true;
     }
 
-    public override void UpdateState(ManagerShieldMelee genericEnemy)
+    public override void UpdateState(ManagerShieldMelee enemy)
     {
-        if (Vector2.Distance(genericEnemy.transform.position, EventSystem.Current.PlayerLocation) > _attackDistance)
+        if (Vector2.Distance(enemy.transform.position, EventSystem.Current.PlayerLocation) > _attackDistance)
         {
-            genericEnemy.StopAllCoroutines();
-            genericEnemy.SwitchState(genericEnemy.chaseState);
+            enemy.StopAllCoroutines();
+            enemy.SwitchState(enemy.chaseState);
         }
         if (_canAttack == true)
         {
-            genericEnemy.StartCoroutine(HandleMultiHit(genericEnemy));
+            enemy.StartCoroutine(HandleMultiHit(enemy));
             _canAttack = false;
-            genericEnemy.StartCoroutine(HandleAttackCooldown());
+            enemy.StartCoroutine(HandleAttackCooldown());
+        }
+
+        // switch to stun
+        if (enemy.IsStunned)
+        {
+            enemy.prevState = this;
+            enemy.SwitchState(enemy.stunState);
         }
     }
 
-    public override void FixedUpdateState(ManagerShieldMelee genericEnemy)
+    public override void FixedUpdateState(ManagerShieldMelee enemy)
     {
-        genericEnemy.enemyRb.linearVelocityX = 0;
+        enemy.enemyRb.linearVelocityX = 0;
     }
 
     IEnumerator HandleAttackCooldown()
@@ -36,11 +43,11 @@ public class AttackShieldMelee : BaseShieldMelee
         _canAttack = true;
     }
 
-    IEnumerator HandleMultiHit(ManagerShieldMelee genericEnemy)
+    IEnumerator HandleMultiHit(ManagerShieldMelee enemy)
     {
         for (int i = 0; i < 2; i++)
         {
-            EventSystem.Current.AttackPlayer(genericEnemy.AttackDamage);
+            EventSystem.Current.AttackPlayer(enemy.AttackDamage);
             yield return new WaitForSeconds(0.5F);
         }
     }

@@ -3,9 +3,11 @@ using UnityEngine;
 public class ManagerStaticRanged : Enemy
 {
     BaseStaticRanged currentState;
+    public BaseStaticRanged prevState { get; set; }
 
     public ScanStaticRanged scanState = new ScanStaticRanged();
     public AttackStaticRanged attackState = new AttackStaticRanged();
+    public StunStaticRanged stunState = new StunStaticRanged();
 
     public BoxCollider2D scanBox;
     public HitDetect hitDetect;
