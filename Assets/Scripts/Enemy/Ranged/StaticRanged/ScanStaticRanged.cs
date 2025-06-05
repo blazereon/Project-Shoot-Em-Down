@@ -11,7 +11,12 @@ public class ScanStaticRanged : BaseStaticRanged
 
     public override void UpdateState(ManagerStaticRanged enemy)
     {
-       
+        // switch to stun
+        if (enemy.IsStunned)
+        {
+            enemy.prevState = this;
+            enemy.SwitchState(enemy.stunState);
+        }
     }
 
     public override void FixedUpdateState(ManagerStaticRanged enemy)

@@ -45,6 +45,13 @@ public class ChaseShieldRanged: BaseShieldRanged
                 enemy.hasPlayerDetected = false;
                 enemy.SwitchState(enemy.wanderState);
             }
+
+            // switch to stun
+            if (enemy.IsStunned)
+            {
+                enemy.prevState = this;
+                enemy.SwitchState(enemy.stunState);
+            }
         }
     }
 

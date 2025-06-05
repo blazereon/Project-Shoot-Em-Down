@@ -4,10 +4,12 @@ using UnityEngine.UIElements.Experimental;
 public class ManagerExplosive : Enemy
 {
     BaseExplosive currentState;
+    public BaseExplosive prevState {  get; set; }
 
     public WanderExplosive wanderState = new WanderExplosive();
     public ChaseExplosive chaseState = new ChaseExplosive();
     public AttackExplosive attackState = new AttackExplosive();
+    public StunExplosive stunState = new StunExplosive();
 
 
     public EnemyFacing facing = EnemyFacing.Left;

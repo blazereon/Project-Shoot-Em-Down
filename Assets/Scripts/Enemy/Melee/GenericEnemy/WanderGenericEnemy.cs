@@ -14,16 +14,24 @@ public class WanderGenericEnemy : BaseGenericEnemy
     public override void UpdateState(ManagerGenericEnemy genericEnemy)
     {
         bool _isPlayerDetected = genericEnemy.PlayerDetection(genericEnemy.facing);
+        Debug.Log("Stun status: " + genericEnemy.IsStunned);
 
         if (_isPlayerDetected)
         {
             genericEnemy.SwitchState(genericEnemy.chaseState);
         }
 
+        // switch to stun
+        if (genericEnemy.IsStunned)
+        {
+            genericEnemy.prevState = this;
+            genericEnemy.SwitchState(genericEnemy.stunState);
+        }
+
         Debug.Log(genericEnemy.facing);
 
 
-        //wall logic
+        // wall logic
         if (genericEnemy.facing == Enemy.EnemyFacing.Left)
         {
             RaycastHit2D hit = Physics2D.Raycast(genericEnemy.transform.position, Vector2.left, genericEnemy.WallDistanceLimit);

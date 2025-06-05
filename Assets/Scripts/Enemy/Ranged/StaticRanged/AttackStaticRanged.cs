@@ -23,6 +23,12 @@ public class AttackStaticRanged : BaseStaticRanged
 
     public override void UpdateState(ManagerStaticRanged enemy)
     {
+        // switch to stun
+        if (enemy.IsStunned)
+        {
+            enemy.prevState = this;
+            enemy.SwitchState(enemy.stunState);
+        }
         if (enemy.enemyCollider == null || EventSystem.Current.PlayerCollider == null)
         {
             _attackCoroutine = null;

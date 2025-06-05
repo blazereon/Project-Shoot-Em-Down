@@ -5,10 +5,12 @@ public class ManagerGenericEnemy : Enemy
 {
 
     BaseGenericEnemy currentState;
+    public BaseGenericEnemy prevState { get; set; }
 
     public WanderGenericEnemy wanderState = new WanderGenericEnemy();
     public ChaseGenericEnemy chaseState = new ChaseGenericEnemy();
     public AttackGenericEnemy attackState = new AttackGenericEnemy();
+    public StunGenericEnemy stunState = new StunGenericEnemy();
 
 
     public EnemyFacing facing = EnemyFacing.Left;

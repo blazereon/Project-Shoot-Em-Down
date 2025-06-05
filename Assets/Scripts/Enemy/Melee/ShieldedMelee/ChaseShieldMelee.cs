@@ -44,7 +44,12 @@ public class ChaseShieldMelee : BaseShieldMelee
 
         Debug.Log("Player In Sight: " + _isPlayerInSight);
 
-
+        // switch to stun
+        if (enemy.IsStunned)
+        {
+            enemy.prevState = this;
+            enemy.SwitchState(enemy.stunState);
+        }
     }
 
     public override void FixedUpdateState(ManagerShieldMelee enemy)

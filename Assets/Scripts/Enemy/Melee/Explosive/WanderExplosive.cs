@@ -20,6 +20,13 @@ public class WanderExplosive : BaseExplosive
             enemy.SwitchState(enemy.chaseState);
         }
 
+        // switch to stun
+        if (enemy.IsStunned)
+        {
+            enemy.prevState = this;
+            enemy.SwitchState(enemy.stunState);
+        }
+
         Debug.Log(enemy.facing);
 
 

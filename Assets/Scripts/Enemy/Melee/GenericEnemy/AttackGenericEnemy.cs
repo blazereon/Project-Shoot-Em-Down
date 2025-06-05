@@ -21,6 +21,13 @@ public class AttackGenericEnemy: BaseGenericEnemy
             _canAttack = false;
             genericEnemy.StartCoroutine(HandleAttackCooldown());
         }
+
+        // switch to stun
+        if (genericEnemy.IsStunned)
+        {
+            genericEnemy.prevState = this;
+            genericEnemy.SwitchState(genericEnemy.stunState);
+        }
     }
 
     public override void FixedUpdateState(ManagerGenericEnemy genericEnemy)

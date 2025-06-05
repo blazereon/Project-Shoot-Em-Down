@@ -11,6 +11,13 @@ public class AttackExplosive : BaseExplosive
     public override void UpdateState(ManagerExplosive enemy)
     {
         // No exit since we want the countdown to be unstoppable no matter what
+        // switch to stun
+        /*
+        if (enemy.IsStunned)
+        {
+            enemy.prevState = this;
+            enemy.SwitchState(enemy.stunState);
+        }*/
     }
 
     public override void FixedUpdateState(ManagerExplosive enemy)

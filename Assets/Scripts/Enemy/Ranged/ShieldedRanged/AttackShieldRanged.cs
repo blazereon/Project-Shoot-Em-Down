@@ -24,6 +24,12 @@ public class AttackShieldRanged: BaseShieldRanged
 
     public override void UpdateState(ManagerShieldRanged enemy)
     {
+        // switch to stun
+        if (enemy.IsStunned)
+        {
+            enemy.prevState = this;
+            enemy.SwitchState(enemy.stunState);
+        }
         if (enemy.enemyCollider == EventSystem.Current.PlayerCollider)
         {
             Debug.LogWarning("Player and Enemy colliders are the same! " + enemy.enemyCollider + " " + EventSystem.Current.PlayerCollider);
