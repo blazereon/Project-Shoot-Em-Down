@@ -31,6 +31,7 @@ public class DestructiveBolt : ComponentAbility
         IsNextBulletEmpowered = true;
         Empowered = false;
         DestructiveBoltCooldownInstance = CoroutineHandler.Instance.StartCoroutine(DestructiveCooldownCoroutine());
+        EventSystem.Current.UpdateDestructiveBoltUI(GetCurrentStatus());
     }
 
     public override void UpgradeComponentHandler()
@@ -60,5 +61,6 @@ public class DestructiveBolt : ComponentAbility
         }
         DestructiveBoltCooldownTimer = 0;
         IsCooldown = false;
+        EventSystem.Current.UpdateDestructiveBoltUI(GetCurrentStatus());
     }
 }

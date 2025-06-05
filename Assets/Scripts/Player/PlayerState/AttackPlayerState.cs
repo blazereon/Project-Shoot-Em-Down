@@ -129,7 +129,7 @@ public class AttackPlayerState : BasePlayerState
                 var _stun = new Stun(null, 1f);
                 _projectileProps.EffectsList.Add(_stun);
             }
-            
+
         }
 
         if (player.DestructiveBoltAbility.UpgradeTier >= 3)
@@ -143,7 +143,7 @@ public class AttackPlayerState : BasePlayerState
             }
 
         }
-            
+
 
         Debug.Log("Tandem status: " + player.KeenAbility.IsTandemTriggered);
 
@@ -154,10 +154,11 @@ public class AttackPlayerState : BasePlayerState
             var _aetherMark = new AetherMark(null, 4);
             _aetherMark.KeenInstance = player.KeenAbility;
             _projectileProps.EffectsList.Add(_aetherMark);
-            
+
         }
 
         Debug.Log("Ranged attack invoked");
         player.DestructiveBoltAbility.IsNextBulletEmpowered = false;
+        EventSystem.Current.UpdateDestructiveBoltUI(player.DestructiveBoltAbility.GetCurrentStatus());
     }
 }
