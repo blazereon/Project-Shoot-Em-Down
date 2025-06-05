@@ -1,17 +1,22 @@
 using System;
 using System.Collections.Generic;
+using UnityEditor.Rendering;
 using UnityEngine;
 
 public class OrbManager : MonoBehaviour
 {
+    public static OrbManager Current;
     public int PoolCount;
-
     public GameObject Orb;
-    public GameObject AggressionOrb;
-    public Stack<GameObject> AggressionOrbs;
-    public Stack<GameObject> PneumaOrbs;
-    public Dictionary<GameObject, Orb> OrbDictionary;
+    private Stack<GameObject> AggressionOrbs = new Stack<GameObject>();
+    private Stack<GameObject> PneumaOrbs = new Stack<GameObject>();
+    public Dictionary<GameObject, Orb> OrbDictionary = new Dictionary<GameObject, Orb>();
     // Start is called once before the first execution of Update after the MonoBehaviour is created
+
+    void Awake()
+    {
+        if (Current == null) Current = this;
+    }
     void Start()
     {
         AggressionOrbs = new Stack<GameObject>();
@@ -24,8 +29,10 @@ public class OrbManager : MonoBehaviour
             newOrb.SetActive(false);
             PneumaOrbs.Push(newOrb);
             OrbDictionary[newOrb] = newOrb.GetComponent<Orb>();
+            OrbDictionary[newOrb].Type = OrbType.Pneuma;
+            OrbDictionary[newOrb].orbManagerInstance = this;
         }
-        
+
         //Instantiates Aggression Orb object
         for (int i = 0; i < PoolCount; i++)
         {
@@ -33,10 +40,12 @@ public class OrbManager : MonoBehaviour
             newOrb.SetActive(false);
             PneumaOrbs.Push(newOrb);
             OrbDictionary[newOrb] = newOrb.GetComponent<Orb>();
+            OrbDictionary[newOrb].Type = OrbType.Aggression;
+            OrbDictionary[newOrb].orbManagerInstance = this;
         }
     }
 
-    void GetOrb(OrbType type, int value, Vector2 position)
+    public void GetOrb(OrbType type, int value, Vector2 position)
     {
         GameObject orbObject;
         Orb orb;
@@ -56,11 +65,11 @@ public class OrbManager : MonoBehaviour
         }
 
         orbObject.SetActive(true);
+        orb.OnInstantiateOrb(position);
         orb.value = value;
-        orb.transform.position = position;
     }
 
-    void ReturnOrb(GameObject orbObject)
+    public void ReturnOrb(GameObject orbObject)
     {
         var orb = OrbDictionary[orbObject];
         switch (orb.Type)
@@ -72,6 +81,8 @@ public class OrbManager : MonoBehaviour
                 AggressionOrbs.Push(orbObject);
                 break;
         }
+
+        orbObject.SetActive(false);
     }
     // Update is called once per frame
     void Update()

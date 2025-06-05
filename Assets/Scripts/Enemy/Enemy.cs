@@ -90,6 +90,7 @@ public class Enemy : Entity
                 UpdateUIData();
                 break;
         }
+        OrbManager.Current.GetOrb(OrbType.Pneuma, 10, transform.position);
 
         if (Health <= 0)
         {
