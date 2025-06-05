@@ -124,7 +124,7 @@ public class AttackPlayerState : BasePlayerState
 
         if (player.DestructiveBoltAbility.UpgradeTier >= 2)
         {
-            if (Random.Range(0, 100) > 25)
+            if (Random.value < 0.25f)
             {
                 var _stun = new Stun(null, 1f);
                 _projectileProps.EffectsList.Add(_stun);

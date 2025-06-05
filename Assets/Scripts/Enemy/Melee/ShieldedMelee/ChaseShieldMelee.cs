@@ -54,6 +54,7 @@ public class ChaseShieldMelee : BaseShieldMelee
 
     public override void FixedUpdateState(ManagerShieldMelee enemy)
     {
+        if (enemy.IsStunned) return;
         if (_turnCoroutine == null)
         {
             _turnCoroutine = enemy.StartCoroutine(DelayTurn(enemy));
