@@ -54,6 +54,7 @@ public class HitDetect : MonoBehaviour
         }
         else
         {
+            _enemy?.TakeDamage(_parent, DamageType.Range, 99999999, 100, true);
             return true;
         }
         
@@ -63,19 +64,18 @@ public class HitDetect : MonoBehaviour
     {
         if (pObject != this.gameObject) return;
         effect.EntityHolder = _enemy;
-        effect.OnEffectStart();
+        
 
         if (weakSpotActive)
         {
             switch (effect)
             {
                 case Instakill:
-                    _enemy?.TakeDamage(_parent, DamageType.Range, 99999999, 100, true);
                     _instaKill = true;
-                    break;
+                    return;
             }
         }
-        
+        effect.OnEffectStart();
     }
 
     void OnTriggerEnter2D(Collider2D collider)

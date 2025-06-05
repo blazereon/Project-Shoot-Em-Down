@@ -23,7 +23,7 @@ public class Keen : ComponentAbility
     Coroutine TandemExpirationInstance;
     Coroutine KeenCooldownInstance;
 
-    public float KeenCooldown = 5f;
+    public float KeenCooldown = 10f;
     public float TandemCooldown = 6f;
     public float TandemExpiration = 3f;
     public float KeenCooldownTimer, TandemCooldownTimer, TandemExpirationTimer = 0;
@@ -89,6 +89,7 @@ public class Keen : ComponentAbility
         }
 
         EventSystem.Current.ApplyEffect(PlayerInstance.gameObject, _InvincibilityInstance);
+        KeenCooldownInstance = CoroutineHandler.Instance.StartCoroutine(KeenCooldownCoroutine());
         EventSystem.Current.UpdateKeenAbilityUI(GetCurrentStatus());
     }
 
@@ -110,6 +111,7 @@ public class Keen : ComponentAbility
         {
             CoroutineHandler.Instance.StartCoroutine(TandemCooldownCoroutine());
         }
+        CoroutineHandler.Instance.StartCoroutine(TandemCooldownCoroutine());
         EventSystem.Current.UpdateKeenAbilityUI(GetCurrentStatus());
     }
 
@@ -142,6 +144,7 @@ public class Keen : ComponentAbility
             KeenCooldownTimer += updateTimerRate;
             EventSystem.Current.UpdateKeenAbilityUI(GetCurrentStatus());
         }
+        KeenCooldownTimer = 0;
         IsKeenCooldown = false;
         EventSystem.Current.UpdateKeenAbilityUI(GetCurrentStatus());
     }
@@ -149,7 +152,6 @@ public class Keen : ComponentAbility
     IEnumerator TandemCooldownCoroutine()
     {
         IsTandemCooldown = true;
-        TandemCooldownTimer = 0;
         while (TandemCooldownTimer <= TandemCooldown)
         {
             yield return new WaitForSeconds(updateTimerRate);
@@ -157,6 +159,7 @@ public class Keen : ComponentAbility
             EventSystem.Current.UpdateKeenAbilityUI(GetCurrentStatus());
         }
         IsTandemCooldown = false;
+        TandemCooldownTimer = 0;
         EventSystem.Current.UpdateKeenAbilityUI(GetCurrentStatus());
         yield return null;
     }

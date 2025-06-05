@@ -9,6 +9,7 @@ public abstract class Effect
     public abstract Effect Clone();
     public Entity EntityHolder;
 
+    //Duration handler
     public IEnumerator EffectExpiration()
     {
         Debug.Log("Effect will expire in: " + Duration + " seconds");

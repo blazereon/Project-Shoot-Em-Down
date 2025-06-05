@@ -76,6 +76,7 @@ public class ManagerPlayerState :  Player
         //for debugging purposes: destructive bolt
         DestructiveBoltAbility.UpgradeComponent();
         DestructiveBoltAbility.UpgradeComponent();
+        DestructiveBoltAbility.UpgradeComponent();
     }
 
 
@@ -100,14 +101,14 @@ public class ManagerPlayerState :  Player
         {
             Debug.Log("Keen Ability Triggered");
             KeenAbility.ConsumeKeen();
-            TriggerEmpowerment(KeenAbility);
+            if(KeenAbility.IsKeenCooldown)TriggerEmpowerment(KeenAbility);
         }
 
         //Invoking Destructive Bolt
         if (destructiveAbilityAction.triggered)
         {
             Debug.Log("Destructive Bolt Triggered");
-            TriggerEmpowerment(DestructiveBoltAbility);
+            if (!DestructiveBoltAbility.IsCooldown)TriggerEmpowerment(DestructiveBoltAbility);
         }
         
         //facing sprite logic
