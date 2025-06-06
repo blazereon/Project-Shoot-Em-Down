@@ -4,6 +4,7 @@ using UnityEngine;
 
 public struct DestructiveBoltStatus
 {
+    public ComponentAbilityData AbilityData;
     public bool IsNextBulletEmpowered, IsCooldown;
     public float DestructiveBoltCooldownTimer, DestructiveBoltCooldown;
     
@@ -43,6 +44,7 @@ public class DestructiveBolt : ComponentAbility
     {
         return new DestructiveBoltStatus
         {
+            AbilityData = GetComponentAbilityData(),
             IsNextBulletEmpowered = this.IsNextBulletEmpowered,
             IsCooldown = this.IsCooldown,
             DestructiveBoltCooldownTimer = this.DestructiveBoltCooldownTimer,
