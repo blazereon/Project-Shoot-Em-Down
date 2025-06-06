@@ -12,10 +12,10 @@ public class WeaponsUI : MonoBehaviour
     {
         if (playstats.CurrentAttackType == Player.AttackType.Melee){
             SetOpacity(Melee, 1f); // 100% opacity for Melee
-            SetOpacity(Range, 0.5f); // 50% opacity for Range
+            SetOpacity(Range, 0f); // 0% opacity for Range
         }else if (playstats.CurrentAttackType == Player.AttackType.Ranged)
         {
-            SetOpacity(Melee, 0.5f); // 50% opacity for Melee
+            SetOpacity(Melee, 0f); // 0% opacity for Melee
             SetOpacity(Range, 1f); // 100% opacity for Range
         }
     }

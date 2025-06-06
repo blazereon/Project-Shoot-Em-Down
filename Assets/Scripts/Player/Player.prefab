@@ -452,7 +452,7 @@ MonoBehaviour:
     m_SingletonActionBindings: []
     m_Flags: 0
   empowerAbilityAction:
-    m_Name: 
+    m_Name: Empower Ability
     m_Type: 0
     m_ExpectedControlType: 
     m_Id: 682be890-43f6-4914-90e1-7d7b4516b589
@@ -461,7 +461,7 @@ MonoBehaviour:
     m_SingletonActionBindings: []
     m_Flags: 0
   keenAbilityAction:
-    m_Name: 
+    m_Name: Keen Ability
     m_Type: 0
     m_ExpectedControlType: 
     m_Id: b47a1c85-5240-4ea0-9278-aa10f3fc7ab6
@@ -470,7 +470,7 @@ MonoBehaviour:
     m_SingletonActionBindings: []
     m_Flags: 0
   destructiveAbilityAction:
-    m_Name: 
+    m_Name: Destructive Ability
     m_Type: 0
     m_ExpectedControlType: 
     m_Id: 8cbb70e2-884b-499a-94a6-aaea34ca8385
