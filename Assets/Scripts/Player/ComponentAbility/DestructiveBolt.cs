@@ -55,14 +55,15 @@ public class DestructiveBolt : ComponentAbility
     IEnumerator DestructiveCooldownCoroutine()
     {
         IsCooldown = true;
-        DestructiveBoltCooldownTimer = 0;
-        while (DestructiveBoltCooldownTimer < DestructiveBoltCooldown)
+        while (DestructiveBoltCooldownTimer <= DestructiveBoltCooldown)
         {
             yield return new WaitForSeconds(updateRate);
             DestructiveBoltCooldownTimer += updateRate;
+            EventSystem.Current.UpdateDestructiveBoltUI(GetCurrentStatus());
         }
-        DestructiveBoltCooldownTimer = 0;
         IsCooldown = false;
+        DestructiveBoltCooldownTimer = 0;
         EventSystem.Current.UpdateDestructiveBoltUI(GetCurrentStatus());
+        yield return null;
     }
 }
