@@ -10,10 +10,18 @@ public class PlayerUI : MonoBehaviour
 
     public WeaponsUI WeaponsUIInstance;
 
-    
+    public DashUI DashUIInstance;
+    public KeenUI KeenUIInstance;
+    public DestructiveBoltUI DestructiveBoltUIInstance;
+
+
+
     void Awake()
     {
         EventSystem.Current.OnUpdatePlayerStats += updatePlayerProperties;
+        EventSystem.Current.OnUpdateDashAbilityUI += UpdateDash;
+        EventSystem.Current.OnUpdateDestructiveBoltUI += UpdateDestructiveBolt;
+        EventSystem.Current.OnUpdateKeenAbilityUI += UpdateKeen;
     }
 
     private void updatePlayerProperties(PlayerStats stats)
@@ -25,8 +33,26 @@ public class PlayerUI : MonoBehaviour
         WeaponsUIInstance.UpdateValue(stats);
     }
 
+    private void UpdateDash(DashAbilityStatus status)
+    {
+        DashUIInstance.UpdateValue(status);
+    }
+
+    private void UpdateDestructiveBolt(DestructiveBoltStatus status)
+    {
+        DestructiveBoltUIInstance.UpdateValue(status);
+    }
+
+    private void UpdateKeen(KeenAbilityStatus status)
+    {
+        KeenUIInstance.UpdateValue(status);
+    }
+
     void OnDestroy()
     {
         EventSystem.Current.OnUpdatePlayerStats -= updatePlayerProperties;
+        EventSystem.Current.OnUpdateDashAbilityUI += UpdateDash;
+        EventSystem.Current.OnUpdateDestructiveBoltUI += UpdateDestructiveBolt;
+        EventSystem.Current.OnUpdateKeenAbilityUI += UpdateKeen;
     }
 }
