@@ -47,11 +47,15 @@ public class DashUI : MonoBehaviour
                 lvl3.enabled = true;
                 break;
         }
-        
+
         // Empowered state visual que
         if (status.AbilityData.Empowered)
         {
             DashIcon.color = Color.cyan;
+        }
+        else
+        {
+            DashIcon.color = Color.white;
         }
     }
 }
