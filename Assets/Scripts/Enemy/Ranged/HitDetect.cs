@@ -34,6 +34,7 @@ public class HitDetect : MonoBehaviour
 
     public bool WeakSpotHitDetected()
     {
+        AudioManager.instance.RandomSFX(AudioManager.instance.enemyTakeDmgWeakSpot);
         // Since ReceiveEffect takes place first, if instakill is detected, then dont bother continuing
         if (!_instaKill)
         {
