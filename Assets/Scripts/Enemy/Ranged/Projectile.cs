@@ -11,6 +11,7 @@ public class Projectile : MonoBehaviour
     public Rigidbody2D rb;
     public List<Effect> EffectsList = new List<Effect>();
     private HashSet<int> objectHitID = new HashSet<int>();
+    private int _objID;
 
     private void Awake()
     {
@@ -48,7 +49,15 @@ public class Projectile : MonoBehaviour
         if (_ray.collider == null) return;
         if (_ray.collider)
         {
-            int _objID = _ray.collider.GetInstanceID();
+            if (_ray.collider.transform.parent != null)
+            {
+                int _objID = _ray.collider.transform.parent.gameObject.GetInstanceID();
+            }
+            else
+            {
+                int _objID = _ray.collider.GetInstanceID();
+            }
+
             if (!objectHitID.Contains(_objID))
             {
                 objectHitID.Add(_objID);
@@ -56,7 +65,7 @@ public class Projectile : MonoBehaviour
             }
             else
             {
-                
+
             }
         }
     }
@@ -79,9 +88,9 @@ public class Projectile : MonoBehaviour
         int _enemyLayer = LayerMask.NameToLayer(LayerDestinations.Enemy.ToString());
         int _nonCollideEnemy = LayerMask.NameToLayer("NonCollideEnemy");
 
-        Debug.Log("Collided to layer: " + collision.gameObject.layer);
-
-        Debug.Log("hit rec: " + collision.gameObject.layer + " " + ProjectileCurrentProperties.FiredBy + " " + _enemyLayer);
+        // Debug.Log("Collided to layer: " + collision.gameObject.layer);
+        // Debug.Log("PLAYING SHIELD DEFLECT: " + LayerMask.LayerToName(collision.gameObject.layer) + " " + collision.gameObject.name + " " + collision.gameObject.GetInstanceID());
+        // Debug.Log("hit rec: " + collision.gameObject.layer + " " + ProjectileCurrentProperties.FiredBy + " " + _enemyLayer);
 
         if ((collision.gameObject.layer == _playerLayer && ProjectileCurrentProperties.FiredBy == ProjectileOwner.Enemy))
         {
@@ -124,6 +133,12 @@ public class Projectile : MonoBehaviour
         {
             if (((1 << collision.gameObject.layer) & ProjectileCurrentProperties.DestroyOnly.value) != 0)
             {
+                
+                if (collision.gameObject.layer == LayerMask.NameToLayer("Shield"))
+                {
+                    // Debug.Log("PLAYING SHIELD DEFLECT");
+                    AudioManager.instance.RandomSFX(AudioManager.instance.enemyShieldDeflect, 0.90f, 1.1f);
+                }
                 Destroy(gameObject);
             }
         }

@@ -56,7 +56,12 @@ public class Enemy : Entity
     public void TakeDamage(GameObject pObject, DamageType type, int damage, int violencePercentage, bool weakSpotHit)
     {
         Debug.Log("New damage system invoked " + pObject + " " + type + " " + damage + " " + violencePercentage + " " + weakSpotHit);
-        AudioManager.instance.RandomSFX(AudioManager.instance.enemyTakeDmg);
+
+        if (!weakSpotHit)
+        {
+            AudioManager.instance.RandomSFX(AudioManager.instance.enemyTakeDmg);
+        }
+        
         if (pObject != this.gameObject) return;
         float _rawDamage = 0;
         float _rawViolence;
@@ -103,12 +108,24 @@ public class Enemy : Entity
                 }
                 UpdateUIData();
                 break;
+
+            case DamageType.Suicide:
+                _pneuma = 0;
+                _aggression = 0;
+                Health -= (int)_rawDamage + 9999;
+                break;
+
             default:
                 Debug.Log("Invalid Damage Type");
                 return;
         }
-        OrbManager.Current.GetOrb(OrbType.Pneuma, _pneuma, transform.position);
-        OrbManager.Current.GetOrb(OrbType.Aggression, _aggression, transform.position);
+
+        if (_pneuma > 0 || _aggression > 0)
+        {
+            OrbManager.Current.GetOrb(OrbType.Pneuma, _pneuma, transform.position);
+            OrbManager.Current.GetOrb(OrbType.Aggression, _aggression, transform.position);
+        }
+        
 
         if (Health <= 0)
         {

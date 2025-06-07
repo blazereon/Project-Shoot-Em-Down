@@ -5,6 +5,7 @@ public class AttackExplosive : BaseExplosive
 {
     public override void EnterState(ManagerExplosive enemy)
     {
+        AudioManager.instance.PlayFX(AudioManager.instance.explosionCoundown, false);
         enemy.StartCoroutine(StartSelfDestruct(enemy));
     }
 
@@ -44,6 +45,7 @@ public class AttackExplosive : BaseExplosive
             EventSystem.Current.AttackPlayer(enemy.AttackDamage);
         }
 
-        enemy.TakeDamage(enemy.gameObject, DamageType.Melee, 9999, 0, false);
+        AudioManager.instance.PlayFX(AudioManager.instance.explosion, false);
+        enemy.TakeDamage(enemy.gameObject, DamageType.Suicide, 9999, 0, false);
     }
 }

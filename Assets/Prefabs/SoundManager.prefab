@@ -275,5 +275,11 @@ MonoBehaviour:
   enemyTakeDmg:
   - {fileID: 8300000, guid: bf37d06677ecaa142b25b72f09dad945, type: 3}
   - {fileID: 8300000, guid: 87275b595f22a494c8f3818f94aaba94, type: 3}
+  enemyTakeDmgWeakSpot:
+  - {fileID: 8300000, guid: a569e8713da982a47a9bf6b80ef38f00, type: 3}
+  enemyShieldDeflect:
+  - {fileID: 8300000, guid: 7500edf604250e14f88ce95a18fc9288, type: 3}
+  explosionCoundown: {fileID: 8300000, guid: 02804b3202dc65342b1341a0808deefa, type: 3}
+  explosion: {fileID: 8300000, guid: 60b15c72196a3664d9d16decaabcdb07, type: 3}
   enemyDeath: {fileID: 8300000, guid: 56107a7f9d0278346af32de6df459f4e, type: 3}
   levelBGM: {fileID: 8300000, guid: 6c04d2aa5696a5b42a1c1fb8a321912e, type: 3}
