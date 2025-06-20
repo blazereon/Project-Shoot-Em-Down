@@ -47,8 +47,11 @@ public class Player : Entity
     public float MeleePadding;
     public float MeleeRadius;
 
+    public bool CanAtack = true;
+
     public GameObject DashAttackBox;
     public GroundBox groundBox;
+    public Coroutine AttackDelayInstance;
 
     [NonSerialized] public bool IsEmpowerementInvoke;
 
@@ -131,6 +134,13 @@ public class Player : Entity
     public override void UpdateUIData()
     {
         //does nothing yet
+    }
+
+    public IEnumerator AttackDelay()
+    {
+        CanAtack = false;
+        yield return new WaitForSeconds(PlayerCurrentStats.AttackRate);
+        CanAtack = true;
     }
 
     IEnumerator StartChain()

@@ -9,6 +9,14 @@ public class AttackPlayerState : BasePlayerState
     private LayerMask _layerMask;
     public override void EnterState(ManagerPlayerState player)
     {
+        
+        if (!player.CanAtack)
+        {
+            player.PopState();
+            return;
+        }
+
+        //Put sprite and audio logic below this line
         switch (player.PlayerCurrentStats.CurrentAttackType)
         {
             case Player.AttackType.Melee:
@@ -23,6 +31,8 @@ public class AttackPlayerState : BasePlayerState
                 Debug.LogError("Attack type not specified");
                 break;
         }
+
+        player.AttackDelayInstance = player.StartCoroutine(player.AttackDelay());
         player.PopState();
 
     }

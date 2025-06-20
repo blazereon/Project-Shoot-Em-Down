@@ -16,6 +16,7 @@ public struct PlayerStats
     public int MaxViolence;
     public int MaxChain;
     public float ChainDuration;
+    public float AttackRate;
     //This should not be edited thru inspector and must only be accessed via code
     [NonSerialized] public int Momentum;
     [NonSerialized] public int Chain;

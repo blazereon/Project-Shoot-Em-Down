@@ -491,6 +491,7 @@ MonoBehaviour:
     MaxViolence: 100
     MaxChain: 4
     ChainDuration: 3
+    AttackRate: 0.2
   Speed: 300
   JumpForce: 8
   LandAcceleration: 2
@@ -501,6 +502,7 @@ MonoBehaviour:
   MomentumDecayRate: 1
   MeleePadding: 0.64
   MeleeRadius: 1.01
+  CanAtack: 1
   DashAttackBox: {fileID: 2374370681469952072}
   groundBox: {fileID: 6397718521625496067}
   PlayerCollider: {fileID: 0}
