@@ -83,6 +83,49 @@ public class ManagerPlayerState :  Player
     void Update()
     {
         //for controlling player face
+        MainUpdate();
+
+        //Actual state update
+        _currentState.UpdateState(this);
+    }
+
+    void FixedUpdate()
+    {
+        _currentState.FixedUpdateState(this);
+    }
+
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        _currentState.OnCollisionEnter2DState(collision, this);
+    }
+
+    void OnCollisionExit2D(Collision2D collision)
+    {
+        _currentState.OnCollisionExit2DState(collision, this);
+    }
+
+    //pop state from the stack and use it as a current state
+    public void PopState()
+    {
+        _currentState = _stateStack.Pop();
+        _currentState.EnterState(this);
+    }
+
+    //push current state to the stack and switch to the new state
+    public void PushCurrentState()
+    {
+        _stateStack.Push(_currentState);
+    }
+
+    //switch the current state (no prev state will be pushed)
+    public void SwitchState(BasePlayerState state)
+    {
+        _currentState = state;
+        _currentState.EnterState(this);
+    }
+
+    void MainUpdate()
+    {
         Vector2 _moveValue = moveAction.ReadValue<Vector2>();
         if (_moveValue.x < 0) {
             facing = Facing.left;
@@ -150,44 +193,6 @@ public class ManagerPlayerState :  Player
             EffectsList = CurrentEffect,
         };
         EventSystem.Current.UpdatePlayerDebug(_debugData);
-
-        //Actual state update
-        _currentState.UpdateState(this);
-    }
-
-    void FixedUpdate()
-    {
-        _currentState.FixedUpdateState(this);
-    }
-
-    void OnCollisionEnter2D(Collision2D collision)
-    {
-        _currentState.OnCollisionEnter2DState(collision, this);
-    }
-
-    void OnCollisionExit2D(Collision2D collision)
-    {
-        _currentState.OnCollisionExit2DState(collision, this);
-    }
-
-    //pop state from the stack and use it as a current state
-    public void PopState()
-    {
-        _currentState = _stateStack.Pop();
-        _currentState.EnterState(this);
-    }
-
-    //push current state to the stack and switch to the new state
-    public void PushCurrentState()
-    {
-        _stateStack.Push(_currentState);
-    }
-
-    //switch the current state (no prev state will be pushed)
-    public void SwitchState(BasePlayerState state)
-    {
-        _currentState = state;
-        _currentState.EnterState(this);
     }
 
 

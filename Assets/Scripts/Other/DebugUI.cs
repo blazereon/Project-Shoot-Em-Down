@@ -30,10 +30,11 @@ public class DebugUI : MonoBehaviour
         {
             effectsList += effect + "\n";
         }
-        PlayerStateTMP.text = string.Format("Player State: {0}\n Chain Multiplier: {1}\n Chain Timer: {2} \nEffects: {3}",
+        PlayerStateTMP.text = string.Format("Player State: {0}\nChain Multiplier: {1}\nChain Timer: {2}\nAggression: {4} \nEffects: {3}",
             data.playerState,
             data.playerStats.Chain,
             data.playerStats.ChainTimer < 1 ? 0 : data.playerStats.ChainTimer,
-            effectsList);
+            effectsList,
+            data.playerStats.Aggression);
     }
 }

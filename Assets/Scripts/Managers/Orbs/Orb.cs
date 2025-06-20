@@ -13,7 +13,7 @@ public class Orb : MonoBehaviour
     private float OrbMovementSpeed = 2f;
     private Rigidbody2D Rb;
     private CircleCollider2D _col;
-    private OrbType type;
+    [SerializeField] private OrbType type;
     public OrbType Type
     {
         get
@@ -70,12 +70,7 @@ public class Orb : MonoBehaviour
         if (collision.tag == "Player")
         {
             //Send player values
-            switch (type)
-            {
-                case OrbType.Pneuma:
-                    EventSystem.Current.SendPlayerOrb(type, value);
-                    break;
-            }
+            EventSystem.Current.SendPlayerOrb(type, value);
             orbManagerInstance.ReturnOrb(gameObject);
         }
     }

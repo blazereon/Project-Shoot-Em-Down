@@ -96,7 +96,18 @@ public class Player : Entity
                 }
                 break;
             case OrbType.Aggression:
+                int _AggrGain = value * (1 + (PlayerCurrentStats.Momentum / PlayerCurrentStats.MaxMomentum)) + (value * PlayerCurrentStats.Chain);
+                PlayerCurrentStats.Aggression = Mathf.Min(100, PlayerCurrentStats.Aggression + _AggrGain);
+
+                //If Aggression meter is full
+                if (PlayerCurrentStats.Aggression == PlayerCurrentStats.MaxAggression)
+                {
+                    //insert sfx here
+                }
+                EventSystem.Current.UpdatePlayerStats(PlayerCurrentStats);
                 break;
+
+                
         }
         EventSystem.Current.UpdatePlayerStats(PlayerCurrentStats);
     }
