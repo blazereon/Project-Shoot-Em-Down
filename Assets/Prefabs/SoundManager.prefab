@@ -257,6 +257,9 @@ MonoBehaviour:
   - {fileID: 8300000, guid: a93c9e3bab72a634b98848ec79bcd063, type: 3}
   playerAttackRanged:
   - {fileID: 8300000, guid: 274efb36223c14b42a7dbcdfc1434041, type: 3}
+  - {fileID: 8300000, guid: 9ab7ee18023a00f46af5947e4180f5d0, type: 3}
+  - {fileID: 8300000, guid: d6220b3b3741b9245b1a1eab90d40cf0, type: 3}
+  - {fileID: 8300000, guid: 4cbb8f9083b6ddb4f8593d3f2e6ea3b5, type: 3}
   playerDash:
   - {fileID: 8300000, guid: 3f94176bf4a10fe4195dc3681291553c, type: 3}
   playerWallGrab:
@@ -265,6 +268,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: a3186b51efaaf5242bcbd911d5765293, type: 3}
   playerTakeDmg:
   - {fileID: 8300000, guid: 832888b4b103b5146821953640772678, type: 3}
+  fullAggro: {fileID: 8300000, guid: 7646cecad7eb2d640ade5a288357135a, type: 3}
   playerDeath: {fileID: 8300000, guid: 3c5db00f0f520a64fbc6acd32a96af97, type: 3}
   enemyChaseAlert:
   - {fileID: 8300000, guid: e7826bf072d07504c947d31dc9987920, type: 3}
