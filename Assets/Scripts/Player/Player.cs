@@ -105,7 +105,7 @@ public class Player : Entity
                 //If Aggression meter is full
                 if (PlayerCurrentStats.Aggression == PlayerCurrentStats.MaxAggression)
                 {
-                    //insert sfx here
+                    AudioManager.instance.PlayFX(AudioManager.instance.fullAggro, false);
                 }
                 EventSystem.Current.UpdatePlayerStats(PlayerCurrentStats);
                 break;
