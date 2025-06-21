@@ -22,6 +22,7 @@ public class AudioManager : MonoBehaviour
     public AudioClip[] playerWallGrab;
     public AudioClip[] playerWallJump;
     public AudioClip[] playerTakeDmg;
+    public AudioClip fullAggro;
     public AudioClip playerDeath;
 
     [Header("Enemy Audio Clips")]
