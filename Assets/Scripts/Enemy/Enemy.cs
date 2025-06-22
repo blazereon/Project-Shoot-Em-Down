@@ -41,6 +41,8 @@ public class Enemy : Entity
     public bool isFiringBurst { get; set; } = false;
     public bool isWeakSpotActive { get; set; } = false;
 
+    private int _pneumaDamageStore, _aggressionDamageStore;
+
     private void Start()
     {
         player = GameObject.FindWithTag("Player");
@@ -61,7 +63,7 @@ public class Enemy : Entity
         {
             AudioManager.instance.RandomSFX(AudioManager.instance.enemyTakeDmg);
         }
-        
+
         if (pObject != this.gameObject) return;
         float _rawDamage = 0;
         float _rawViolence;
@@ -79,8 +81,8 @@ public class Enemy : Entity
                 Debug.Log("Raw damage: " + _rawDamage);
 
                 //Calculate amount of pneuma and aggression based on damage dealt
-                _pneuma = (int)(Mathf.Min(Health, _rawDamage) * 0.20f);
-                _aggression = (int)(Mathf.Min(Health, _rawDamage) * 0.10f);
+                _pneuma = Math.DivRem((int)_rawDamage + _pneumaDamageStore, 10, out _pneumaDamageStore);
+                _aggression = Math.DivRem((int)_rawDamage + _aggressionDamageStore, 5, out _aggressionDamageStore);
 
                 Health -= (int)_rawDamage;
                 UpdateUIData();
@@ -95,8 +97,8 @@ public class Enemy : Entity
                 Health -= (int)_rawDamage;
 
                 //Calculate amount of pneuma and aggression based on damage dealt
-                _pneuma = (int)(Mathf.Min(Health, _rawDamage) * 0.20f);
-                _aggression = (int)(Mathf.Min(Health, _rawDamage) * 0.10f);
+                _pneuma = Math.DivRem((int)_rawDamage + _pneumaDamageStore, 10, out _pneumaDamageStore);
+                _aggression = Math.DivRem((int)_rawDamage + _aggressionDamageStore, 5, out _aggressionDamageStore);
 
                 Debug.Log("PN Range Hurt " + isWeakSpotActive + weakSpotHit);
                 if (isWeakSpotActive && weakSpotHit)
@@ -125,7 +127,7 @@ public class Enemy : Entity
             OrbManager.Current.GetOrb(OrbType.Pneuma, _pneuma, transform.position);
             OrbManager.Current.GetOrb(OrbType.Aggression, _aggression, transform.position);
         }
-        
+
 
         if (Health <= 0)
         {
