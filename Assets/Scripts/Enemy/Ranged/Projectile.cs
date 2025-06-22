@@ -44,18 +44,18 @@ public class Projectile : MonoBehaviour
 
         // Debugging
         Vector2 rayEndPoint = (Vector2)transform.position + rb.linearVelocity.normalized * (transform.localScale.x + 0.5f);
-        // Debug.DrawRay(transform.position, rayEndPoint - (Vector2)transform.position, Color.red);
+        Debug.DrawRay(transform.position, rayEndPoint - (Vector2)transform.position, Color.red);
 
         if (_ray.collider == null) return;
         if (_ray.collider)
         {
             if (_ray.collider.transform.parent != null)
             {
-                int _objID = _ray.collider.transform.parent.gameObject.GetInstanceID();
+                _objID = _ray.collider.transform.parent.gameObject.GetInstanceID();
             }
             else
             {
-                int _objID = _ray.collider.GetInstanceID();
+                _objID = _ray.collider.GetInstanceID();
             }
 
             if (!objectHitID.Contains(_objID))
