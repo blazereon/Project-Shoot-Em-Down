@@ -92,13 +92,6 @@ public class AudioManager : MonoBehaviour
 
     }
 
-    public void PlayMusic(AudioClip clip)
-    {
-        musicSource.clip = clip;
-        musicSource.loop = true;
-        musicSource.Play();
-    }
-
     public void RandomSFX(params AudioClip[] clips)
     {
         int _randomIndex = Random.Range(0, clips.Length);
@@ -115,6 +108,24 @@ public class AudioManager : MonoBehaviour
 
         randFXSource.clip = clips[_randomIndex];
         PlayFX(randFXSource.clip, pLow, pHigh);
+    }
+
+    public void PlayMusic(AudioClip clip)
+    {
+        musicSource.clip = clip;
+        musicSource.loop = true;
+        musicSource.Play();
+    }
+
+    // Use this for sfx that will play all the time, even or after if the object is destroyed
+    public void PlayIndependent(AudioClip clip)
+    {
+        AudioSource.PlayClipAtPoint(clip, Vector3.zero);
+    }
+
+    public void StopSFX()
+    {
+        nonRandFXSource.Stop();
     }
 }
 

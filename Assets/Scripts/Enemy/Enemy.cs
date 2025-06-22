@@ -129,7 +129,7 @@ public class Enemy : Entity
 
         if (Health <= 0)
         {
-            AudioManager.instance.PlayFX(AudioManager.instance.enemyDeath, false);
+            AudioManager.instance.PlayIndependent(AudioManager.instance.enemyDeath);
             EventSystem.Current.EnemyKill();
             Destroy(this.gameObject);
         }
