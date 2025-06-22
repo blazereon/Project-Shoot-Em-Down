@@ -16,7 +16,10 @@ public class AttackPlayerState : BasePlayerState
                 MeleeAttack(player);
                 break;
             case Player.AttackType.Ranged:
-                AudioManager.instance.RandomSFX(AudioManager.instance.playerAttackRanged);
+                
+                int _tier = player.DestructiveBoltAbility.UpgradeTier;
+                AudioManager.instance.PlayFX(AudioManager.instance.playerAttackRanged[_tier], true);
+
                 RangeAttack(player);
                 break;
             default:

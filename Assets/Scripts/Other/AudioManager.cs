@@ -3,7 +3,8 @@ using UnityEngine;
 public class AudioManager : MonoBehaviour
 {
     [Header("Audio Sources")]
-    public AudioSource fxSource;
+    public AudioSource randFXSource;
+    public AudioSource nonRandFXSource;
     public AudioSource musicSource;
 
     [Header("Random Pitch Range")]
@@ -22,6 +23,7 @@ public class AudioManager : MonoBehaviour
     public AudioClip[] playerWallGrab;
     public AudioClip[] playerWallJump;
     public AudioClip[] playerTakeDmg;
+    public AudioClip fullAggro;
     public AudioClip playerDeath;
 
     [Header("Enemy Audio Clips")]
@@ -60,35 +62,52 @@ public class AudioManager : MonoBehaviour
 
     void Start()
     {
-        fxSource.volume = 0.5f;
+        randFXSource.volume = 0.5f;
+        nonRandFXSource.volume = 0.5f;
         musicSource.volume = 0.5f;
     }
 
     public void PlayFX(AudioClip clip, bool random)
     {
-        fxSource.clip = clip;
-        fxSource.pitch = 1f;
         if (random)
         {
             float _randomPitch = Random.Range(pitchLow, pitchHigh);
 
-            fxSource.pitch = _randomPitch;
-            fxSource.PlayOneShot(clip);
+            randFXSource.pitch = _randomPitch;
+            randFXSource.PlayOneShot(clip);
         }
         else
         {
-            fxSource.PlayOneShot(clip);
+            nonRandFXSource.PlayOneShot(clip);
         }
     }
 
     public void PlayFX(AudioClip clip, float pLow, float pHigh)
     {
-        fxSource.clip = clip;
+        randFXSource.clip = clip;
         float _randomPitch = Random.Range(pLow, pHigh);
 
-        fxSource.pitch = _randomPitch;
-        fxSource.PlayOneShot(clip);
+        randFXSource.pitch = _randomPitch;
+        randFXSource.PlayOneShot(clip);
 
+    }
+
+    public void RandomSFX(params AudioClip[] clips)
+    {
+        int _randomIndex = Random.Range(0, clips.Length);
+        float _randomPitch = Random.Range(pitchLow, pitchHigh);
+
+        randFXSource.pitch = _randomPitch;
+        randFXSource.clip = clips[_randomIndex];
+        randFXSource.PlayOneShot(clips[_randomIndex]);
+    }
+
+    public void RandomSFX(AudioClip[] clips, float pLow, float pHigh)
+    {
+        int _randomIndex = Random.Range(0, clips.Length);
+
+        randFXSource.clip = clips[_randomIndex];
+        PlayFX(randFXSource.clip, pLow, pHigh);
     }
 
     public void PlayMusic(AudioClip clip)
@@ -98,22 +117,15 @@ public class AudioManager : MonoBehaviour
         musicSource.Play();
     }
 
-    public void RandomSFX(params AudioClip[] clips)
+    // Use this for sfx that will play all the time, even or after if the object is destroyed
+    public void PlayIndependent(AudioClip clip)
     {
-        int _randomIndex = Random.Range(0, clips.Length);
-        float _randomPitch = Random.Range(pitchLow, pitchHigh);
-
-        fxSource.pitch = _randomPitch;
-        fxSource.clip = clips[_randomIndex];
-        fxSource.PlayOneShot(clips[_randomIndex]);
+        AudioSource.PlayClipAtPoint(clip, Vector3.zero);
     }
 
-    public void RandomSFX(AudioClip[] clips, float pLow, float pHigh)
+    public void StopSFX()
     {
-        int _randomIndex = Random.Range(0, clips.Length);
-
-        fxSource.clip = clips[_randomIndex];
-        PlayFX(fxSource.clip, pLow, pHigh);
+        nonRandFXSource.Stop();
     }
 }
 
