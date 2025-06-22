@@ -73,10 +73,10 @@ public class Player : Entity
 
     public void TriggerEmpowerment(ComponentAbility ability)
     {
-        if (!IsEmpowerementInvoke) return;
+        if (!IsEmpowerementInvoke || PlayerCurrentStats.Aggression < PlayerCurrentStats.MaxAggression) return;
+        PlayerCurrentStats.Aggression = 0;
         IsEmpowerementInvoke = false;
         OnTriggerEmpowerment?.Invoke(ability);
-
 
     }
 
