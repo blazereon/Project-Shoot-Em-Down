@@ -3,7 +3,8 @@ using UnityEngine;
 public class AudioManager : MonoBehaviour
 {
     [Header("Audio Sources")]
-    public AudioSource fxSource;
+    public AudioSource randFXSource;
+    public AudioSource nonRandFXSource;
     public AudioSource musicSource;
 
     [Header("Random Pitch Range")]
@@ -61,34 +62,33 @@ public class AudioManager : MonoBehaviour
 
     void Start()
     {
-        fxSource.volume = 0.5f;
+        randFXSource.volume = 0.5f;
+        nonRandFXSource.volume = 0.5f;
         musicSource.volume = 0.5f;
     }
 
     public void PlayFX(AudioClip clip, bool random)
     {
-        fxSource.clip = clip;
-        fxSource.pitch = 1f;
         if (random)
         {
             float _randomPitch = Random.Range(pitchLow, pitchHigh);
 
-            fxSource.pitch = _randomPitch;
-            fxSource.PlayOneShot(clip);
+            randFXSource.pitch = _randomPitch;
+            randFXSource.PlayOneShot(clip);
         }
         else
         {
-            fxSource.PlayOneShot(clip);
+            nonRandFXSource.PlayOneShot(clip);
         }
     }
 
     public void PlayFX(AudioClip clip, float pLow, float pHigh)
     {
-        fxSource.clip = clip;
+        randFXSource.clip = clip;
         float _randomPitch = Random.Range(pLow, pHigh);
 
-        fxSource.pitch = _randomPitch;
-        fxSource.PlayOneShot(clip);
+        randFXSource.pitch = _randomPitch;
+        randFXSource.PlayOneShot(clip);
 
     }
 
@@ -104,17 +104,17 @@ public class AudioManager : MonoBehaviour
         int _randomIndex = Random.Range(0, clips.Length);
         float _randomPitch = Random.Range(pitchLow, pitchHigh);
 
-        fxSource.pitch = _randomPitch;
-        fxSource.clip = clips[_randomIndex];
-        fxSource.PlayOneShot(clips[_randomIndex]);
+        randFXSource.pitch = _randomPitch;
+        randFXSource.clip = clips[_randomIndex];
+        randFXSource.PlayOneShot(clips[_randomIndex]);
     }
 
     public void RandomSFX(AudioClip[] clips, float pLow, float pHigh)
     {
         int _randomIndex = Random.Range(0, clips.Length);
 
-        fxSource.clip = clips[_randomIndex];
-        PlayFX(fxSource.clip, pLow, pHigh);
+        randFXSource.clip = clips[_randomIndex];
+        PlayFX(randFXSource.clip, pLow, pHigh);
     }
 }
 
