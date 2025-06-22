@@ -38,14 +38,6 @@ public class IdlePlayerState : BasePlayerState
             player.SwitchState(player.DashState);
             return;
         }
-
-        if (player.attackAction.triggered)
-        {
-            player.PushCurrentState();
-            player.SwitchState(player.AttackState);
-            return;
-        }
-
     }
 
     public override void FixedUpdateState(ManagerPlayerState player)
