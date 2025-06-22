@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEditor.Callbacks;
 using UnityEngine;
 using UnityEngine.Rendering;
@@ -11,6 +12,9 @@ public class RunPlayerState : BasePlayerState
 
     public override void UpdateState(ManagerPlayerState player)
     {
+        player.PlayBodyAnimation("runLoop");
+        player.PlayArmAnimation("runArmSwing");
+        
         if (!player.groundBox.isGrounded)
         {
             player.LandState.canCayote = true;
@@ -62,6 +66,13 @@ public class RunPlayerState : BasePlayerState
 
     public override void OnCollisionExit2DState(Collision2D collision, ManagerPlayerState player)
     {
-        
+
     }
+// Animation Delay Function    
+/*    private IEnumerator WaitForAnimationEnd(ManagerPlayerState player, string nextAnim, float delay)
+{
+    yield return new WaitForSeconds(delay);
+    player.PlayAnimation(nextAnim);
+}
+*/
 }

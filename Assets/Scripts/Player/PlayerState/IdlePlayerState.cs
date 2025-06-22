@@ -7,11 +7,14 @@ public class IdlePlayerState : BasePlayerState
 {
     public override void EnterState(ManagerPlayerState player)
     {
-        
+
     }
 
     public override void UpdateState(ManagerPlayerState player)
     {
+        player.PlayBodyAnimation("idle");
+        player.PlayArmAnimation("idleArmSwing");
+        
         //proceeds to run
         if (player.moveAction.IsPressed())
         {

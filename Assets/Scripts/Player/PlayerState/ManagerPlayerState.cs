@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
-public class ManagerPlayerState :  Player
+public class ManagerPlayerState : Player
 {
     private BasePlayerState _currentState;
     private Stack<BasePlayerState> _stateStack = new Stack<BasePlayerState>();
@@ -22,6 +22,14 @@ public class ManagerPlayerState :  Player
     public PlungePlayerState PlungeState = new PlungePlayerState();
 
     public Collider2D PlayerCollider;
+
+    //Set the Sprite Animator
+    public Animator BodyAnimator;
+    public Animator ArmAnimator;
+    //Set the Arm Offset
+    public Transform ArmTransform;
+    public Vector2 ArmOffsetLeft = new Vector2(0.04f, -0.119f);
+    public Vector2 ArmOffsetRight = new Vector2(-0.04f, -0.119f);
 
     public Facing facing = Facing.left;
 
@@ -57,6 +65,10 @@ public class ManagerPlayerState :  Player
         destructiveAbilityAction = InputSystem.actions.FindAction("DestructiveBolt");
 
         PlayerCollider = GetComponent<Collider2D>();
+        
+        BodyAnimator = GetComponent<Animator>(); // Main Body Animator
+        ArmAnimator = transform.Find("Arm_Swing").GetComponent<Animator>(); // Child Arm Animator
+        ArmTransform = ArmAnimator.transform;
 
         EventSystem.Current.UpdatePlayerStats(PlayerCurrentStats);
         StartCoroutine(MomentumDecay());
@@ -127,9 +139,12 @@ public class ManagerPlayerState :  Player
     void MainUpdate()
     {
         Vector2 _moveValue = moveAction.ReadValue<Vector2>();
-        if (_moveValue.x < 0) {
+        if (_moveValue.x < 0)
+        {
             facing = Facing.left;
-        } else if (_moveValue.x > 0) {
+        }
+        else if (_moveValue.x > 0)
+        {
             facing = Facing.right;
         }
 
@@ -153,15 +168,25 @@ public class ManagerPlayerState :  Player
             Debug.Log("Destructive Bolt Triggered");
             if (!DestructiveBoltAbility.IsCooldown)TriggerEmpowerment(DestructiveBoltAbility);
         }
-        
+
         //facing sprite logic
         switch (facing)
         {
             case Facing.right:
                 PlayerSprite.flipX = false;
+                if (ArmTransform != null)
+                {
+                    ArmTransform.localPosition = ArmOffsetRight;
+                    ArmTransform.localScale = new Vector3(1, 1, 1); // unflip
+                }
                 break;
             case Facing.left:
                 PlayerSprite.flipX = true;
+                if (ArmTransform != null)
+                {
+                    ArmTransform.localPosition = ArmOffsetLeft;
+                    ArmTransform.localScale = new Vector3(-1, 1, 1); // flip horizontally
+                }
                 break;
             default:
                 Debug.LogError("Invalid facing value");
@@ -198,12 +223,12 @@ public class ManagerPlayerState :  Player
 
     IEnumerator MomentumDecay()
     {
-        while(true)
+        while (true)
         {
-            yield return new WaitForSeconds(MomentumDecayRate/8);
+            yield return new WaitForSeconds(MomentumDecayRate / 8);
             if (_currentState == IdleState)
             {
-                PlayerCurrentStats.Momentum = Mathf.Clamp(PlayerCurrentStats.Momentum - (20/8), 0, PlayerCurrentStats.MaxMomentum);
+                PlayerCurrentStats.Momentum = Mathf.Clamp(PlayerCurrentStats.Momentum - (20 / 8), 0, PlayerCurrentStats.MaxMomentum);
                 EventSystem.Current.UpdatePlayerStats(PlayerCurrentStats);
                 continue;
             }
@@ -212,11 +237,11 @@ public class ManagerPlayerState :  Player
             {
                 if (PlayerCurrentStats.Momentum > PlayerCurrentStats.MaxMomentum * 0.75)
                 {
-                    PlayerCurrentStats.Momentum = (int)Mathf.Clamp(PlayerCurrentStats.Momentum - (10/8), PlayerCurrentStats.MaxMomentum * 0.75f, PlayerCurrentStats.MaxMomentum);
+                    PlayerCurrentStats.Momentum = (int)Mathf.Clamp(PlayerCurrentStats.Momentum - (10 / 8), PlayerCurrentStats.MaxMomentum * 0.75f, PlayerCurrentStats.MaxMomentum);
                     EventSystem.Current.UpdatePlayerStats(PlayerCurrentStats);
                     continue;
                 }
-                PlayerCurrentStats.Momentum = (int)Mathf.Clamp(PlayerCurrentStats.Momentum + (10/8), 0,  PlayerCurrentStats.MaxMomentum * 0.75f);
+                PlayerCurrentStats.Momentum = (int)Mathf.Clamp(PlayerCurrentStats.Momentum + (10 / 8), 0, PlayerCurrentStats.MaxMomentum * 0.75f);
                 EventSystem.Current.UpdatePlayerStats(PlayerCurrentStats);
                 continue;
             }
@@ -235,10 +260,28 @@ public class ManagerPlayerState :  Player
         if (facing == Facing.right)
         {
             Gizmos.DrawWireSphere(new Vector2(transform.position.x + MeleePadding, transform.position.y), MeleeRadius);
-        } else if (facing == Facing.left)
+        }
+        else if (facing == Facing.left)
         {
             Gizmos.DrawWireSphere(new Vector2(transform.position.x - MeleePadding, transform.position.y), MeleeRadius);
         }
     }
+
+    private string currentBodyAnimation = "";
+    private string currentArmAnimation = "";
+
+public void PlayBodyAnimation(string newAnimation)
+{
+    if (newAnimation == currentBodyAnimation) return;
+    BodyAnimator.Play(newAnimation);
+    currentBodyAnimation = newAnimation;
+}
+
+public void PlayArmAnimation(string newAnimation)
+{
+    if (newAnimation == currentArmAnimation) return;
+    ArmAnimator.Play(newAnimation);
+    currentArmAnimation = newAnimation;
+}
 
 }
