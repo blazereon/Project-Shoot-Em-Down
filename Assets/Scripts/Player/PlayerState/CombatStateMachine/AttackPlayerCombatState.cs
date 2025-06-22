@@ -3,7 +3,7 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class AttackPlayerState : BasePlayerState
+public class AttackPlayerCombatState : BasePlayerCombatState
 {
     private float _meleeRange = 1.5f;
     private LayerMask _layerMask;
@@ -12,7 +12,7 @@ public class AttackPlayerState : BasePlayerState
         
         if (!player.CanAtack)
         {
-            player.PopState();
+            player.PopCombatState();
             return;
         }
 
@@ -36,7 +36,7 @@ public class AttackPlayerState : BasePlayerState
         }
 
         player.AttackDelayInstance = player.StartCoroutine(player.AttackDelay());
-        player.PopState();
+        player.PopCombatState();
 
     }
 

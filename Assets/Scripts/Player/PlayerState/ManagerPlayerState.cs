@@ -10,16 +10,10 @@ public class ManagerPlayerState : Player
     private BasePlayerState _currentState;
     private Stack<BasePlayerState> _stateStack = new Stack<BasePlayerState>();
 
-    public IdlePlayerState IdleState = new IdlePlayerState();
-    public WalkPlayerState WalkState = new WalkPlayerState();
-    public RunPlayerState RunState = new RunPlayerState();
-    public JumpPlayerState JumpState = new JumpPlayerState();
-    public LandPlayerState LandState = new LandPlayerState();
-    public AttackPlayerState AttackState = new AttackPlayerState();
-    public DashPlayerState DashState = new DashPlayerState();
-    public WallGrabPlayerState WallGrabState = new WallGrabPlayerState();
-    public WallJumpPlayerState WallJumpState = new WallJumpPlayerState();
-    public PlungePlayerState PlungeState = new PlungePlayerState();
+    private BasePlayerCombatState _currentCombatState; //should I use pushdown automata?
+    private Stack<BasePlayerCombatState> _combatStateStack = new Stack<BasePlayerCombatState>();
+
+    
 
     public Collider2D PlayerCollider;
 
@@ -91,6 +85,9 @@ public class ManagerPlayerState : Player
         _currentState = IdleState;
         _currentState.EnterState(this);
 
+        _currentCombatState = IdleCombatState;
+        _currentCombatState.EnterState(this);
+
         //for debugging purposes: dash upgrade
         DashAbility.UpgradeComponent();
         DashAbility.UpgradeComponent();
@@ -115,21 +112,25 @@ public class ManagerPlayerState : Player
 
         //Actual state update
         _currentState.UpdateState(this);
+        _currentCombatState.UpdateState(this);
     }
 
     void FixedUpdate()
     {
         _currentState.FixedUpdateState(this);
+        _currentCombatState.FixedUpdateState(this);
     }
 
     void OnCollisionEnter2D(Collision2D collision)
     {
         _currentState.OnCollisionEnter2DState(collision, this);
+        _currentCombatState.OnCollisionEnter2DState(collision, this);
     }
 
     void OnCollisionExit2D(Collision2D collision)
     {
         _currentState.OnCollisionExit2DState(collision, this);
+        _currentCombatState.OnCollisionExit2DState(collision, this);
     }
 
     //pop state from the stack and use it as a current state
@@ -150,6 +151,23 @@ public class ManagerPlayerState : Player
     {
         _currentState = state;
         _currentState.EnterState(this);
+    }
+
+    public void SwitchCombatState(BasePlayerCombatState state)
+    {
+        _currentCombatState = state;
+        _currentCombatState.EnterState(this);
+    }
+
+    public void PushCurrentCombatState()
+    {
+        _combatStateStack.Push(_currentCombatState);
+    }
+
+    public void PopCombatState()
+    {
+        _currentCombatState = _combatStateStack.Pop();
+        _currentCombatState.EnterState(this);
     }
 
     void MainUpdate()

@@ -28,6 +28,21 @@ public class Player : Entity
     public InputAction keenAbilityAction;
     public InputAction destructiveAbilityAction;
 
+    public IdlePlayerState IdleState = new IdlePlayerState();
+    public WalkPlayerState WalkState = new WalkPlayerState();
+    public RunPlayerState RunState = new RunPlayerState();
+    public JumpPlayerState JumpState = new JumpPlayerState();
+    public LandPlayerState LandState = new LandPlayerState();
+    public DashPlayerState DashState = new DashPlayerState();
+    public WallGrabPlayerState WallGrabState = new WallGrabPlayerState();
+    public WallJumpPlayerState WallJumpState = new WallJumpPlayerState();
+    public PlungePlayerState PlungeState = new PlungePlayerState();
+
+    //Combat related states
+
+    public IdlePlayerCombatState IdleCombatState = new IdlePlayerCombatState();
+    public AttackPlayerCombatState AttackState = new AttackPlayerCombatState();
+
     public Dash DashAbility = new Dash();
     public Keen KeenAbility;
     public DestructiveBolt DestructiveBoltAbility;
@@ -125,7 +140,6 @@ public class Player : Entity
     public void OnKillResponse()
     {
         PlayerCurrentStats.Chain = Mathf.Min(PlayerCurrentStats.Chain + 1, PlayerCurrentStats.MaxChain);
-
         float _attackRateReduction = (PlayerBaseStats.AttackRate * (PlayerCurrentStats.Chain * 0.20f));
         float _attackRateReductionLimit = (PlayerBaseStats.AttackRate * (PlayerBaseStats.MaxChain * 0.20f));
         if (PlayerCurrentStats.Chain >= 2) PlayerCurrentStats.AttackRate = PlayerBaseStats.AttackRate - Mathf.Min(_attackRateReduction, _attackRateReductionLimit);
