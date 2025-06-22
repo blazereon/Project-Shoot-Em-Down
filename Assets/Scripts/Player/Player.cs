@@ -125,8 +125,9 @@ public class Player : Entity
     public void OnKillResponse()
     {
         PlayerCurrentStats.Chain = Mathf.Min(PlayerCurrentStats.Chain + 1, PlayerCurrentStats.MaxChain);
-        float _attackRateReduction = (PlayerBaseStats.AttackRate * (PlayerCurrentStats.Chain * 0.10f));
-        float _attackRateReductionLimit = (PlayerBaseStats.AttackRate * (PlayerBaseStats.MaxChain * 0.10f));
+
+        float _attackRateReduction = (PlayerBaseStats.AttackRate * (PlayerCurrentStats.Chain * 0.20f));
+        float _attackRateReductionLimit = (PlayerBaseStats.AttackRate * (PlayerBaseStats.MaxChain * 0.20f));
         if (PlayerCurrentStats.Chain >= 2) PlayerCurrentStats.AttackRate = PlayerBaseStats.AttackRate - Mathf.Min(_attackRateReduction, _attackRateReductionLimit);
         if (PlayerCurrentStats.Chain >= 1)
         {
