@@ -34,6 +34,7 @@ public class Player : Entity
     
     public Rigidbody2D PlayerRb;
     public SpriteRenderer PlayerSprite;
+    public PlayerStats PlayerBaseStats;
     public PlayerStats PlayerCurrentStats;
     public float Speed = 500f;
     public float JumpForce = 10f;
@@ -60,6 +61,8 @@ public class Player : Entity
         if (!IsEmpowerementInvoke) return;
         IsEmpowerementInvoke = false;
         OnTriggerEmpowerment?.Invoke(ability);
+
+
     }
 
     public void TakePlayerDamage(int damage)
@@ -122,6 +125,9 @@ public class Player : Entity
     public void OnKillResponse()
     {
         PlayerCurrentStats.Chain = Mathf.Min(PlayerCurrentStats.Chain + 1, PlayerCurrentStats.MaxChain);
+        float _attackRateReduction = (PlayerBaseStats.AttackRate * (PlayerCurrentStats.Chain * 0.10f));
+        float _attackRateReductionLimit = (PlayerBaseStats.AttackRate * (PlayerBaseStats.MaxChain * 0.10f));
+        if (PlayerCurrentStats.Chain >= 2) PlayerCurrentStats.AttackRate = PlayerBaseStats.AttackRate - Mathf.Min(_attackRateReduction, _attackRateReductionLimit);
         if (PlayerCurrentStats.Chain >= 1)
         {
             if (PlayerCurrentStats.Chain <= 1)
@@ -159,6 +165,7 @@ public class Player : Entity
         }
         
         PlayerCurrentStats.Chain = 0;
+        PlayerCurrentStats.AttackRate = PlayerBaseStats.AttackRate;
         Debug.Log("Player Chain: x" + PlayerCurrentStats.Chain);
     }
 }

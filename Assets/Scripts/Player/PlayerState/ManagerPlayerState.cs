@@ -52,6 +52,22 @@ public class ManagerPlayerState : Player
         OnTriggerEmpowerment += DashAbility.SetEmpowered;
         OnTriggerEmpowerment += KeenAbility.SetEmpowered;
 
+        //Initialize PlayerCurrentStats based on base stats
+        PlayerCurrentStats = new PlayerStats
+        {
+            Health = PlayerBaseStats.Health,
+            MaxHealth = PlayerBaseStats.MaxHealth,
+            Violence = PlayerBaseStats.Violence,
+            MaxMomentum = PlayerBaseStats.MaxMomentum,
+            MaxPneumatic = PlayerBaseStats.MaxPneumatic,
+            ProjectileSpeed = PlayerBaseStats.ProjectileSpeed,
+            MaxAggression = PlayerBaseStats.MaxAggression,
+            MaxViolence = PlayerBaseStats.MaxViolence,
+            MaxChain = PlayerBaseStats.MaxChain,
+            ChainDuration = PlayerBaseStats.ChainDuration,
+            AttackRate = PlayerBaseStats.AttackRate
+        };
+
     }
     void Start()
     {

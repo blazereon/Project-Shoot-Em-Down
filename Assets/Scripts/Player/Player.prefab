@@ -480,18 +480,30 @@ MonoBehaviour:
     m_Flags: 0
   PlayerRb: {fileID: 7704584900331094390}
   PlayerSprite: {fileID: 9195467265803727239}
-  PlayerCurrentStats:
-    Health: 3
-    MaxHealth: 5
+  PlayerBaseStats:
+    Health: 0
+    MaxHealth: 0
     Violence: 0
-    MaxMomentum: 100
-    MaxPneumatic: 100
-    ProjectileSpeed: 12
+    MaxMomentum: 0
+    MaxPneumatic: 0
+    ProjectileSpeed: 0
     MaxAggression: 0
-    MaxViolence: 100
-    MaxChain: 4
-    ChainDuration: 3
-    AttackRate: 0.2
+    MaxViolence: 0
+    MaxChain: 0
+    ChainDuration: 0
+    AttackRate: 0
+  PlayerCurrentStats:
+    Health: 0
+    MaxHealth: 0
+    Violence: 0
+    MaxMomentum: 0
+    MaxPneumatic: 0
+    ProjectileSpeed: 0
+    MaxAggression: 0
+    MaxViolence: 0
+    MaxChain: 0
+    ChainDuration: 0
+    AttackRate: 0
   Speed: 300
   JumpForce: 8
   LandAcceleration: 2
@@ -506,5 +518,10 @@ MonoBehaviour:
   DashAttackBox: {fileID: 2374370681469952072}
   groundBox: {fileID: 6397718521625496067}
   PlayerCollider: {fileID: 0}
+  BodyAnimator: {fileID: 0}
+  ArmAnimator: {fileID: 0}
+  ArmTransform: {fileID: 0}
+  ArmOffsetLeft: {x: 0.04, y: -0.119}
+  ArmOffsetRight: {x: -0.04, y: -0.119}
   facing: 1
   isDashCooldown: 0
