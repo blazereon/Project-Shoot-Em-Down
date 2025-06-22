@@ -99,13 +99,17 @@ public class Player : Entity
                 }
                 break;
             case OrbType.Aggression:
+                int _prevAggroStat = PlayerCurrentStats.Aggression;
                 int _AggrGain = value * (1 + (PlayerCurrentStats.Momentum / PlayerCurrentStats.MaxMomentum)) + (value * PlayerCurrentStats.Chain);
                 PlayerCurrentStats.Aggression = Mathf.Min(100, PlayerCurrentStats.Aggression + _AggrGain);
 
                 //If Aggression meter is full
                 if (PlayerCurrentStats.Aggression == PlayerCurrentStats.MaxAggression)
                 {
-                    AudioManager.instance.PlayFX(AudioManager.instance.fullAggro, false);
+                    if (!(_prevAggroStat == PlayerCurrentStats.MaxAggression))
+                    {
+                        AudioManager.instance.PlayFX(AudioManager.instance.fullAggro, false);
+                    }
                 }
                 EventSystem.Current.UpdatePlayerStats(PlayerCurrentStats);
                 break;
