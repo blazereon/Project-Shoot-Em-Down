@@ -296,7 +296,7 @@ Transform:
   m_GameObject: {fileID: 3515592992579053364}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.1, z: 0}
+  m_LocalPosition: {x: 0.25, y: -0.6, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -330,7 +330,7 @@ Transform:
   m_GameObject: {fileID: 3859487837175885381}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.197, y: -0.63, z: 0}
+  m_LocalPosition: {x: -0.2, y: -0.6, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -776,8 +776,8 @@ MonoBehaviour:
   BodyAnimator: {fileID: 0}
   ArmAnimator: {fileID: 0}
   ArmTransform: {fileID: 0}
-  ArmOffsetLeft: {x: 0.04, y: -0.119}
-  ArmOffsetRight: {x: -0.04, y: -0.119}
+  ArmOffsetLeft: {x: 0.2, y: -0.6}
+  ArmOffsetRight: {x: -0.2, y: -0.6}
   facing: 1
   isDashCooldown: 0
 --- !u!114 &2748542341030469272
