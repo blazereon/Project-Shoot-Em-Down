@@ -2763,14 +2763,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 397847012240026356, guid: c3604b844efcebc4fbf1354e3862cad2, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.25
-      objectReference: {fileID: 0}
-    - target: {fileID: 397847012240026356, guid: c3604b844efcebc4fbf1354e3862cad2, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0.6
-      objectReference: {fileID: 0}
     - target: {fileID: 1111750116955259856, guid: c3604b844efcebc4fbf1354e3862cad2, type: 3}
       propertyPath: m_LocalPosition.x
       value: -3.9932868
@@ -2810,30 +2802,6 @@ PrefabInstance:
     - target: {fileID: 1111750116955259856, guid: c3604b844efcebc4fbf1354e3862cad2, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2156726307022708098, guid: c3604b844efcebc4fbf1354e3862cad2, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2156726307022708098, guid: c3604b844efcebc4fbf1354e3862cad2, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0.6
-      objectReference: {fileID: 0}
-    - target: {fileID: 7420772079929029946, guid: c3604b844efcebc4fbf1354e3862cad2, type: 3}
-      propertyPath: ArmOffsetLeft.x
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 7420772079929029946, guid: c3604b844efcebc4fbf1354e3862cad2, type: 3}
-      propertyPath: ArmOffsetLeft.y
-      value: -0.6
-      objectReference: {fileID: 0}
-    - target: {fileID: 7420772079929029946, guid: c3604b844efcebc4fbf1354e3862cad2, type: 3}
-      propertyPath: ArmOffsetRight.x
-      value: -0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 7420772079929029946, guid: c3604b844efcebc4fbf1354e3862cad2, type: 3}
-      propertyPath: ArmOffsetRight.y
-      value: -0.6
       objectReference: {fileID: 0}
     - target: {fileID: 8839071735322498656, guid: c3604b844efcebc4fbf1354e3862cad2, type: 3}
       propertyPath: m_Name
