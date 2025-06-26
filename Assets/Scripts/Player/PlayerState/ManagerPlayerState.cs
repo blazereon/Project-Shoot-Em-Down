@@ -22,8 +22,8 @@ public class ManagerPlayerState : Player
     public Animator ArmAnimator;
     //Set the Arm Offset
     public Transform ArmTransform;
-    public Vector2 ArmOffsetLeft = new Vector2(0.04f, -0.119f);
-    public Vector2 ArmOffsetRight = new Vector2(-0.04f, -0.119f);
+    public Vector2 ArmOffsetLeft = new Vector2(0.2f, -0.6f);
+    public Vector2 ArmOffsetRight = new Vector2(-0.2f, -0.6f);
 
     public Facing facing = Facing.left;
 
