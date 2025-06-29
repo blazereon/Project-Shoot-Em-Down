@@ -1662,99 +1662,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &505998504
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 505998506}
-  - component: {fileID: 505998505}
-  m_Layer: 0
-  m_Name: CheatManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &505998505
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 505998504}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 257110b5f623a554782a19bed22da4c6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cheatCodeList:
-  - code: letsgo
-    cheatEvent:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 505998505}
-          m_TargetAssemblyTypeName: CheatCode, Assembly-CSharp
-          m_MethodName: MaxHealth
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 10
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-  - code: no
-    cheatEvent:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 505998505}
-          m_TargetAssemblyTypeName: CheatCode, Assembly-CSharp
-          m_MethodName: AddHealth
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 10
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-  - code: firedup
-    cheatEvent:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 505998505}
-          m_TargetAssemblyTypeName: CheatCode, Assembly-CSharp
-          m_MethodName: MaxAggro
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 10
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
---- !u!4 &505998506
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 505998504}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6.2256365, y: -5.153062, z: -0.016649883}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &856336215
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3902,6 +3809,63 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c3604b844efcebc4fbf1354e3862cad2, type: 3}
+--- !u!1001 &2378442827172933333
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2433289790348819128, guid: 6f962f6df3c7fcc4fa6c9af045657e87, type: 3}
+      propertyPath: m_Name
+      value: CheatManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 4293564221925612808, guid: 6f962f6df3c7fcc4fa6c9af045657e87, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 6.2256365
+      objectReference: {fileID: 0}
+    - target: {fileID: 4293564221925612808, guid: 6f962f6df3c7fcc4fa6c9af045657e87, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -5.153062
+      objectReference: {fileID: 0}
+    - target: {fileID: 4293564221925612808, guid: 6f962f6df3c7fcc4fa6c9af045657e87, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.016649883
+      objectReference: {fileID: 0}
+    - target: {fileID: 4293564221925612808, guid: 6f962f6df3c7fcc4fa6c9af045657e87, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4293564221925612808, guid: 6f962f6df3c7fcc4fa6c9af045657e87, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4293564221925612808, guid: 6f962f6df3c7fcc4fa6c9af045657e87, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4293564221925612808, guid: 6f962f6df3c7fcc4fa6c9af045657e87, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4293564221925612808, guid: 6f962f6df3c7fcc4fa6c9af045657e87, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4293564221925612808, guid: 6f962f6df3c7fcc4fa6c9af045657e87, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4293564221925612808, guid: 6f962f6df3c7fcc4fa6c9af045657e87, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 6f962f6df3c7fcc4fa6c9af045657e87, type: 3}
 --- !u!1001 &8313145518117134025
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3987,4 +3951,4 @@ SceneRoots:
   - {fileID: 276424577}
   - {fileID: 1831165420}
   - {fileID: 475811719}
-  - {fileID: 505998506}
+  - {fileID: 2378442827172933333}
