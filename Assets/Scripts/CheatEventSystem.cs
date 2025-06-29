@@ -18,9 +18,15 @@ public class CheatEventSystem
     }
 
     public event Action<PlayerStatDelta> OnPlayerModifyStat;
+    public event Action<CompAbilityType> OnPlayerUpgradeAbility;
 
     public void InvokePlayerCheat(PlayerStatDelta playerStatDelta)
     {
         OnPlayerModifyStat?.Invoke(playerStatDelta);
+    }
+
+    public void InvokeUpgradeAbilityCheat(CompAbilityType type)
+    {
+        OnPlayerUpgradeAbility?.Invoke(type);
     }
 }

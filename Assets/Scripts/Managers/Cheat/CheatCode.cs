@@ -76,31 +76,37 @@ public class CheatCode : MonoBehaviour
 
     public void DashUp1()
     {
+        CheatEventSystem.Current.InvokeUpgradeAbilityCheat(CompAbilityType.Dash);
         Debug.Log("Dash +1 Upgrade Cheat Invoked");
     }
 
     public void DashMinus1()
     {
+        //irreversible yet
         Debug.Log("Dash -1 Upgrade Cheat Invoked");
     }
 
     public void RangeUp1()
     {
+        CheatEventSystem.Current.InvokeUpgradeAbilityCheat(CompAbilityType.DestructiveBolt);
         Debug.Log("Range +1 Upgrade Cheat Invoked");
     }
 
     public void RangedMinus1()
     {
+        //irreversible yet
         Debug.Log("Range -1 Upgrade Cheat Invoked");
     }
 
     public void MeleeUp1()
     {
+        CheatEventSystem.Current.InvokeUpgradeAbilityCheat(CompAbilityType.Keen);
         Debug.Log("Melee +1 Upgrade Cheat Invoked");
     }
 
     public void MeleeMinus1()
     {
+        //irreversible yet
         Debug.Log("Melee -1 Upgrade Cheat Invoked");
     }
 }

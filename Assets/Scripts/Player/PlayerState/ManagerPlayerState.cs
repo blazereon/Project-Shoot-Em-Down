@@ -42,6 +42,7 @@ public class ManagerPlayerState : Player
         EventSystem.Current.OnEnemyKill += OnKillResponse;
         EventSystem.Current.OnApplyEffect += ReceiveEffect;
         CheatEventSystem.Current.OnPlayerModifyStat += ApplyCheat;
+        CheatEventSystem.Current.OnPlayerUpgradeAbility += ApplyCheatUpgradeAbility;
 
         //Component Abilities
         OnTriggerEmpowerment += DashAbility.SetEmpowered;
@@ -89,20 +90,20 @@ public class ManagerPlayerState : Player
         _currentCombatState = IdleCombatState;
         _currentCombatState.EnterState(this);
 
-        //for debugging purposes: dash upgrade
-        DashAbility.UpgradeComponent();
-        DashAbility.UpgradeComponent();
-        DashAbility.UpgradeComponent();
+        // //for debugging purposes: dash upgrade
+        // DashAbility.UpgradeComponent();
+        // DashAbility.UpgradeComponent();
+        // DashAbility.UpgradeComponent();
 
-        //for debugging purposes: keen upgrade
-        KeenAbility.UpgradeComponent();
-        KeenAbility.UpgradeComponent();
-        KeenAbility.UpgradeComponent();
+        // //for debugging purposes: keen upgrade
+        // KeenAbility.UpgradeComponent();
+        // KeenAbility.UpgradeComponent();
+        // KeenAbility.UpgradeComponent();
 
-        //for debugging purposes: destructive bolt
-        DestructiveBoltAbility.UpgradeComponent();
-        DestructiveBoltAbility.UpgradeComponent();
-        DestructiveBoltAbility.UpgradeComponent();
+        // //for debugging purposes: destructive bolt
+        // DestructiveBoltAbility.UpgradeComponent();
+        // DestructiveBoltAbility.UpgradeComponent();
+        // DestructiveBoltAbility.UpgradeComponent();
     }
 
 
