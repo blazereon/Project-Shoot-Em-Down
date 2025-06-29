@@ -289,6 +289,9 @@ public class ManagerPlayerState : Player
     {
         EventSystem.Current.OnAttackPlayer -= TakePlayerDamage;
         EventSystem.Current.OnSendPlayerOrb -= ReceiveOrb;
+
+        CheatEventSystem.Current.OnPlayerModifyStat -= ApplyCheat;
+        CheatEventSystem.Current.OnPlayerUpgradeAbility -= ApplyCheatUpgradeAbility;
     }
 
     private void OnDrawGizmos()
