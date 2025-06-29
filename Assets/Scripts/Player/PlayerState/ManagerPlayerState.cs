@@ -41,6 +41,7 @@ public class ManagerPlayerState : Player
         EventSystem.Current.OnSendPlayerOrb += ReceiveOrb;
         EventSystem.Current.OnEnemyKill += OnKillResponse;
         EventSystem.Current.OnApplyEffect += ReceiveEffect;
+        CheatEventSystem.Current.OnPlayerModifyStat += ApplyCheat;
 
         //Component Abilities
         OnTriggerEmpowerment += DashAbility.SetEmpowered;
