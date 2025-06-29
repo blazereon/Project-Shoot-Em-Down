@@ -59,14 +59,19 @@ public class CheatCode : MonoBehaviour
         }
     }
 
+    public void AddHealth()
+    {
+        CheatEventSystem.Current.InvokePlayerCheat(new PlayerStatDelta { deltaHealth = 1 });
+    }
+
     public void MaxHealth()
     {
-        Debug.Log("Full Health Cheat Invoked");
+        CheatEventSystem.Current.InvokePlayerCheat(new PlayerStatDelta { Health = 10, MaxHealth = 10 });
     }
 
     public void MaxAggro()
     {
-        Debug.Log("Full Aggro Cheat Invoked");
+        CheatEventSystem.Current.InvokePlayerCheat(new PlayerStatDelta { MaxAggression = 100, Aggression = 100 });
     }
 
     public void DashUp1()
