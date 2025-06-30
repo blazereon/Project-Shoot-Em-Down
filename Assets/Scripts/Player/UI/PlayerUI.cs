@@ -7,6 +7,7 @@ public class PlayerUI : MonoBehaviour
     public MomentumMeter MomentumMeterInstance;
     public PneumaticMeter PneumaticMeterInstance;
     public ChainMeter ChainMeterInstance;
+    public AggressionMeter AggressionMeterInstance;
 
     public WeaponsUI WeaponsUIInstance;
 
@@ -31,6 +32,7 @@ public class PlayerUI : MonoBehaviour
         PneumaticMeterInstance.UpdateValue(stats.Pneumatic, stats.MaxPneumatic);
         ChainMeterInstance.UpdateValue(stats);
         WeaponsUIInstance.UpdateValue(stats);
+        AggressionMeterInstance.UpdateValue(stats.Aggression, stats.MaxAggression);
     }
 
     private void UpdateDash(DashAbilityStatus status)
