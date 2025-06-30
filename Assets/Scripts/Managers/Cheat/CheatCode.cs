@@ -50,7 +50,7 @@ public class CheatCode : MonoBehaviour
     {
         foreach (CheatCodeInstance cheat in cheatCodeList)
         {
-            if (_codeInput == cheat.code)
+            if (_codeInput.Contains(cheat.code, System.StringComparison.OrdinalIgnoreCase))
             {
                 Debug.Log("Cheat call invoked");
                 cheat.cheatEvent?.Invoke();
