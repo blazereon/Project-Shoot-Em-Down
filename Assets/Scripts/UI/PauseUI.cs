@@ -12,17 +12,17 @@ public class PauseUI : MonoBehaviour
     void Awake()
     {
         CancelInput = InputSystem.actions.FindAction("Cancel");
+        
+    }
+    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    void Start()
+    {
         GameManager.Current.OnPauseEvent += SetPause;
 
         ResumeButton.onClick.AddListener(delegate
         {
             SetResume();
         });
-    }
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-
     }
 
     // Update is called once per frame
