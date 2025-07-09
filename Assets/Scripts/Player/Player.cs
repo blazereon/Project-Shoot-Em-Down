@@ -195,7 +195,7 @@ public class Player : Entity
         if (newStat.deltaMaxHealth.HasValue) PlayerCurrentStats.MaxHealth += newStat.deltaMaxHealth.Value;
     }
 
-    public void ApplyCheatUpgradeAbility(CompAbilityType ability)
+    public void ApplyUpgradeAbility(CompAbilityType ability)
     {
         switch (ability)
         {
