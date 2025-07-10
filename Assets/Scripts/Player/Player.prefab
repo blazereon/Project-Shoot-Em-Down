@@ -778,6 +778,10 @@ MonoBehaviour:
   ArmTransform: {fileID: 0}
   ArmOffsetLeft: {x: 0.2, y: -0.6}
   ArmOffsetRight: {x: -0.2, y: -0.6}
+  GunArmTransform: {fileID: 0}
+  GunArmOffsetLeft: {x: 0.2, y: -0.6}
+  GunArmOffsetRight: {x: -0.2, y: -0.6}
+  projectileSpawnPoint: {fileID: 0}
   facing: 1
   isDashCooldown: 0
 --- !u!114 &2748542341030469272

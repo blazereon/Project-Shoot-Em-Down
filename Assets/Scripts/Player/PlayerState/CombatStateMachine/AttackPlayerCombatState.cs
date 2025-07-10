@@ -9,7 +9,7 @@ public class AttackPlayerCombatState : BasePlayerCombatState
     private LayerMask _layerMask;
     public override void EnterState(ManagerPlayerState player)
     {
-        
+
         if (!player.CanAtack)
         {
             player.PopCombatState();
@@ -24,7 +24,7 @@ public class AttackPlayerCombatState : BasePlayerCombatState
                 MeleeAttack(player);
                 break;
             case Player.AttackType.Ranged:
-                
+
                 int _tier = player.DestructiveBoltAbility.UpgradeTier;
                 AudioManager.instance.PlayFX(AudioManager.instance.playerAttackRanged[_tier], true);
 
@@ -109,7 +109,7 @@ public class AttackPlayerCombatState : BasePlayerCombatState
             Debug.LogError("Camera.main is null");
         }
 
-        var _projectile = Object.Instantiate(player.projectileObject, player.transform.position, player.transform.rotation);
+        var _projectile = Object.Instantiate(player.projectileObject, player.projectileSpawnPoint.position, player.projectileSpawnPoint.rotation);
 
         Vector2 _playerToMouseDistance = (Vector2)(Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue()) - player.transform.position).normalized;
         var _projectileProps = _projectile.GetComponent<Projectile>();
