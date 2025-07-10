@@ -24,6 +24,12 @@ public class ManagerPlayerState : Player
     public Transform ArmTransform;
     public Vector2 ArmOffsetLeft = new Vector2(0.2f, -0.6f);
     public Vector2 ArmOffsetRight = new Vector2(-0.2f, -0.6f);
+    //Set the Gun Arm Offset
+    public Transform GunArmTransform;
+    public Vector2 GunArmOffsetLeft = new Vector2(0.2f, -0.6f);
+    public Vector2 GunArmOffsetRight = new Vector2(-0.2f, -0.6f);
+    //Set the Projectile Spawn point
+    public Transform projectileSpawnPoint;
 
     public Facing facing = Facing.left;
 
@@ -215,19 +221,33 @@ public class ManagerPlayerState : Player
                     ArmTransform.localPosition = ArmOffsetRight;
                     ArmTransform.localScale = new Vector3(1, 1, 1); // unflip
                 }
-                break;
+
+                if (GunArmTransform != null)
+                {
+                    GunArmTransform.localPosition = GunArmOffsetRight;
+                }
+
+        break;
+
             case Facing.left:
                 PlayerSprite.flipX = true;
                 if (ArmTransform != null)
                 {
                     ArmTransform.localPosition = ArmOffsetLeft;
-                    ArmTransform.localScale = new Vector3(-1, 1, 1); // flip horizontally
+                    ArmTransform.localScale = new Vector3(-1, 1, 1); // flip
                 }
-                break;
-            default:
-                Debug.LogError("Invalid facing value");
-                break;
-        }
+
+                if (GunArmTransform != null)
+                {
+                    GunArmTransform.localPosition = GunArmOffsetLeft;
+                }
+
+        break;
+
+    default:
+        Debug.LogError("Invalid facing value");
+        break;
+}
 
         //for toggling weapon (ranged, melee)
         if (switchWeaponAction.triggered)
