@@ -13,7 +13,7 @@ public class ManagerPlayerState : Player
     private BasePlayerCombatState _currentCombatState; //should I use pushdown automata?
     private Stack<BasePlayerCombatState> _combatStateStack = new Stack<BasePlayerCombatState>();
 
-    
+
 
     public Collider2D PlayerCollider;
 
@@ -83,7 +83,7 @@ public class ManagerPlayerState : Player
         destructiveAbilityAction = InputSystem.actions.FindAction("DestructiveBolt");
 
         PlayerCollider = GetComponent<Collider2D>();
-        
+
         BodyAnimator = GetComponent<Animator>(); // Main Body Animator
         ArmAnimator = transform.Find("Arm_Swing").GetComponent<Animator>(); // Child Arm Animator
         ArmTransform = ArmAnimator.transform;
@@ -201,14 +201,14 @@ public class ManagerPlayerState : Player
         {
             Debug.Log("Keen Ability Triggered");
             KeenAbility.ConsumeKeen();
-            if(KeenAbility.IsKeenCooldown)TriggerEmpowerment(KeenAbility);
+            if (KeenAbility.IsKeenCooldown) TriggerEmpowerment(KeenAbility);
         }
 
         //Invoking Destructive Bolt
         if (destructiveAbilityAction.triggered)
         {
             Debug.Log("Destructive Bolt Triggered");
-            if (!DestructiveBoltAbility.IsCooldown)TriggerEmpowerment(DestructiveBoltAbility);
+            if (!DestructiveBoltAbility.IsCooldown) TriggerEmpowerment(DestructiveBoltAbility);
         }
 
         //facing sprite logic
@@ -227,7 +227,7 @@ public class ManagerPlayerState : Player
                     GunArmTransform.localPosition = GunArmOffsetRight;
                 }
 
-        break;
+                break;
 
             case Facing.left:
                 PlayerSprite.flipX = true;
@@ -242,12 +242,12 @@ public class ManagerPlayerState : Player
                     GunArmTransform.localPosition = GunArmOffsetLeft;
                 }
 
-        break;
+                break;
 
-    default:
-        Debug.LogError("Invalid facing value");
-        break;
-}
+            default:
+                Debug.LogError("Invalid facing value");
+                break;
+        }
 
         //for toggling weapon (ranged, melee)
         if (switchWeaponAction.triggered)
@@ -327,20 +327,21 @@ public class ManagerPlayerState : Player
     }
 
     private string currentBodyAnimation = "";
-    private string currentArmAnimation = "";
+    public string currentArmAnimation = "";
+    private string currentGunAnimation = "";
 
-public void PlayBodyAnimation(string newAnimation)
-{
-    if (newAnimation == currentBodyAnimation) return;
-    BodyAnimator.Play(newAnimation);
-    currentBodyAnimation = newAnimation;
-}
+    public void PlayBodyAnimation(string newAnimation)
+    {
+        if (newAnimation == currentBodyAnimation) return;
+        BodyAnimator.Play(newAnimation);
+        currentBodyAnimation = newAnimation;
+    }
 
-public void PlayArmAnimation(string newAnimation)
-{
-    if (newAnimation == currentArmAnimation) return;
-    ArmAnimator.Play(newAnimation);
-    currentArmAnimation = newAnimation;
-}
+    public void PlayArmAnimation(string newAnimation)
+    {
+        if (newAnimation == currentArmAnimation) return;
+        ArmAnimator.Play(newAnimation);
+        currentArmAnimation = newAnimation;
+    }
 
 }

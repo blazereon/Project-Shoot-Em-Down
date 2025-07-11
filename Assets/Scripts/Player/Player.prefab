@@ -168,7 +168,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -1310872560, guid: c16db516115eb534fb4ef5a70974bc77, type: 3}
+  m_Sprite: {fileID: 9167119150538332224, guid: c16db516115eb534fb4ef5a70974bc77, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -301,6 +301,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4615189925964510198}
+  - {fileID: 7056916475888237280}
   m_Father: {fileID: 1111750116955259856}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3859487837175885381
@@ -457,11 +458,42 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 680d9a8693fb9c909b9a3b44943e0de9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AttackLeftPos: {x: -0.63, y: 0}
-  AttackRightPos: {x: 0.63, y: 0}
-  AttackLeftRelPos: {x: 0, y: 0}
+  AttackLeftPos: {x: -1.16, y: 0}
+  AttackRightPos: {x: 1.44, y: 0}
+  AttackLeftRelPos: {x: 0.77, y: 0}
   AttackRightRelPos: {x: 0, y: 0}
   AttackRadius: 1.1
+--- !u!1 &5445545334067885197
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7056916475888237280}
+  m_Layer: 7
+  m_Name: projectileSpawnPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7056916475888237280
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5445545334067885197}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.82000005, y: 0, z: 0}
+  m_LocalScale: {x: 1.2, y: 1.2, z: 1.2}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 397847012240026356}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8839071735322498656
 GameObject:
   m_ObjectHideFlags: 0
@@ -748,8 +780,8 @@ MonoBehaviour:
     ChainDuration: 3
     AttackRate: 0.4
   PlayerCurrentStats:
-    Health: 0
-    MaxHealth: 0
+    Health: 10
+    MaxHealth: 10
     Violence: 0
     MaxMomentum: 0
     MaxPneumatic: 0
@@ -778,12 +810,13 @@ MonoBehaviour:
   ArmTransform: {fileID: 0}
   ArmOffsetLeft: {x: 0.2, y: -0.6}
   ArmOffsetRight: {x: -0.2, y: -0.6}
-  GunArmTransform: {fileID: 0}
-  GunArmOffsetLeft: {x: 0.2, y: -0.6}
-  GunArmOffsetRight: {x: -0.2, y: -0.6}
-  projectileSpawnPoint: {fileID: 0}
+  GunArmTransform: {fileID: 397847012240026356}
+  GunArmOffsetLeft: {x: -0.2, y: -0.6}
+  GunArmOffsetRight: {x: 0.2, y: -0.6}
+  projectileSpawnPoint: {fileID: 7056916475888237280}
   facing: 1
   isDashCooldown: 0
+  currentArmAnimation: 
 --- !u!114 &2748542341030469272
 MonoBehaviour:
   m_ObjectHideFlags: 0
