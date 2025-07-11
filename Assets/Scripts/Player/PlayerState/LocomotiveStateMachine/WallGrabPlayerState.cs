@@ -11,11 +11,6 @@ public class WallGrabPlayerState : BasePlayerState
         player.PlayerRb.linearVelocity = Vector2.zero;
 
         AudioManager.instance.RandomSFX(AudioManager.instance.playerWallGrab);
-        // Flip the arm when walling left
-        if (player.facing == Facing.left)
-        {
-            player.ArmTransform.localScale = new Vector3(player.facing == Facing.left ? -1 : 1, 1, 1);
-        }
     }
 
     public override void UpdateState(ManagerPlayerState player)
