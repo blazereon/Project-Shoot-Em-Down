@@ -66,6 +66,8 @@ public class ManagerPlayerState : Player
             MaxAggression = PlayerBaseStats.MaxAggression,
             MaxViolence = PlayerBaseStats.MaxViolence,
             MaxChain = PlayerBaseStats.MaxChain,
+            Xp = PlayerBaseStats.Xp,
+            MaxXp = PlayerBaseStats.MaxXp,
             ChainDuration = PlayerBaseStats.ChainDuration,
             AttackRate = PlayerBaseStats.AttackRate
         };

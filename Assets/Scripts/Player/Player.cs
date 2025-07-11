@@ -131,8 +131,6 @@ public class Player : Entity
                 }
                 EventSystem.Current.UpdatePlayerStats(PlayerCurrentStats);
                 break;
-
-
         }
         EventSystem.Current.UpdatePlayerStats(PlayerCurrentStats);
     }

@@ -165,6 +165,7 @@ MonoBehaviour:
   PneumaticMeterInstance: {fileID: 4147542146228628245}
   ChainMeterInstance: {fileID: 4413944087046087137}
   AggressionMeterInstance: {fileID: 1520157002997413887}
+  XpMeterInstance: {fileID: 3930670957894614912}
   WeaponsUIInstance: {fileID: 2825272350751419215}
   DashUIInstance: {fileID: 8417641056515495951}
   KeenUIInstance: {fileID: 168406393736874560}
@@ -730,6 +731,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 111c50c8bbab6e5c2803595b84c3e83b, type: 3}
+--- !u!114 &3930670957894614912 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7095368507093445308, guid: 111c50c8bbab6e5c2803595b84c3e83b, type: 3}
+  m_PrefabInstance: {fileID: 6123589794871956796}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f70c85166290500939eda24e81a62724, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &4483496752468706894 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 7693213538156745586, guid: 111c50c8bbab6e5c2803595b84c3e83b, type: 3}

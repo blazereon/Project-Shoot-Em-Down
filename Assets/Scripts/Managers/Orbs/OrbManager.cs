@@ -6,10 +6,12 @@ using UnityEngine;
 public class OrbManager : MonoBehaviour
 {
     public static OrbManager Current;
-    public int PoolCount;
+    public int PoolCount = 40;
     public GameObject Orb;
     private Stack<GameObject> AggressionOrbs = new Stack<GameObject>();
     private Stack<GameObject> PneumaOrbs = new Stack<GameObject>();
+    private Stack<GameObject> XpOrbs = new Stack<GameObject>();
+
     public Dictionary<GameObject, Orb> OrbDictionary = new Dictionary<GameObject, Orb>();
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 
@@ -23,7 +25,7 @@ public class OrbManager : MonoBehaviour
         //Instantiates Pneuma Orb object
         for (int i = 0; i < PoolCount; i++)
         {
-            GameObject newOrb = Instantiate(Orb);
+            GameObject newOrb = Instantiate(Orb, this.transform);
             newOrb.SetActive(false);
             PneumaOrbs.Push(newOrb);
             OrbDictionary[newOrb] = newOrb.GetComponent<Orb>();
@@ -34,11 +36,22 @@ public class OrbManager : MonoBehaviour
         //Instantiates Aggression Orb object
         for (int i = 0; i < PoolCount; i++)
         {
-            GameObject newOrb = Instantiate(Orb);
+            GameObject newOrb = Instantiate(Orb, this.transform);
             newOrb.SetActive(false);
             AggressionOrbs.Push(newOrb);
             OrbDictionary[newOrb] = newOrb.GetComponent<Orb>();
             OrbDictionary[newOrb].Type = OrbType.Aggression;
+            OrbDictionary[newOrb].orbManagerInstance = this;
+        }
+
+        //Instantiates Xp Orb object
+        for (int i = 0; i < PoolCount; i++)
+        {
+            GameObject newOrb = Instantiate(Orb, this.transform);
+            newOrb.SetActive(false);
+            XpOrbs.Push(newOrb);
+            OrbDictionary[newOrb] = newOrb.GetComponent<Orb>();
+            OrbDictionary[newOrb].Type = OrbType.Xp;
             OrbDictionary[newOrb].orbManagerInstance = this;
         }
     }
@@ -55,6 +68,10 @@ public class OrbManager : MonoBehaviour
                 break;
             case OrbType.Aggression:
                 orbObject = AggressionOrbs.Pop();
+                orb = OrbDictionary[orbObject];
+                break;
+            case OrbType.Xp:
+                orbObject = XpOrbs.Pop();
                 orb = OrbDictionary[orbObject];
                 break;
             default:
