@@ -11,6 +11,9 @@ public class WallJumpPlayerState : BasePlayerState
         Debug.Log("Entered wall jump");
         if (player.facing == Facing.left)
         {
+            // Flip the arm when walling left
+            player.ArmTransform.localScale = new Vector3(player.facing == Facing.left ? -1 : 1, 1, 1);
+            
             player.facing = Facing.right;
             player.PlayerRb.AddForce(new Vector2(5, player.JumpForce), ForceMode2D.Impulse);
         }
@@ -24,6 +27,8 @@ public class WallJumpPlayerState : BasePlayerState
     }
     public override void UpdateState(ManagerPlayerState player)
     {
+        player.PlayBodyAnimation("jumpLoop");
+        player.PlayArmAnimation("wallJumpArmSwing");
 
         if (player.PlayerRb.linearVelocityY <= player.LandStart)
         {

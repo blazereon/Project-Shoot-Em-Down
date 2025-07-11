@@ -13,6 +13,9 @@ public class JumpPlayerState : BasePlayerState
 
     public override void UpdateState(ManagerPlayerState player)
     {
+        player.PlayBodyAnimation("jumpLoop");
+        player.PlayArmAnimation("idleArmSwing");
+
         if (player.PlayerRb.linearVelocityY <= player.LandStart)
         {
             player.SwitchState(player.LandState);

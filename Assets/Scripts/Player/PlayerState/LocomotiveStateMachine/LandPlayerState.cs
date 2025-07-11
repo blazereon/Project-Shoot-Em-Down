@@ -13,6 +13,14 @@ public class LandPlayerState : BasePlayerState
     }
     public override void UpdateState(ManagerPlayerState player)
     {
+            player.PlayBodyAnimation("jumpLoop");
+            
+        if (player.currentArmAnimation == "runArmSwing")
+        {
+        player.PlayArmAnimation("idleArmSwing");
+        }
+            
+
         Debug.Log("Coyote Timer: " + coyoteTimer);
         coyoteTimer -= Time.deltaTime;
 
