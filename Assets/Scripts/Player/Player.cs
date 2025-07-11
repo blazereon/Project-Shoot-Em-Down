@@ -131,6 +131,10 @@ public class Player : Entity
                 }
                 EventSystem.Current.UpdatePlayerStats(PlayerCurrentStats);
                 break;
+            case OrbType.Xp:
+                int _skillPointEarned = Math.DivRem(value + PlayerCurrentStats.Xp, PlayerBaseStats.MaxXp, out PlayerCurrentStats.Xp);
+                PlayerCurrentStats.SkillPoint += _skillPointEarned;
+                break;
         }
         EventSystem.Current.UpdatePlayerStats(PlayerCurrentStats);
     }
