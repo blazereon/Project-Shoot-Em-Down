@@ -3,7 +3,8 @@ using UnityEngine;
 public enum OrbType
 {
     Aggression,
-    Pneuma
+    Pneuma,
+    Xp
 }
 
 public class Orb : MonoBehaviour
@@ -26,10 +27,13 @@ public class Orb : MonoBehaviour
             switch (value)
             {
                 case OrbType.Pneuma:
-                    spriteRenderer.color = Color.cyan;
+                    spriteRenderer.color = Color.blue;
                     break;
                 case OrbType.Aggression:
                     spriteRenderer.color = Color.magenta;
+                    break;
+                case OrbType.Xp:
+                    spriteRenderer.color = Color.cyan;
                     break;
             }
         }

@@ -48,7 +48,7 @@ public class ManagerPlayerState : Player
         EventSystem.Current.OnEnemyKill += OnKillResponse;
         EventSystem.Current.OnApplyEffect += ReceiveEffect;
         CheatEventSystem.Current.OnPlayerModifyStat += ApplyCheat;
-        CheatEventSystem.Current.OnPlayerUpgradeAbility += ApplyCheatUpgradeAbility;
+        CheatEventSystem.Current.OnPlayerUpgradeAbility += ApplyUpgradeAbility;
 
         //Component Abilities
         OnTriggerEmpowerment += DashAbility.SetEmpowered;
@@ -66,6 +66,8 @@ public class ManagerPlayerState : Player
             MaxAggression = PlayerBaseStats.MaxAggression,
             MaxViolence = PlayerBaseStats.MaxViolence,
             MaxChain = PlayerBaseStats.MaxChain,
+            Xp = PlayerBaseStats.Xp,
+            MaxXp = PlayerBaseStats.MaxXp,
             ChainDuration = PlayerBaseStats.ChainDuration,
             AttackRate = PlayerBaseStats.AttackRate
         };
@@ -311,7 +313,7 @@ public class ManagerPlayerState : Player
         EventSystem.Current.OnSendPlayerOrb -= ReceiveOrb;
 
         CheatEventSystem.Current.OnPlayerModifyStat -= ApplyCheat;
-        CheatEventSystem.Current.OnPlayerUpgradeAbility -= ApplyCheatUpgradeAbility;
+        CheatEventSystem.Current.OnPlayerUpgradeAbility -= ApplyUpgradeAbility;
     }
 
     private void OnDrawGizmos()

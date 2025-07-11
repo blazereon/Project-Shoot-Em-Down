@@ -60,6 +60,7 @@ public class EventSystem
     public event Action<KeenAbilityStatus> OnUpdateKeenAbilityUI;
     public event Action<DestructiveBoltStatus> OnUpdateDestructiveBoltUI;
     public event Action OnReleaseStunningField;
+    public event Action<CompAbilityType> OnPlayerUpgradeAbility;
 
     public event Action<GameObject, ProjectileProps> OnModifyProjectile;
     public event Action<GameObject, float> OnSimpleDeflectProjectile;
@@ -138,5 +139,10 @@ public class EventSystem
     public void ReleaseStunningField()
     {
         OnReleaseStunningField?.Invoke();
+    }
+
+    public void UpgradePlayerAbility(CompAbilityType type)
+    {
+        OnPlayerUpgradeAbility?.Invoke(type);
     }
 }

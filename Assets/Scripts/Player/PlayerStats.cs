@@ -9,8 +9,10 @@ public struct PlayerStats
     public int Health;
     public int MaxHealth;
     public int Violence;
+    public int SkillPoint;
     public int MaxMomentum;
     public int MaxPneumatic;
+    public int MaxXp;
     public float ProjectileSpeed;
     public int MaxAggression;
     public int MaxViolence;
@@ -18,6 +20,7 @@ public struct PlayerStats
     public float ChainDuration;
     public float AttackRate;
     //This should not be edited thru inspector and must only be accessed via code
+    [NonSerialized] public int Xp;
     [NonSerialized] public int Momentum;
     [NonSerialized] public int Chain;
     [NonSerialized] public int Pneumatic;

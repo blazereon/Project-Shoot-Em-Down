@@ -771,8 +771,10 @@ MonoBehaviour:
     Health: 3
     MaxHealth: 5
     Violence: 0
+    SkillPoint: 0
     MaxMomentum: 100
     MaxPneumatic: 100
+    MaxXp: 1000
     ProjectileSpeed: 12
     MaxAggression: 100
     MaxViolence: 100
@@ -783,8 +785,10 @@ MonoBehaviour:
     Health: 10
     MaxHealth: 10
     Violence: 0
+    SkillPoint: 0
     MaxMomentum: 0
     MaxPneumatic: 0
+    MaxXp: 0
     ProjectileSpeed: 0
     MaxAggression: 0
     MaxViolence: 0

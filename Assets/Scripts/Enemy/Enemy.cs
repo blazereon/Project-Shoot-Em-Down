@@ -133,6 +133,7 @@ public class Enemy : Entity
         {
             AudioManager.instance.PlayIndependent(AudioManager.instance.enemyDeath);
             EventSystem.Current.EnemyKill();
+            if (type != DamageType.Suicide) OrbManager.Current.GetOrb(OrbType.Xp, MaxHealth * 7, transform.position);
             Destroy(this.gameObject);
         }
 

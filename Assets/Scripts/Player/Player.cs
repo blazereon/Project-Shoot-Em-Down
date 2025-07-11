@@ -131,8 +131,10 @@ public class Player : Entity
                 }
                 EventSystem.Current.UpdatePlayerStats(PlayerCurrentStats);
                 break;
-
-
+            case OrbType.Xp:
+                int _skillPointEarned = Math.DivRem(value + PlayerCurrentStats.Xp, PlayerBaseStats.MaxXp, out PlayerCurrentStats.Xp);
+                PlayerCurrentStats.SkillPoint += _skillPointEarned;
+                break;
         }
         EventSystem.Current.UpdatePlayerStats(PlayerCurrentStats);
     }
@@ -195,7 +197,7 @@ public class Player : Entity
         if (newStat.deltaMaxHealth.HasValue) PlayerCurrentStats.MaxHealth += newStat.deltaMaxHealth.Value;
     }
 
-    public void ApplyCheatUpgradeAbility(CompAbilityType ability)
+    public void ApplyUpgradeAbility(CompAbilityType ability)
     {
         switch (ability)
         {
