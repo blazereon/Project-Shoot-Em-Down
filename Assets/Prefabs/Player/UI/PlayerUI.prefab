@@ -77,6 +77,7 @@ RectTransform:
   - {fileID: 8988538604498523954}
   - {fileID: 7222028717626270313}
   - {fileID: 8520185960623273548}
+  - {fileID: 4483496752468706894}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -246,7 +247,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6952921100152131632, guid: 60e15ef80b25ffe4284f1009ca6cc858, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 94.699066
+      value: 94.698975
       objectReference: {fileID: 0}
     - target: {fileID: 6952921100152131632, guid: 60e15ef80b25ffe4284f1009ca6cc858, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -632,6 +633,108 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 785e2840b51dddfc8b50d23dd78c0ae6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1001 &6123589794871956796
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 6210203377224231262}
+    m_Modifications:
+    - target: {fileID: 7693213538156745586, guid: 111c50c8bbab6e5c2803595b84c3e83b, type: 3}
+      propertyPath: m_Pivot.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7693213538156745586, guid: 111c50c8bbab6e5c2803595b84c3e83b, type: 3}
+      propertyPath: m_Pivot.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7693213538156745586, guid: 111c50c8bbab6e5c2803595b84c3e83b, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7693213538156745586, guid: 111c50c8bbab6e5c2803595b84c3e83b, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7693213538156745586, guid: 111c50c8bbab6e5c2803595b84c3e83b, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7693213538156745586, guid: 111c50c8bbab6e5c2803595b84c3e83b, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7693213538156745586, guid: 111c50c8bbab6e5c2803595b84c3e83b, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 216.06
+      objectReference: {fileID: 0}
+    - target: {fileID: 7693213538156745586, guid: 111c50c8bbab6e5c2803595b84c3e83b, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 32.079
+      objectReference: {fileID: 0}
+    - target: {fileID: 7693213538156745586, guid: 111c50c8bbab6e5c2803595b84c3e83b, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7693213538156745586, guid: 111c50c8bbab6e5c2803595b84c3e83b, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7693213538156745586, guid: 111c50c8bbab6e5c2803595b84c3e83b, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -8.4978695
+      objectReference: {fileID: 0}
+    - target: {fileID: 7693213538156745586, guid: 111c50c8bbab6e5c2803595b84c3e83b, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7693213538156745586, guid: 111c50c8bbab6e5c2803595b84c3e83b, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7693213538156745586, guid: 111c50c8bbab6e5c2803595b84c3e83b, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7693213538156745586, guid: 111c50c8bbab6e5c2803595b84c3e83b, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7693213538156745586, guid: 111c50c8bbab6e5c2803595b84c3e83b, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -602.38
+      objectReference: {fileID: 0}
+    - target: {fileID: 7693213538156745586, guid: 111c50c8bbab6e5c2803595b84c3e83b, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 396
+      objectReference: {fileID: 0}
+    - target: {fileID: 7693213538156745586, guid: 111c50c8bbab6e5c2803595b84c3e83b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7693213538156745586, guid: 111c50c8bbab6e5c2803595b84c3e83b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7693213538156745586, guid: 111c50c8bbab6e5c2803595b84c3e83b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8489301184599115269, guid: 111c50c8bbab6e5c2803595b84c3e83b, type: 3}
+      propertyPath: m_Name
+      value: ' XpMeter'
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 111c50c8bbab6e5c2803595b84c3e83b, type: 3}
+--- !u!224 &4483496752468706894 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 7693213538156745586, guid: 111c50c8bbab6e5c2803595b84c3e83b, type: 3}
+  m_PrefabInstance: {fileID: 6123589794871956796}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &7018144121735986117
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1328,11 +1431,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 553013005685355774, guid: 465de1a59202ab04d9c18c38a5d05404, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -245.2633
+      value: -241
       objectReference: {fileID: 0}
     - target: {fileID: 553013005685355774, guid: 465de1a59202ab04d9c18c38a5d05404, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 128.82513
+      value: 156
       objectReference: {fileID: 0}
     - target: {fileID: 553013005685355774, guid: 465de1a59202ab04d9c18c38a5d05404, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
