@@ -12,6 +12,7 @@ public class DestructiveBoltUI : MonoBehaviour
 
     public void UpdateValue(DestructiveBoltStatus status)
     {
+        DestBoltIcon.gameObject.SetActive(true);
         // cooldown animation XD
         CooldownOverlay.gameObject.SetActive(status.IsCooldown);
 
@@ -34,7 +35,6 @@ public class DestructiveBoltUI : MonoBehaviour
         switch (status.AbilityData.UpgradeTier)
         {
             case 0:
-                DestBoltIcon.gameObject.SetActive(false);
                 lvl1.enabled = false;
                 lvl2.enabled = false;
                 lvl3.enabled = false;
