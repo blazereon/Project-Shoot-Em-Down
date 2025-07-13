@@ -1,23 +1,46 @@
-using Unity.Mathematics;
 using UnityEngine;
 
 public class PlayerAim : MonoBehaviour
 {
-    private Camera mainCamera;
-    private Vector3 mousePosition;  
+  private Transform aimTransform;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    private void Awake()
     {
-        mainCamera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
+        aimTransform = transform.Find("Aim");
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        mousePosition = mainCamera.ScreenToWorldPoint(Input.mousePosition);
-        Vector3 rotation = mousePosition - transform.position;
-        float rotationZ = Mathf.Atan2(rotation.y, rotation.x) * Mathf.Rad2Deg;
-        transform.rotation = Quaternion.Euler(0, 0, rotationZ);
+        Vector3 mousePosition = GetMousePosition();
+
+        Vector3 aimDirection = (mousePosition - transform.position).normalized;
+        float Zangle = Mathf.Atan2(aimDirection.y, aimDirection.x) * Mathf.Rad2Deg;
+        aimTransform.eulerAngles = new Vector3(0, 0, Zangle);
+
+        Debug.Log(Zangle);
+        Debug.DrawLine(transform.position, mousePosition, Color.red);
+    }
+
+    public static Vector3 GetMousePosition()
+    {
+        Vector3 vector = GetMousePositionWithZ(Input.mousePosition, Camera.main);
+        vector.z = 0f;
+        return vector;
+    }
+    
+    public static Vector3 GetMousePositionWithZ()
+    {
+        return GetMousePositionWithZ(Input.mousePosition, Camera.main);
+    }
+
+     public static Vector3 GetMousePositionWithZ(Camera worldCamera)
+    {
+        return GetMousePositionWithZ(Input.mousePosition, worldCamera);
+    }
+
+     public static Vector3 GetMousePositionWithZ(Vector3 screenPosition, Camera worldCamera)
+    {
+        Vector3 worldPosition = worldCamera.ScreenToWorldPoint(screenPosition);
+        return worldPosition;
     }
 }

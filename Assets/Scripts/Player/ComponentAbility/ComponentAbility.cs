@@ -1,5 +1,11 @@
 using UnityEngine;
 
+public enum CompAbilityType
+{
+    Dash,
+    DestructiveBolt,
+    Keen
+}
 
 public struct ComponentAbilityData
 {
@@ -8,6 +14,7 @@ public struct ComponentAbilityData
 }
 public abstract class ComponentAbility
 {
+
     public int UpgradeTier = 0;
     public bool Empowered = false;
 

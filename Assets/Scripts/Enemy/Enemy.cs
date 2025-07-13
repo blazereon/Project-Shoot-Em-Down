@@ -41,6 +41,8 @@ public class Enemy : Entity
     public bool isFiringBurst { get; set; } = false;
     public bool isWeakSpotActive { get; set; } = false;
 
+    private int _pneumaDamageStore, _aggressionDamageStore;
+
     private void Start()
     {
         player = GameObject.FindWithTag("Player");
@@ -56,7 +58,12 @@ public class Enemy : Entity
     public void TakeDamage(GameObject pObject, DamageType type, int damage, int violencePercentage, bool weakSpotHit)
     {
         Debug.Log("New damage system invoked " + pObject + " " + type + " " + damage + " " + violencePercentage + " " + weakSpotHit);
-        AudioManager.instance.RandomSFX(AudioManager.instance.enemyTakeDmg);
+
+        if (!weakSpotHit)
+        {
+            AudioManager.instance.RandomSFX(AudioManager.instance.enemyTakeDmg);
+        }
+
         if (pObject != this.gameObject) return;
         float _rawDamage = 0;
         float _rawViolence;
@@ -74,8 +81,8 @@ public class Enemy : Entity
                 Debug.Log("Raw damage: " + _rawDamage);
 
                 //Calculate amount of pneuma and aggression based on damage dealt
-                _pneuma = (int)(Mathf.Min(Health, _rawDamage) * 0.20f);
-                _aggression = (int)(Mathf.Min(Health, _rawDamage) * 0.10f);
+                _pneuma = Math.DivRem((int)_rawDamage + _pneumaDamageStore, 10, out _pneumaDamageStore);
+                _aggression = Math.DivRem((int)_rawDamage + _aggressionDamageStore, 5, out _aggressionDamageStore);
 
                 Health -= (int)_rawDamage;
                 UpdateUIData();
@@ -90,8 +97,8 @@ public class Enemy : Entity
                 Health -= (int)_rawDamage;
 
                 //Calculate amount of pneuma and aggression based on damage dealt
-                _pneuma = (int)(Mathf.Min(Health, _rawDamage) * 0.20f);
-                _aggression = (int)(Mathf.Min(Health, _rawDamage) * 0.10f);
+                _pneuma = Math.DivRem((int)_rawDamage + _pneumaDamageStore, 10, out _pneumaDamageStore);
+                _aggression = Math.DivRem((int)_rawDamage + _aggressionDamageStore, 5, out _aggressionDamageStore);
 
                 Debug.Log("PN Range Hurt " + isWeakSpotActive + weakSpotHit);
                 if (isWeakSpotActive && weakSpotHit)
@@ -103,17 +110,30 @@ public class Enemy : Entity
                 }
                 UpdateUIData();
                 break;
+
+            case DamageType.Suicide:
+                _pneuma = 0;
+                _aggression = 0;
+                Health -= (int)_rawDamage + 9999;
+                break;
+
             default:
                 Debug.Log("Invalid Damage Type");
                 return;
         }
-        OrbManager.Current.GetOrb(OrbType.Pneuma, _pneuma, transform.position);
-        OrbManager.Current.GetOrb(OrbType.Aggression, _aggression, transform.position);
+
+        if (_pneuma > 0 || _aggression > 0)
+        {
+            OrbManager.Current.GetOrb(OrbType.Pneuma, _pneuma, transform.position);
+            OrbManager.Current.GetOrb(OrbType.Aggression, _aggression, transform.position);
+        }
+
 
         if (Health <= 0)
         {
-            AudioManager.instance.PlayFX(AudioManager.instance.enemyDeath, false);
+            AudioManager.instance.PlayIndependent(AudioManager.instance.enemyDeath);
             EventSystem.Current.EnemyKill();
+            if (type != DamageType.Suicide) OrbManager.Current.GetOrb(OrbType.Xp, MaxHealth * 7, transform.position);
             Destroy(this.gameObject);
         }
 

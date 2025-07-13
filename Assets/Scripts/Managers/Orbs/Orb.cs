@@ -3,7 +3,8 @@ using UnityEngine;
 public enum OrbType
 {
     Aggression,
-    Pneuma
+    Pneuma,
+    Xp
 }
 
 public class Orb : MonoBehaviour
@@ -13,7 +14,7 @@ public class Orb : MonoBehaviour
     private float OrbMovementSpeed = 2f;
     private Rigidbody2D Rb;
     private CircleCollider2D _col;
-    private OrbType type;
+    [SerializeField] private OrbType type;
     public OrbType Type
     {
         get
@@ -26,10 +27,13 @@ public class Orb : MonoBehaviour
             switch (value)
             {
                 case OrbType.Pneuma:
-                    spriteRenderer.color = Color.cyan;
+                    spriteRenderer.color = Color.blue;
                     break;
                 case OrbType.Aggression:
                     spriteRenderer.color = Color.magenta;
+                    break;
+                case OrbType.Xp:
+                    spriteRenderer.color = Color.cyan;
                     break;
             }
         }
@@ -70,12 +74,7 @@ public class Orb : MonoBehaviour
         if (collision.tag == "Player")
         {
             //Send player values
-            switch (type)
-            {
-                case OrbType.Pneuma:
-                    EventSystem.Current.SendPlayerOrb(type, value);
-                    break;
-            }
+            EventSystem.Current.SendPlayerOrb(type, value);
             orbManagerInstance.ReturnOrb(gameObject);
         }
     }

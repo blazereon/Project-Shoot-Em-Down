@@ -37,7 +37,7 @@ public class DestructiveBolt : ComponentAbility
 
     public override void UpgradeComponentHandler()
     {
-
+        EventSystem.Current.UpdateDestructiveBoltUI(GetCurrentStatus());
     }
 
     public DestructiveBoltStatus GetCurrentStatus()
