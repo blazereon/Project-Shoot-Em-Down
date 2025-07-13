@@ -13,6 +13,9 @@ public class Projectile : MonoBehaviour
     private HashSet<int> objectHitID = new HashSet<int>();
     private int _objID;
 
+    [HideInInspector]
+    public bool RaycastedCollision = false;
+
     private void Awake()
     {
         EventSystem.Current.OnModifyProjectile += ModifyProjectile;
@@ -39,35 +42,43 @@ public class Projectile : MonoBehaviour
             Destroy(gameObject);
         }
 
-        // Backup Collision via ray casting
-        RaycastHit2D _ray = Physics2D.Raycast(transform.position, rb.linearVelocity.normalized, transform.localScale.x + 0.5f);
-
-        // Debugging
-        Vector2 rayEndPoint = (Vector2)transform.position + rb.linearVelocity.normalized * (transform.localScale.x + 0.5f);
-        Debug.DrawRay(transform.position, rayEndPoint - (Vector2)transform.position, Color.red);
-
-        if (_ray.collider == null) return;
-        if (_ray.collider)
+        if (RaycastedCollision)
         {
-            if (_ray.collider.transform.parent != null)
-            {
-                _objID = _ray.collider.transform.parent.gameObject.GetInstanceID();
-            }
-            else
-            {
-                _objID = _ray.collider.GetInstanceID();
-            }
+            // Backup Collision via ray casting
+            RaycastHit2D _ray = Physics2D.Raycast(transform.position, rb.linearVelocity.normalized, transform.localScale.x + 0.5f);
 
-            if (!objectHitID.Contains(_objID))
-            {
-                objectHitID.Add(_objID);
-                DetectHit(_ray.collider);
-            }
-            else
-            {
+            // Debugging
+            Vector2 rayEndPoint = (Vector2)transform.position + rb.linearVelocity.normalized * (transform.localScale.x + 0.5f);
+            Debug.DrawRay(transform.position, rayEndPoint - (Vector2)transform.position, Color.red);
 
+            if (_ray.collider == null) return;
+            if (_ray.collider)
+            {
+                if (_ray.collider.transform.parent != null)
+                {
+                    _objID = _ray.collider.transform.parent.gameObject.GetInstanceID();
+                }
+                else
+                {
+                    _objID = _ray.collider.GetInstanceID();
+                }
+
+                if (!objectHitID.Contains(_objID))
+                {
+                    objectHitID.Add(_objID);
+                    DetectHit(_ray.collider);
+                }
+                else
+                {
+
+                }
             }
         }
+        else
+        {
+            // By default, unity will be using OnTriggerEnter2D()
+        }
+        
     }
 
     private void FixedUpdate()
@@ -77,8 +88,10 @@ public class Projectile : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        
-        // DetectHit(collision);
+        if (RaycastedCollision == false)
+        {
+            DetectHit(collision);
+        }
     }
 
 
