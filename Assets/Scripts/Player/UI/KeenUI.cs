@@ -23,6 +23,7 @@ public class KeenUI : MonoBehaviour
 
         switch(status.AbilityData.UpgradeTier){
             case 0:
+                KeenIcon.gameObject.SetActive(false);
                 lvl1.enabled = false;
                 lvl2.enabled = false;
                 lvl3.enabled = false;

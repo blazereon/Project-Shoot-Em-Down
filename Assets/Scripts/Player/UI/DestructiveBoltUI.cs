@@ -15,6 +15,17 @@ public class DestructiveBoltUI : MonoBehaviour
         // cooldown animation XD
         CooldownOverlay.gameObject.SetActive(status.IsCooldown);
 
+        // small sanity check for my own sanity
+        if (status.IsCooldown && status.DestructiveBoltCooldownTimer > 0)
+        {
+            CooldownOverlay.gameObject.SetActive(true);
+            CooldownOverlay.fillAmount = 1f - (status.DestructiveBoltCooldownTimer / status.DestructiveBoltCooldown);
+        }
+        else
+        {
+            CooldownOverlay.gameObject.SetActive(false);
+        }
+
         if (status.IsCooldown)
         {
             CooldownOverlay.fillAmount = 1f - (status.DestructiveBoltCooldownTimer / status.DestructiveBoltCooldown);
@@ -23,6 +34,7 @@ public class DestructiveBoltUI : MonoBehaviour
         switch (status.AbilityData.UpgradeTier)
         {
             case 0:
+                DestBoltIcon.gameObject.SetActive(false);
                 lvl1.enabled = false;
                 lvl2.enabled = false;
                 lvl3.enabled = false;
