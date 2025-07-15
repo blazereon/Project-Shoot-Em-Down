@@ -1,4 +1,8 @@
+using System;
+using System.Runtime.CompilerServices;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class Tier : MonoBehaviour
@@ -14,7 +18,25 @@ public class Tier : MonoBehaviour
     public Image InactiveFrame;
     public Image InactiveLine;
 
-    
+    public float HoldTime;
+    public bool IsUnlocked = false;
+    float _holdTimer;
+
+
+    [SerializeField]
+    private bool _IsPressed;
+    public bool IsPressed
+    {
+        get
+        {
+            return _IsPressed;
+        }
+        set
+        {
+            _IsPressed = value;
+        }
+    }
+
 
     [SerializeField]
     private Sprite _iconSprite;
@@ -100,12 +122,38 @@ public class Tier : MonoBehaviour
     }
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if (IsUnlocked)
+        {
+            return;
+        }
+        IncrementFillAmount();
+    }
+
+    public void IncrementFillAmount()
+    {
+        if (IsPressed)
+        {
+
+            _holdTimer += Time.deltaTime;
+            if (_holdTimer >= HoldTime)
+            {
+                IsUnlocked = true;
+                Inactive.fillAmount = 0;
+            }
+            Inactive.fillAmount = 1 - ((float)_holdTimer / HoldTime);
+            return;
+        }
+        else
+        {
+            _holdTimer = 0;
+            Inactive.fillAmount = 1;
+            return;
+        }
     }
 }
