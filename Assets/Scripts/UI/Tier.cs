@@ -128,11 +128,11 @@ public class Tier : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (IsUnlocked)
+        if (!IsUnlocked)
         {
-            return;
+            IncrementFillAmount();
         }
-        IncrementFillAmount();
+        
     }
 
     public void IncrementFillAmount()
