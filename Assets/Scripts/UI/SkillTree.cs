@@ -3,12 +3,17 @@ using UnityEngine;
 public class SkillTree : MonoBehaviour
 {
     public Abilities AbilitiesGroup;
+    public SkillTreeGenInfo GenInfo;
 
     void Awake()
     {
         EventSystem.Current.OnUpdateDashAbilityUI += UpdateDashAbility;
         EventSystem.Current.OnUpdateDestructiveBoltUI += UpdateDestructiveBoltAbility;
         EventSystem.Current.OnUpdateKeenAbilityUI += UpdateKeenAbility;
+
+        AbilitiesGroup.Dash.SkillTree.SkillTreeGenInfoInstance = GenInfo;
+        AbilitiesGroup.DestructiveBolt.SkillTree.SkillTreeGenInfoInstance = GenInfo;
+        AbilitiesGroup.Keen.SkillTree.SkillTreeGenInfoInstance = GenInfo;
     }
 
     public void UpdateValues(CompAbilityType type, ComponentAbilityData data)

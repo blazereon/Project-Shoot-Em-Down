@@ -1,3 +1,4 @@
+using System;
 using Microsoft.Unity.VisualStudio.Editor;
 using UnityEngine;
 using UnityEngine.AI;
@@ -24,6 +25,22 @@ public class TreeGroup : MonoBehaviour
         }
     }
 
+    [NonSerialized] 
+    private SkillTreeGenInfo _skillTreeGenInfoInstance;
+    public SkillTreeGenInfo SkillTreeGenInfoInstance
+    {
+        get
+        {
+            return _skillTreeGenInfoInstance;
+        }
+        set
+        {
+            _skillTreeGenInfoInstance = value;
+            Tier1.SkillTreeGenInfoInstance = _skillTreeGenInfoInstance;
+            Tier2.SkillTreeGenInfoInstance = _skillTreeGenInfoInstance;
+            Tier3.SkillTreeGenInfoInstance = _skillTreeGenInfoInstance;
+        }
+    }
     void OnValidate()
     {
         SetOverallFillAmount();

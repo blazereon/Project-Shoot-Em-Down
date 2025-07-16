@@ -403,6 +403,22 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 1
           m_CallState: 2
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 4603286155191703432}
+          m_TargetAssemblyTypeName: Tier, Assembly-CSharp
+          m_MethodName: UpdateSkillGenInfo
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
 --- !u!1 &7298759031432415385
 GameObject:
   m_ObjectHideFlags: 0
@@ -866,13 +882,15 @@ MonoBehaviour:
   InactiveFrame: {fileID: 3084592486050833917}
   InactiveLine: {fileID: 815713363086585637}
   HoldTime: 2
-  IsUnlocked: 0
-  Unlockable: 0
+  Lock: 0
+  AbilityType: 0
   _IsPressed: 0
   _iconSprite: {fileID: 21300000, guid: e0a1e1d758ac2a34aaa9fc5bc22502b9, type: 3}
   _frameSprite: {fileID: 21300000, guid: 73a0697699afd1248b4f8c2578df8e75, type: 3}
   _lineSprite: {fileID: 21300000, guid: ea95a1a365958514e8e9caea373f7d96, type: 3}
   _fillAmount: 1
+  UpgradeName: 
+  UpgradeDescription: 
 --- !u!114 &9086182327136043692
 MonoBehaviour:
   m_ObjectHideFlags: 0

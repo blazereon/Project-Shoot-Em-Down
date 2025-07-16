@@ -1,5 +1,6 @@
 using System;
 using System.Runtime.CompilerServices;
+using JetBrains.Annotations;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -23,6 +24,8 @@ public class Tier : MonoBehaviour
 
     public CompAbilityType AbilityType;
     float _holdTimer;
+
+    [NonSerialized] public SkillTreeGenInfo SkillTreeGenInfoInstance;
 
 
     [SerializeField]
@@ -101,6 +104,10 @@ public class Tier : MonoBehaviour
         }
     }
 
+    [SerializeField]
+    public String UpgradeName;
+    [TextArea] public String UpgradeDescription;
+
     void OnValidate()
     {
         if (_iconSprite != null)
@@ -151,5 +158,12 @@ public class Tier : MonoBehaviour
             EventSystem.Current.UpgradePlayerAbility(AbilityType);
             _holdTimer = 0;
         }
+    }
+
+    public void UpdateSkillGenInfo()
+    {
+        SkillTreeGenInfoInstance.Icon.sprite = IconSprite;
+        SkillTreeGenInfoInstance.Name.text = UpgradeName;
+        SkillTreeGenInfoInstance.Description.text = UpgradeDescription;
     }
 }

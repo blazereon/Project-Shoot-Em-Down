@@ -103,24 +103,28 @@ PrefabInstance:
       objectReference: {fileID: 21300000, guid: f8a02fc2d88996b42b0df4820852b194, type: 3}
     - target: {fileID: 940204600537299292, guid: 99121c2986eadb4948eb78046c58feae, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 940204600537299292, guid: 99121c2986eadb4948eb78046c58feae, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 940204600537299292, guid: 99121c2986eadb4948eb78046c58feae, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 65.825
       objectReference: {fileID: 0}
     - target: {fileID: 940204600537299292, guid: 99121c2986eadb4948eb78046c58feae, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -58.60165
       objectReference: {fileID: 0}
     - target: {fileID: 1567514305112175850, guid: 99121c2986eadb4948eb78046c58feae, type: 3}
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: 2a95a8709bb304d42ac044940fb316cd, type: 3}
+    - target: {fileID: 1645678895329747061, guid: 99121c2986eadb4948eb78046c58feae, type: 3}
+      propertyPath: UpgradeName
+      value: Fragile Mark
+      objectReference: {fileID: 0}
     - target: {fileID: 1645678895329747061, guid: 99121c2986eadb4948eb78046c58feae, type: 3}
       propertyPath: _iconSprite
       value: 
@@ -133,6 +137,11 @@ PrefabInstance:
       propertyPath: _frameSprite
       value: 
       objectReference: {fileID: 21300000, guid: f8a02fc2d88996b42b0df4820852b194, type: 3}
+    - target: {fileID: 1645678895329747061, guid: 99121c2986eadb4948eb78046c58feae, type: 3}
+      propertyPath: UpgradeDescription
+      value: 'Empowered: Enemies dashed through gets marked. Upon next hit, Enemy
+        receives additional bonus damage'
+      objectReference: {fileID: 0}
     - target: {fileID: 1759319424545192879, guid: 99121c2986eadb4948eb78046c58feae, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -158,6 +167,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3781414672363131218, guid: 99121c2986eadb4948eb78046c58feae, type: 3}
+      propertyPath: UpgradeName
+      value: Dual Canistered
+      objectReference: {fileID: 0}
+    - target: {fileID: 3781414672363131218, guid: 99121c2986eadb4948eb78046c58feae, type: 3}
       propertyPath: _fillAmount
       value: 1
       objectReference: {fileID: 0}
@@ -173,6 +186,13 @@ PrefabInstance:
       propertyPath: _frameSprite
       value: 
       objectReference: {fileID: 21300000, guid: f8a02fc2d88996b42b0df4820852b194, type: 3}
+    - target: {fileID: 3781414672363131218, guid: 99121c2986eadb4948eb78046c58feae, type: 3}
+      propertyPath: UpgradeDescription
+      value: 'Gains additional charge allowing player to dash twice.
+
+        Empowered:
+        Upon gaining empowerment, resets cooldown and gains all charges.'
+      objectReference: {fileID: 0}
     - target: {fileID: 4999013404859315538, guid: 99121c2986eadb4948eb78046c58feae, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -183,19 +203,19 @@ PrefabInstance:
       objectReference: {fileID: 21300000, guid: 665336c7b9dcda14ebf8fc6217d632e1, type: 3}
     - target: {fileID: 5766310241298642849, guid: 99121c2986eadb4948eb78046c58feae, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5766310241298642849, guid: 99121c2986eadb4948eb78046c58feae, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5766310241298642849, guid: 99121c2986eadb4948eb78046c58feae, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 65.825
       objectReference: {fileID: 0}
     - target: {fileID: 5766310241298642849, guid: 99121c2986eadb4948eb78046c58feae, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -21.43055
       objectReference: {fileID: 0}
     - target: {fileID: 6371199085745676048, guid: 99121c2986eadb4948eb78046c58feae, type: 3}
       propertyPath: m_Sprite
@@ -218,6 +238,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: 2818376ae3122d94ab99d12dbe1e1ce0, type: 3}
     - target: {fileID: 7597575984343965615, guid: 99121c2986eadb4948eb78046c58feae, type: 3}
+      propertyPath: UpgradeName
+      value: Penetrating Dash
+      objectReference: {fileID: 0}
+    - target: {fileID: 7597575984343965615, guid: 99121c2986eadb4948eb78046c58feae, type: 3}
       propertyPath: _fillAmount
       value: 1
       objectReference: {fileID: 0}
@@ -233,6 +257,13 @@ PrefabInstance:
       propertyPath: _frameSprite
       value: 
       objectReference: {fileID: 21300000, guid: f8a02fc2d88996b42b0df4820852b194, type: 3}
+    - target: {fileID: 7597575984343965615, guid: 99121c2986eadb4948eb78046c58feae, type: 3}
+      propertyPath: UpgradeDescription
+      value: 'Dash deals damage when passing thru enemy
+
+        Empowered: Allows
+        dashing thru colliding enemies'
+      objectReference: {fileID: 0}
     - target: {fileID: 7666902080806521648, guid: 99121c2986eadb4948eb78046c58feae, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -243,19 +274,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8262667415290529414, guid: 99121c2986eadb4948eb78046c58feae, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8262667415290529414, guid: 99121c2986eadb4948eb78046c58feae, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8262667415290529414, guid: 99121c2986eadb4948eb78046c58feae, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 65.825
       objectReference: {fileID: 0}
     - target: {fileID: 8262667415290529414, guid: 99121c2986eadb4948eb78046c58feae, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -95.77275
       objectReference: {fileID: 0}
     - target: {fileID: 8478757027551326818, guid: 99121c2986eadb4948eb78046c58feae, type: 3}
       propertyPath: m_Pivot.x
@@ -470,6 +501,10 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1645678895329747061, guid: 99121c2986eadb4948eb78046c58feae, type: 3}
+      propertyPath: UpgradeName
+      value: Tandem
+      objectReference: {fileID: 0}
+    - target: {fileID: 1645678895329747061, guid: 99121c2986eadb4948eb78046c58feae, type: 3}
       propertyPath: _iconSprite
       value: 
       objectReference: {fileID: 21300000, guid: 2818376ae3122d94ab99d12dbe1e1ce0, type: 3}
@@ -481,6 +516,13 @@ PrefabInstance:
       propertyPath: _frameSprite
       value: 
       objectReference: {fileID: 21300000, guid: daec9636ca7af684d91c845192500d68, type: 3}
+    - target: {fileID: 1645678895329747061, guid: 99121c2986eadb4948eb78046c58feae, type: 3}
+      propertyPath: UpgradeDescription
+      value: 'Range attack marks enemy with Aether Mark which explored after 6 seconds.
+
+        Empowered:
+        All instances of Aether Mark will explode but will not remove the mark.'
+      objectReference: {fileID: 0}
     - target: {fileID: 1759319424545192879, guid: 99121c2986eadb4948eb78046c58feae, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -510,6 +552,10 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3781414672363131218, guid: 99121c2986eadb4948eb78046c58feae, type: 3}
+      propertyPath: UpgradeName
+      value: Plunge
+      objectReference: {fileID: 0}
+    - target: {fileID: 3781414672363131218, guid: 99121c2986eadb4948eb78046c58feae, type: 3}
       propertyPath: _fillAmount
       value: 1
       objectReference: {fileID: 0}
@@ -525,6 +571,13 @@ PrefabInstance:
       propertyPath: _frameSprite
       value: 
       objectReference: {fileID: 21300000, guid: daec9636ca7af684d91c845192500d68, type: 3}
+    - target: {fileID: 3781414672363131218, guid: 99121c2986eadb4948eb78046c58feae, type: 3}
+      propertyPath: UpgradeDescription
+      value: 'Mid-air attacks will trigger plunge attack dealing AoE damage and scales
+        off momentum.
+
+        Empowered: Plunge attack deals 1.5x damage'
+      objectReference: {fileID: 0}
     - target: {fileID: 4999013404859315538, guid: 99121c2986eadb4948eb78046c58feae, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -574,6 +627,10 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7597575984343965615, guid: 99121c2986eadb4948eb78046c58feae, type: 3}
+      propertyPath: UpgradeName
+      value: Carnage
+      objectReference: {fileID: 0}
+    - target: {fileID: 7597575984343965615, guid: 99121c2986eadb4948eb78046c58feae, type: 3}
       propertyPath: _fillAmount
       value: 1
       objectReference: {fileID: 0}
@@ -589,6 +646,13 @@ PrefabInstance:
       propertyPath: _frameSprite
       value: 
       objectReference: {fileID: 21300000, guid: daec9636ca7af684d91c845192500d68, type: 3}
+    - target: {fileID: 7597575984343965615, guid: 99121c2986eadb4948eb78046c58feae, type: 3}
+      propertyPath: UpgradeDescription
+      value: 'Killing enemies and stacking chain grants (??) erracity
+
+        Empowered:
+        Gains additional 0.5s of Invicibility'
+      objectReference: {fileID: 0}
     - target: {fileID: 7666902080806521648, guid: 99121c2986eadb4948eb78046c58feae, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -795,47 +859,67 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 940204600537299292, guid: 99121c2986eadb4948eb78046c58feae, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 940204600537299292, guid: 99121c2986eadb4948eb78046c58feae, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 940204600537299292, guid: 99121c2986eadb4948eb78046c58feae, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 65.825
       objectReference: {fileID: 0}
     - target: {fileID: 940204600537299292, guid: 99121c2986eadb4948eb78046c58feae, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -58.60165
       objectReference: {fileID: 0}
     - target: {fileID: 1645678895329747061, guid: 99121c2986eadb4948eb78046c58feae, type: 3}
       propertyPath: AbilityType
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1645678895329747061, guid: 99121c2986eadb4948eb78046c58feae, type: 3}
+      propertyPath: UpgradeName
+      value: Sharpshooter
+      objectReference: {fileID: 0}
+    - target: {fileID: 1645678895329747061, guid: 99121c2986eadb4948eb78046c58feae, type: 3}
+      propertyPath: UpgradeDescription
+      value: "Projectiles gain an additional 50% projectile speed. \nEmpowered: Enemies
+        hit in their weak spot are instantly killed."
+      objectReference: {fileID: 0}
     - target: {fileID: 3781414672363131218, guid: 99121c2986eadb4948eb78046c58feae, type: 3}
       propertyPath: AbilityType
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3781414672363131218, guid: 99121c2986eadb4948eb78046c58feae, type: 3}
+      propertyPath: UpgradeName
+      value: Piercing Bolt
+      objectReference: {fileID: 0}
+    - target: {fileID: 3781414672363131218, guid: 99121c2986eadb4948eb78046c58feae, type: 3}
       propertyPath: _fillAmount
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3781414672363131218, guid: 99121c2986eadb4948eb78046c58feae, type: 3}
+      propertyPath: UpgradeDescription
+      value: 'Can pierce non-colliding enemy
+
+        Empowered: Can pierce shielded
+        enemy'
+      objectReference: {fileID: 0}
     - target: {fileID: 5766310241298642849, guid: 99121c2986eadb4948eb78046c58feae, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5766310241298642849, guid: 99121c2986eadb4948eb78046c58feae, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5766310241298642849, guid: 99121c2986eadb4948eb78046c58feae, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 65.825
       objectReference: {fileID: 0}
     - target: {fileID: 5766310241298642849, guid: 99121c2986eadb4948eb78046c58feae, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -21.43055
       objectReference: {fileID: 0}
     - target: {fileID: 6499175699097343596, guid: 99121c2986eadb4948eb78046c58feae, type: 3}
       propertyPath: m_Name
@@ -845,25 +929,36 @@ PrefabInstance:
       propertyPath: AbilityType
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7597575984343965615, guid: 99121c2986eadb4948eb78046c58feae, type: 3}
+      propertyPath: UpgradeName
+      value: Instill Torpor
+      objectReference: {fileID: 0}
+    - target: {fileID: 7597575984343965615, guid: 99121c2986eadb4948eb78046c58feae, type: 3}
+      propertyPath: UpgradeDescription
+      value: '25% chance of stunning enemy per hit
+
+        Empowered: Creates a
+        field stunning nearby enemies'
+      objectReference: {fileID: 0}
     - target: {fileID: 7869524801121668753, guid: 99121c2986eadb4948eb78046c58feae, type: 3}
       propertyPath: m_FillAmount
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8262667415290529414, guid: 99121c2986eadb4948eb78046c58feae, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8262667415290529414, guid: 99121c2986eadb4948eb78046c58feae, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8262667415290529414, guid: 99121c2986eadb4948eb78046c58feae, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 65.825
       objectReference: {fileID: 0}
     - target: {fileID: 8262667415290529414, guid: 99121c2986eadb4948eb78046c58feae, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -95.77275
       objectReference: {fileID: 0}
     - target: {fileID: 8478757027551326818, guid: 99121c2986eadb4948eb78046c58feae, type: 3}
       propertyPath: m_Pivot.x
