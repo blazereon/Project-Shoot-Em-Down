@@ -70,8 +70,10 @@ public class ManagerPlayerState : Player
             MaxChain = PlayerBaseStats.MaxChain,
             Xp = PlayerBaseStats.Xp,
             MaxXp = PlayerBaseStats.MaxXp,
+            SkillPoint = PlayerBaseStats.SkillPoint,
             ChainDuration = PlayerBaseStats.ChainDuration,
             AttackRate = PlayerBaseStats.AttackRate
+
         };
 
     }

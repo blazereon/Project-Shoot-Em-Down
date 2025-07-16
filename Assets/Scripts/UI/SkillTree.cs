@@ -1,15 +1,18 @@
+using TMPro;
 using UnityEngine;
 
 public class SkillTree : MonoBehaviour
 {
     public Abilities AbilitiesGroup;
     public SkillTreeGenInfo GenInfo;
+    public TextMeshProUGUI SkillPointsRemaining;
 
     void Awake()
     {
         EventSystem.Current.OnUpdateDashAbilityUI += UpdateDashAbility;
         EventSystem.Current.OnUpdateDestructiveBoltUI += UpdateDestructiveBoltAbility;
         EventSystem.Current.OnUpdateKeenAbilityUI += UpdateKeenAbility;
+        EventSystem.Current.OnUpdatePlayerStats += UpdateSkillPoints;
 
         AbilitiesGroup.Dash.SkillTree.SkillTreeGenInfoInstance = GenInfo;
         AbilitiesGroup.DestructiveBolt.SkillTree.SkillTreeGenInfoInstance = GenInfo;
@@ -34,6 +37,11 @@ public class SkillTree : MonoBehaviour
                 Debug.LogError("Invalid Component Ability Type");
                 break;
         }
+    }
+
+    private void UpdateSkillPoints(PlayerStats data)
+    {
+        SkillPointsRemaining.text = data.SkillPoint.ToString();
     }
 
     private void UpdateDashAbility(DashAbilityStatus status)

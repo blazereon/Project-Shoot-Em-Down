@@ -62,6 +62,8 @@ public class EventSystem
     public event Action OnReleaseStunningField;
     public event Action<CompAbilityType> OnPlayerUpgradeAbility;
 
+    
+
     public event Action<GameObject, ProjectileProps> OnModifyProjectile;
     public event Action<GameObject, float> OnSimpleDeflectProjectile;
 
