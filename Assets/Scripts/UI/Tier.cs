@@ -149,7 +149,7 @@ public class Tier : MonoBehaviour
         if (_holdTimer >= HoldTime)
         {
             EventSystem.Current.UpgradePlayerAbility(AbilityType);
-            Lock = true;
+            _holdTimer = 0;
         }
     }
 }
