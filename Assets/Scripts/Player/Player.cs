@@ -199,6 +199,13 @@ public class Player : Entity
 
     public void ApplyUpgradeAbility(CompAbilityType ability)
     {
+        if (PlayerCurrentStats.SkillPoint <= 0)
+        {
+            Debug.LogWarning("Player does not have any skill points for upgrade");
+            return;
+        }
+        PlayerCurrentStats.SkillPoint--;
+        EventSystem.Current.UpdatePlayerStats(PlayerCurrentStats);
         switch (ability)
         {
             case CompAbilityType.Keen:
