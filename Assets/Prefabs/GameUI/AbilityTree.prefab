@@ -98,6 +98,7 @@ MonoBehaviour:
   LineSprite: {fileID: 21300000, guid: ea95a1a365958514e8e9caea373f7d96, type: 3}
   SkillTree: {fileID: 8722699938125589196}
   AbilityNameTMP: {fileID: 8679399086258545432}
+  _abilityType: 0
 --- !u!1 &8277882882577103983
 GameObject:
   m_ObjectHideFlags: 0
@@ -292,7 +293,7 @@ PrefabInstance:
       objectReference: {fileID: 21300000, guid: 2a95a8709bb304d42ac044940fb316cd, type: 3}
     - target: {fileID: 573561474977128794, guid: 6c320b5c36a74ac219cae7fe36f63915, type: 3}
       propertyPath: m_FillAmount
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 941077048832732094, guid: 6c320b5c36a74ac219cae7fe36f63915, type: 3}
       propertyPath: m_Sprite
@@ -300,19 +301,19 @@ PrefabInstance:
       objectReference: {fileID: 21300000, guid: 2818376ae3122d94ab99d12dbe1e1ce0, type: 3}
     - target: {fileID: 1759073740776401229, guid: 6c320b5c36a74ac219cae7fe36f63915, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1759073740776401229, guid: 6c320b5c36a74ac219cae7fe36f63915, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1759073740776401229, guid: 6c320b5c36a74ac219cae7fe36f63915, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 65.825
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1759073740776401229, guid: 6c320b5c36a74ac219cae7fe36f63915, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -95.77275
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2452560131424097756, guid: 6c320b5c36a74ac219cae7fe36f63915, type: 3}
       propertyPath: m_Sprite
@@ -324,19 +325,19 @@ PrefabInstance:
       objectReference: {fileID: 21300000, guid: 665336c7b9dcda14ebf8fc6217d632e1, type: 3}
     - target: {fileID: 4234954435910621290, guid: 6c320b5c36a74ac219cae7fe36f63915, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4234954435910621290, guid: 6c320b5c36a74ac219cae7fe36f63915, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4234954435910621290, guid: 6c320b5c36a74ac219cae7fe36f63915, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 65.825
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4234954435910621290, guid: 6c320b5c36a74ac219cae7fe36f63915, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -21.43055
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5415471866640161340, guid: 6c320b5c36a74ac219cae7fe36f63915, type: 3}
       propertyPath: m_Pivot.x
@@ -420,7 +421,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6825716094855036569, guid: 6c320b5c36a74ac219cae7fe36f63915, type: 3}
       propertyPath: _fillAmount
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6825716094855036569, guid: 6c320b5c36a74ac219cae7fe36f63915, type: 3}
       propertyPath: _iconSprite
@@ -428,19 +429,19 @@ PrefabInstance:
       objectReference: {fileID: 21300000, guid: 665336c7b9dcda14ebf8fc6217d632e1, type: 3}
     - target: {fileID: 7480442807137670807, guid: 6c320b5c36a74ac219cae7fe36f63915, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7480442807137670807, guid: 6c320b5c36a74ac219cae7fe36f63915, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7480442807137670807, guid: 6c320b5c36a74ac219cae7fe36f63915, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 65.825
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7480442807137670807, guid: 6c320b5c36a74ac219cae7fe36f63915, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -58.60165
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8262350159977010276, guid: 6c320b5c36a74ac219cae7fe36f63915, type: 3}
       propertyPath: m_Sprite

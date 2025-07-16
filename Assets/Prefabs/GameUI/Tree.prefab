@@ -78,10 +78,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c3fb66d5fef2cb2ab6382acb62048ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AbilityTier:
-  - {fileID: 6825716094855036569}
-  - {fileID: 266727336533815396}
-  - {fileID: 8941114481255845822}
+  Tier1: {fileID: 6825716094855036569}
+  Tier2: {fileID: 266727336533815396}
+  Tier3: {fileID: 8941114481255845822}
+  _fillAmount: 0
 --- !u!1001 &4346452233422317548
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -91,8 +91,12 @@ PrefabInstance:
     m_TransformParent: {fileID: 5415471866640161340}
     m_Modifications:
     - target: {fileID: 4603286155191703432, guid: 09895c667b207f08eafd24e52b29b3f1, type: 3}
+      propertyPath: Unlockable
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4603286155191703432, guid: 09895c667b207f08eafd24e52b29b3f1, type: 3}
       propertyPath: _fillAmount
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5690422334419465096, guid: 09895c667b207f08eafd24e52b29b3f1, type: 3}
       propertyPath: m_Sprite
@@ -221,6 +225,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3043510554202595914, guid: 09895c667b207f08eafd24e52b29b3f1, type: 3}
       propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4603286155191703432, guid: 09895c667b207f08eafd24e52b29b3f1, type: 3}
+      propertyPath: Unlockable
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5690422334419465096, guid: 09895c667b207f08eafd24e52b29b3f1, type: 3}
@@ -367,6 +375,10 @@ PrefabInstance:
     - target: {fileID: 1535478381200522170, guid: 09895c667b207f08eafd24e52b29b3f1, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4603286155191703432, guid: 09895c667b207f08eafd24e52b29b3f1, type: 3}
+      propertyPath: Unlockable
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4603286155191703432, guid: 09895c667b207f08eafd24e52b29b3f1, type: 3}
       propertyPath: _fillAmount

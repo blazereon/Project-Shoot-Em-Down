@@ -779,7 +779,7 @@ MonoBehaviour:
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 1
-  m_FillAmount: 0
+  m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
@@ -866,11 +866,13 @@ MonoBehaviour:
   InactiveFrame: {fileID: 3084592486050833917}
   InactiveLine: {fileID: 815713363086585637}
   HoldTime: 2
+  IsUnlocked: 0
+  Unlockable: 0
   _IsPressed: 0
   _iconSprite: {fileID: 21300000, guid: e0a1e1d758ac2a34aaa9fc5bc22502b9, type: 3}
   _frameSprite: {fileID: 21300000, guid: 73a0697699afd1248b4f8c2578df8e75, type: 3}
   _lineSprite: {fileID: 21300000, guid: ea95a1a365958514e8e9caea373f7d96, type: 3}
-  _fillAmount: 0
+  _fillAmount: 1
 --- !u!114 &9086182327136043692
 MonoBehaviour:
   m_ObjectHideFlags: 0

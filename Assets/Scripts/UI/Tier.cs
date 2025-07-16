@@ -19,7 +19,9 @@ public class Tier : MonoBehaviour
     public Image InactiveLine;
 
     public float HoldTime;
-    public bool IsUnlocked = false;
+    public bool Lock = false;
+
+    public CompAbilityType AbilityType;
     float _holdTimer;
 
 
@@ -128,32 +130,26 @@ public class Tier : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!IsUnlocked)
+        if (_IsPressed && !Lock)
         {
             IncrementFillAmount();
         }
-        
+        else if (!Lock)
+        {
+            _holdTimer = 0;
+            Inactive.fillAmount = 1;
+        }
     }
 
     public void IncrementFillAmount()
     {
-        if (IsPressed)
-        {
+        _holdTimer += Time.deltaTime;
+        Inactive.fillAmount = 1 - (float)_holdTimer / HoldTime;
 
-            _holdTimer += Time.deltaTime;
-            if (_holdTimer >= HoldTime)
-            {
-                IsUnlocked = true;
-                Inactive.fillAmount = 0;
-            }
-            Inactive.fillAmount = 1 - ((float)_holdTimer / HoldTime);
-            return;
-        }
-        else
+        if (_holdTimer >= HoldTime)
         {
-            _holdTimer = 0;
-            Inactive.fillAmount = 1;
-            return;
+            EventSystem.Current.UpgradePlayerAbility(AbilityType);
+            Lock = true;
         }
     }
 }
