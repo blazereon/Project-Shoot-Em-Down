@@ -4,7 +4,7 @@ using UnityEngine.UIElements.Experimental;
 public class ManagerExplosive : Enemy
 {
     BaseExplosive currentState;
-    public BaseExplosive prevState {  get; set; }
+    public BaseExplosive prevState { get; set; }
 
     public WanderExplosive wanderState = new WanderExplosive();
     public ChaseExplosive chaseState = new ChaseExplosive();
@@ -24,6 +24,10 @@ public class ManagerExplosive : Enemy
 
     public float explosionTimer;
     public float explosionRadius;
+
+    //Set the Sprite Animator
+    public Animator MainAnimator;
+    public Animator EffectsAnimator;
 
     void Awake()
     {
@@ -85,5 +89,21 @@ public class ManagerExplosive : Enemy
         AudioManager.instance.StopSFX();
         EventSystem.Current.OnDamageEnemy -= TakeDamage;
         EventSystem.Current.OnApplyEffect -= ReceiveEffect;
+    }
+    public string currentMainAnimation = "";
+    public string currentEffectsAnimation = "";
+
+    public void PlayMainAnimation(string newAnimation)
+    {
+        if (newAnimation == currentMainAnimation) return;
+        MainAnimator.Play(newAnimation);
+        currentMainAnimation = newAnimation;
+    }
+    
+    public void PlayEffectsAnimation(string newAnimation)
+    {
+        if (newAnimation == currentEffectsAnimation) return;
+        EffectsAnimator.Play(newAnimation);
+        currentEffectsAnimation = newAnimation;
     }
 }

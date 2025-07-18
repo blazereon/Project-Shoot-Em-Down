@@ -9,6 +9,8 @@ public class StunExplosive : BaseExplosive
 
     public override void UpdateState(ManagerExplosive enemy)
     {
+        enemy.PlayMainAnimation("explosiveIdle");
+
         if (!enemy.IsStunned)
         {
             if (enemy.prevState == null)

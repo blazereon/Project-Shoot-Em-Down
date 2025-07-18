@@ -18,7 +18,8 @@ public class ChaseExplosive : BaseExplosive
 
     public override void UpdateState(ManagerExplosive enemy)
     {
-
+        enemy.PlayMainAnimation("explosiveMoveLoop");
+        
         if (!_isChaseMode)
         {
             Debug.Log("End of chase mode");
