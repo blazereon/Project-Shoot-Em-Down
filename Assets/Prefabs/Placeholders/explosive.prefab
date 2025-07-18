@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 8074721881138741803}
   - component: {fileID: 7255823586710530253}
   - component: {fileID: 1948006950215362131}
+  - component: {fileID: 7411923905268606289}
   m_Layer: 14
   m_Name: explosive
   m_TagString: Enemy
@@ -80,8 +81,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -9095717837082945937, guid: f338b74b58fadea78ba8f9ad64405c94, type: 3}
-  m_Color: {r: 0.39030075, g: 0, b: 1, a: 1}
+  m_Sprite: {fileID: 546546965, guid: 60f881eed8620a641b0356334a684b25, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -168,6 +169,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isConsumingMark: 0
+  IsStunned: 0
   CanTakeDamage: 1
   player: {fileID: 0}
   EnemyStatUIInstance: {fileID: 6051575759378229708}
@@ -175,17 +177,17 @@ MonoBehaviour:
   MaxHealth: 100
   MeleeResistancePercentage: 0
   RangeResistancePercentage: 0
-  AttackDamage: 0
+  AttackDamage: 5
   PneumaAmount: 0
-  rayNumber: 36
-  rayMaxAngle: 360
-  rayStartAngle: 0
+  rayNumber: 10
+  rayMaxAngle: 45
+  rayStartAngle: -22.5
   detectionRange: 12
   delayScanTime: 0.5
   isPlayerDetected: 0
   hasPlayerDetected: 0
   hitRays: 
-  facing: 0
+  facing: 1
   WanderSpeed: 60
   ChasingSpeed: 90
   startSelfDetructDistance: 8
@@ -193,6 +195,32 @@ MonoBehaviour:
   WallDistanceLimit: 5
   explosionTimer: 3
   explosionRadius: 6
+  MainAnimator: {fileID: 0}
+  EffectsAnimator: {fileID: 0}
+  currentMainAnimation: 
+  currentEffectsAnimation: 
+--- !u!95 &7411923905268606289
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7144354307194853485}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: e43d3825ab662ba459a4634251def840, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1001 &5025526612911807982
 PrefabInstance:
   m_ObjectHideFlags: 0

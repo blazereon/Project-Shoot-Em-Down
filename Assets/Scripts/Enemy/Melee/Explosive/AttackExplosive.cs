@@ -6,7 +6,9 @@ public class AttackExplosive : BaseExplosive
     public override void EnterState(ManagerExplosive enemy)
     {
         AudioManager.instance.PlayFX(AudioManager.instance.explosionCoundown, false);
+        enemy.PlayMainAnimation("explosiveTimer_v1");
         enemy.StartCoroutine(StartSelfDestruct(enemy));
+        enemy.PlayEffectsAnimation("Explosion");
     }
 
     public override void UpdateState(ManagerExplosive enemy)
