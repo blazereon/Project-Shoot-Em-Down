@@ -64,7 +64,13 @@ AudioMixerController:
   m_SuspendThreshold: -80
   m_EnableSuspend: 1
   m_UpdateMode: 0
-  m_ExposedParameters: []
+  m_ExposedParameters:
+  - guid: 2b7f02c968f4ca44ba3bb2c235cf9b5b
+    name: MasterVolume
+  - guid: c650191ee7f8a554ba27183302bf007a
+    name: MusicVolume
+  - guid: 1145ae38e8553454e8461f54bd863728
+    name: SFXVolume
   m_AudioMixerGroupViews:
   - guids:
     - fa96a558d163ee64ab32d93c228f1185
@@ -130,18 +136,44 @@ AudioMixerSnapshotController:
     b713ec57a65359446890a92c0ca1e42d: 0.017
     76a76167cf1635d4d8098c398ce85450: 1
     7ce86ca7f266def48911b66ad2ecac4c: 0
-    b2f7e0f76a6baf548ac0e8cf3702d405: 3437
-    1145ae38e8553454e8461f54bd863728: 5
+    b2f7e0f76a6baf548ac0e8cf3702d405: 6492
+    1145ae38e8553454e8461f54bd863728: 0
+    e9a80c8935e497241bc21b73dc023534: 380
+    d392b63b350a60649bba2251f875c626: 0
     f309f78b8472c2f489fe33288904f33c: 0.5
     825c0bacb6a7dff4fa4e775eec699ad6: 0
-    d70de76d5025d82428a01923c0d2be46: 0.077
+    d70de76d5025d82428a01923c0d2be46: 0.093
     5f3a507d6582f9f47850f0c156b13012: 20
-    c650191ee7f8a554ba27183302bf007a: -3
+    199fb67d6a29a144cb35b7cfdc2132e7: 0.8
+    0aa725ede230262469d756436f2eeb2f: 9348
+    c650191ee7f8a554ba27183302bf007a: 0
+    7d6a742e7e6edd84081efb423e79f735: -20.8
     4510568e0e081224687b232b46237ea3: 28.2
     1b86c6deb76e2c24cb73d840704ccc01: 100
     7bfcbd1f410131f4c9c6bb53338e8b26: 2
     1a74d76fcc4708d439442344af09cddb: 0.1
+    0796b1afa182d72458add86e2bf70982: 129
   m_TransitionOverrides: {}
+--- !u!244 &2270312263784378929
+AudioMixerEffectController:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_EffectID: 706191856f9de9c40919766d3b91a686
+  m_EffectName: Normalize
+  m_MixLevel: 392bea99d58279e4c895d9e7eb069717
+  m_Parameters:
+  - m_ParameterName: Fade in time
+    m_GUID: 0aa725ede230262469d756436f2eeb2f
+  - m_ParameterName: Lowest volume
+    m_GUID: 50f428bda3a4a0348b7e7ce19f946cb8
+  - m_ParameterName: Maximum amp
+    m_GUID: 199fb67d6a29a144cb35b7cfdc2132e7
+  m_SendTarget: {fileID: 0}
+  m_EnableWetMix: 0
+  m_Bypass: 0
 --- !u!244 &2847245610225082646
 AudioMixerEffectController:
   m_ObjectHideFlags: 3
@@ -219,6 +251,7 @@ AudioMixerGroupController:
   m_Send: 00000000000000000000000000000000
   m_Effects:
   - {fileID: -2834450012028328427}
+  - {fileID: 2270312263784378929}
   m_UserColorIndex: 0
   m_Mute: 0
   m_Solo: 0
