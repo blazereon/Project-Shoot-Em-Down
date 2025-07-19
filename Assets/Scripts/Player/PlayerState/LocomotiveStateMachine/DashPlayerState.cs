@@ -46,6 +46,7 @@ public class DashPlayerState : BasePlayerState
             player.DashAttackBox.SetActive(false);
             Physics2D.IgnoreLayerCollision(7, 13, false);
             Physics2D.IgnoreLayerCollision(7, 9, false);
+            player.PlayerRb.linearVelocityX = 0;
             player.SwitchState(player.LandState);
             return;
         }
