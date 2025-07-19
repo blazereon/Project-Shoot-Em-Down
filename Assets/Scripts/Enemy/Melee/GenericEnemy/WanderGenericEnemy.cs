@@ -18,6 +18,7 @@ public class WanderGenericEnemy : BaseGenericEnemy
 
         if (_isPlayerDetected)
         {
+            AudioManager.instance.PlayFX(AudioManager.instance.enemyChaseAlert[0], false);
             genericEnemy.SwitchState(genericEnemy.chaseState);
         }
 
