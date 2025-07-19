@@ -233,9 +233,25 @@ PrefabInstance:
       propertyPath: m_Name
       value: EnemyStatUI
       objectReference: {fileID: 0}
+    - target: {fileID: 402111546868864286, guid: 9f2740f211050cace901a51c50664858, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 819499172154515570, guid: 9f2740f211050cace901a51c50664858, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1066036539756027593, guid: 9f2740f211050cace901a51c50664858, type: 3}
+      propertyPath: m_FillAmount
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3125320314361566563, guid: 9f2740f211050cace901a51c50664858, type: 3}
       propertyPath: m_PresetInfoIsWorld
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3137030504337889959, guid: 9f2740f211050cace901a51c50664858, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6046277041924922542, guid: 9f2740f211050cace901a51c50664858, type: 3}
       propertyPath: m_AnchorMax.y

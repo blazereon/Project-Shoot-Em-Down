@@ -25,6 +25,7 @@ public class ManagerExplosive : Enemy
     public float explosionTimer;
     public float explosionRadius;
 
+
     //Set the Sprite Animator
     public Animator MainAnimator;
     public Animator EffectsAnimator;
@@ -39,6 +40,12 @@ public class ManagerExplosive : Enemy
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        // Main Animator
+        MainAnimator = GetComponent<Animator>(); 
+        
+        // Effects Animator
+        EffectsAnimator = transform.Find("Explosion").GetComponent<Animator>();
+
         currentState = wanderState;
         currentState.EnterState(this);
     }
@@ -90,8 +97,11 @@ public class ManagerExplosive : Enemy
         EventSystem.Current.OnDamageEnemy -= TakeDamage;
         EventSystem.Current.OnApplyEffect -= ReceiveEffect;
     }
-    public string currentMainAnimation = "";
-    public string currentEffectsAnimation = "";
+
+    
+    private string currentMainAnimation = "";
+    private string currentEffectsAnimation = "";
+
 
     public void PlayMainAnimation(string newAnimation)
     {
@@ -106,4 +116,5 @@ public class ManagerExplosive : Enemy
         EffectsAnimator.Play(newAnimation);
         currentEffectsAnimation = newAnimation;
     }
+
 }

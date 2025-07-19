@@ -8,7 +8,7 @@ public class HealthMeter : MonoBehaviour
     public void UpdateValue(int healthAmount, int MaxHealthAmount)
     {
         float healthPercentage = (float)healthAmount / MaxHealthAmount;
-        Healthbar.fillAmount = healthPercentage;
+        Healthbar.fillAmount = Mathf.Clamp01(healthPercentage);
     }
     
 }
