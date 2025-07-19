@@ -25,7 +25,6 @@ public class JumpPlayerState : BasePlayerState
         //proceeds to dash
         if (player.dashAction.IsPressed() && player.DashAbility.IsDashAvailable())
         {
-            player.PushCurrentState();
             player.SwitchState(player.DashState);
             return;
         }
