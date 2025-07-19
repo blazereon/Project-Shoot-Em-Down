@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: explosiveTimer_v1
+  m_Name: explosiveEffectInvisible
   serializedVersion: 7
   m_Legacy: 0
   m_Compressed: 0
@@ -21,17 +21,13 @@ AnimationClip:
   - serializedVersion: 2
     curve:
     - time: 0
-      value: {fileID: -2145850536783932482, guid: c4e8cf6b116b05448a32c164f0c04c6e, type: 3}
-    - time: 0.125
-      value: {fileID: -1020228320, guid: c4e8cf6b116b05448a32c164f0c04c6e, type: 3}
-    - time: 0.25
-      value: {fileID: -574514321, guid: c4e8cf6b116b05448a32c164f0c04c6e, type: 3}
+      value: {fileID: 1532934106, guid: 0800e85fad375624bbdfc4e4563fe7d2, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
     script: {fileID: 0}
     flags: 2
-  m_SampleRate: 8
+  m_SampleRate: 12
   m_WrapMode: 0
   m_Bounds:
     m_Center: {x: 0, y: 0, z: 0}
@@ -48,15 +44,13 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     pptrCurveMapping:
-    - {fileID: -2145850536783932482, guid: c4e8cf6b116b05448a32c164f0c04c6e, type: 3}
-    - {fileID: -1020228320, guid: c4e8cf6b116b05448a32c164f0c04c6e, type: 3}
-    - {fileID: -574514321, guid: c4e8cf6b116b05448a32c164f0c04c6e, type: 3}
+    - {fileID: 1532934106, guid: 0800e85fad375624bbdfc4e4563fe7d2, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.375
+    m_StopTime: 0.083333336
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0

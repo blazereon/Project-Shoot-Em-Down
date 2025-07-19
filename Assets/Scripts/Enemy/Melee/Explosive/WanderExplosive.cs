@@ -14,9 +14,9 @@ public class WanderExplosive : BaseExplosive
     public override void UpdateState(ManagerExplosive enemy)
     {
         enemy.PlayMainAnimation("explosiveMoveLoop");
-        
+
         bool _isPlayerDetected = enemy.PlayerDetection(enemy.facing);
-        
+
         if (_isPlayerDetected)
         {
             enemy.SwitchState(enemy.chaseState);

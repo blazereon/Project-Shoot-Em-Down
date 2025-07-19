@@ -13,6 +13,7 @@ public class ChaseExplosive : BaseExplosive
         _layerMask = LayerMask.GetMask("Wall", "Player");
         _isPlayerInSight = true;
         _isChaseMode = true;
+        Debug.Log("LayerMask value: " + _layerMask.value);
         enemy.StartCoroutine(CheckPlayer(enemy));
     }
 

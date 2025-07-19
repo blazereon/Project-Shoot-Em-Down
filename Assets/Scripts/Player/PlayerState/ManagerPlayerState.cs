@@ -90,8 +90,11 @@ public class ManagerPlayerState : Player
 
         PlayerCollider = GetComponent<Collider2D>();
 
-        BodyAnimator = GetComponent<Animator>(); // Main Body Animator
-        ArmAnimator = transform.Find("Arm_Swing").GetComponent<Animator>(); // Child Arm Animator
+        // Main Body Animator
+        BodyAnimator = GetComponent<Animator>(); 
+        
+        // Child Arm Animator
+        ArmAnimator = transform.Find("Arm_Swing").GetComponent<Animator>(); 
         ArmTransform = ArmAnimator.transform;
 
         EventSystem.Current.UpdatePlayerStats(PlayerCurrentStats);
