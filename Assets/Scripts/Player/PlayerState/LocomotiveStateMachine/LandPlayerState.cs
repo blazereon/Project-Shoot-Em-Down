@@ -56,8 +56,11 @@ public class LandPlayerState : BasePlayerState
 
     public override void FixedUpdateState(ManagerPlayerState player)
     {
-        player.PlayerRb.linearVelocityY -= player.LandAcceleration;
-
+        if (player.PlayerRb.linearVelocityY >= -15)
+        {
+            player.PlayerRb.linearVelocityY -= player.LandAcceleration;
+        }
+        
         if (player.facing == Facing.right && player.moveAction.IsPressed())
         {
             player.PlayerRb.linearVelocityX = player.Speed * Time.fixedDeltaTime * Vector3.right.x;
