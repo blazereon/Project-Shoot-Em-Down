@@ -40,7 +40,7 @@ public class LandPlayerState : BasePlayerState
             return;
         }
 
-        if (player.attackAction.triggered)
+        if (player.attackAction.triggered && player.PlayerCurrentStats.CurrentAttackType == Player.AttackType.Melee)
         {
             player.SwitchState(player.PlungeState);
         }
