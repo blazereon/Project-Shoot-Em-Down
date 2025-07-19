@@ -20,7 +20,7 @@ public class WallGrabPlayerState : BasePlayerState
 
         if (player.jumpAction.triggered)
         {
-            player.SwitchState(player.WallJumpState);
+            player.SwitchState(player.JumpState);
         }
     }
 
