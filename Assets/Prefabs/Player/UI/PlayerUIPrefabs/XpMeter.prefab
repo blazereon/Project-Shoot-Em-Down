@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 992774367959143738}
   - component: {fileID: 8776554976975981518}
   - component: {fileID: 6637360448921096646}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: SkillPointTMP
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -147,7 +147,7 @@ GameObject:
   - component: {fileID: 2199991708552786527}
   - component: {fileID: 679194349940783550}
   - component: {fileID: 4282286934405129900}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: XpTextTMP
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -283,7 +283,7 @@ GameObject:
   - component: {fileID: 3923515932721645854}
   - component: {fileID: 4910851082648759263}
   - component: {fileID: 7648759175377912577}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Back
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -358,7 +358,7 @@ GameObject:
   - component: {fileID: 4014180902898093957}
   - component: {fileID: 59601223057427158}
   - component: {fileID: 985220934406986044}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Bar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -432,13 +432,13 @@ GameObject:
   m_Component:
   - component: {fileID: 7693213538156745586}
   - component: {fileID: 7095368507093445308}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: XpMeter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &7693213538156745586
 RectTransform:
   m_ObjectHideFlags: 0
@@ -477,3 +477,4 @@ MonoBehaviour:
   XpMeterBar: {fileID: 985220934406986044}
   XpTextTMP: {fileID: 4282286934405129900}
   SkillPointTMP: {fileID: 6637360448921096646}
+  visibleDuration: 3

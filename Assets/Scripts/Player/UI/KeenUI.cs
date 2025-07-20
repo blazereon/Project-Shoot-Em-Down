@@ -13,6 +13,7 @@ public class KeenUI : MonoBehaviour
 
     public void UpdateValue(KeenAbilityStatus status)
     {
+        KeenIcon.gameObject.SetActive(true);
 
         // cooldown animation if the cooldown timer is active
         CooldownOverlay.gameObject.SetActive(status.IsKeenCooldown);
