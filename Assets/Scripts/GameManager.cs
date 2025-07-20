@@ -16,7 +16,6 @@ public class GameManager : MonoBehaviour
     public static GameManager Current;
 
     public GameState CurrentGameState;
-    public InputAction Pause;
     public InputActionMap PlayerInput;
     public InputActionMap UIInput;
 
@@ -32,7 +31,6 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         DontDestroyOnLoad(this);
-        Pause = InputSystem.actions.FindAction("Pause");
         PlayerInput = InputSystem.actions.FindActionMap("Player");
         UIInput = InputSystem.actions.FindActionMap("UI");
     }
@@ -40,10 +38,6 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Pause.triggered && CurrentGameState == GameState.Playing)
-        {
-            SetState(GameState.Paused);
-        }
         UpdateState();
     }
 

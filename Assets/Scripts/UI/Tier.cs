@@ -150,7 +150,8 @@ public class Tier : MonoBehaviour
 
     public void IncrementFillAmount()
     {
-        _holdTimer += Time.deltaTime;
+        _holdTimer += Time.unscaledDeltaTime;
+        Debug.Log("hold timer: " + _holdTimer);
         Inactive.fillAmount = 1 - (float)_holdTimer / HoldTime;
 
         if (_holdTimer >= HoldTime)
