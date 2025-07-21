@@ -1,10 +1,55 @@
 fileFormatVersion: 2
-guid: 962a6f03ee9945a41953e55fdf645b8f
+guid: 8a9fdcedfceb28346a055880bcc2f6b5
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 6359371749647751456
-    second: Explosive_Timer_0
+      213: -8102944480860572205
+    second: Shielded_Melee_Loop_0
+  - first:
+      213: 2178827063315634881
+    second: Shielded_Melee_Loop_1
+  - first:
+      213: 1558415048704358229
+    second: Shielded_Melee_Loop_2
+  - first:
+      213: 3579542475609867793
+    second: Shielded_Melee_Loop_3
+  - first:
+      213: -3210800608742114989
+    second: Shielded_Melee_Loop_4
+  - first:
+      213: 2581577133965226834
+    second: Shielded_Melee_Loop_5
+  - first:
+      213: -1669293683233090187
+    second: Shielded_Melee_Loop_6
+  - first:
+      213: -3625370467096135539
+    second: Shielded_Melee_Loop_7
+  - first:
+      213: 1786403266392838847
+    second: Shielded_Melee_Loop_8
+  - first:
+      213: -6534721174968143078
+    second: Shielded_Melee_Loop_9
+  - first:
+      213: 8805342400958293967
+    second: Shielded_Melee_Loop_10
+  - first:
+      213: -2536481135570900470
+    second: Shielded_Melee_Loop_11
+  - first:
+      213: 8347601907768293657
+    second: Shielded_Melee_Loop_12
+  - first:
+      213: -1059375975099951845
+    second: Shielded_Melee_Loop_13
+  - first:
+      213: 4726214234959002852
+    second: Shielded_Melee_Loop_14
+  - first:
+      213: 51813846387291594
+    second: Shielded_Melee_Loop_15
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -51,7 +96,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 15
+  spritePixelsToUnits: 11
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -100,13 +145,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Explosive_Timer_0
+      name: Shielded_Melee_Loop_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 64
-        height: 32
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,448 +160,338 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 0299864b9e6014850800000000000000
-      internalID: 6359371749647751456
+      spriteID: 3d5f7970dee8c8f80800000000000000
+      internalID: -8102944480860572205
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Explosive_Timer_1
+      name: Shielded_Melee_Loop_1
       rect:
         serializedVersion: 2
         x: 64
         y: 0
         width: 64
-        height: 32
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 5be308407c0199a4f81f58a2dca7cca7
-      internalID: -1637453072
+      spriteID: 1ca9fef8bafbc3e10800000000000000
+      internalID: 2178827063315634881
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Explosive_Timer_2
+      name: Shielded_Melee_Loop_2
       rect:
         serializedVersion: 2
         x: 128
         y: 0
         width: 64
-        height: 32
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 5009617cedcb03c4fa32768177ef2b34
-      internalID: -1591979525
+      spriteID: 55775aeda3a90a510800000000000000
+      internalID: 1558415048704358229
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Explosive_Timer_3
+      name: Shielded_Melee_Loop_3
       rect:
         serializedVersion: 2
         x: 192
         y: 0
         width: 64
-        height: 32
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 1e099735bb7984e4ab350241e4d64ef9
-      internalID: -1681055270
+      spriteID: 11606259ae61da130800000000000000
+      internalID: 3579542475609867793
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Explosive_Timer_4
+      name: Shielded_Melee_Loop_4
       rect:
         serializedVersion: 2
         x: 256
         y: 0
         width: 64
-        height: 32
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 51f40679a2916b64dac5785b481c1917
-      internalID: -1451080786
+      spriteID: 359715f9bd1f073d0800000000000000
+      internalID: -3210800608742114989
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Explosive_Timer_5
+      name: Shielded_Melee_Loop_5
       rect:
         serializedVersion: 2
         x: 320
         y: 0
         width: 64
-        height: 32
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: d80af369fff7595449d16e5cc68ce738
-      internalID: -230682578
+      spriteID: 253b44eb9ba93d320800000000000000
+      internalID: 2581577133965226834
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Explosive_Timer_6
+      name: Shielded_Melee_Loop_6
       rect:
         serializedVersion: 2
         x: 384
         y: 0
         width: 64
-        height: 32
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 1914f8dd4be7c6442bb2d7a6e184cb5c
-      internalID: -969301595
+      spriteID: 57596194d3a75d8e0800000000000000
+      internalID: -1669293683233090187
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Explosive_Timer_7
+      name: Shielded_Melee_Loop_7
       rect:
         serializedVersion: 2
         x: 448
         y: 0
         width: 64
-        height: 32
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: f96c87dac474edb4ab6eb755e6aca16f
-      internalID: -2087658821
+      spriteID: d88fa89a4c810bdc0800000000000000
+      internalID: -3625370467096135539
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Explosive_Timer_8
+      name: Shielded_Melee_Loop_8
       rect:
         serializedVersion: 2
         x: 512
         y: 0
         width: 64
-        height: 32
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 5271452bf4cc0f94893ca4b4bd7b0af9
-      internalID: 1216474285
+      spriteID: fb251f65e449ac810800000000000000
+      internalID: 1786403266392838847
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Explosive_Timer_9
+      name: Shielded_Melee_Loop_9
       rect:
         serializedVersion: 2
         x: 576
         y: 0
         width: 64
-        height: 32
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 36d3f15b16243f143bb4165c6f99c79b
-      internalID: -1724848625
+      spriteID: a13fccbb6b10055a0800000000000000
+      internalID: -6534721174968143078
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Explosive_Timer_10
+      name: Shielded_Melee_Loop_10
       rect:
         serializedVersion: 2
         x: 640
         y: 0
         width: 64
-        height: 32
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 3fa2d0366125659468c0b7c8f52852d0
-      internalID: 1206259600
+      spriteID: fc7edcec24cd23a70800000000000000
+      internalID: 8805342400958293967
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Explosive_Timer_11
+      name: Shielded_Melee_Loop_11
       rect:
         serializedVersion: 2
         x: 704
         y: 0
         width: 64
-        height: 32
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: ac0cbc6fa6f844c4284152575b0e9925
-      internalID: 1370898103
+      spriteID: a0a21d698db9cccd0800000000000000
+      internalID: -2536481135570900470
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Explosive_Timer_12
+      name: Shielded_Melee_Loop_12
       rect:
         serializedVersion: 2
         x: 768
         y: 0
         width: 64
-        height: 32
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 1a9ec1cf8f661394192dcef829a4ed2a
-      internalID: -1052433710
+      spriteID: 919f6e625b3a8d370800000000000000
+      internalID: 8347601907768293657
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Explosive_Timer_13
+      name: Shielded_Melee_Loop_13
       rect:
         serializedVersion: 2
         x: 832
         y: 0
         width: 64
-        height: 32
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 546acc96a7287e04dacc1f20977d5569
-      internalID: 730181523
+      spriteID: b159598d9275c41f0800000000000000
+      internalID: -1059375975099951845
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Explosive_Timer_14
+      name: Shielded_Melee_Loop_14
       rect:
         serializedVersion: 2
         x: 896
         y: 0
         width: 64
-        height: 32
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 41cad215c49743942a082251ceec7828
-      internalID: 163867246
+      spriteID: 4ec302f5ec2e69140800000000000000
+      internalID: 4726214234959002852
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Explosive_Timer_15
+      name: Shielded_Melee_Loop_15
       rect:
         serializedVersion: 2
         x: 960
         y: 0
         width: 64
-        height: 32
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 27123c8eb6929ae4ca167154ac461231
-      internalID: 1153395015
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Explosive_Timer_16
-      rect:
-        serializedVersion: 2
-        x: 1024
-        y: 0
-        width: 64
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 6c1c999e9a56a4e46bb73cb6df0bfe43
-      internalID: 2093440916
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Explosive_Timer_17
-      rect:
-        serializedVersion: 2
-        x: 1088
-        y: 0
-        width: 64
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e470562e7d618ab4f839733a0ea0ac8f
-      internalID: 155319514
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Explosive_Timer_18
-      rect:
-        serializedVersion: 2
-        x: 1152
-        y: 0
-        width: 64
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 07efd6d92938cb64b9d923e693bdbf88
-      internalID: 328770324
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Explosive_Timer_19
-      rect:
-        serializedVersion: 2
-        x: 1216
-        y: 0
-        width: 64
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: aa348806d2d74ae43ab200bda02c207d
-      internalID: 1664533994
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Explosive_Timer_20
-      rect:
-        serializedVersion: 2
-        x: 1280
-        y: 0
-        width: 64
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: f3abdbd7f2882b2419989b3e6e3d6710
-      internalID: -399190721
+      spriteID: ac57c543b6418b000800000000000000
+      internalID: 51813846387291594
       vertices: []
       indices: 
       edges: []
@@ -565,7 +500,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 000c3bd977f01de42b1e33fd070f4576
+    spriteID: 0f771db2ee6a2b849aa2fbb7b718b7e1
     internalID: 0
     vertices: []
     indices: 
@@ -575,27 +510,22 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Explosive_Timer_0: 6359371749647751456
-      Explosive_Timer_1: -1637453072
-      Explosive_Timer_10: 1206259600
-      Explosive_Timer_11: 1370898103
-      Explosive_Timer_12: -1052433710
-      Explosive_Timer_13: 730181523
-      Explosive_Timer_14: 163867246
-      Explosive_Timer_15: 1153395015
-      Explosive_Timer_16: 2093440916
-      Explosive_Timer_17: 155319514
-      Explosive_Timer_18: 328770324
-      Explosive_Timer_19: 1664533994
-      Explosive_Timer_2: -1591979525
-      Explosive_Timer_20: -399190721
-      Explosive_Timer_3: -1681055270
-      Explosive_Timer_4: -1451080786
-      Explosive_Timer_5: -230682578
-      Explosive_Timer_6: -969301595
-      Explosive_Timer_7: -2087658821
-      Explosive_Timer_8: 1216474285
-      Explosive_Timer_9: -1724848625
+      Shielded_Melee_Loop_0: -8102944480860572205
+      Shielded_Melee_Loop_1: 2178827063315634881
+      Shielded_Melee_Loop_10: 8805342400958293967
+      Shielded_Melee_Loop_11: -2536481135570900470
+      Shielded_Melee_Loop_12: 8347601907768293657
+      Shielded_Melee_Loop_13: -1059375975099951845
+      Shielded_Melee_Loop_14: 4726214234959002852
+      Shielded_Melee_Loop_15: 51813846387291594
+      Shielded_Melee_Loop_2: 1558415048704358229
+      Shielded_Melee_Loop_3: 3579542475609867793
+      Shielded_Melee_Loop_4: -3210800608742114989
+      Shielded_Melee_Loop_5: 2581577133965226834
+      Shielded_Melee_Loop_6: -1669293683233090187
+      Shielded_Melee_Loop_7: -3625370467096135539
+      Shielded_Melee_Loop_8: 1786403266392838847
+      Shielded_Melee_Loop_9: -6534721174968143078
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

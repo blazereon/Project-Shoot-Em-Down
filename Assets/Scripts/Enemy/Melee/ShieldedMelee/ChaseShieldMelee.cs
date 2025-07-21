@@ -25,6 +25,7 @@ public class ChaseShieldMelee : BaseShieldMelee
 
     public override void UpdateState(ManagerShieldMelee enemy)
     {
+        enemy.PlayMainAnimation("shieldedMeleeMoveLoop");
 
         if (!_isChaseMode)
         {
