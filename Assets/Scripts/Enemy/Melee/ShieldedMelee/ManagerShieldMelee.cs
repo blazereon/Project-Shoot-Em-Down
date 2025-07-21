@@ -27,7 +27,11 @@ public class ManagerShieldMelee : Enemy
     public float wallDistanceLimit;
 
 
-    public Collider2D enemyCollider {  get; private set; }
+    public Collider2D enemyCollider { get; private set; }
+
+    //Set the Sprite Animator
+    public Animator MainAnimator;
+    public Animator AttackAnimator;
 
     void Awake()
     {
@@ -39,6 +43,12 @@ public class ManagerShieldMelee : Enemy
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        // Main Animator
+        MainAnimator = GetComponent<Animator>();
+
+        // Attack Animator
+        //AttackAnimator = transform.Find("Hammer").GetComponent<Animator>();
+
         weakSpotBox = transform.Find("weakSpot").GetComponent<BoxCollider2D>();
         hitDetect = transform.Find("weakSpot").GetComponent<HitDetect>();
         enemyCollider = GetComponent<Collider2D>();
@@ -112,4 +122,23 @@ public class ManagerShieldMelee : Enemy
         EventSystem.Current.OnDamageEnemy -= TakeDamage;
         EventSystem.Current.OnApplyEffect -= ReceiveEffect;
     }
+
+    private string currentMainAnimation = "";
+    private string currentAttackAnimation = "";
+
+    public void PlayMainAnimation(string newAnimation)
+    {
+        if (newAnimation == currentMainAnimation) return;
+        MainAnimator.Play(newAnimation);
+        currentMainAnimation = newAnimation;
+    }
+/*
+    public void PlayAttackAnimation(string newAnimation)
+    {
+        if (newAnimation == currentAttackAnimation) return;
+        AttackAnimator.Play(newAnimation);
+        currentAttackAnimation = newAnimation;
+    }
+*/
+    
 }

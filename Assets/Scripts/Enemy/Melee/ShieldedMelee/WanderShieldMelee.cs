@@ -14,6 +14,8 @@ public class WanderShieldMelee : BaseShieldMelee
 
     public override void UpdateState(ManagerShieldMelee enemy)
     {
+        enemy.PlayMainAnimation("shieldedMeleeMoveLoop");
+        
         _isPlayerDetected = enemy.PlayerDetection(enemy.transform.localScale);
 
         if (_isPlayerDetected)
