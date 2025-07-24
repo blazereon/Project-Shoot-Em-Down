@@ -132,6 +132,7 @@ MonoBehaviour:
     FiredBy: 0
     Destination: 0
   rb: {fileID: 964628502704300292}
+  RaycastedCollision: 0
 --- !u!212 &-2944727412350180262
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -175,7 +176,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 3
   m_Sprite: {fileID: 6633297534653801012, guid: 4d81269c7ff644a4a9281ee44cf36516, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

@@ -62,7 +62,7 @@ TextureImporter:
   lightmap: 0
   compressionQuality: 50
   spriteMode: 2
-  spriteExtrude: 1
+  spriteExtrude: 0
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
@@ -88,7 +88,7 @@ TextureImporter:
   - serializedVersion: 4
     buildTarget: DefaultTexturePlatform
     maxTextureSize: 2048
-    resizeAlgorithm: 0
+    resizeAlgorithm: 1
     textureFormat: -1
     textureCompression: 1
     compressionQuality: 50
@@ -119,9 +119,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 63
-        width: 161
-        height: 193
+        y: 224
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -140,19 +140,19 @@ TextureImporter:
       name: Sprite_Storage_Edge_1
       rect:
         serializedVersion: 2
-        x: 159
-        y: 223
-        width: 27
-        height: 27
+        x: 32
+        y: 224
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 28bf9833cce38a2c0800000000000000
+      spriteID: f81c0f3a7f882e622a0d37c6de724471
       internalID: -4420213987505210494
       vertices: []
       indices: 
@@ -162,19 +162,19 @@ TextureImporter:
       name: Sprite_Storage_Edge_2
       rect:
         serializedVersion: 2
-        x: 191
-        y: 127
-        width: 34
-        height: 129
+        x: 64
+        y: 224
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 0c9a92e123b04a230800000000000000
+      spriteID: 3306d9237a3fa000485ce02f72fe344c
       internalID: 3649053907959261632
       vertices: []
       indices: 
@@ -184,19 +184,19 @@ TextureImporter:
       name: Sprite_Storage_Edge_3
       rect:
         serializedVersion: 2
-        x: 159
-        y: 191
-        width: 27
-        height: 27
+        x: 96
+        y: 224
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 331999d2b562b5170800000000000000
+      spriteID: 463960d18acc6ca4190026ecde4f3851
       internalID: 8168164522215444787
       vertices: []
       indices: 
@@ -206,19 +206,19 @@ TextureImporter:
       name: Sprite_Storage_Edge_4
       rect:
         serializedVersion: 2
-        x: 159
-        y: 159
-        width: 27
-        height: 27
+        x: 128
+        y: 224
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: aba28a841dd193e90800000000000000
+      spriteID: a88d73c3820f8e04ca4125e97dfbc749
       internalID: -7045567357340079430
       vertices: []
       indices: 
@@ -228,19 +228,19 @@ TextureImporter:
       name: Sprite_Storage_Edge_5
       rect:
         serializedVersion: 2
-        x: 159
-        y: 127
-        width: 27
-        height: 27
+        x: 160
+        y: 224
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 3ab530e617c0f8920800000000000000
+      spriteID: a56dd06130d036117ba8c9f141c0f6e6
       internalID: 2994625958541220771
       vertices: []
       indices: 
@@ -250,8 +250,8 @@ TextureImporter:
       name: Sprite_Storage_Edge_6
       rect:
         serializedVersion: 2
-        x: 0
-        y: 160
+        x: 192
+        y: 224
         width: 32
         height: 32
       alignment: 0
@@ -262,7 +262,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 095237acd25c06c8ba88e74e2ad4814a
+      spriteID: 588b8a61644aaaf16b85c94ed97e582f
       internalID: 2117664616
       vertices: []
       indices: 
@@ -272,6 +272,182 @@ TextureImporter:
       name: Sprite_Storage_Edge_7
       rect:
         serializedVersion: 2
+        x: 0
+        y: 192
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8d50ab1ad3d087bec81a72dea3a03403
+      internalID: -42600594
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Storage_Edge_8
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 192
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f2d56a143c1ac9a6d92436ab1fd99529
+      internalID: -234365982
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Storage_Edge_9
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 192
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0b5e561e6e2d87e6e9409aecfeeb1409
+      internalID: 932583197
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Storage_Edge_10
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 192
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 23187ce5ee78086f492e9807c2c92ade
+      internalID: 435402735
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Storage_Edge_11
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 192
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bbe5e0f8347034d7db3d5e241346f5bb
+      internalID: 366862798
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Storage_Edge_12
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 192
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 76e095640f065432e97215f492cbf6f0
+      internalID: 424925757
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Storage_Edge_13
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 192
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 591abc18cb31189858cbe2f4d7fc2dd3
+      internalID: -263580639
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Storage_Edge_14
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 160
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b5609c1ed25f45066b1a2aa58f420a1f
+      internalID: -382577676
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Storage_Edge_15
+      rect:
+        serializedVersion: 2
         x: 32
         y: 160
         width: 32
@@ -284,14 +460,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 413a417f67957dd77bfbefd67ba9deb0
-      internalID: -42600594
+      spriteID: 94f12f857e478cf99bbda20d0e2ad502
+      internalID: 897798551
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sprite_Storage_Edge_8
+      name: Sprite_Storage_Edge_16
       rect:
         serializedVersion: 2
         x: 64
@@ -306,14 +482,102 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: dd493b9547a686e998f71f602056ea16
-      internalID: -234365982
+      spriteID: 5f9fd98ed47ce2432a72d52bb29dadf7
+      internalID: 1861727613
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sprite_Storage_Edge_9
+      name: Sprite_Storage_Edge_17
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 160
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 475df88778169da398536e16f5bac58c
+      internalID: 124908521
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Storage_Edge_18
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 160
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 553ee7ec4467a5f3b94424f6ffc19624
+      internalID: -1374290435
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Storage_Edge_19
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 160
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cab343b78da803799b66f2ae7e11ba0e
+      internalID: -295571026
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Storage_Edge_20
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 160
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 50fb89a34c49de92ea52668bc2f3af00
+      internalID: 896236303
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Storage_Edge_21
       rect:
         serializedVersion: 2
         x: 0
@@ -328,14 +592,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6900e74a7a5e8997aa6de14fe1b3a86e
-      internalID: 932583197
+      spriteID: 1a8c56ffd382b6abb832ba33dc97972e
+      internalID: 693053266
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sprite_Storage_Edge_10
+      name: Sprite_Storage_Edge_22
       rect:
         serializedVersion: 2
         x: 32
@@ -350,14 +614,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9ede4a2b7c39fac0ebdb40e0b2521e9b
-      internalID: 435402735
+      spriteID: 3e588833f696140d79dbe9ab85c00039
+      internalID: 282538379
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sprite_Storage_Edge_11
+      name: Sprite_Storage_Edge_23
       rect:
         serializedVersion: 2
         x: 64
@@ -372,14 +636,102 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b5c5fbc20a3cefc5c8868377df3d047c
-      internalID: 366862798
+      spriteID: 64420d4e2a3210f30915e307301ffc3e
+      internalID: -464507457
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sprite_Storage_Edge_12
+      name: Sprite_Storage_Edge_24
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 128
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 82b085682743270bdb142423f99e99ea
+      internalID: 42323292
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Storage_Edge_25
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 128
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f26bed8e2eede29c3952549e5fcf1f88
+      internalID: 1828464243
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Storage_Edge_26
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 128
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a0c4385969945ea24ae9a4aecc1cb5de
+      internalID: 290214636
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Storage_Edge_27
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 128
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1732732685f7e9261967b9cdf699dffe
+      internalID: -66413537
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Storage_Edge_28
       rect:
         serializedVersion: 2
         x: 0
@@ -394,8 +746,206 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ac21bc11090328bb4a55c4f0b80b25ec
-      internalID: 424925757
+      spriteID: a430a043c2edff5acbb17d2a828d2e1a
+      internalID: 227240586
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Storage_Edge_29
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 96
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d0f8695cd2723ce92b7c1d488dc65433
+      internalID: 1328209942
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Storage_Edge_30
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 96
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a536ad2436ed7a5c2bf734fcee9e877d
+      internalID: -148372307
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Storage_Edge_31
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 96
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8e08926488a168db5aa5ae96fe9fdc97
+      internalID: 1876682958
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Storage_Edge_32
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 96
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ef819e3715e163ef08c4235c887d623d
+      internalID: 1184790983
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Storage_Edge_33
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 64
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: afb0338eb3449b6a0ac4eb1f8cf51c41
+      internalID: -427528295
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Storage_Edge_34
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 64
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 17aedd46d42e92804a673fb0d4752d51
+      internalID: -2059289015
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Storage_Edge_35
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 64
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4e9b7de99fb1ba9deb21f79432c409ec
+      internalID: 728238056
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Storage_Edge_36
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 64
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c84dbade31e6e5c648d630dd3d3deb19
+      internalID: -153909176
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Storage_Edge_37
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 64
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cda72022976a3bdb6879e1b7d73f95c1
+      internalID: 168882838
       vertices: []
       indices: 
       edges: []
@@ -419,8 +969,33 @@ TextureImporter:
       Sprite_Storage_Edge_10: 435402735
       Sprite_Storage_Edge_11: 366862798
       Sprite_Storage_Edge_12: 424925757
+      Sprite_Storage_Edge_13: -263580639
+      Sprite_Storage_Edge_14: -382577676
+      Sprite_Storage_Edge_15: 897798551
+      Sprite_Storage_Edge_16: 1861727613
+      Sprite_Storage_Edge_17: 124908521
+      Sprite_Storage_Edge_18: -1374290435
+      Sprite_Storage_Edge_19: -295571026
       Sprite_Storage_Edge_2: 3649053907959261632
+      Sprite_Storage_Edge_20: 896236303
+      Sprite_Storage_Edge_21: 693053266
+      Sprite_Storage_Edge_22: 282538379
+      Sprite_Storage_Edge_23: -464507457
+      Sprite_Storage_Edge_24: 42323292
+      Sprite_Storage_Edge_25: 1828464243
+      Sprite_Storage_Edge_26: 290214636
+      Sprite_Storage_Edge_27: -66413537
+      Sprite_Storage_Edge_28: 227240586
+      Sprite_Storage_Edge_29: 1328209942
       Sprite_Storage_Edge_3: 8168164522215444787
+      Sprite_Storage_Edge_30: -148372307
+      Sprite_Storage_Edge_31: 1876682958
+      Sprite_Storage_Edge_32: 1184790983
+      Sprite_Storage_Edge_33: -427528295
+      Sprite_Storage_Edge_34: -2059289015
+      Sprite_Storage_Edge_35: 728238056
+      Sprite_Storage_Edge_36: -153909176
+      Sprite_Storage_Edge_37: 168882838
       Sprite_Storage_Edge_4: -7045567357340079430
       Sprite_Storage_Edge_5: 2994625958541220771
       Sprite_Storage_Edge_6: 2117664616
