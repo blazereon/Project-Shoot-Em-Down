@@ -25,7 +25,7 @@ public class WallJumpPlayerState : BasePlayerState
     public override void UpdateState(ManagerPlayerState player)
     {
         player.PlayBodyAnimation("jumpLoop");
-        player.PlayArmAnimation("wallJumpArmSwing");
+        player.PlayArmAnimation("idleArmSwing");
 
         if (player.PlayerRb.linearVelocityY <= player.LandStart)
         {

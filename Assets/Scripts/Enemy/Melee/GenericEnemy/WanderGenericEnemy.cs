@@ -13,6 +13,8 @@ public class WanderGenericEnemy : BaseGenericEnemy
 
     public override void UpdateState(ManagerGenericEnemy genericEnemy)
     {
+        genericEnemy.PlayMainAnimation("basicMeleeMoveLoop");
+        
         bool _isPlayerDetected = genericEnemy.PlayerDetection(genericEnemy.facing);
         Debug.Log("Stun status: " + genericEnemy.IsStunned);
 
