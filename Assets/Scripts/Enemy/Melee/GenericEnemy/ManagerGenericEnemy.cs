@@ -24,6 +24,9 @@ public class ManagerGenericEnemy : Enemy
 
     public float WallDistanceLimit;
 
+    //Set the Sprite Animator
+    public Animator MainAnimator;
+
     void Awake()
     {
         EventSystem.Current.OnDamageEnemy += TakeDamage;
@@ -34,6 +37,9 @@ public class ManagerGenericEnemy : Enemy
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        // Main Animator
+        MainAnimator = GetComponent<Animator>();
+
         currentState = wanderState;
         currentState.EnterState(this);
     }
@@ -84,5 +90,14 @@ public class ManagerGenericEnemy : Enemy
     {
         EventSystem.Current.OnDamageEnemy -= TakeDamage;
         EventSystem.Current.OnApplyEffect -= ReceiveEffect;
+    }
+
+    private string currentMainAnimation = "";
+    
+    public void PlayMainAnimation(string newAnimation)
+    {
+        if (newAnimation == currentMainAnimation) return;
+        MainAnimator.Play(newAnimation);
+        currentMainAnimation = newAnimation;
     }
 }

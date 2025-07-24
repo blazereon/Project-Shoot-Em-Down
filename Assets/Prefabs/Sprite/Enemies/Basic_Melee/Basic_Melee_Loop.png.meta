@@ -1,55 +1,37 @@
 fileFormatVersion: 2
-guid: 8a9fdcedfceb28346a055880bcc2f6b5
+guid: 88e6507bbef4b44459488cd177f9776b
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -8102944480860572205
-    second: Shielded_Melee_Loop_0
+      213: 1476832000134935132
+    second: Basic_Melee_Loop_0
   - first:
-      213: 2178827063315634881
-    second: Shielded_Melee_Loop_1
+      213: -2601823615570993467
+    second: Basic_Melee_Loop_1
   - first:
-      213: 1558415048704358229
-    second: Shielded_Melee_Loop_2
+      213: -8427585789008269294
+    second: Basic_Melee_Loop_2
   - first:
-      213: 3579542475609867793
-    second: Shielded_Melee_Loop_3
+      213: -1125861005967993226
+    second: Basic_Melee_Loop_3
   - first:
-      213: -3210800608742114989
-    second: Shielded_Melee_Loop_4
+      213: 8864173695678267573
+    second: Basic_Melee_Loop_4
   - first:
-      213: 2581577133965226834
-    second: Shielded_Melee_Loop_5
+      213: 7175977436960545999
+    second: Basic_Melee_Loop_5
   - first:
-      213: -1669293683233090187
-    second: Shielded_Melee_Loop_6
+      213: 7499736553883625299
+    second: Basic_Melee_Loop_6
   - first:
-      213: -3625370467096135539
-    second: Shielded_Melee_Loop_7
+      213: -2091002453607238186
+    second: Basic_Melee_Loop_7
   - first:
-      213: 1786403266392838847
-    second: Shielded_Melee_Loop_8
+      213: -4411404595518432605
+    second: Basic_Melee_Loop_8
   - first:
-      213: -6534721174968143078
-    second: Shielded_Melee_Loop_9
-  - first:
-      213: 8805342400958293967
-    second: Shielded_Melee_Loop_10
-  - first:
-      213: -2536481135570900470
-    second: Shielded_Melee_Loop_11
-  - first:
-      213: 8347601907768293657
-    second: Shielded_Melee_Loop_12
-  - first:
-      213: -1059375975099951845
-    second: Shielded_Melee_Loop_13
-  - first:
-      213: 4726214234959002852
-    second: Shielded_Melee_Loop_14
-  - first:
-      213: 51813846387291594
-    second: Shielded_Melee_Loop_15
+      213: 3415258050522340233
+    second: Basic_Melee_Loop_9
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -96,7 +78,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 12
+  spritePixelsToUnits: 20
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -145,7 +127,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Shielded_Melee_Loop_0
+      name: Basic_Melee_Loop_0
       rect:
         serializedVersion: 2
         x: 0
@@ -160,14 +142,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 3d5f7970dee8c8f80800000000000000
-      internalID: -8102944480860572205
+      spriteID: c52f8f821e2ce7410800000000000000
+      internalID: 1476832000134935132
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Shielded_Melee_Loop_1
+      name: Basic_Melee_Loop_1
       rect:
         serializedVersion: 2
         x: 64
@@ -182,14 +164,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 1ca9fef8bafbc3e10800000000000000
-      internalID: 2178827063315634881
+      spriteID: 5ce1ba9e43774ebd0800000000000000
+      internalID: -2601823615570993467
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Shielded_Melee_Loop_2
+      name: Basic_Melee_Loop_2
       rect:
         serializedVersion: 2
         x: 128
@@ -204,14 +186,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 55775aeda3a90a510800000000000000
-      internalID: 1558415048704358229
+      spriteID: 210380c40633b0b80800000000000000
+      internalID: -8427585789008269294
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Shielded_Melee_Loop_3
+      name: Basic_Melee_Loop_3
       rect:
         serializedVersion: 2
         x: 192
@@ -226,14 +208,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 11606259ae61da130800000000000000
-      internalID: 3579542475609867793
+      spriteID: 67650d051632060f0800000000000000
+      internalID: -1125861005967993226
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Shielded_Melee_Loop_4
+      name: Basic_Melee_Loop_4
       rect:
         serializedVersion: 2
         x: 256
@@ -248,14 +230,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 359715f9bd1f073d0800000000000000
-      internalID: -3210800608742114989
+      spriteID: 5b0c346030fd30b70800000000000000
+      internalID: 8864173695678267573
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Shielded_Melee_Loop_5
+      name: Basic_Melee_Loop_5
       rect:
         serializedVersion: 2
         x: 320
@@ -270,14 +252,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 253b44eb9ba93d320800000000000000
-      internalID: 2581577133965226834
+      spriteID: fcc504e7571369360800000000000000
+      internalID: 7175977436960545999
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Shielded_Melee_Loop_6
+      name: Basic_Melee_Loop_6
       rect:
         serializedVersion: 2
         x: 384
@@ -292,14 +274,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 57596194d3a75d8e0800000000000000
-      internalID: -1669293683233090187
+      spriteID: 357ee3319aa641860800000000000000
+      internalID: 7499736553883625299
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Shielded_Melee_Loop_7
+      name: Basic_Melee_Loop_7
       rect:
         serializedVersion: 2
         x: 448
@@ -314,14 +296,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: d88fa89a4c810bdc0800000000000000
-      internalID: -3625370467096135539
+      spriteID: 6d53548d8544bf2e0800000000000000
+      internalID: -2091002453607238186
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Shielded_Melee_Loop_8
+      name: Basic_Melee_Loop_8
       rect:
         serializedVersion: 2
         x: 512
@@ -336,14 +318,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: fb251f65e449ac810800000000000000
-      internalID: 1786403266392838847
+      spriteID: 3aa199b94ea87c2c0800000000000000
+      internalID: -4411404595518432605
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Shielded_Melee_Loop_9
+      name: Basic_Melee_Loop_9
       rect:
         serializedVersion: 2
         x: 576
@@ -358,140 +340,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: a13fccbb6b10055a0800000000000000
-      internalID: -6534721174968143078
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Shielded_Melee_Loop_10
-      rect:
-        serializedVersion: 2
-        x: 640
-        y: 0
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: fc7edcec24cd23a70800000000000000
-      internalID: 8805342400958293967
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Shielded_Melee_Loop_11
-      rect:
-        serializedVersion: 2
-        x: 704
-        y: 0
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: a0a21d698db9cccd0800000000000000
-      internalID: -2536481135570900470
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Shielded_Melee_Loop_12
-      rect:
-        serializedVersion: 2
-        x: 768
-        y: 0
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 919f6e625b3a8d370800000000000000
-      internalID: 8347601907768293657
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Shielded_Melee_Loop_13
-      rect:
-        serializedVersion: 2
-        x: 832
-        y: 0
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: b159598d9275c41f0800000000000000
-      internalID: -1059375975099951845
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Shielded_Melee_Loop_14
-      rect:
-        serializedVersion: 2
-        x: 896
-        y: 0
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 4ec302f5ec2e69140800000000000000
-      internalID: 4726214234959002852
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Shielded_Melee_Loop_15
-      rect:
-        serializedVersion: 2
-        x: 960
-        y: 0
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: ac57c543b6418b000800000000000000
-      internalID: 51813846387291594
+      spriteID: 98b5da52a1f656f20800000000000000
+      internalID: 3415258050522340233
       vertices: []
       indices: 
       edges: []
@@ -500,7 +350,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 1c9acb53aabac484f97cc69d43d542df
+    spriteID: 8a47ecfbc94ea4746b239d37cfd6f321
     internalID: 0
     vertices: []
     indices: 
@@ -510,22 +360,16 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Shielded_Melee_Loop_0: -8102944480860572205
-      Shielded_Melee_Loop_1: 2178827063315634881
-      Shielded_Melee_Loop_10: 8805342400958293967
-      Shielded_Melee_Loop_11: -2536481135570900470
-      Shielded_Melee_Loop_12: 8347601907768293657
-      Shielded_Melee_Loop_13: -1059375975099951845
-      Shielded_Melee_Loop_14: 4726214234959002852
-      Shielded_Melee_Loop_15: 51813846387291594
-      Shielded_Melee_Loop_2: 1558415048704358229
-      Shielded_Melee_Loop_3: 3579542475609867793
-      Shielded_Melee_Loop_4: -3210800608742114989
-      Shielded_Melee_Loop_5: 2581577133965226834
-      Shielded_Melee_Loop_6: -1669293683233090187
-      Shielded_Melee_Loop_7: -3625370467096135539
-      Shielded_Melee_Loop_8: 1786403266392838847
-      Shielded_Melee_Loop_9: -6534721174968143078
+      Basic_Melee_Loop_0: 1476832000134935132
+      Basic_Melee_Loop_1: -2601823615570993467
+      Basic_Melee_Loop_2: -8427585789008269294
+      Basic_Melee_Loop_3: -1125861005967993226
+      Basic_Melee_Loop_4: 8864173695678267573
+      Basic_Melee_Loop_5: 7175977436960545999
+      Basic_Melee_Loop_6: 7499736553883625299
+      Basic_Melee_Loop_7: -2091002453607238186
+      Basic_Melee_Loop_8: -4411404595518432605
+      Basic_Melee_Loop_9: 3415258050522340233
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

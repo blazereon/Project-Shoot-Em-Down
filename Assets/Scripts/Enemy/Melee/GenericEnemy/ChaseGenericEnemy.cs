@@ -25,8 +25,10 @@ public class ChaseGenericEnemy : BaseGenericEnemy
 
     public override void UpdateState(ManagerGenericEnemy genericEnemy)
     {
+        genericEnemy.PlayMainAnimation("basicMeleeMoveLoop");
 
-        if (!_isChaseMode){
+        if (!_isChaseMode)
+        {
             Debug.Log("End of chase mode");
             genericEnemy.SwitchState(genericEnemy.wanderState);
         }
