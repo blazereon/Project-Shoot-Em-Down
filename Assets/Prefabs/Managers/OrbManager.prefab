@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 7627424210582727461}
   - component: {fileID: 3105249693884402073}
-  - component: {fileID: 6328169801131869051}
   m_Layer: 0
   m_Name: OrbManager
   m_TagString: Untagged
@@ -47,20 +46,3 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PoolCount: 40
   Orb: {fileID: 5032146779722692965, guid: 530ded1f5c06abe51afd2291138acc17, type: 3}
---- !u!114 &6328169801131869051
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5262318436721084305}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e3471f540afc4064ca7bb72d697c1590, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  StunningFieldObject: {fileID: 0}
-  StunningEffectDuration: 0.3
-  FadeInPercent: 0.2
-  FadeOutPercent: 0.8
-  ExpansionSpeed: 3.5
