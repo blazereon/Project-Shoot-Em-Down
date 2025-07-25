@@ -16,7 +16,15 @@ public class WallGrabPlayerState : BasePlayerState
     public override void UpdateState(ManagerPlayerState player)
     {
         player.PlayBodyAnimation("jumpLoop");
-        player.PlayArmAnimation("wallGrabArmSwing");
+        if (player.facing == Facing.right)
+        {
+            player.PlayArmAnimation("wallGrabArmSwing_Right");
+        }
+        else if (player.facing == Facing.left)
+        {
+            player.PlayArmAnimation("wallGrabArmSwing_Left");
+        }
+        
 
         if (player.jumpAction.triggered)
         {

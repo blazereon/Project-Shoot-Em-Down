@@ -9,6 +9,8 @@ public class StunGenericEnemy : BaseGenericEnemy
 
     public override void UpdateState(ManagerGenericEnemy genericEnemy)
     {
+        genericEnemy.PlayMainAnimation("basicMeleeStun");
+
         if (!genericEnemy.IsStunned)
         {
             if (genericEnemy.prevState == null)

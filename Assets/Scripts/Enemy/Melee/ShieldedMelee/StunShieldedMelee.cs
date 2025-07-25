@@ -9,6 +9,8 @@ public class StunShieldedMelee : BaseShieldMelee
 
     public override void UpdateState(ManagerShieldMelee enemy)
     {
+        enemy.PlayMainAnimation("shieldedMeleeStun");
+
         if (!enemy.IsStunned)
         {
             if (enemy.prevState == null)
