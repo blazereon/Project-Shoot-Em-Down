@@ -51,6 +51,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PauseMenu: {fileID: 5749196683384678228}
   SkillTreeMenu: {fileID: 9208197767064755195}
+  ToastInstance: {fileID: 635107853135062503}
   PauseAction:
     m_Name: Pause
     m_Type: 0
@@ -630,6 +631,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 47d0433e5db88b5579f02962c64fe624, type: 3}
+--- !u!114 &635107853135062503 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4090879941380652409, guid: 47d0433e5db88b5579f02962c64fe624, type: 3}
+  m_PrefabInstance: {fileID: 3464924647453005982}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9baa3207a66ee0cba947c9aa42be8c1e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &5613363336430958363 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 9075684180356345733, guid: 47d0433e5db88b5579f02962c64fe624, type: 3}

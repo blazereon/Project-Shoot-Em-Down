@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -42,8 +43,9 @@ public class UIManager : MonoBehaviour
 
     public GameObject PauseMenu;
     public GameObject SkillTreeMenu;
-
-
+    public Toast ToastInstance;
+    private Queue<Toast.ToastMessage> ToastQueue = new Queue<Toast.ToastMessage>();
+    private Toast.ToastMessage ForceToastMessage;
 
     public InputAction PauseAction, SkillTreeAction, CancelAction;
 
@@ -58,6 +60,13 @@ public class UIManager : MonoBehaviour
         SkillTreeAction = InputSystem.actions.FindAction("SkillTree");
         CancelAction = InputSystem.actions.FindAction("Cancel");
         CurrentState = UIState.None;
+
+        PushToast(new Toast.ToastMessage
+        {
+            Title = "TestToast",
+            Message = "Sed ut perspiciatis, unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam eaque ipsa, quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt, explicabo",
+            DisplayTime = 2f
+        });
     }
 
     void Update()
@@ -68,7 +77,12 @@ public class UIManager : MonoBehaviour
 
     void UpdateState()
     {
-
+        //Toast related updates
+        if (ToastQueue.Count > 0 && ToastInstance.CurrentState == Toast.State.None) //If toast queue has messages
+        {
+            ToastInstance.CurrentMessage = ToastQueue.Dequeue();
+        }
+        //UI State related updates
         switch (_currentState)
         {
             case UIState.None:
@@ -85,6 +99,12 @@ public class UIManager : MonoBehaviour
                 break;
         }
     }
+
+    public void PushToast(Toast.ToastMessage message)
+    {
+        ToastQueue.Enqueue(message);
+    }
+
 
     private void SkillTreeState()
     {

@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using System.Xml.Schema;
 using JetBrains.Annotations;
 using TMPro;
 using UnityEngine;
@@ -7,6 +8,13 @@ using UnityEngine.UI;
 
 public class Toast : MonoBehaviour
 {
+    public struct ToastMessage
+    {
+        public String Title;
+        public String Message;
+        public float DisplayTime;
+    }
+
     public enum State
     {
         FadeIn,
@@ -16,38 +24,28 @@ public class Toast : MonoBehaviour
     }
     public float FadeTime = 4f;
     public float DisplayTime = 2f;
-    private float _fadeTimer = 0;
+    private float _fadeTimer, _displayTimer = 0;
+    private Coroutine DisplayTimeCoroutineInstance;
 
     public TextMeshProUGUI TitleTMP;
     public TextMeshProUGUI MessageTMP;
     public Image Frame;
 
     private Color _defaultColor;
-    private string _title;
-    public string Title
-    {
-        get
-        {
-            return _title;
-        }
-        set
-        {
-            _title = value;
-            TitleTMP.text = _title;
-        }
-    }
 
-    private string _message;
-    public string Message
+    private ToastMessage _currentMessage;
+    public ToastMessage CurrentMessage
     {
         get
         {
-            return _message;
+            return _currentMessage;
         }
         set
         {
-            _message = value;
-            MessageTMP.text = _message;
+            _currentMessage = value;
+            TitleTMP.text = _currentMessage.Title;
+            MessageTMP.text = _currentMessage.Message;
+            _currentState = State.FadeIn;
         }
     }
 
@@ -70,8 +68,6 @@ public class Toast : MonoBehaviour
         _defaultColor = Frame.color;
         _defaultColor.a = 0;
         Frame.color = _defaultColor;
-
-        _currentState = State.FadeIn;
     }
 
     void Update()
@@ -95,6 +91,7 @@ public class Toast : MonoBehaviour
 
     private void FadeIn()
     {
+        _displayTimer = 0;
         _fadeTimer += Time.deltaTime;
         Frame.color = Color.Lerp(_defaultColor, new Color(_defaultColor.r, _defaultColor.g, _defaultColor.b, 1), _fadeTimer / FadeTime);
         TitleTMP.alpha = _fadeTimer / FadeTime;
@@ -108,9 +105,10 @@ public class Toast : MonoBehaviour
 
     private void FadeOut()
     {
+        _displayTimer = 0;
         _fadeTimer += Time.deltaTime;
-        TitleTMP.alpha = _fadeTimer / FadeTime;
-        MessageTMP.alpha = _fadeTimer / FadeTime;
+        TitleTMP.alpha = 1 - _fadeTimer / FadeTime;
+        MessageTMP.alpha = 1 - _fadeTimer / FadeTime;
         Frame.color = Color.Lerp(new Color(_defaultColor.r, _defaultColor.g, _defaultColor.b, 1), _defaultColor, _fadeTimer / FadeTime);
         if (_fadeTimer >= FadeTime)
         {
@@ -124,9 +122,15 @@ public class Toast : MonoBehaviour
         Frame.color = new Color(_defaultColor.r, _defaultColor.g, _defaultColor.b, 1);
         TitleTMP.alpha = 1;
         MessageTMP.alpha = 1;
+        _displayTimer += Time.deltaTime;
+
+        if (_displayTimer > _currentMessage.DisplayTime)
+        {
+            // _displayTimer = 0;
+            _currentState = State.FadeOut;
+        }
     }
 
-   
 
     private void None()
     {
