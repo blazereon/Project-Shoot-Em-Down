@@ -8,10 +8,10 @@ using UnityEngine.UI;
 
 public class Toast : MonoBehaviour
 {
-    public struct ToastMessage
+    [Serializable] public struct ToastMessage
     {
         public String Title;
-        public String Message;
+        [TextArea] public String Message;
         public float DisplayTime;
     }
 

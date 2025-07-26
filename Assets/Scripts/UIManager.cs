@@ -45,7 +45,7 @@ public class UIManager : MonoBehaviour
     public GameObject SkillTreeMenu;
     public Toast ToastInstance;
     private Queue<Toast.ToastMessage> ToastQueue = new Queue<Toast.ToastMessage>();
-    private Toast.ToastMessage ForceToastMessage;
+    private Toast.ToastMessage _forceToastMessage;
 
     public InputAction PauseAction, SkillTreeAction, CancelAction;
 
@@ -61,12 +61,12 @@ public class UIManager : MonoBehaviour
         CancelAction = InputSystem.actions.FindAction("Cancel");
         CurrentState = UIState.None;
 
-        PushToast(new Toast.ToastMessage
-        {
-            Title = "TestToast",
-            Message = "Sed ut perspiciatis, unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam eaque ipsa, quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt, explicabo",
-            DisplayTime = 2f
-        });
+        // PushToast(new Toast.ToastMessage
+        // {
+        //     Title = "TestToast",
+        //     Message = "Sed ut perspiciatis, unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam eaque ipsa, quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt, explicabo",
+        //     DisplayTime = 2f
+        // });
     }
 
     void Update()
@@ -103,6 +103,11 @@ public class UIManager : MonoBehaviour
     public void PushToast(Toast.ToastMessage message)
     {
         ToastQueue.Enqueue(message);
+    }
+
+    public void ForceToast(Toast.ToastMessage message)
+    {
+        ToastInstance.CurrentMessage = message;
     }
 
 
