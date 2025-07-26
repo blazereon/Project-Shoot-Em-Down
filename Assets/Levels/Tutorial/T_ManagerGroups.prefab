@@ -48,9 +48,33 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 764113875149395095, guid: 7ffff591d55e270cc8c8a714b51fb498, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 119.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 764113875149395095, guid: 7ffff591d55e270cc8c8a714b51fb498, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -12.03
+      objectReference: {fileID: 0}
+    - target: {fileID: 764113875149395095, guid: 7ffff591d55e270cc8c8a714b51fb498, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1540855454072624959, guid: 7ffff591d55e270cc8c8a714b51fb498, type: 3}
+      propertyPath: Lens.OrthographicSize
+      value: 8.67275
+      objectReference: {fileID: 0}
+    - target: {fileID: 4113321691826428267, guid: 7ffff591d55e270cc8c8a714b51fb498, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4923240908617418621, guid: 7ffff591d55e270cc8c8a714b51fb498, type: 3}
       propertyPath: m_Name
-      value: ManagerGroups
+      value: T_ManagerGroups
+      objectReference: {fileID: 0}
+    - target: {fileID: 6108677898362606154, guid: 7ffff591d55e270cc8c8a714b51fb498, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 76.14014
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
