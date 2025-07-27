@@ -36,7 +36,7 @@ public class WanderShieldMelee : BaseShieldMelee
 
         if (enemy.transform.localScale.x == -1)
         {
-            RaycastHit2D hit = Physics2D.Raycast(enemy.transform.position, Vector2.left, enemy.wallDistanceLimit, _layerMask);
+            RaycastHit2D hit = Physics2D.Raycast(enemy.transform.position, Vector2.left, enemy.wallDistanceLimit);
             Debug.DrawRay(enemy.transform.position, Vector2.left * enemy.wallDistanceLimit, Color.red);
             if (hit.collider == null) return;
             if (hit.collider.tag == "Wall")
@@ -47,7 +47,7 @@ public class WanderShieldMelee : BaseShieldMelee
         }
         else if (enemy.transform.localScale.x == 1)
         {
-            RaycastHit2D hit = Physics2D.Raycast(enemy.transform.position, Vector2.right, enemy.wallDistanceLimit, _layerMask);
+            RaycastHit2D hit = Physics2D.Raycast(enemy.transform.position, Vector2.right, enemy.wallDistanceLimit);
             Debug.DrawRay(enemy.transform.position, Vector2.right * enemy.wallDistanceLimit, Color.red);
             if (hit.collider == null) return;
             if (hit.collider.tag == "Wall")

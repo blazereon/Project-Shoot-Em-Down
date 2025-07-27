@@ -172,7 +172,7 @@ public class Enemy : Entity
                 Vector3 _rayDirection = Quaternion.Euler(0, 0, (_currentAngle - (rayMaxAngle / 2)) + (i * (rayMaxAngle / (rayNumber - 1)))) * (transform.localScale.x > 0 ? Vector3.right : Vector3.left);
 
                 // Cast a raycast only if no players are detected, could be more optimized this way
-                RaycastHit2D _hit = Physics2D.Raycast(transform.position, _rayDirection, detectionRange, LayerMask.GetMask("Wall", "Player"));
+                RaycastHit2D _hit = Physics2D.Raycast(transform.position, _rayDirection, detectionRange, LayerMask.GetMask("Wall", "Ground", "Player"));
                 Debug.DrawRay(transform.position, _rayDirection * detectionRange, Color.green);
 
                 if (_hit)
@@ -209,7 +209,7 @@ public class Enemy : Entity
             // Cast a raycast only if no players are detected, could be more optimized this way
             if (!_isPlayerDetected)
             {
-                RaycastHit2D _hit = Physics2D.Raycast(transform.position, _rayDirection, detectionRange, LayerMask.GetMask("Wall", "Player"));
+                RaycastHit2D _hit = Physics2D.Raycast(transform.position, _rayDirection, detectionRange, LayerMask.GetMask("Wall", "Ground", "Player"));
                 Debug.DrawRay(transform.position, _rayDirection * detectionRange, Color.green);
 
                 if (_hit)
