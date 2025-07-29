@@ -50,6 +50,8 @@ public class AttackRangedGrounded : BaseRangedGrounded
 
     public override void UpdateState(ManagerRangedGrounded enemy)
     {
+        enemy.PlayMainAnimation("basicRangedAttack");
+
         // switch to stun
         if (enemy.IsStunned)
         {

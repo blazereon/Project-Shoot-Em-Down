@@ -25,7 +25,8 @@ public class ManagerRangedGrounded : Enemy
     public float attackSpd;
     public float projectileSpd;
 
-    public enum shootType{
+    public enum shootType
+    {
         Single,
         SingleFileBurst,
         TrackingBurst,
@@ -54,6 +55,9 @@ public class ManagerRangedGrounded : Enemy
     [HideInInspector]
     public int attackDmg;
 
+    //Set the Sprite Animator
+    public Animator MainAnimator;
+
     private void Awake()
     {
         EventSystem.Current.OnDamageEnemy += TakeDamage;
@@ -63,6 +67,8 @@ public class ManagerRangedGrounded : Enemy
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        // Main Animator
+        MainAnimator = GetComponent<Animator>();
 
         enemyCollider = GetComponent<Collider2D>();
 
@@ -102,7 +108,7 @@ public class ManagerRangedGrounded : Enemy
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
 
-        if ( spriteRenderer.flipX == true) // if facing left
+        if (spriteRenderer.flipX == true) // if facing left
         {
             spriteRenderer.flipX = false;
         }
@@ -116,6 +122,15 @@ public class ManagerRangedGrounded : Enemy
     {
         EventSystem.Current.OnDamageEnemy -= TakeDamage;
         EventSystem.Current.OnApplyEffect -= ReceiveEffect;
+    }
+    
+    public string currentMainAnimation = "";
+
+    public void PlayMainAnimation(string newAnimation)
+    {
+        if (newAnimation == currentMainAnimation) return;
+        MainAnimator.Play(newAnimation);
+        currentMainAnimation = newAnimation;
     }
 }
 

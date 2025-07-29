@@ -16,6 +16,8 @@ public class ChaseRangedGrounded : BaseRangedGrounded
 
     public override void UpdateState(ManagerRangedGrounded enemy)       // Handle Distance Detections
     {
+        enemy.PlayMainAnimation("basicRangedMoveLoop");
+
         if (enemy.enemyCollider == EventSystem.Current.PlayerCollider)
         {
             Debug.LogWarning("Player and Enemy colliders are the same! " + enemy.enemyCollider + " " + EventSystem.Current.PlayerCollider);
