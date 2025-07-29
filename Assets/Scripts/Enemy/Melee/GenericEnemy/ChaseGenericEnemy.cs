@@ -55,15 +55,31 @@ public class ChaseGenericEnemy : BaseGenericEnemy
 
     public override void FixedUpdateState(ManagerGenericEnemy genericEnemy)
     {
-        if (genericEnemy.facing == Enemy.EnemyFacing.Left)
-        {
-            genericEnemy.GenericEnemyRb.linearVelocityX = Vector2.left.x * genericEnemy.ChasingSpeed * Time.fixedDeltaTime;
-        }
-        else if (genericEnemy.facing == Enemy.EnemyFacing.Right)
-        {
-            genericEnemy.GenericEnemyRb.linearVelocityX = Vector2.right.x * genericEnemy.ChasingSpeed * Time.fixedDeltaTime;
-        }
+    if (genericEnemy.IsStunned) return;
+
+    var playerPos = EventSystem.Current.PlayerLocation;
+    var enemyPos = genericEnemy.transform.position;
+
+    if (playerPos.x > enemyPos.x && genericEnemy.facing != Enemy.EnemyFacing.Right)
+    {
+        genericEnemy.facing = Enemy.EnemyFacing.Right;
+        genericEnemy.ScaleFlip();
     }
+    else if (playerPos.x < enemyPos.x && genericEnemy.facing != Enemy.EnemyFacing.Left)
+    {
+        genericEnemy.facing = Enemy.EnemyFacing.Left;
+        genericEnemy.ScaleFlip();
+    }
+
+    if (genericEnemy.facing == Enemy.EnemyFacing.Left)
+    {
+        genericEnemy.GenericEnemyRb.linearVelocityX = Vector2.left.x * genericEnemy.ChasingSpeed * Time.fixedDeltaTime;
+    }
+    else if (genericEnemy.facing == Enemy.EnemyFacing.Right)
+    {
+        genericEnemy.GenericEnemyRb.linearVelocityX = Vector2.right.x * genericEnemy.ChasingSpeed * Time.fixedDeltaTime;
+    }
+}
 
     public bool CheckIfPlayerInSight(ManagerGenericEnemy genericEnemy)
     {
@@ -86,27 +102,18 @@ public class ChaseGenericEnemy : BaseGenericEnemy
     }
 
     IEnumerator CheckPlayer(ManagerGenericEnemy genericEnemy)
+   {
+    while (_isChaseMode)
     {
-        while(_isChaseMode)
+        yield return new WaitForSeconds(1.5f);
+        if (!_isPlayerInSight)
         {
-            yield return new WaitForSeconds(1.5f);
-            if (!_isPlayerInSight)
-            {
-                _isChaseMode = false;
-                break;
-            }
-            var _ploc = EventSystem.Current.PlayerLocation;
-            if (_ploc.x > genericEnemy.transform.position.x)
-            {
-                genericEnemy.facing = Enemy.EnemyFacing.Right;
-            }
-            else if (_ploc.x < genericEnemy.transform.position.x)
-            {
-                genericEnemy.facing = Enemy.EnemyFacing.Left;
-            }
-            _isChaseMode = true;
+            _isChaseMode = false;
+            break;
         }
+        _isChaseMode = true;
     }
+}
 
 
 }

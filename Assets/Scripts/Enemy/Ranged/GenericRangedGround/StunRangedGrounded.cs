@@ -9,8 +9,12 @@ public class StunRangedGrounded : BaseRangedGrounded
 
     public override void UpdateState(ManagerRangedGrounded enemy)
     {
+        enemy.PlayMainAnimation("basicRangedStun_v1");  
+        
         if (!enemy.IsStunned)
         {
+            enemy.PlayMainAnimation("basicRangedStun_v3");
+            
             if (enemy.prevState == null)
             {
                 enemy.SwitchState(enemy.wanderState);

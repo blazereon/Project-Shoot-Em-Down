@@ -93,11 +93,20 @@ public class ManagerGenericEnemy : Enemy
     }
 
     private string currentMainAnimation = "";
-    
+
     public void PlayMainAnimation(string newAnimation)
     {
         if (newAnimation == currentMainAnimation) return;
         MainAnimator.Play(newAnimation);
         currentMainAnimation = newAnimation;
+    }
+    
+    public void ScaleFlip()
+    {
+        Vector2 objectScale = transform.localScale;
+        objectScale.x *= -1;
+
+        transform.localScale = objectScale;
+
     }
 }

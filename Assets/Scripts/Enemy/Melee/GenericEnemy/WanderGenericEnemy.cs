@@ -20,6 +20,7 @@ public class WanderGenericEnemy : BaseGenericEnemy
 
         if (_isPlayerDetected)
         {
+            genericEnemy.hasPlayerDetected = true;
             AudioManager.instance.PlayFX(AudioManager.instance.enemyChaseAlert[0], false);
             genericEnemy.SwitchState(genericEnemy.chaseState);
         }
@@ -44,6 +45,7 @@ public class WanderGenericEnemy : BaseGenericEnemy
             {
                 Debug.LogWarning("Wall hit");
                 genericEnemy.Flip(Enemy.EnemyFacing.Right);
+                genericEnemy.ScaleFlip();
             }
         }
         else if (genericEnemy.facing == Enemy.EnemyFacing.Right)
@@ -55,6 +57,7 @@ public class WanderGenericEnemy : BaseGenericEnemy
             {
                 Debug.LogWarning("Wall hit");
                 genericEnemy.Flip(Enemy.EnemyFacing.Left);
+                genericEnemy.ScaleFlip();
             }
         }
     }

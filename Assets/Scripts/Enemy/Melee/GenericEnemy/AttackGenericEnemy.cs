@@ -11,7 +11,7 @@ public class AttackGenericEnemy: BaseGenericEnemy
 
     public override void UpdateState(ManagerGenericEnemy genericEnemy)
     {
-        genericEnemy.PlayMainAnimation("basicMeleeMoveLoop");
+        genericEnemy.PlayMainAnimation("basicMeleeAttack");
         
         if (Vector2.Distance(genericEnemy.transform.position, EventSystem.Current.PlayerLocation) > _attackDistance)
         {

@@ -15,6 +15,8 @@ public class WanderRangedGrounded : BaseRangedGrounded
 
     public override void UpdateState(ManagerRangedGrounded enemy)
     {
+        enemy.PlayMainAnimation("basicRangedMoveLoop");
+        
         _isPlayerDetected = enemy.PlayerDetection(enemy.transform.localScale);
 
         if (_isPlayerDetected)
