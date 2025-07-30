@@ -93,7 +93,11 @@ public class ManagerExplosive : Enemy
     void OnDestroy()
     {
         StopAllCoroutines();
-        AudioManager.instance.StopSFX();
+
+        if (AudioManager.instance != null) {
+            AudioManager.instance.StopSFX();
+        }
+        
         EventSystem.Current.OnDamageEnemy -= TakeDamage;
         EventSystem.Current.OnApplyEffect -= ReceiveEffect;
     }
