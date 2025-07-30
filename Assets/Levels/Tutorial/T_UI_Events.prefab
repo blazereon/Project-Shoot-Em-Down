@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4365005822212634279}
+  - component: {fileID: 8848160623135831109}
   m_Layer: 0
   m_Name: TutorialHandler
   m_TagString: Untagged
@@ -36,8 +37,123 @@ Transform:
   - {fileID: 4989845893956489722}
   - {fileID: 8314549169634934927}
   - {fileID: 7411352665026669366}
+  - {fileID: 2365315643366649683}
+  - {fileID: 3047179697269365634}
+  - {fileID: 2669045863387920890}
+  - {fileID: 8225879165989803875}
   m_Father: {fileID: 8830498374275284007}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8848160623135831109
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5599697716064908689}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd6afff7e378a48c0b1a6894b2890531, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1001 &1337094999222863300
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 4365005822212634279}
+    m_Modifications:
+    - target: {fileID: 1123320975343726728, guid: 926dade6399dc87e88e32b28b0edbb9d, type: 3}
+      propertyPath: m_Name
+      value: tanks
+      objectReference: {fileID: 0}
+    - target: {fileID: 3281380373712253769, guid: 926dade6399dc87e88e32b28b0edbb9d, type: 3}
+      propertyPath: m_Size.x
+      value: 3.6845322
+      objectReference: {fileID: 0}
+    - target: {fileID: 3281380373712253769, guid: 926dade6399dc87e88e32b28b0edbb9d, type: 3}
+      propertyPath: m_Size.y
+      value: 1.8733883
+      objectReference: {fileID: 0}
+    - target: {fileID: 3281380373712253769, guid: 926dade6399dc87e88e32b28b0edbb9d, type: 3}
+      propertyPath: m_Offset.x
+      value: 2.9441643
+      objectReference: {fileID: 0}
+    - target: {fileID: 3281380373712253769, guid: 926dade6399dc87e88e32b28b0edbb9d, type: 3}
+      propertyPath: m_Offset.y
+      value: -2.469201
+      objectReference: {fileID: 0}
+    - target: {fileID: 4091398333604863558, guid: 926dade6399dc87e88e32b28b0edbb9d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 132.68
+      objectReference: {fileID: 0}
+    - target: {fileID: 4091398333604863558, guid: 926dade6399dc87e88e32b28b0edbb9d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 24.97
+      objectReference: {fileID: 0}
+    - target: {fileID: 4091398333604863558, guid: 926dade6399dc87e88e32b28b0edbb9d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4091398333604863558, guid: 926dade6399dc87e88e32b28b0edbb9d, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4091398333604863558, guid: 926dade6399dc87e88e32b28b0edbb9d, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4091398333604863558, guid: 926dade6399dc87e88e32b28b0edbb9d, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4091398333604863558, guid: 926dade6399dc87e88e32b28b0edbb9d, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4091398333604863558, guid: 926dade6399dc87e88e32b28b0edbb9d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4091398333604863558, guid: 926dade6399dc87e88e32b28b0edbb9d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4091398333604863558, guid: 926dade6399dc87e88e32b28b0edbb9d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5528357133156015466, guid: 926dade6399dc87e88e32b28b0edbb9d, type: 3}
+      propertyPath: SingleUse
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5528357133156015466, guid: 926dade6399dc87e88e32b28b0edbb9d, type: 3}
+      propertyPath: TriggerType
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5528357133156015466, guid: 926dade6399dc87e88e32b28b0edbb9d, type: 3}
+      propertyPath: TriggerToastMessage.Title
+      value: Explosive tanks
+      objectReference: {fileID: 0}
+    - target: {fileID: 5528357133156015466, guid: 926dade6399dc87e88e32b28b0edbb9d, type: 3}
+      propertyPath: TriggerToastMessage.Message
+      value: They have high resistance to ranged attacks. And explodes on contact
+        after a brief period of time
+      objectReference: {fileID: 0}
+    - target: {fileID: 5528357133156015466, guid: 926dade6399dc87e88e32b28b0edbb9d, type: 3}
+      propertyPath: TriggerToastMessage.DisplayTime
+      value: 7
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 926dade6399dc87e88e32b28b0edbb9d, type: 3}
+--- !u!4 &3047179697269365634 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4091398333604863558, guid: 926dade6399dc87e88e32b28b0edbb9d, type: 3}
+  m_PrefabInstance: {fileID: 1337094999222863300}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1699277536756182409
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -102,6 +218,203 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 7861368049204498862, guid: a763a89d3b5046a2db623acafbca8785, type: 3}
   m_PrefabInstance: {fileID: 1699277536756182409}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1735252621527068949
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 4365005822212634279}
+    m_Modifications:
+    - target: {fileID: 1123320975343726728, guid: 926dade6399dc87e88e32b28b0edbb9d, type: 3}
+      propertyPath: m_Name
+      value: rangedenemies
+      objectReference: {fileID: 0}
+    - target: {fileID: 3281380373712253769, guid: 926dade6399dc87e88e32b28b0edbb9d, type: 3}
+      propertyPath: m_Size.x
+      value: 3.6845322
+      objectReference: {fileID: 0}
+    - target: {fileID: 3281380373712253769, guid: 926dade6399dc87e88e32b28b0edbb9d, type: 3}
+      propertyPath: m_Size.y
+      value: 1.8733883
+      objectReference: {fileID: 0}
+    - target: {fileID: 3281380373712253769, guid: 926dade6399dc87e88e32b28b0edbb9d, type: 3}
+      propertyPath: m_Offset.x
+      value: 2.9441643
+      objectReference: {fileID: 0}
+    - target: {fileID: 3281380373712253769, guid: 926dade6399dc87e88e32b28b0edbb9d, type: 3}
+      propertyPath: m_Offset.y
+      value: -2.469201
+      objectReference: {fileID: 0}
+    - target: {fileID: 4091398333604863558, guid: 926dade6399dc87e88e32b28b0edbb9d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 89.81
+      objectReference: {fileID: 0}
+    - target: {fileID: 4091398333604863558, guid: 926dade6399dc87e88e32b28b0edbb9d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 22.43
+      objectReference: {fileID: 0}
+    - target: {fileID: 4091398333604863558, guid: 926dade6399dc87e88e32b28b0edbb9d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4091398333604863558, guid: 926dade6399dc87e88e32b28b0edbb9d, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4091398333604863558, guid: 926dade6399dc87e88e32b28b0edbb9d, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4091398333604863558, guid: 926dade6399dc87e88e32b28b0edbb9d, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4091398333604863558, guid: 926dade6399dc87e88e32b28b0edbb9d, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4091398333604863558, guid: 926dade6399dc87e88e32b28b0edbb9d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4091398333604863558, guid: 926dade6399dc87e88e32b28b0edbb9d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4091398333604863558, guid: 926dade6399dc87e88e32b28b0edbb9d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5528357133156015466, guid: 926dade6399dc87e88e32b28b0edbb9d, type: 3}
+      propertyPath: SingleUse
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5528357133156015466, guid: 926dade6399dc87e88e32b28b0edbb9d, type: 3}
+      propertyPath: TriggerType
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5528357133156015466, guid: 926dade6399dc87e88e32b28b0edbb9d, type: 3}
+      propertyPath: TriggerToastMessage.Title
+      value: Ranged Enemies
+      objectReference: {fileID: 0}
+    - target: {fileID: 5528357133156015466, guid: 926dade6399dc87e88e32b28b0edbb9d, type: 3}
+      propertyPath: TriggerToastMessage.Message
+      value: These shoots out bullets towards the player. They are however squishy
+        and can be killed easily
+      objectReference: {fileID: 0}
+    - target: {fileID: 5528357133156015466, guid: 926dade6399dc87e88e32b28b0edbb9d, type: 3}
+      propertyPath: TriggerToastMessage.DisplayTime
+      value: 7
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 926dade6399dc87e88e32b28b0edbb9d, type: 3}
+--- !u!4 &2365315643366649683 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4091398333604863558, guid: 926dade6399dc87e88e32b28b0edbb9d, type: 3}
+  m_PrefabInstance: {fileID: 1735252621527068949}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &2147594737955301308
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 4365005822212634279}
+    m_Modifications:
+    - target: {fileID: 1123320975343726728, guid: 926dade6399dc87e88e32b28b0edbb9d, type: 3}
+      propertyPath: m_Name
+      value: tanks2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3281380373712253769, guid: 926dade6399dc87e88e32b28b0edbb9d, type: 3}
+      propertyPath: m_Size.x
+      value: 3.6845322
+      objectReference: {fileID: 0}
+    - target: {fileID: 3281380373712253769, guid: 926dade6399dc87e88e32b28b0edbb9d, type: 3}
+      propertyPath: m_Size.y
+      value: 1.8733883
+      objectReference: {fileID: 0}
+    - target: {fileID: 3281380373712253769, guid: 926dade6399dc87e88e32b28b0edbb9d, type: 3}
+      propertyPath: m_Offset.x
+      value: 2.9441643
+      objectReference: {fileID: 0}
+    - target: {fileID: 3281380373712253769, guid: 926dade6399dc87e88e32b28b0edbb9d, type: 3}
+      propertyPath: m_Offset.y
+      value: -2.469201
+      objectReference: {fileID: 0}
+    - target: {fileID: 4091398333604863558, guid: 926dade6399dc87e88e32b28b0edbb9d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 132.68
+      objectReference: {fileID: 0}
+    - target: {fileID: 4091398333604863558, guid: 926dade6399dc87e88e32b28b0edbb9d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 26.34
+      objectReference: {fileID: 0}
+    - target: {fileID: 4091398333604863558, guid: 926dade6399dc87e88e32b28b0edbb9d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4091398333604863558, guid: 926dade6399dc87e88e32b28b0edbb9d, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4091398333604863558, guid: 926dade6399dc87e88e32b28b0edbb9d, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4091398333604863558, guid: 926dade6399dc87e88e32b28b0edbb9d, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4091398333604863558, guid: 926dade6399dc87e88e32b28b0edbb9d, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4091398333604863558, guid: 926dade6399dc87e88e32b28b0edbb9d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4091398333604863558, guid: 926dade6399dc87e88e32b28b0edbb9d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4091398333604863558, guid: 926dade6399dc87e88e32b28b0edbb9d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5528357133156015466, guid: 926dade6399dc87e88e32b28b0edbb9d, type: 3}
+      propertyPath: SingleUse
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5528357133156015466, guid: 926dade6399dc87e88e32b28b0edbb9d, type: 3}
+      propertyPath: TriggerType
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5528357133156015466, guid: 926dade6399dc87e88e32b28b0edbb9d, type: 3}
+      propertyPath: TriggerToastMessage.Title
+      value: Explosive tanks
+      objectReference: {fileID: 0}
+    - target: {fileID: 5528357133156015466, guid: 926dade6399dc87e88e32b28b0edbb9d, type: 3}
+      propertyPath: TriggerToastMessage.Message
+      value: Attack tanks from behind to kill and gain huge amounts of pneuma
+      objectReference: {fileID: 0}
+    - target: {fileID: 5528357133156015466, guid: 926dade6399dc87e88e32b28b0edbb9d, type: 3}
+      propertyPath: TriggerToastMessage.DisplayTime
+      value: 5
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 926dade6399dc87e88e32b28b0edbb9d, type: 3}
+--- !u!4 &2669045863387920890 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4091398333604863558, guid: 926dade6399dc87e88e32b28b0edbb9d, type: 3}
+  m_PrefabInstance: {fileID: 2147594737955301308}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2477813640544549427
 PrefabInstance:
@@ -283,6 +596,105 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 4091398333604863558, guid: 926dade6399dc87e88e32b28b0edbb9d, type: 3}
   m_PrefabInstance: {fileID: 2985710174224917770}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &5399711085739591973
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 4365005822212634279}
+    m_Modifications:
+    - target: {fileID: 1123320975343726728, guid: 926dade6399dc87e88e32b28b0edbb9d, type: 3}
+      propertyPath: m_Name
+      value: staticranged
+      objectReference: {fileID: 0}
+    - target: {fileID: 3281380373712253769, guid: 926dade6399dc87e88e32b28b0edbb9d, type: 3}
+      propertyPath: m_Size.x
+      value: 3.6845322
+      objectReference: {fileID: 0}
+    - target: {fileID: 3281380373712253769, guid: 926dade6399dc87e88e32b28b0edbb9d, type: 3}
+      propertyPath: m_Size.y
+      value: 1.8733883
+      objectReference: {fileID: 0}
+    - target: {fileID: 3281380373712253769, guid: 926dade6399dc87e88e32b28b0edbb9d, type: 3}
+      propertyPath: m_Offset.x
+      value: 2.9441643
+      objectReference: {fileID: 0}
+    - target: {fileID: 3281380373712253769, guid: 926dade6399dc87e88e32b28b0edbb9d, type: 3}
+      propertyPath: m_Offset.y
+      value: -2.469201
+      objectReference: {fileID: 0}
+    - target: {fileID: 4091398333604863558, guid: 926dade6399dc87e88e32b28b0edbb9d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 112.45
+      objectReference: {fileID: 0}
+    - target: {fileID: 4091398333604863558, guid: 926dade6399dc87e88e32b28b0edbb9d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 36.76
+      objectReference: {fileID: 0}
+    - target: {fileID: 4091398333604863558, guid: 926dade6399dc87e88e32b28b0edbb9d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4091398333604863558, guid: 926dade6399dc87e88e32b28b0edbb9d, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4091398333604863558, guid: 926dade6399dc87e88e32b28b0edbb9d, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4091398333604863558, guid: 926dade6399dc87e88e32b28b0edbb9d, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4091398333604863558, guid: 926dade6399dc87e88e32b28b0edbb9d, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4091398333604863558, guid: 926dade6399dc87e88e32b28b0edbb9d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4091398333604863558, guid: 926dade6399dc87e88e32b28b0edbb9d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4091398333604863558, guid: 926dade6399dc87e88e32b28b0edbb9d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5528357133156015466, guid: 926dade6399dc87e88e32b28b0edbb9d, type: 3}
+      propertyPath: SingleUse
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5528357133156015466, guid: 926dade6399dc87e88e32b28b0edbb9d, type: 3}
+      propertyPath: TriggerType
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5528357133156015466, guid: 926dade6399dc87e88e32b28b0edbb9d, type: 3}
+      propertyPath: TriggerToastMessage.Title
+      value: Unreachable enemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 5528357133156015466, guid: 926dade6399dc87e88e32b28b0edbb9d, type: 3}
+      propertyPath: TriggerToastMessage.Message
+      value: Some enemies cannot be reached thru melee attacks, use ranged attacks
+        to destroy them but be careful of bullets
+      objectReference: {fileID: 0}
+    - target: {fileID: 5528357133156015466, guid: 926dade6399dc87e88e32b28b0edbb9d, type: 3}
+      propertyPath: TriggerToastMessage.DisplayTime
+      value: 5
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 926dade6399dc87e88e32b28b0edbb9d, type: 3}
+--- !u!4 &8225879165989803875 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4091398333604863558, guid: 926dade6399dc87e88e32b28b0edbb9d, type: 3}
+  m_PrefabInstance: {fileID: 5399711085739591973}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &5450665555729620681
 PrefabInstance:
