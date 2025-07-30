@@ -134,8 +134,9 @@ public class AttackRangedGrounded : BaseRangedGrounded
 
         if (enemy.shootMode == ManagerRangedGrounded.shootType.Single)
         {
+            enemy.shootYOffset = new Vector3(0, Random.Range(0.4f, 0.8f), 0);
 
-            _projectileTrajectory = (_playerVec3 - enemy.transform.position).normalized;
+            _projectileTrajectory = (_playerVec3 - enemy.transform.position - enemy.shootYOffset).normalized;
 
             // InstantiateProjectile(enemy, _projectileTrajectory);
             enemy.InstantiateProjectile(enemy.attackDmg, enemy.projectileSpd, _projectileTrajectory, enemy.projectile);
@@ -165,6 +166,7 @@ public class AttackRangedGrounded : BaseRangedGrounded
 
         if (enemy.shootMode == ManagerRangedGrounded.shootType.SingleFileBurst)
         {
+            enemy.shootYOffset = new Vector3(0, Random.Range(0.4f, 0.8f), 0);
             if (_attackCoroutine != null)
             {
                 enemy.StopCoroutine(_attackCoroutine);

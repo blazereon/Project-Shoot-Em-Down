@@ -2,7 +2,9 @@ using System;
 using System.Collections;
 using System.Linq;
 using UnityEngine;
+using static UnityEngine.EventSystems.EventTrigger;
 using static UnityEngine.RuleTile.TilingRuleOutput;
+using Random = UnityEngine.Random;
 
 public class Enemy : Entity
 {
@@ -25,6 +27,8 @@ public class Enemy : Entity
     public float detectionRange = 5f;
     public float delayScanTime = 0.5f;
 
+    [HideInInspector]
+    public Vector3 shootYOffset;
     [HideInInspector]
     public bool isPlayerDetected;
     [HideInInspector]
@@ -315,7 +319,8 @@ public class Enemy : Entity
                 yield break;
             }
 
-            Vector2 _projectileTrajectory = (playerPos - transform.position).normalized;
+            shootYOffset = new Vector3(0, Random.Range(0.4f, 0.8f), 0);
+            Vector2 _projectileTrajectory = (playerPos - transform.position - shootYOffset).normalized;
             InstantiateProjectile(attackDmg, projectileSpd, _projectileTrajectory, projectile);
 
             yield return new WaitForSeconds(atkSpd);
@@ -341,8 +346,9 @@ public class Enemy : Entity
                 yield break;
             }
 
+            shootYOffset = new Vector3(0, Random.Range(0.4f, 0.8f), 0);
             Vector3 _playerPos = EventSystem.Current.PlayerLocation;
-            Vector2 _projectileTrajectory = (_playerPos - enemyPos).normalized;
+            Vector2 _projectileTrajectory = (_playerPos - enemyPos - shootYOffset).normalized;
             InstantiateProjectile(attackDmg, projectileSpd, _projectileTrajectory, projectile);
 
             yield return new WaitForSeconds(atkSpd);
@@ -371,6 +377,22 @@ public class Enemy : Entity
         }
 
         isFiringBurst = false;
+    }
+
+    public GameObject FindChildByTag(GameObject parent, string tag)
+    {
+        GameObject child = null;
+
+        foreach (UnityEngine.Transform transform in parent.transform)
+        {
+            if (transform.CompareTag(tag))
+            {
+                child = transform.gameObject;
+                break;
+            }
+        }
+
+        return child;
     }
 
     public override void UpdateUIData()
