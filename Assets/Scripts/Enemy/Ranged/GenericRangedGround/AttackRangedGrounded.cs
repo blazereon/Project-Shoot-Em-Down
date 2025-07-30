@@ -35,7 +35,8 @@ public class AttackRangedGrounded : BaseRangedGrounded
         }
         else
         {
-            _distanceToPlayer = Physics2D.Distance(EventSystem.Current.PlayerCollider, enemy.enemyCollider).distance;
+            // Disabling this for more forgiving mechanics
+            /*_distanceToPlayer = Physics2D.Distance(EventSystem.Current.PlayerCollider, enemy.enemyCollider).distance;
 
             if (enemy.shootMode == ManagerRangedGrounded.shootType.Single || enemy.shootMode == ManagerRangedGrounded.shootType.AOEBurst)
             {
@@ -44,7 +45,7 @@ public class AttackRangedGrounded : BaseRangedGrounded
             else
             {
                 BurstShoot(enemy);
-            }
+            }*/
         }
     }
 
