@@ -126,7 +126,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.0024061203, y: -0.47117114}
+  m_Offset: {x: -0.0024061203, y: -0.3100531}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -136,7 +136,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1.8055553, y: 2.359025}
+  m_Size: {x: 1.8055553, y: 2.036789}
   m_EdgeRadius: 0
 --- !u!50 &7255823586710530253
 Rigidbody2D:
@@ -186,7 +186,7 @@ MonoBehaviour:
   MaxHealth: 100
   MeleeResistancePercentage: 0
   RangeResistancePercentage: 0
-  AttackDamage: 1
+  AttackDamage: 0
   PneumaAmount: 0
   rayNumber: 20
   rayMaxAngle: 40
@@ -204,10 +204,10 @@ MonoBehaviour:
   startEngagementRange: 6
   projectile: {fileID: 2293672932219427466, guid: e05d3644ec341dc4eb06436dcb3e0904, type: 3}
   attackSpd: 0.4
-  projectileSpd: 10
+  projectileSpd: 5
   shootMode: 1
   burstCount: 2
-  projectileInterval: 1
+  projectileInterval: 6
   burstSpread: 40
   spriteRenderer: {fileID: 0}
   hasProjectileParent: 0

@@ -143,10 +143,10 @@ MonoBehaviour:
   CanTakeDamage: 1
   player: {fileID: 0}
   EnemyStatUIInstance: {fileID: 7507492112612673916}
-  Health: 100
-  MaxHealth: 100
+  Health: 40
+  MaxHealth: 40
   MeleeResistancePercentage: 0
-  RangeResistancePercentage: 0
+  RangeResistancePercentage: 80
   AttackDamage: 5
   PneumaAmount: 0
   rayNumber: 10
@@ -154,6 +154,7 @@ MonoBehaviour:
   rayStartAngle: -22.5
   detectionRange: 12
   delayScanTime: 0.5
+  shootYOffset: {x: 0, y: 0, z: 0}
   isPlayerDetected: 0
   hasPlayerDetected: 0
   hitRays: 
