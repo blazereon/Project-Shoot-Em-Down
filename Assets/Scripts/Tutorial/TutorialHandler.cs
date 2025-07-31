@@ -36,18 +36,10 @@ public class TutorialHandler : MonoBehaviour
                 var msg = new Toast.ToastMessage
                 {
                     Title = "Skill Tree",
-                    Message = "Hover over skill to see its functionalities. Each skill consumes 1 skill point",
-                    DisplayTime = 3f,
+                    Message = "Hover over skill to see its functionalities. Each skill consumes 1 skill point. Left click and hold the selected skill until the whole skill turns into a color",
+                    DisplayTime = 6f,
                 };
-                UIManager.Current.PushToast(msg);
-
-                var msg2 = new Toast.ToastMessage
-                {
-                    Title = "Skill Tree",
-                    Message = "Left click and hold the selected skill until the whole skill turns into a color",
-                    DisplayTime = 3f,
-                };
-                UIManager.Current.PushToast(msg2);
+                UIManager.Current.ForceToast(msg);
                 isSkillTreeExecute = true;
             }
         }
