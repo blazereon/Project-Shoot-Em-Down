@@ -78,8 +78,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -2020202715
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_Sprite: {fileID: 1476832000134935132, guid: 88e6507bbef4b44459488cd177f9776b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -206,6 +206,9 @@ MonoBehaviour:
   rayStartAngle: 0
   detectionRange: 5
   delayScanTime: 0.5
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 0
   shootYOffset: {x: 0, y: 0, z: 0}
   isPlayerDetected: 0
   hasPlayerDetected: 0
@@ -231,6 +234,10 @@ PrefabInstance:
     - target: {fileID: 3125320314361566563, guid: 9f2740f211050cace901a51c50664858, type: 3}
       propertyPath: m_PresetInfoIsWorld
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3664153478985739687, guid: 9f2740f211050cace901a51c50664858, type: 3}
+      propertyPath: m_SortingLayerID
+      value: 1463348695
       objectReference: {fileID: 0}
     - target: {fileID: 6046277041924922542, guid: 9f2740f211050cace901a51c50664858, type: 3}
       propertyPath: m_AnchorMax.y

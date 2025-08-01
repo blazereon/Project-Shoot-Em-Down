@@ -76,8 +76,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -973828191
+  m_SortingLayer: 5
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 1fa00381f86ad1b41b491268e8389f41, type: 3}
   m_Color: {r: 1, g: 0, b: 0.09860468, a: 1}
@@ -178,6 +178,7 @@ MonoBehaviour:
   ProjectileCurrentProperties:
     ProjectileSpeed: 0
     AttackDamage: 0
+    isPiercing: 0
     Trajectory: {x: 0, y: 0}
     DestroyOnly:
       serializedVersion: 2
@@ -185,3 +186,4 @@ MonoBehaviour:
     FiredBy: 0
     Destination: 0
   rb: {fileID: 0}
+  RaycastedCollision: 0
