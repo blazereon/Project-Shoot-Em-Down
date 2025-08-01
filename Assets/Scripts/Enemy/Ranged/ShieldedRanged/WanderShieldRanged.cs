@@ -4,7 +4,7 @@ using UnityEngine;
 public class WanderShieldRanged : BaseShieldRanged
 {
     private float _detectRangeInstance;
-    private LayerMask _layerMask;
+    private GameObject _shieldObject;
     private Transform _shieldTransform;
     bool _isPlayerDetected;
 
@@ -12,12 +12,15 @@ public class WanderShieldRanged : BaseShieldRanged
     {
         enemy.enemyRb = enemy.GetComponent<Rigidbody2D>();
         _detectRangeInstance = enemy.detectionRange;
-        _layerMask = LayerMask.GetMask("Wall", "Player");
-        _shieldTransform = enemy.FindChildByTag(enemy.gameObject, "Shield").transform;
+        _shieldObject = enemy.FindChildByTag(enemy.gameObject, "Shield");
 
-        if (_shieldTransform == null)
+        if (_shieldObject == null)
         {
-            Debug.LogError("Shield child not found! Make sure it chield tagged as 'Shield'");
+            Debug.LogError("Shield child not found! Make sure the shield is tagged as 'Shield'");
+        }
+        else
+        {
+            _shieldTransform = _shieldObject.transform;
         }
     }
 

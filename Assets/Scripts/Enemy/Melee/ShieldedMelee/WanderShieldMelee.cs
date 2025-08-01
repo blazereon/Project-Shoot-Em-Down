@@ -3,27 +3,19 @@ using UnityEngine;
 public class WanderShieldMelee : BaseShieldMelee
 {
     private float _detectRangeInstance;
-    private LayerMask _layerMask;
-    private Transform _shieldTransform;
     bool _isPlayerDetected;
 
     public override void EnterState(ManagerShieldMelee enemy)
     {
         _detectRangeInstance = enemy.detectionRange;
-        _layerMask = LayerMask.GetMask("Wall", "Player");
-        _shieldTransform = enemy.FindChildByTag(enemy.gameObject, "Shield").transform;
-
-        if (_shieldTransform == null)
-        {
-            Debug.LogError("Shield child not found! Make sure it chield tagged as 'Shield'");
-        }
+        
     }
 
     public override void UpdateState(ManagerShieldMelee enemy)
     {
         enemy.PlayMainAnimation("shieldedMeleeMoveLoop");
         
-        _isPlayerDetected = enemy.PlayerDetection(enemy.transform.localScale);
+        _isPlayerDetected = enemy.PlayerDetection(enemy._shieldTransform.localScale);
 
         if (_isPlayerDetected)
         {
@@ -43,8 +35,8 @@ public class WanderShieldMelee : BaseShieldMelee
 
         if (enemy.transform.localScale.x == -1)
         {
-            RaycastHit2D hit = Physics2D.Raycast(_shieldTransform.position, Vector2.left, enemy.wallDistanceLimit);
-            Debug.DrawRay(_shieldTransform.position, Vector2.left * enemy.wallDistanceLimit, Color.red);
+            RaycastHit2D hit = Physics2D.Raycast(enemy._shieldTransform.position, Vector2.left, enemy.wallDistanceLimit);
+            Debug.DrawRay(enemy._shieldTransform.position, Vector2.left * enemy.wallDistanceLimit, Color.red);
             if (hit.collider == null) return;
             if (hit.collider.tag == "Wall")
             {
@@ -54,8 +46,8 @@ public class WanderShieldMelee : BaseShieldMelee
         }
         else if (enemy.transform.localScale.x == 1)
         {
-            RaycastHit2D hit = Physics2D.Raycast(_shieldTransform.position, Vector2.right, enemy.wallDistanceLimit);
-            Debug.DrawRay(_shieldTransform.position, Vector2.right * enemy.wallDistanceLimit, Color.red);
+            RaycastHit2D hit = Physics2D.Raycast(enemy._shieldTransform.position, Vector2.right, enemy.wallDistanceLimit);
+            Debug.DrawRay(enemy._shieldTransform.position, Vector2.right * enemy.wallDistanceLimit, Color.red);
             if (hit.collider == null) return;
             if (hit.collider.tag == "Wall")
             {

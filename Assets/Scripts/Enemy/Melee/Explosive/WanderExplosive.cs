@@ -3,12 +3,10 @@ using UnityEngine;
 public class WanderExplosive : BaseExplosive
 {
     private float _detectRangeInstance;
-    private LayerMask _layerMask;
 
     public override void EnterState(ManagerExplosive enemy)
     {
         _detectRangeInstance = enemy.detectionRange;
-        _layerMask = LayerMask.GetMask("Wall", "Player");
     }
 
     public override void UpdateState(ManagerExplosive enemy)

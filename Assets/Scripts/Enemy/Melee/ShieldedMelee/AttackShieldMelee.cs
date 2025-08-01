@@ -4,10 +4,12 @@ using UnityEngine;
 public class AttackShieldMelee : BaseShieldMelee
 {
     public bool _canAttack = true;
-    private float _attackDistance = 1.3f;
+    private float _attackDistance;
     public override void EnterState(ManagerShieldMelee enemy)
     {
         _canAttack = true;
+        _attackDistance = enemy.enemyCollider.size.x + 0.3f;
+        Debug.Log("shield in attack mode");
     }
 
     public override void UpdateState(ManagerShieldMelee enemy)

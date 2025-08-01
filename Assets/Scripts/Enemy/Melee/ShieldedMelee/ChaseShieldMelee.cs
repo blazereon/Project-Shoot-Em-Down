@@ -3,53 +3,52 @@ using UnityEngine;
 
 public class ChaseShieldMelee : BaseShieldMelee
 {
-    private bool _isPlayerInSight = false;
-    private bool _isChaseMode = false;
-
-    private int _rayNumber = 200;
-    private int _rayMaxAngle = 180;
-    private float _chaseDistance = 5f;
-    private float _attackDistance = 1.3f;
-
+    private float _distanceToPlayer;
     private Coroutine _turnCoroutine;
+    private float _attackDistance;
 
-    private LayerMask _layerMask;
     public override void EnterState(ManagerShieldMelee enemy)
     {
-        _layerMask = LayerMask.GetMask("Wall", "Player");
-        _isPlayerInSight = true;
-        _isChaseMode = true;
         _turnCoroutine = null;
-        enemy.StartCoroutine(CheckPlayer(enemy));
+
+        _attackDistance = enemy.enemyCollider.size.x + 0.3f;
     }
 
     public override void UpdateState(ManagerShieldMelee enemy)
     {
         enemy.PlayMainAnimation("shieldedMeleeMoveLoop");
 
-        if (!_isChaseMode)
+        if (enemy.enemyCollider == EventSystem.Current.PlayerCollider)
         {
-            Debug.Log("End of chase mode");
+            Debug.LogWarning("Player and Enemy colliders are the same! " + enemy.enemyCollider + " " + EventSystem.Current.PlayerCollider);
+        }
+        if (enemy.enemyCollider == null || EventSystem.Current.PlayerCollider == null)
+        {
             enemy.hasPlayerDetected = false;
             enemy.SwitchState(enemy.wanderState);
         }
-
-        _isPlayerInSight = CheckIfPlayerInSight(enemy);
-
-        Debug.Log("Enemy-Player Distance: " + Vector2.Distance(enemy.transform.position, EventSystem.Current.PlayerLocation));
-
-        if (_isPlayerInSight && (Vector2.Distance(enemy.transform.position, EventSystem.Current.PlayerLocation) <= _attackDistance))
+        else
         {
-            enemy.SwitchState(enemy.attackState);
-        }
+            _distanceToPlayer = Vector2.Distance(EventSystem.Current.PlayerLocation, enemy.transform.position);
 
-        Debug.Log("Player In Sight: " + _isPlayerInSight);
+            if (_distanceToPlayer <= _attackDistance)
+            {
+                enemy.SwitchState(enemy.attackState);
+            }
 
-        // switch to stun
-        if (enemy.IsStunned)
-        {
-            enemy.prevState = this;
-            enemy.SwitchState(enemy.stunState);
+            if (enemy.detectionRange < _distanceToPlayer)
+            {
+                Debug.Log("EXITING WANDER STATE: " + _distanceToPlayer);
+                enemy.hasPlayerDetected = false;
+                enemy.SwitchState(enemy.wanderState);
+            }
+
+            // switch to stun
+            if (enemy.IsStunned)
+            {
+                enemy.prevState = this;
+                enemy.SwitchState(enemy.stunState);
+            }
         }
     }
 
@@ -62,49 +61,6 @@ public class ChaseShieldMelee : BaseShieldMelee
         }
 
         enemy.enemyRb.linearVelocityX = enemy.transform.localScale.x * enemy.chaseSpeed * Time.fixedDeltaTime;
-    }
-
-    public bool CheckIfPlayerInSight(ManagerShieldMelee genericEnemy)
-    {
-
-        RaycastHit2D hitLeft = Physics2D.Raycast(genericEnemy.transform.position, Vector2.left, _chaseDistance, _layerMask);
-        if (hitLeft.collider != null)
-        {
-            Debug.DrawRay(genericEnemy.transform.position, Vector2.left * _chaseDistance, Color.blue);
-            if (hitLeft.collider.tag == "Player") return true;
-        }
-
-        RaycastHit2D hitRight = Physics2D.Raycast(genericEnemy.transform.position, Vector2.right, _chaseDistance, _layerMask);
-        if (hitRight.collider != null)
-        {
-            Debug.DrawRay(genericEnemy.transform.position, Vector2.right * _chaseDistance, Color.blue);
-            if (hitRight.collider.tag == "Player") return true;
-        }
-
-        return false;
-    }
-
-    IEnumerator CheckPlayer(ManagerShieldMelee enemy)
-    {
-        while (_isChaseMode)
-        {
-            yield return new WaitForSeconds(1.5f);
-            if (!_isPlayerInSight)
-            {
-                _isChaseMode = false;
-                break;
-            }
-            var _ploc = EventSystem.Current.PlayerLocation;
-            if (_ploc.x > enemy.transform.position.x)
-            {
-                enemy.facing = Enemy.EnemyFacing.Right;
-            }
-            else if (_ploc.x < enemy.transform.position.x)
-            {
-                enemy.facing = Enemy.EnemyFacing.Left;
-            }
-            _isChaseMode = true;
-        }
     }
 
     IEnumerator DelayTurn(ManagerShieldMelee enemy)

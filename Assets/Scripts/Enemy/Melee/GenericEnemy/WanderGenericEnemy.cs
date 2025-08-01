@@ -3,12 +3,10 @@ using UnityEngine;
 public class WanderGenericEnemy : BaseGenericEnemy
 {
     private float _detectRangeInstance;
-    private LayerMask _layerMask;
 
     public override void EnterState(ManagerGenericEnemy genericEnemy)
     {
         _detectRangeInstance = genericEnemy.detectionRange;
-        _layerMask = LayerMask.GetMask("Wall", "Player");
     }
 
     public override void UpdateState(ManagerGenericEnemy genericEnemy)
