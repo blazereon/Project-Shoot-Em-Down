@@ -73,8 +73,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -2020202715
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_Sprite: {fileID: -8227546954408941770, guid: 0a5fee72fdd49084398e2216e45bc87f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -154,6 +154,9 @@ MonoBehaviour:
   rayStartAngle: -22.5
   detectionRange: 12
   delayScanTime: 0.5
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 0
   shootYOffset: {x: 0, y: 0, z: 0}
   isPlayerDetected: 0
   hasPlayerDetected: 0
@@ -209,8 +212,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -2020202715
+  m_SortingLayer: 4
   m_SortingOrder: 3
   m_Sprite: {fileID: -523338622, guid: 657869c1f8a292149acd8dddc2be6b19, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
