@@ -28,6 +28,8 @@ public class Enemy : Entity
     public float delayScanTime = 0.5f;
 
     [HideInInspector]
+    public LayerMask layerMask;
+    [HideInInspector]
     public Vector3 shootYOffset;
     [HideInInspector]
     public bool isPlayerDetected;
@@ -50,7 +52,7 @@ public class Enemy : Entity
     private void Start()
     {
         player = GameObject.FindWithTag("Player");
-
+        layerMask = LayerMask.GetMask("Ground", "Wall", "Player");
         isPlayerDetected = false;
 
     }

@@ -3,14 +3,12 @@ using UnityEngine;
 public class WanderRangedGrounded : BaseRangedGrounded
 {
     private float _detectRangeInstance;
-    private LayerMask _layerMask;
     bool _isPlayerDetected;
 
     public override void EnterState(ManagerRangedGrounded enemy)
     {
         enemy.enemyRb = enemy.GetComponent<Rigidbody2D>();
         _detectRangeInstance = enemy.detectionRange;
-        _layerMask = LayerMask.GetMask("Wall", "Player");
     }
 
     public override void UpdateState(ManagerRangedGrounded enemy)

@@ -27,7 +27,10 @@ public class ManagerShieldMelee : Enemy
     public float wallDistanceLimit;
 
 
-    public Collider2D enemyCollider { get; private set; }
+    public CapsuleCollider2D enemyCollider { get; private set; }
+
+    public GameObject _shieldObject { get; private set; }
+    public Transform _shieldTransform { get; private set; }
 
     //Set the Sprite Animator
     public Animator MainAnimator;
@@ -51,7 +54,12 @@ public class ManagerShieldMelee : Enemy
 
         weakSpotBox = transform.Find("weakSpot").GetComponent<BoxCollider2D>();
         hitDetect = transform.Find("weakSpot").GetComponent<HitDetect>();
-        enemyCollider = GetComponent<Collider2D>();
+        enemyCollider = GetComponent<CapsuleCollider2D>();
+
+        if (enemyCollider == null)
+        {
+            Debug.LogError("Shielded Melee collider doesn't use or have Capsule Collider 2D, please set the appropriate collider for this enemy");
+        }
 
         if (weakSpotBox == null || hitDetect == null)
         {
@@ -60,6 +68,17 @@ public class ManagerShieldMelee : Enemy
         else
         {
             hitDetect.weakSpotActive = true;
+        }
+
+        _shieldObject = FindChildByTag(gameObject, "Shield");
+
+        if (_shieldObject == null)
+        {
+            Debug.LogError("Shield child not found! Make sure the shield is tagged as 'Shield'");
+        }
+        else
+        {
+            _shieldTransform = _shieldObject.transform;
         }
 
         currentState = wanderState;
