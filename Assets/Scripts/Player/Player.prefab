@@ -556,8 +556,8 @@ MonoBehaviour:
   m_NormalMapQuality: 2
   m_UseNormalMap: 0
   m_ShadowsEnabled: 1
-  m_ShadowIntensity: 0.703
-  m_ShadowSoftness: 0.575
+  m_ShadowIntensity: 0.559
+  m_ShadowSoftness: 0.601
   m_ShadowSoftnessFalloffIntensity: 0.315
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
@@ -662,8 +662,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 327654801
+  m_SortingLayer: 3
   m_SortingOrder: 2
   m_Sprite: {fileID: -467307283419413426, guid: 486bd23784af137448d60965ba533f44, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
