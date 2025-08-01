@@ -261,10 +261,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isConsumingMark: 0
+  IsStunned: 0
+  CanTakeDamage: 1
   player: {fileID: 0}
   EnemyStatUIInstance: {fileID: 9195009247242895598}
-  Health: 100
-  MaxHealth: 100
+  Health: 50
+  MaxHealth: 50
   MeleeResistancePercentage: 0
   RangeResistancePercentage: 0
   AttackDamage: 2
@@ -274,6 +276,7 @@ MonoBehaviour:
   rayStartAngle: 0
   detectionRange: 5
   delayScanTime: 0.5
+  shootYOffset: {x: 0, y: 0, z: 0}
   isPlayerDetected: 0
   hasPlayerDetected: 0
   hitRays: 
@@ -284,7 +287,7 @@ MonoBehaviour:
   projectileSpd: 6
   shootMode: 2
   burstCount: 4
-  burstInterval: 0
+  burstInterval: 3
   burstSpread: 90
   enemyCollider: {fileID: 0}
   attackDmg: 2

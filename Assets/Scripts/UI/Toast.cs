@@ -92,7 +92,7 @@ public class Toast : MonoBehaviour
     private void FadeIn()
     {
         _displayTimer = 0;
-        _fadeTimer += Time.deltaTime;
+        _fadeTimer += Time.unscaledDeltaTime;
         Frame.color = Color.Lerp(_defaultColor, new Color(_defaultColor.r, _defaultColor.g, _defaultColor.b, 1), _fadeTimer / FadeTime);
         TitleTMP.alpha = _fadeTimer / FadeTime;
         MessageTMP.alpha = _fadeTimer / FadeTime;
@@ -106,7 +106,7 @@ public class Toast : MonoBehaviour
     private void FadeOut()
     {
         _displayTimer = 0;
-        _fadeTimer += Time.deltaTime;
+        _fadeTimer += Time.unscaledDeltaTime;
         TitleTMP.alpha = 1 - _fadeTimer / FadeTime;
         MessageTMP.alpha = 1 - _fadeTimer / FadeTime;
         Frame.color = Color.Lerp(new Color(_defaultColor.r, _defaultColor.g, _defaultColor.b, 1), _defaultColor, _fadeTimer / FadeTime);
@@ -122,7 +122,7 @@ public class Toast : MonoBehaviour
         Frame.color = new Color(_defaultColor.r, _defaultColor.g, _defaultColor.b, 1);
         TitleTMP.alpha = 1;
         MessageTMP.alpha = 1;
-        _displayTimer += Time.deltaTime;
+        _displayTimer += Time.unscaledDeltaTime;
 
         if (_displayTimer > _currentMessage.DisplayTime)
         {
