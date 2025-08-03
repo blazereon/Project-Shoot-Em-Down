@@ -48,9 +48,29 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 764113875149395095, guid: 7ffff591d55e270cc8c8a714b51fb498, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -11.46
+      objectReference: {fileID: 0}
+    - target: {fileID: 764113875149395095, guid: 7ffff591d55e270cc8c8a714b51fb498, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 47.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 764113875149395095, guid: 7ffff591d55e270cc8c8a714b51fb498, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1540855454072624959, guid: 7ffff591d55e270cc8c8a714b51fb498, type: 3}
+      propertyPath: Lens.FieldOfView
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1540855454072624959, guid: 7ffff591d55e270cc8c8a714b51fb498, type: 3}
+      propertyPath: Lens.OrthographicSize
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 4923240908617418621, guid: 7ffff591d55e270cc8c8a714b51fb498, type: 3}
       propertyPath: m_Name
-      value: ManagerGroups
+      value: L1_ManagerGroups
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
