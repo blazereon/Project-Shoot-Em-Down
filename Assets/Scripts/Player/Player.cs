@@ -61,6 +61,7 @@ public class Player : Entity
     public float DashDuration;
     public float DashRecovery;
     public float MomentumDecayRate;
+    public float ImmuneDuration = 3f;
 
     public float MeleePadding;
     public float MeleeRadius;
@@ -96,7 +97,7 @@ public class Player : Entity
             Destroy(this.gameObject);
             AudioManager.instance.PlayFX(AudioManager.instance.playerDeath, false);
         }
-
+        StartCoroutine(PlayerImmune());
         Debug.Log("HP: " + PlayerCurrentStats.Health);
     }
 
@@ -186,6 +187,13 @@ public class Player : Entity
         PlayerCurrentStats.Chain = 0;
         PlayerCurrentStats.AttackRate = PlayerBaseStats.AttackRate;
         Debug.Log("Player Chain: x" + PlayerCurrentStats.Chain);
+    }
+
+    IEnumerator PlayerImmune()
+    {
+        CanTakeDamage = false;
+        yield return new WaitForSeconds(ImmuneDuration);
+        CanTakeDamage = true;
     }
 
     public void ApplyCheat(PlayerStatDelta newStat)
