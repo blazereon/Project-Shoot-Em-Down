@@ -53,6 +53,8 @@ public class Player : Entity
     public PlayerStats PlayerCurrentStats;
     public float Speed = 500f;
     public float JumpForce = 10f;
+    public float ShortJumpTime = 0.2f;
+    public float LongJumpTime = 0.4f;
     public float LandAcceleration = 2f;
     public float LandStart = 3f;
     public float DashForce;

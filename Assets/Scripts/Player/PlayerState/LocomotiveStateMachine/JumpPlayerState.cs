@@ -1,12 +1,24 @@
+using NUnit.Framework;
 using UnityEngine;
 
 public class JumpPlayerState : BasePlayerState
 {
+    private float holdDuration;
+    private float holdDurationTimer = 0f;
+    private float currentJumpTime = 0f;
+    private float jumpTimer = 0f;
+
+    private bool isHold = false;
     public override void EnterState(ManagerPlayerState player)
     {
         Debug.Log("Jump State!!");
-        player.PlayerRb.linearVelocityY = 0;
-        player.PlayerRb.AddForce(new Vector2(0, player.JumpForce), ForceMode2D.Impulse);
+        holdDuration = player.ShortJumpTime * 0.75f;
+        holdDurationTimer = 0f;
+        jumpTimer = 0f;
+        currentJumpTime = player.ShortJumpTime;
+        isHold = false;
+        // player.PlayerRb.linearVelocityY = 0;
+        // player.PlayerRb.AddForce(new Vector2(0, player.JumpForce), ForceMode2D.Impulse);
 
         AudioManager.instance.RandomSFX(AudioManager.instance.playerJump);
     }
@@ -15,19 +27,52 @@ public class JumpPlayerState : BasePlayerState
     {
         player.PlayBodyAnimation("jumpLoop");
         player.PlayArmAnimation("idleArmSwing");
+        player.PlayerRb.linearVelocityY = player.JumpForce;
 
-        if (player.PlayerRb.linearVelocityY <= player.LandStart)
+        if (player.jumpAction.IsPressed())
         {
+            holdDurationTimer += Time.deltaTime;
+        }
+
+        if (holdDurationTimer > holdDuration)
+        {
+            currentJumpTime = player.LongJumpTime;
+            isHold = true;
+        }
+
+        if (jumpTimer >= currentJumpTime)
+        {
+            holdDurationTimer = 0f;
+            jumpTimer = 0f;
+            currentJumpTime = player.ShortJumpTime;
             player.SwitchState(player.LandState);
             return;
         }
 
-        //proceeds to dash
-        if (player.dashAction.IsPressed() && player.DashAbility.IsDashAvailable())
+        if (isHold && !player.jumpAction.IsPressed())
         {
-            player.SwitchState(player.DashState);
+            holdDurationTimer = 0f;
+            jumpTimer = 0f;
+            currentJumpTime = player.ShortJumpTime;
+            player.SwitchState(player.LandState);
             return;
         }
+
+
+        // if (player.PlayerRb.linearVelocityY <= player.LandStart)
+            // {
+            //     player.SwitchState(player.LandState);
+            //     return;
+            // }
+
+            //proceeds to dash
+            if (player.dashAction.IsPressed() && player.DashAbility.IsDashAvailable())
+            {
+                player.SwitchState(player.DashState);
+                return;
+            }
+
+        jumpTimer += Time.deltaTime;
     }
 
     public override void FixedUpdateState(ManagerPlayerState player)
