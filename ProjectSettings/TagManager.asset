@@ -55,6 +55,9 @@ TagManager:
   - name: Platforms
     uniqueID: 2362531677
     locked: 0
+  - name: Orb
+    uniqueID: 1521147471
+    locked: 0
   - name: Player
     uniqueID: 327654801
     locked: 0
