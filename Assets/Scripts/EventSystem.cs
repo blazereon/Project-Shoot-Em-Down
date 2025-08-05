@@ -3,30 +3,20 @@ using System.Collections;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class EventSystem
+public class EventSystem : MonoBehaviour
 {
 
     /*
     It's just a singleton pattern. Ignore it
     vvvvvvv
     */
-    private static EventSystem current = null;
-    private static readonly object padlock = new object();
+    public static EventSystem Current;
 
-
-    EventSystem() { }
-    public static EventSystem Current
+    void Awake()
     {
-        get
+        if (Current == null)
         {
-            lock (padlock)
-            {
-                if (current == null)
-                {
-                    current = new EventSystem();
-                }
-                return current;
-            }
+            Current = this;
         }
     }
     /*
