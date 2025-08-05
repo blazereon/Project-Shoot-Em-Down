@@ -45,6 +45,7 @@ public class UIManager : MonoBehaviour
 
     public GameObject PauseMenu;
     public GameObject SkillTreeMenu;
+    public GameConclusion GameConclusionPanel;
     public Toast ToastInstance;
     private Queue<Toast.ToastMessage> ToastQueue = new Queue<Toast.ToastMessage>();
     private Toast.ToastMessage _forceToastMessage;
@@ -159,12 +160,14 @@ public class UIManager : MonoBehaviour
 
     private void CompleteState()
     {
-        
+        ClearUIExceptPlayerUI();
+        GameConclusionPanel.CurrentType = GameConclusion.Type.Complete;
     }
 
     private void GameOverState()
     {
-
+        ClearUIExceptPlayerUI();
+        GameConclusionPanel.CurrentType = GameConclusion.Type.Fail;
     }
 
     private void ClearUIExceptPlayerUI()

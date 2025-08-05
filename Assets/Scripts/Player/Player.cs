@@ -94,8 +94,9 @@ public class Player : Entity
         PlayerCurrentStats.Health -= damage;
         if (PlayerCurrentStats.Health <= 0)
         {
-            Destroy(this.gameObject);
+            UIManager.Current.CurrentState = UIState.GameOver;
             AudioManager.instance.PlayFX(AudioManager.instance.playerDeath, false);
+            Destroy(this.gameObject);
         }
         StartCoroutine(PlayerImmune());
         Debug.Log("HP: " + PlayerCurrentStats.Health);
