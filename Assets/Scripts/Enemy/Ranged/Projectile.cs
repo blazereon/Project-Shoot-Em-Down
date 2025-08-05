@@ -31,7 +31,7 @@ public class Projectile : MonoBehaviour
         // _startPos = transform.position;
         // destroyOnly = new List<LayerMask>();
         rb = GetComponent<Rigidbody2D>();
-        StartCoroutine(ProjectileExpiry(2f));
+        StartCoroutine(ProjectileExpiry(5f));
     }
 
     // Update is called once per frame
