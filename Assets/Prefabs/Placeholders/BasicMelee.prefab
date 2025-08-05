@@ -79,7 +79,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -2020202715
-  m_SortingLayer: 4
+  m_SortingLayer: 5
   m_SortingOrder: 0
   m_Sprite: {fileID: 1476832000134935132, guid: 88e6507bbef4b44459488cd177f9776b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -199,7 +199,7 @@ MonoBehaviour:
   MaxHealth: 20
   MeleeResistancePercentage: 0
   RangeResistancePercentage: 30
-  AttackDamage: 0
+  AttackDamage: 1
   PneumaAmount: 0
   rayNumber: 20
   rayMaxAngle: 40

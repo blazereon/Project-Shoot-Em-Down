@@ -66,7 +66,7 @@ public class ChaseShieldMelee : BaseShieldMelee
     IEnumerator DelayTurn(ManagerShieldMelee enemy)
     {
 
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(2.5f);
 
         if (EventSystem.Current.PlayerLocation.x > enemy.transform.position.x)     // player on the right
         {
