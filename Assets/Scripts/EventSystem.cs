@@ -100,7 +100,6 @@ public class EventSystem : MonoBehaviour
 
     public void UpdatePlayerStats(PlayerStats stats)
     {
-        GameManager.Current.PlayerSavedStats = stats;
         OnUpdatePlayerStats?.Invoke(stats);
     }
 

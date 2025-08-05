@@ -160,6 +160,7 @@ public class UIManager : MonoBehaviour
 
     private void CompleteState()
     {
+        GameManager.Current.SetState(GameState.Paused);
         ClearUIExceptPlayerUI();
         GameConclusionPanel.CurrentType = GameConclusion.Type.Complete;
     }
