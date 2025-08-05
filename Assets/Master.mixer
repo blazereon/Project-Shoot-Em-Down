@@ -173,7 +173,7 @@ AudioMixerEffectController:
     m_GUID: 199fb67d6a29a144cb35b7cfdc2132e7
   m_SendTarget: {fileID: 0}
   m_EnableWetMix: 0
-  m_Bypass: 0
+  m_Bypass: 1
 --- !u!244 &7687236894973612347
 AudioMixerEffectController:
   m_ObjectHideFlags: 3
