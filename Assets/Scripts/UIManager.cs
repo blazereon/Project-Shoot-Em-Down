@@ -9,6 +9,8 @@ public enum UIState
 {
     Pause,
     SkillTree,
+    Complete,
+    GameOver,
     None
 }
 public class UIManager : MonoBehaviour
@@ -94,6 +96,12 @@ public class UIManager : MonoBehaviour
             case UIState.SkillTree:
                 SkillTreeState();
                 break;
+            case UIState.Complete:
+                CompleteState();
+                break;
+            case UIState.GameOver:
+                GameOverState();
+                break;
             default:
                 Debug.LogError("Invalid UIState");
                 break;
@@ -147,6 +155,16 @@ public class UIManager : MonoBehaviour
             CurrentState = UIState.Pause;
             return;
         }
+    }
+
+    private void CompleteState()
+    {
+        
+    }
+
+    private void GameOverState()
+    {
+
     }
 
     private void ClearUIExceptPlayerUI()

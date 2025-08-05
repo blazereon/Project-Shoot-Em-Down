@@ -27,4 +27,7 @@ public struct PlayerStats
     [NonSerialized] public float ChainTimer;
     [NonSerialized] public int Aggression;
     [NonSerialized] public Player.AttackType CurrentAttackType;
+    [NonSerialized] public DashAbilityStatus DashAbility;
+    [NonSerialized] public KeenAbilityStatus KeenAbility;
+    [NonSerialized] public DestructiveBoltStatus DestructiveBoltAbility;
 }
