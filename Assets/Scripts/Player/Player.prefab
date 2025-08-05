@@ -663,7 +663,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 327654801
-  m_SortingLayer: 3
+  m_SortingLayer: 4
   m_SortingOrder: 2
   m_Sprite: {fileID: -467307283419413426, guid: 486bd23784af137448d60965ba533f44, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -882,6 +882,8 @@ MonoBehaviour:
     AttackRate: 0
   Speed: 300
   JumpForce: 8
+  ShortJumpTime: 0.3
+  LongJumpTime: 0.6
   LandAcceleration: 2
   LandStart: 4
   DashForce: 20

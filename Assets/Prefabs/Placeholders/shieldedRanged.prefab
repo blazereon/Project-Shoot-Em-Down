@@ -249,8 +249,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -2020202715
+  m_SortingLayer: 5
   m_SortingOrder: 0
   m_Sprite: {fileID: -9095717837082945937, guid: f338b74b58fadea78ba8f9ad64405c94, type: 3}
   m_Color: {r: 0.9529412, g: 0.45292613, b: 0, a: 1}
@@ -347,7 +347,7 @@ MonoBehaviour:
   Health: 100
   MaxHealth: 100
   MeleeResistancePercentage: 0
-  RangeResistancePercentage: 0
+  RangeResistancePercentage: 60
   AttackDamage: 2
   PneumaAmount: 0
   rayNumber: 20
@@ -355,6 +355,9 @@ MonoBehaviour:
   rayStartAngle: -10
   detectionRange: 15
   delayScanTime: 0.5
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 0
   shootYOffset: {x: 0, y: 0, z: 0}
   isPlayerDetected: 0
   hasPlayerDetected: 0
@@ -367,9 +370,9 @@ MonoBehaviour:
   wallDistanceLimit: 7
   startEngagementRange: 10
   projectile: {fileID: 2293672932219427466, guid: e05d3644ec341dc4eb06436dcb3e0904, type: 3}
-  attackSpd: 0.4
+  attackSpd: 0.2
   projectileSpd: 8
-  shootMode: 4
+  shootMode: 2
   burstCount: 8
   projectileInterval: 1
   burstSpread: 40
