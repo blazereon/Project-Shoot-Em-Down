@@ -17,7 +17,7 @@ public class GameManager : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created'
 
     public static GameManager Current;
-    public Dictionary<String, String> SceneList = new();
+    public SortedDictionary<String, String> SceneList = new();
     public GameState CurrentGameState;
     public InputActionMap PlayerInput;
     public InputActionMap UIInput;
@@ -27,8 +27,8 @@ public class GameManager : MonoBehaviour
 
     [NonSerialized] public PlayerStats PlayerSavedStats;
     [NonSerialized] public bool IsPlayerNew = true;
-
-
+    [NonSerialized] public String CurrentSceneCode;
+    [NonSerialized] public List<String> SceneCodeSequence = new();
 
     public Action OnPauseEvent;
 
@@ -45,8 +45,14 @@ public class GameManager : MonoBehaviour
         PlayerInput = InputSystem.actions.FindActionMap("Player");
         UIInput = InputSystem.actions.FindActionMap("UI");
 
+        //Scene Initialization
+        SceneCodeSequence.Add("Tutorial");
         SceneList.Add("Tutorial", "Assets/Levels/Tutorial/TutorialScene.unity");
+
+        SceneCodeSequence.Add("LV1");
         SceneList.Add("LV1", "Assets/Levels/Level1/LV1_Scene.unity");
+
+
     }
 
     // Update is called once per frame
@@ -114,6 +120,7 @@ public class GameManager : MonoBehaviour
             Debug.LogError("Invalid Scene Code: " + name);
             return;
         }
+        CurrentSceneCode = name;
         LoadingScreenInstance.LoadingValue = 0f;
         CurrentGameState = GameState.Loading;
         Time.timeScale = 0;
@@ -123,6 +130,13 @@ public class GameManager : MonoBehaviour
         StartCoroutine(LoadSceneCoroutine(_sceneName));
     }
 
+    public void LoadNextScene()
+    {
+        int index = SceneCodeSequence.IndexOf(CurrentSceneCode);
+        if (index > SceneCodeSequence.Count) return;
+
+        LoadScene(SceneCodeSequence[index + 1]);
+    }
     IEnumerator LoadSceneCoroutine(String SceneName)
     {
         yield return new WaitForSecondsRealtime(0.6f);

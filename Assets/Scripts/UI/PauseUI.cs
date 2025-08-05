@@ -7,6 +7,7 @@ public class PauseUI : MonoBehaviour
     public GameObject PausePanel;
 
     public Button ResumeButton;
+    public Button RestartButton; 
 
     void Awake()
     {
@@ -18,6 +19,11 @@ public class PauseUI : MonoBehaviour
         ResumeButton.onClick.AddListener(delegate
         {
             SetResume();
+        });
+
+        RestartButton.onClick.AddListener(delegate
+        {
+            GameManager.Current.LoadScene(GameManager.Current.CurrentSceneCode);
         });
     }
 

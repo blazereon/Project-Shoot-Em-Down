@@ -52,12 +52,12 @@ public class CheckpointModule : MonoBehaviour
         {
             GameManager.Current.PlayerSavedStats = player.PlayerBaseStats;
             GameManager.Current.IsPlayerNew = false;
-            CameraController.Current.TrackTarget(pObject);
         }
         else
         {
             player.PlayerCurrentStats = GameManager.Current.PlayerSavedStats;
         }
+        CameraController.Current.TrackTarget(pObject);
 
         //Retain upgraded abilities
         for (int i = 0; i < player.PlayerCurrentStats.KeenAbility.AbilityData.UpgradeTier; i++)
