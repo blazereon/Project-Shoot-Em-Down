@@ -59,6 +59,7 @@ MonoBehaviour:
     m_Actions: []
     m_Bindings: []
   LoadingScreenInstance: {fileID: 5481354049362482110}
+  PlayerObject: {fileID: 8839071735322498656, guid: c3604b844efcebc4fbf1354e3862cad2, type: 3}
 --- !u!1001 &4295364927034915236
 PrefabInstance:
   m_ObjectHideFlags: 0
