@@ -68,6 +68,7 @@ public class GameConclusion : MonoBehaviour
 
     public void NextLevel()
     {
+        EventSystem.Current.SavePlayerStat();
         GameManager.Current.LoadNextScene();
     }
 

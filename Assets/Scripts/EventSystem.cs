@@ -44,6 +44,7 @@ public class EventSystem : MonoBehaviour
     public event Func<GameObject> OnPlayerGameObject;
     public event Action<PlayerStats> OnUpdatePlayerStats;
     public event Action<PlayerDebug> OnUpdatePlayerDebug;
+    public event Action OnSavePlayerStat;
 
     //Player Comonent Ability related Events
     public event Action<DashAbilityStatus> OnUpdateDashAbilityUI;
@@ -51,8 +52,7 @@ public class EventSystem : MonoBehaviour
     public event Action<DestructiveBoltStatus> OnUpdateDestructiveBoltUI;
     public event Action OnReleaseStunningField;
     public event Action<CompAbilityType> OnPlayerUpgradeAbility;
-
-    
+    public event Action OnRefreshPlayerUI;
 
     public event Action<GameObject, ProjectileProps> OnModifyProjectile;
     public event Action<GameObject, float> OnSimpleDeflectProjectile;
@@ -128,6 +128,11 @@ public class EventSystem : MonoBehaviour
         OnUpdateDestructiveBoltUI?.Invoke(destructiveBoltStatus);
     }
 
+    public void RefreshPlayerUI()
+    {
+        OnRefreshPlayerUI?.Invoke();
+    }
+
     public void ReleaseStunningField()
     {
         OnReleaseStunningField?.Invoke();
@@ -136,5 +141,10 @@ public class EventSystem : MonoBehaviour
     public void UpgradePlayerAbility(CompAbilityType type)
     {
         OnPlayerUpgradeAbility?.Invoke(type);
+    }
+
+    public void SavePlayerStat()
+    {
+        OnSavePlayerStat?.Invoke();
     }
 }

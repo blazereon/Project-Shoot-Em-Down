@@ -63,7 +63,6 @@ public class UIManager : MonoBehaviour
         SkillTreeAction = InputSystem.actions.FindAction("SkillTree");
         CancelAction = InputSystem.actions.FindAction("Cancel");
         CurrentState = UIState.None;
-
         // PushToast(new Toast.ToastMessage
         // {
         //     Title = "TestToast",
@@ -124,7 +123,6 @@ public class UIManager : MonoBehaviour
     {
         GameManager.Current.SetState(GameState.Paused);
         SkillTreeMenu.SetActive(true);
-
         if (!CancelAction.triggered) return;
         CurrentState = UIState.None;
         return;
@@ -147,6 +145,7 @@ public class UIManager : MonoBehaviour
 
         if (SkillTreeAction.triggered)
         {
+            SkillTreeMenu.SetActive(true);
             CurrentState = UIState.SkillTree;
             return;
         }

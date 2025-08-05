@@ -36,6 +36,7 @@ public class Dash : ComponentAbility
 
     public override void UpgradeComponentHandler()
     {
+        
         if (UpgradeTier == 1)
         {
             MaxDashCount = 2;
@@ -111,6 +112,11 @@ public class Dash : ComponentAbility
             Cooldown = this.Cooldown,
             CooldownTimer = this._cooldownTimer
         };
+    }
+
+    public void RefreshStatus()
+    {
+        EventSystem.Current.UpdateDashAbilityUI(GetCurrentStatus());
     }
 
     IEnumerator DashCooldown()
