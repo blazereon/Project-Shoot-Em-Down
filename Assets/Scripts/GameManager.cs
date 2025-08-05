@@ -23,6 +23,13 @@ public class GameManager : MonoBehaviour
     public InputActionMap UIInput;
     public LoadingScreen LoadingScreenInstance;
 
+    public GameObject PlayerObject;
+
+    [NonSerialized] public PlayerStats PlayerSavedStats;
+    [NonSerialized] public bool IsPlayerNew = true;
+
+
+
     public Action OnPauseEvent;
 
     void Awake()
