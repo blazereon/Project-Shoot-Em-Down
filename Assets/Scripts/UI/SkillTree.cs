@@ -7,7 +7,12 @@ public class SkillTree : MonoBehaviour
     public SkillTreeGenInfo GenInfo;
     public TextMeshProUGUI SkillPointsRemaining;
 
-    void Awake()
+    void Start()
+    {
+        
+    }
+
+    void OnEnable()
     {
         EventSystem.Current.OnUpdateDashAbilityUI += UpdateDashAbility;
         EventSystem.Current.OnUpdateDestructiveBoltUI += UpdateDestructiveBoltAbility;
@@ -17,6 +22,7 @@ public class SkillTree : MonoBehaviour
         AbilitiesGroup.Dash.SkillTree.SkillTreeGenInfoInstance = GenInfo;
         AbilitiesGroup.DestructiveBolt.SkillTree.SkillTreeGenInfoInstance = GenInfo;
         AbilitiesGroup.Keen.SkillTree.SkillTreeGenInfoInstance = GenInfo;
+        EventSystem.Current.RefreshPlayerUI();
     }
 
     public void UpdateValues(CompAbilityType type, ComponentAbilityData data)

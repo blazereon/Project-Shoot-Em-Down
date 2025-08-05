@@ -50,6 +50,8 @@ public class ManagerPlayerState : Player
         EventSystem.Current.OnPlayerUpgradeAbility += ApplyUpgradeAbility;
         CheatEventSystem.Current.OnPlayerModifyStat += ApplyCheat;
         CheatEventSystem.Current.OnPlayerUpgradeAbility += ApplyUpgradeAbility;
+        EventSystem.Current.OnRefreshPlayerUI += UpdateUIData;
+        EventSystem.Current.OnSavePlayerStat += SavePlayerStats;
 
 
         //Component Abilities
@@ -105,20 +107,6 @@ public class ManagerPlayerState : Player
         _currentCombatState = IdleCombatState;
         _currentCombatState.EnterState(this);
 
-        // //for debugging purposes: dash upgrade
-        // DashAbility.UpgradeComponent();
-        // DashAbility.UpgradeComponent();
-        // DashAbility.UpgradeComponent();
-
-        // //for debugging purposes: keen upgrade
-        // KeenAbility.UpgradeComponent();
-        // KeenAbility.UpgradeComponent();
-        // KeenAbility.UpgradeComponent();
-
-        // //for debugging purposes: destructive bolt
-        // DestructiveBoltAbility.UpgradeComponent();
-        // DestructiveBoltAbility.UpgradeComponent();
-        // DestructiveBoltAbility.UpgradeComponent();
     }
 
 

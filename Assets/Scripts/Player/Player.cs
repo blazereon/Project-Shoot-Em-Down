@@ -94,8 +94,9 @@ public class Player : Entity
         PlayerCurrentStats.Health -= damage;
         if (PlayerCurrentStats.Health <= 0)
         {
-            Destroy(this.gameObject);
+            UIManager.Current.CurrentState = UIState.GameOver;
             AudioManager.instance.PlayFX(AudioManager.instance.playerDeath, false);
+            Destroy(this.gameObject);
         }
         StartCoroutine(PlayerImmune());
         Debug.Log("HP: " + PlayerCurrentStats.Health);
@@ -161,9 +162,22 @@ public class Player : Entity
         }
     }
 
+    public void SavePlayerStats()
+    {
+        PlayerCurrentStats.KeenAbility.AbilityData = KeenAbility.GetComponentAbilityData();
+        PlayerCurrentStats.DestructiveBoltAbility.AbilityData = DestructiveBoltAbility.GetComponentAbilityData();
+        PlayerCurrentStats.DashAbility.AbilityData = DashAbility.GetComponentAbilityData();
+        GameManager.Current.PlayerSavedStats = PlayerCurrentStats;
+    }
+
     public override void UpdateUIData()
     {
-        //does nothing yet
+        //Component Abilities
+        KeenAbility.RefreshStatus();
+        DashAbility.RefreshStatus();
+        DestructiveBoltAbility.RefreshStatus();
+
+        EventSystem.Current.UpdatePlayerStats(PlayerCurrentStats);        
     }
 
     public IEnumerator AttackDelay()

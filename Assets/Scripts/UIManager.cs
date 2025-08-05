@@ -45,6 +45,7 @@ public class UIManager : MonoBehaviour
 
     public GameObject PauseMenu;
     public GameObject SkillTreeMenu;
+    public GameConclusion GameConclusionPanel;
     public Toast ToastInstance;
     private Queue<Toast.ToastMessage> ToastQueue = new Queue<Toast.ToastMessage>();
     private Toast.ToastMessage _forceToastMessage;
@@ -62,7 +63,6 @@ public class UIManager : MonoBehaviour
         SkillTreeAction = InputSystem.actions.FindAction("SkillTree");
         CancelAction = InputSystem.actions.FindAction("Cancel");
         CurrentState = UIState.None;
-
         // PushToast(new Toast.ToastMessage
         // {
         //     Title = "TestToast",
@@ -123,7 +123,6 @@ public class UIManager : MonoBehaviour
     {
         GameManager.Current.SetState(GameState.Paused);
         SkillTreeMenu.SetActive(true);
-
         if (!CancelAction.triggered) return;
         CurrentState = UIState.None;
         return;
@@ -146,6 +145,7 @@ public class UIManager : MonoBehaviour
 
         if (SkillTreeAction.triggered)
         {
+            SkillTreeMenu.SetActive(true);
             CurrentState = UIState.SkillTree;
             return;
         }
@@ -159,12 +159,15 @@ public class UIManager : MonoBehaviour
 
     private void CompleteState()
     {
-        
+        GameManager.Current.SetState(GameState.Paused);
+        ClearUIExceptPlayerUI();
+        GameConclusionPanel.CurrentType = GameConclusion.Type.Complete;
     }
 
     private void GameOverState()
     {
-
+        ClearUIExceptPlayerUI();
+        GameConclusionPanel.CurrentType = GameConclusion.Type.Fail;
     }
 
     private void ClearUIExceptPlayerUI()

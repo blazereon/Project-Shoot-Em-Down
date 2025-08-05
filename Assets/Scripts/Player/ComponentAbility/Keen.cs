@@ -135,6 +135,11 @@ public class Keen : ComponentAbility
         };
     }
 
+    public void RefreshStatus()
+    {
+        EventSystem.Current.UpdateKeenAbilityUI(GetCurrentStatus());
+    }
+
     IEnumerator KeenCooldownCoroutine()
     {
         IsKeenCooldown = true;

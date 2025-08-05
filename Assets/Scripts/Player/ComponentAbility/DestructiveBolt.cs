@@ -52,6 +52,11 @@ public class DestructiveBolt : ComponentAbility
         };
     }
 
+    public void RefreshStatus()
+    {
+        EventSystem.Current.UpdateDestructiveBoltUI(GetCurrentStatus());
+    }
+
     IEnumerator DestructiveCooldownCoroutine()
     {
         IsCooldown = true;
