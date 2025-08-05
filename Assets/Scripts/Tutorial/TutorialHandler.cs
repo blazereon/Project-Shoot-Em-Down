@@ -7,6 +7,11 @@ public class TutorialHandler : MonoBehaviour
     bool isSkillTreeExecute = false;
     void Awake()
     {
+        
+    }
+
+    void Start()
+    {
         EventSystem.Current.OnUpdatePlayerStats += OnPlayerStatUpdate;
     }
 
