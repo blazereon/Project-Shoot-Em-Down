@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
 using NUnit.Framework;
@@ -12,6 +13,7 @@ public class Projectile : MonoBehaviour
     public List<Effect> EffectsList = new List<Effect>();
     private HashSet<int> objectHitID = new HashSet<int>();
     private int _objID;
+    private Vector2 _startPos;
 
     [HideInInspector]
     public bool RaycastedCollision = false;
@@ -26,21 +28,25 @@ public class Projectile : MonoBehaviour
     private void Start()
     {
         Debug.Log("Instantiated!");
+        // _startPos = transform.position;
         // destroyOnly = new List<LayerMask>();
         rb = GetComponent<Rigidbody2D>();
+        StartCoroutine(ProjectileExpiry(2f));
     }
 
     // Update is called once per frame
     private void Update()
     {
         Vector3 _playerVec3 = EventSystem.Current.PlayerLocation;
-        Vector2 _bulletPrevPos = transform.position;
-        float _distance = Vector2.Distance(EventSystem.Current.PlayerLocation, transform.position);
+        
+        /**
+        float _distance = Vector2.Distance(_startPos, transform.position);
 
-        if (_distance > 50)
+        if (_distance > 15)
         {
             Destroy(gameObject);
         }
+        **/
 
         if (RaycastedCollision)
         {
@@ -188,5 +194,12 @@ public class Projectile : MonoBehaviour
     {
         EventSystem.Current.OnModifyProjectile -= ModifyProjectile;
         EventSystem.Current.OnSimpleDeflectProjectile -= SimpleDeflect;
+    }
+
+    IEnumerator ProjectileExpiry(float expireTime)
+    {
+        yield return new WaitForSeconds(expireTime);
+
+        Destroy(gameObject);
     }
 }
