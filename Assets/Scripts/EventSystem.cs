@@ -110,6 +110,7 @@ public class EventSystem
 
     public void UpdatePlayerStats(PlayerStats stats)
     {
+        GameManager.Current.PlayerSavedStats = stats;
         OnUpdatePlayerStats?.Invoke(stats);
     }
 
