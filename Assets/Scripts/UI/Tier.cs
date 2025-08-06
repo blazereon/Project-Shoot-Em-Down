@@ -39,6 +39,14 @@ public class Tier : MonoBehaviour
         set
         {
             _IsPressed = value;
+
+            if (_IsPressed && !Lock)
+            {
+                AudioManager.instance.PlayFX(AudioManager.instance.HoldSelect, false);
+            } else 
+            {
+                AudioManager.instance.StopSFX();
+            } 
         }
     }
 
@@ -146,11 +154,6 @@ public class Tier : MonoBehaviour
         {
             _holdTimer = 0;
             Inactive.fillAmount = 1;
-        }
-        
-        if (!_IsPressed)
-        {
-            Debug.Log("Stopping sfx");
             // AudioManager.instance.StopSFX();
         }
     }
@@ -164,7 +167,7 @@ public class Tier : MonoBehaviour
         if (_holdTimer >= HoldTime)
         {
             EventSystem.Current.UpgradePlayerAbility(AbilityType);
-            // AudioManager.instance.PlayFX(AudioManager.instance.select, false);
+            AudioManager.instance.PlayFX(AudioManager.instance.select, false);
             _holdTimer = 0;
         }
     }

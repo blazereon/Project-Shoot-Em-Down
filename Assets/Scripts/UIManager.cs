@@ -148,6 +148,7 @@ public class UIManager : MonoBehaviour
         {
             SkillTreeMenu.SetActive(true);
             CurrentState = UIState.SkillTree;
+            AudioManager.instance.PlayFX(AudioManager.instance.tab, false);
             return;
         }
 
