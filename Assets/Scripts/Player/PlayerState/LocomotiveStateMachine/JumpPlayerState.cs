@@ -58,19 +58,12 @@ public class JumpPlayerState : BasePlayerState
             return;
         }
 
-
-        // if (player.PlayerRb.linearVelocityY <= player.LandStart)
-            // {
-            //     player.SwitchState(player.LandState);
-            //     return;
-            // }
-
-            //proceeds to dash
-            if (player.dashAction.IsPressed() && player.DashAbility.IsDashAvailable())
-            {
-                player.SwitchState(player.DashState);
-                return;
-            }
+        //proceeds to dash
+        if (player.dashAction.IsPressed() && player.DashAbility.IsDashAvailable())
+        {
+            player.SwitchState(player.DashState);
+            return;
+        }
 
         jumpTimer += Time.deltaTime;
     }
@@ -92,6 +85,11 @@ public class JumpPlayerState : BasePlayerState
         if (collision.collider.tag == "Wall")
         {
             player.SwitchState(player.WallGrabState);
+        }
+
+        if (collision.collider.tag == "Ground")
+        {
+            player.SwitchState(player.LandState);
         }
     }
 
