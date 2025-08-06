@@ -5,6 +5,9 @@ using UnityEngine;
 
 public class IdlePlayerState : BasePlayerState
 {
+    private float _momentumTimer = 0;
+    private float _momentumIncrementRate = 0.1f;
+    private int _momentumDecayPerSecond = 14;
     public override void EnterState(ManagerPlayerState player)
     {
 
@@ -14,6 +17,14 @@ public class IdlePlayerState : BasePlayerState
     {
         player.PlayBodyAnimation("idle");
         player.PlayArmAnimation("idleArmSwing");
+
+        if (_momentumTimer > _momentumIncrementRate)
+        {
+            _momentumTimer = 0;
+            player.PlayerCurrentStats.Momentum -= (int)(_momentumDecayPerSecond * _momentumIncrementRate);
+            EventSystem.Current.UpdatePlayerStats(player.PlayerCurrentStats);
+        }
+        _momentumTimer += Time.deltaTime;
         
         //proceeds to run
         if (player.moveAction.IsPressed())
