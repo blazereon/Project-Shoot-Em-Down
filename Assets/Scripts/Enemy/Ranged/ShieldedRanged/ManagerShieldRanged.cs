@@ -58,15 +58,12 @@ public class ManagerShieldRanged : Enemy
     [HideInInspector]
     public int attackDmg;
 
-    private void Awake()
-    {
-        EventSystem.Current.OnDamageEnemy += TakeDamage;
-        EventSystem.Current.OnApplyEffect += ReceiveEffect;
-    }
-
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        EventSystem.Current.OnDamageEnemy += TakeDamage;
+        EventSystem.Current.OnApplyEffect += ReceiveEffect;
+
         weakSpotBox = transform.Find("weakSpot").GetComponent<BoxCollider2D>();
         hitDetect = transform.Find("weakSpot").GetComponent<HitDetect>();
         enemyCollider = GetComponent<Collider2D>();
