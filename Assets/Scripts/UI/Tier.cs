@@ -42,12 +42,12 @@ public class Tier : MonoBehaviour
 
             if (_IsPressed && !Lock)
             {
-                AudioManager.instance.PlayFX(AudioManager.instance.HoldSelect, false);
+                AudioManager.instance.PlayFX(AudioManager.instance.holdSelect, false);
             }
             else if (_IsPressed && Lock)
             {
                 //Replace with no access sound
-                AudioManager.instance.PlayFX(AudioManager.instance.select, false);
+                AudioManager.instance.PlayFX(AudioManager.instance.noAccess, false);
             }
             else
             {

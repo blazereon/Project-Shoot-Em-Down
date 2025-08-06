@@ -1,5 +1,25 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!244 &-4223649200757954349
+AudioMixerEffectController:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_EffectID: 1b6ea499840dbbf4e9403e9144322d87
+  m_EffectName: Normalize
+  m_MixLevel: 1e6ef8c38e33f7d49a5776ecd26d1821
+  m_Parameters:
+  - m_ParameterName: Fade in time
+    m_GUID: cc15d486cc203bd4fa6a8c336deb09d4
+  - m_ParameterName: Lowest volume
+    m_GUID: 0b9728143897a874f8d27233b20eca3e
+  - m_ParameterName: Maximum amp
+    m_GUID: 7eab9908ccd29e245b54caf11633b73c
+  m_SendTarget: {fileID: 0}
+  m_EnableWetMix: 0
+  m_Bypass: 1
 --- !u!243 &-3604734517669866313
 AudioMixerGroupController:
   m_ObjectHideFlags: 0
@@ -16,6 +36,7 @@ AudioMixerGroupController:
   m_Effects:
   - {fileID: 7687236894973612347}
   - {fileID: -286029976998568315}
+  - {fileID: -4223649200757954349}
   m_UserColorIndex: 0
   m_Mute: 0
   m_Solo: 0
@@ -128,14 +149,16 @@ AudioMixerSnapshotController:
     ed0a51613018b704ea201f5ab97cff99: -15.3
     be04cc327009f1e45ad5ee04a468bdc7: 9.5
     6307dc8341f3e6047927813b4aa469af: 0
+    0b9728143897a874f8d27233b20eca3e: 1
     4d124f14700b1da45b44ad58cc045fa5: 144
-    37dfdb743314a714284610d5ebc609a0: -15
+    37dfdb743314a714284610d5ebc609a0: -25
     ee7398f46c4cd794e9f201a10d44662d: 3
     3b1f4227615e44d4c94e618077007612: 0
     b713ec57a65359446890a92c0ca1e42d: 0.017
     76a76167cf1635d4d8098c398ce85450: 1
     7ce86ca7f266def48911b66ad2ecac4c: 0
     b2f7e0f76a6baf548ac0e8cf3702d405: 6492
+    7eab9908ccd29e245b54caf11633b73c: 20
     1145ae38e8553454e8461f54bd863728: -0.02577656
     e9a80c8935e497241bc21b73dc023534: 380
     2b7f02c968f4ca44ba3bb2c235cf9b5b: -0.27209902
@@ -149,9 +172,10 @@ AudioMixerSnapshotController:
     c650191ee7f8a554ba27183302bf007a: 0
     7d6a742e7e6edd84081efb423e79f735: -20.8
     4510568e0e081224687b232b46237ea3: 28.2
+    e87736ae31a001b41bafdf7da7759bf0: -80
     1b86c6deb76e2c24cb73d840704ccc01: 100
     7bfcbd1f410131f4c9c6bb53338e8b26: 2
-    1a74d76fcc4708d439442344af09cddb: 0.1
+    1a74d76fcc4708d439442344af09cddb: 0.006
     0796b1afa182d72458add86e2bf70982: 129
   m_TransitionOverrides: {}
 --- !u!244 &2270312263784378929

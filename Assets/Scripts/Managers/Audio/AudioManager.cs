@@ -39,8 +39,9 @@ public class AudioManager : MonoBehaviour
 
     [Header("Other Audio Clips")]
     public AudioClip tab;
-    public AudioClip HoldSelect;
+    public AudioClip holdSelect;
     public AudioClip select;
+    public AudioClip noAccess;
 
     [Header("Music BGM")]
     public AudioClip levelBGM;
