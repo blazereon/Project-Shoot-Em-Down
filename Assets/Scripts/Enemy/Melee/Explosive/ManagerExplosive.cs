@@ -30,17 +30,13 @@ public class ManagerExplosive : Enemy
     public Animator MainAnimator;
     public Animator EffectsAnimator;
 
-    void Awake()
-    {
-        
-    }
-
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         EventSystem.Current.OnDamageEnemy += TakeDamage;
         EventSystem.Current.OnApplyEffect += ReceiveEffect;
         enemyRb = GetComponent<Rigidbody2D>();
+
         // Main Animator
         MainAnimator = GetComponent<Animator>(); 
         

@@ -52,6 +52,7 @@ public class ManagerStaticRanged : Enemy
     {
         EventSystem.Current.OnDamageEnemy += TakeDamage;
         EventSystem.Current.OnApplyEffect += ReceiveEffect;
+
         scanBox = transform.Find("ScanBox").GetComponent<BoxCollider2D>();
         hitDetect = transform.Find("ScanBox").GetComponent<HitDetect>();
         enemyCollider = GetComponent<Collider2D>();
