@@ -43,7 +43,13 @@ public class Tier : MonoBehaviour
             if (_IsPressed && !Lock)
             {
                 AudioManager.instance.PlayFX(AudioManager.instance.HoldSelect, false);
-            } else 
+            }
+            else if (_IsPressed && Lock)
+            {
+                //Replace with no access sound
+                AudioManager.instance.PlayFX(AudioManager.instance.select, false);
+            }
+            else
             {
                 AudioManager.instance.StopSFX();
             } 
