@@ -62,6 +62,9 @@ public class ManagerShieldRanged : Enemy
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        // Main Animator
+        MainAnimator = GetComponent<Animator>();
+        
         EventSystem.Current.OnDamageEnemy += TakeDamage;
         EventSystem.Current.OnApplyEffect += ReceiveEffect;
 

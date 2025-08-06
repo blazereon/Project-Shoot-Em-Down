@@ -53,6 +53,9 @@ public class ManagerStaticRanged : Enemy
 
     void Start()
     {
+        // Main Animator
+        MainAnimator = GetComponent<Animator>();
+        
         EventSystem.Current.OnDamageEnemy += TakeDamage;
         EventSystem.Current.OnApplyEffect += ReceiveEffect;
 
