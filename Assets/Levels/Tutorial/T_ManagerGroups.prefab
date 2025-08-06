@@ -3700,8 +3700,13 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8346312246815307382, guid: 7ffff591d55e270cc8c8a714b51fb498, type: 3}
+      propertyPath: levelBGM
+      value: 
+      objectReference: {fileID: 8300000, guid: 6c04d2aa5696a5b42a1c1fb8a321912e, type: 3}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 7047194454588191980, guid: 7ffff591d55e270cc8c8a714b51fb498, type: 3}
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 8366504449799595887, guid: 7ffff591d55e270cc8c8a714b51fb498, type: 3}
       insertIndex: -1
