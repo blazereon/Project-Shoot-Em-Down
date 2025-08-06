@@ -217,7 +217,7 @@ public class Player : Entity
         if (newStat.Aggression.HasValue) PlayerCurrentStats.Aggression = newStat.Aggression.Value;
         if (newStat.MaxAggression.HasValue) PlayerCurrentStats.MaxAggression = newStat.MaxAggression.Value;
 
-        if (newStat.deltaHealth.HasValue) PlayerCurrentStats.Health += newStat.deltaHealth.Value;
+        if (newStat.deltaHealth.HasValue && (PlayerCurrentStats.Health < PlayerCurrentStats.MaxHealth)) PlayerCurrentStats.Health += newStat.deltaHealth.Value;
         if (newStat.deltaMaxHealth.HasValue) PlayerCurrentStats.MaxHealth += newStat.deltaMaxHealth.Value;
     }
 
