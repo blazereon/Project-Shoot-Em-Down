@@ -60,7 +60,6 @@ public class Player : Entity
     public float DashForce;
     public float DashDuration;
     public float DashRecovery;
-    public float MomentumDecayRate;
     public float ImmuneDuration = 3f;
 
     public float MeleePadding;

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEditor.Callbacks;
 using UnityEngine;
@@ -5,15 +6,27 @@ using UnityEngine.Rendering;
 
 public class RunPlayerState : BasePlayerState
 {
+    private float _momentumTimer = 0;
+    private float _momentumIncrementRate = 0.1f;
+    private int _momentumPerSecond = 20;
     public override void EnterState(ManagerPlayerState player)
     {
-        
+
     }
 
     public override void UpdateState(ManagerPlayerState player)
     {
         player.PlayBodyAnimation("runLoop");
         player.PlayArmAnimation("runArmSwing");
+
+        if (_momentumTimer > _momentumIncrementRate)
+        {
+            _momentumTimer = 0;
+            if (player.PlayerCurrentStats.Momentum >= Math.Floor(player.PlayerCurrentStats.MaxMomentum * 0.75f)) return;
+            player.PlayerCurrentStats.Momentum += (int)(_momentumPerSecond * _momentumIncrementRate);
+            EventSystem.Current.UpdatePlayerStats(player.PlayerCurrentStats);
+        }
+        _momentumTimer += Time.deltaTime;
         
         if (!player.groundBox.isGrounded)
         {

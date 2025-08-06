@@ -102,7 +102,7 @@ public class ManagerPlayerState : Player
         ArmTransform = ArmAnimator.transform;
 
         EventSystem.Current.UpdatePlayerStats(PlayerCurrentStats);
-        StartCoroutine(MomentumDecay());
+        // StartCoroutine(MomentumDecay());
         _currentState = IdleState;
         _currentState.EnterState(this);
 
@@ -276,33 +276,33 @@ public class ManagerPlayerState : Player
     }
 
 
-    IEnumerator MomentumDecay()
-    {
-        while (true)
-        {
-            yield return new WaitForSeconds(MomentumDecayRate / 8);
-            if (_currentState == IdleState)
-            {
-                PlayerCurrentStats.Momentum = Mathf.Clamp(PlayerCurrentStats.Momentum - (20 / 8), 0, PlayerCurrentStats.MaxMomentum);
-                EventSystem.Current.UpdatePlayerStats(PlayerCurrentStats);
-                continue;
-            }
+    // IEnumerator MomentumDecay()
+    // {
+    //     while (true)
+    //     {
+    //         yield return new WaitForSeconds(MomentumDecayRate / 8);
+    //         if (_currentState == IdleState)
+    //         {
+    //             PlayerCurrentStats.Momentum = Mathf.Clamp(PlayerCurrentStats.Momentum - (20 / 8), 0, PlayerCurrentStats.MaxMomentum);
+    //             EventSystem.Current.UpdatePlayerStats(PlayerCurrentStats);
+    //             continue;
+    //         }
 
-            if (_currentState == RunState)
-            {
-                if (PlayerCurrentStats.Momentum > PlayerCurrentStats.MaxMomentum * 0.75)
-                {
-                    PlayerCurrentStats.Momentum = (int)Mathf.Clamp(PlayerCurrentStats.Momentum - (10 / 8), PlayerCurrentStats.MaxMomentum * 0.75f, PlayerCurrentStats.MaxMomentum);
-                    EventSystem.Current.UpdatePlayerStats(PlayerCurrentStats);
-                    continue;
-                }
-                PlayerCurrentStats.Momentum = (int)Mathf.Clamp(PlayerCurrentStats.Momentum + (10 / 8), 0, PlayerCurrentStats.MaxMomentum * 0.75f);
-                EventSystem.Current.UpdatePlayerStats(PlayerCurrentStats);
-                continue;
-            }
+    //         if (_currentState == RunState)
+    //         {
+    //             if (PlayerCurrentStats.Momentum > PlayerCurrentStats.MaxMomentum * 0.75)
+    //             {
+    //                 PlayerCurrentStats.Momentum = (int)Mathf.Clamp(PlayerCurrentStats.Momentum - (10 / 8), PlayerCurrentStats.MaxMomentum * 0.75f, PlayerCurrentStats.MaxMomentum);
+    //                 EventSystem.Current.UpdatePlayerStats(PlayerCurrentStats);
+    //                 continue;
+    //             }
+    //             PlayerCurrentStats.Momentum = (int)Mathf.Clamp(PlayerCurrentStats.Momentum + (10 / 8), 0, PlayerCurrentStats.MaxMomentum * 0.75f);
+    //             EventSystem.Current.UpdatePlayerStats(PlayerCurrentStats);
+    //             continue;
+    //         }
 
-        }
-    }
+    //     }
+    // }
 
     void OnDestroy()
     {
