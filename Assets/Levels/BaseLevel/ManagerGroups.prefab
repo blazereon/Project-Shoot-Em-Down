@@ -7608,6 +7608,46 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6607338152283196542, guid: 6f962f6df3c7fcc4fa6c9af045657e87, type: 3}
+      propertyPath: cheatCodeList.Array.size
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6607338152283196542, guid: 6f962f6df3c7fcc4fa6c9af045657e87, type: 3}
+      propertyPath: cheatCodeList.Array.data[6].code
+      value: ramp
+      objectReference: {fileID: 0}
+    - target: {fileID: 6607338152283196542, guid: 6f962f6df3c7fcc4fa6c9af045657e87, type: 3}
+      propertyPath: cheatCodeList.Array.data[6].cheatEvent.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6607338152283196542, guid: 6f962f6df3c7fcc4fa6c9af045657e87, type: 3}
+      propertyPath: cheatCodeList.Array.data[6].cheatEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6607338152283196542, guid: 6f962f6df3c7fcc4fa6c9af045657e87, type: 3}
+      propertyPath: cheatCodeList.Array.data[6].cheatEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 4818250082667410708}
+    - target: {fileID: 6607338152283196542, guid: 6f962f6df3c7fcc4fa6c9af045657e87, type: 3}
+      propertyPath: cheatCodeList.Array.data[6].cheatEvent.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6607338152283196542, guid: 6f962f6df3c7fcc4fa6c9af045657e87, type: 3}
+      propertyPath: cheatCodeList.Array.data[6].cheatEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: AddSP
+      objectReference: {fileID: 0}
+    - target: {fileID: 6607338152283196542, guid: 6f962f6df3c7fcc4fa6c9af045657e87, type: 3}
+      propertyPath: cheatCodeList.Array.data[6].cheatEvent.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: CheatCode, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 6607338152283196542, guid: 6f962f6df3c7fcc4fa6c9af045657e87, type: 3}
+      propertyPath: cheatCodeList.Array.data[6].cheatEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6607338152283196542, guid: 6f962f6df3c7fcc4fa6c9af045657e87, type: 3}
+      propertyPath: cheatCodeList.Array.data[6].cheatEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -7618,6 +7658,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4293564221925612808, guid: 6f962f6df3c7fcc4fa6c9af045657e87, type: 3}
   m_PrefabInstance: {fileID: 1831883020951026026}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &4818250082667410708 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6607338152283196542, guid: 6f962f6df3c7fcc4fa6c9af045657e87, type: 3}
+  m_PrefabInstance: {fileID: 1831883020951026026}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 257110b5f623a554782a19bed22da4c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &3090549679113268735
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7949,9 +8000,21 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 8690390362936981200, guid: 98ca58353fc629645a334e87e5c8b52d, type: 2}
     - target: {fileID: 1942204295011232120, guid: 137cc6ae3dcf69e4488a1ca21fa63680, type: 3}
+      propertyPath: tab
+      value: 
+      objectReference: {fileID: 8300000, guid: 4112f1b9336bd944dbce3befa2046837, type: 3}
+    - target: {fileID: 1942204295011232120, guid: 137cc6ae3dcf69e4488a1ca21fa63680, type: 3}
+      propertyPath: select
+      value: 
+      objectReference: {fileID: 8300000, guid: ff6172adb2b471a4b9579a37636e4434, type: 3}
+    - target: {fileID: 1942204295011232120, guid: 137cc6ae3dcf69e4488a1ca21fa63680, type: 3}
       propertyPath: levelBGM
       value: 
       objectReference: {fileID: 8300000, guid: df8db6036f824e54e8b1ff27b9c0cd2c, type: 3}
+    - target: {fileID: 1942204295011232120, guid: 137cc6ae3dcf69e4488a1ca21fa63680, type: 3}
+      propertyPath: HoldSelect
+      value: 
+      objectReference: {fileID: 8300000, guid: f2fa539371185574fb0a21dba7a0f3c1, type: 3}
     - target: {fileID: 3687795523081152696, guid: 137cc6ae3dcf69e4488a1ca21fa63680, type: 3}
       propertyPath: m_Name
       value: SoundManager

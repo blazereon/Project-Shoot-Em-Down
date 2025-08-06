@@ -109,4 +109,9 @@ public class CheatCode : MonoBehaviour
         //irreversible yet
         Debug.Log("Melee -1 Upgrade Cheat Invoked");
     }
+
+    public void AddSP()
+    {
+        CheatEventSystem.Current.InvokePlayerCheat(new PlayerStatDelta { deltaSkillPoint = 1 });
+    }
 }

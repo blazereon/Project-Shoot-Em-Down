@@ -218,6 +218,7 @@ public class Player : Entity
 
         if (newStat.deltaHealth.HasValue && (PlayerCurrentStats.Health < PlayerCurrentStats.MaxHealth)) PlayerCurrentStats.Health += newStat.deltaHealth.Value;
         if (newStat.deltaMaxHealth.HasValue) PlayerCurrentStats.MaxHealth += newStat.deltaMaxHealth.Value;
+        if (newStat.deltaSkillPoint.HasValue) PlayerCurrentStats.SkillPoint += newStat.deltaSkillPoint.Value;
     }
 
     public void ApplyUpgradeAbility(CompAbilityType ability)

@@ -7,6 +7,7 @@ public class PlayerStatDelta
     [NonSerialized] public int? Health;
     [NonSerialized] public int? MaxHealth;
     [NonSerialized] public int? Violence;
+    [NonSerialized] public int? SkillPoint;
     [NonSerialized] public int? MaxMomentum;
     [NonSerialized] public int? MaxPneumatic;
     [NonSerialized] public float? ProjectileSpeed;
@@ -27,6 +28,7 @@ public class PlayerStatDelta
     [NonSerialized] public int? deltaHealth;
     [NonSerialized] public int? deltaMaxHealth;
     [NonSerialized] public int? deltaViolence;
+    [NonSerialized] public int? deltaSkillPoint;
     [NonSerialized] public int? deltaMaxMomentum;
     [NonSerialized] public int? deltaMaxPneumatic;
     [NonSerialized] public float? deltaProjectileSpeed;
