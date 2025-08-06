@@ -27,16 +27,12 @@ public class ManagerGenericEnemy : Enemy
     //Set the Sprite Animator
     public Animator MainAnimator;
 
-    void Awake()
-    {
-        
-    }
-
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         EventSystem.Current.OnDamageEnemy += TakeDamage;
         EventSystem.Current.OnApplyEffect += ReceiveEffect;
+
         GenericEnemyRb = GetComponent<Rigidbody2D>();
         // Main Animator
         MainAnimator = GetComponent<Animator>();

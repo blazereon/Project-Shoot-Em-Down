@@ -36,16 +36,13 @@ public class ManagerShieldMelee : Enemy
     public Animator MainAnimator;
     public Animator AttackAnimator;
 
-    void Awake()
+    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    void Start()
     {
         EventSystem.Current.OnDamageEnemy += TakeDamage;
         EventSystem.Current.OnApplyEffect += ReceiveEffect;
         enemyRb = GetComponent<Rigidbody2D>();
-    }
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
         // Main Animator
         MainAnimator = GetComponent<Animator>();
 
