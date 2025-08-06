@@ -26,6 +26,8 @@ public class WanderShieldRanged : BaseShieldRanged
 
     public override void UpdateState(ManagerShieldRanged enemy)
     {
+        enemy.PlayMainAnimation("Shielded_Ranged_Loop");
+
         _isPlayerDetected = enemy.PlayerDetection(enemy.transform.localScale);
 
         if (_isPlayerDetected)

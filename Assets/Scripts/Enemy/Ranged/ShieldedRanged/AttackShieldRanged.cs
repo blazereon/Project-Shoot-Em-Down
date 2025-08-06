@@ -24,6 +24,8 @@ public class AttackShieldRanged: BaseShieldRanged
 
     public override void UpdateState(ManagerShieldRanged enemy)
     {
+        enemy.PlayMainAnimation("Shielded_Ranged_Attack");
+
         // switch to stun
         if (enemy.IsStunned)
         {
