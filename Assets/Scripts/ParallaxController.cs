@@ -12,8 +12,8 @@ public class ParallaxController : MonoBehaviour
 
     float _farthestBack;
 
-    [Range(0f, 0.5f)]
-    public float parallaxSpeed = 0.2f;
+    [Range(0.01f, 0.05f)]
+    public float parallaxSpeed;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -39,7 +39,10 @@ public class ParallaxController : MonoBehaviour
     void LateUpdate()
     {
         _distance = _cam.position.x - _camStartPos.x;
-        transform.position = new Vector3(_cam.position.x, transform.position.y, 0);
+        float _distanceY = _cam.position.y - _camStartPos.y;
+
+        transform.position = new Vector3(_cam.position.x, _cam.position.y, 0);
+        Debug.Log("Cam pos: " + transform.position + " " + _cam.position); 
 
         for (int i = 0; i < _backspeed.Length; i++)
         {
