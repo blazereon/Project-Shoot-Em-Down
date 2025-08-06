@@ -94,7 +94,7 @@ public class AttackPlayerCombatState : BasePlayerCombatState
             else if (hit.gameObject.tag == "Enemy")
             {
                 Debug.Log("enemy melee hit!!");
-                EventSystem.Current.AttackEnemy(hit.gameObject, DamageType.Melee, 15 /*+ (15/2 * player.PlayerCurrentStats.Chain)*/, player.PlayerCurrentStats.Violence, false);
+                EventSystem.Current.AttackEnemy(hit.gameObject, DamageType.Melee, player.PlayerCurrentStats.MeleeDamage + (int)(player.PlayerCurrentStats.MeleeDamage * 0.5 * player.PlayerCurrentStats.Chain), player.PlayerCurrentStats.Violence, false);
                 if (!player.KeenAbility.IsTandemCooldown && player.KeenAbility.UpgradeTier >= 3) player.KeenAbility.TriggerTandem();
             }
         }
@@ -119,7 +119,7 @@ public class AttackPlayerCombatState : BasePlayerCombatState
             Trajectory = _playerToMouseDistance.normalized,
             ProjectileSpeed = player.PlayerCurrentStats.ProjectileSpeed,    // note: you can add public var for projectile speed
             isPiercing = false,
-            AttackDamage = (int)(8 + (8 / 2 * player.PlayerCurrentStats.Chain)),
+            AttackDamage = (int)(player.PlayerCurrentStats.RangedDamage + (player.PlayerCurrentStats.RangedDamage * 0.5f * player.PlayerCurrentStats.Chain)),
             DestroyOnly = LayerMask.GetMask("Ground", "Wall", "Shield"),
             FiredBy = ProjectileOwner.Player,   // both of these can be set in the inspector... or runtime
             Destination = LayerDestinations.Enemy

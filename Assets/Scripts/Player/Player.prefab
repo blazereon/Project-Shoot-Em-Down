@@ -855,6 +855,8 @@ MonoBehaviour:
   PlayerBaseStats:
     Health: 3
     MaxHealth: 5
+    MeleeDamage: 15
+    RangedDamage: 8
     Violence: 0
     SkillPoint: 0
     MaxMomentum: 100
@@ -869,6 +871,8 @@ MonoBehaviour:
   PlayerCurrentStats:
     Health: 10
     MaxHealth: 10
+    MeleeDamage: 0
+    RangedDamage: 0
     Violence: 0
     SkillPoint: 0
     MaxMomentum: 0
@@ -890,6 +894,7 @@ MonoBehaviour:
   DashDuration: 0.2
   DashRecovery: 2
   MomentumDecayRate: 1
+  ImmuneDuration: 3
   MeleePadding: 0.64
   MeleeRadius: 1.01
   CanAtack: 1
