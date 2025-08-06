@@ -43,6 +43,9 @@ public class ManagerStaticRanged : Enemy
     [HideInInspector]
     public int attackDmg;
 
+    //Set the Sprite Animator
+    public Animator MainAnimator;
+    
     private void Awake()
     {
         
@@ -53,6 +56,7 @@ public class ManagerStaticRanged : Enemy
         EventSystem.Current.OnDamageEnemy += TakeDamage;
         EventSystem.Current.OnApplyEffect += ReceiveEffect;
 
+        MainAnimator = GetComponent<Animator>();
         scanBox = transform.Find("ScanBox").GetComponent<BoxCollider2D>();
         hitDetect = transform.Find("ScanBox").GetComponent<HitDetect>();
         enemyCollider = GetComponent<Collider2D>();
@@ -89,5 +93,14 @@ public class ManagerStaticRanged : Enemy
     {
         EventSystem.Current.OnDamageEnemy -= TakeDamage;
         EventSystem.Current.OnApplyEffect -= ReceiveEffect;
+    }
+
+    public string currentMainAnimation = "";
+
+    public void PlayMainAnimation(string newAnimation)
+    {
+        if (newAnimation == currentMainAnimation) return;
+        MainAnimator.Play(newAnimation);
+        currentMainAnimation = newAnimation;
     }
 }

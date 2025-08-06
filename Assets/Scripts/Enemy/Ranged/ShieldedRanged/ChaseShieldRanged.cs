@@ -16,6 +16,8 @@ public class ChaseShieldRanged: BaseShieldRanged
 
     public override void UpdateState(ManagerShieldRanged enemy)       // Handle Distance Detections
     {
+        enemy.PlayMainAnimation("Shielded_Ranged_Loop");
+
         if (enemy.enemyCollider == EventSystem.Current.PlayerCollider)
         {
             Debug.LogWarning("Player and Enemy colliders are the same! " + enemy.enemyCollider + " " + EventSystem.Current.PlayerCollider);

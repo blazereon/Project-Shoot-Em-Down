@@ -23,6 +23,8 @@ public class AttackStaticRanged : BaseStaticRanged
 
     public override void UpdateState(ManagerStaticRanged enemy)
     {
+            enemy.PlayMainAnimation("Static_Ranged_Detect"); 
+
         // switch to stun
         if (enemy.IsStunned)
         {
@@ -33,6 +35,8 @@ public class AttackStaticRanged : BaseStaticRanged
         {
             _attackCoroutine = null;
             _startAttack = false;
+
+            enemy.PlayMainAnimation("Static_Ranged_Nodetect");
             enemy.SwitchState(enemy.scanState);
         }
         else
@@ -139,6 +143,7 @@ public class AttackStaticRanged : BaseStaticRanged
                 _startAttack = false;
             }
 
+            enemy.PlayMainAnimation("Static_Ranged_Nodetect");
             enemy.SwitchState(enemy.scanState);
         }
     }

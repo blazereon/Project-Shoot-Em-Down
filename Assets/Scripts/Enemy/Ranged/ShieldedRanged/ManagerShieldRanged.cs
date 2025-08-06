@@ -3,7 +3,7 @@ using UnityEngine;
 public class ManagerShieldRanged : Enemy
 {
     BaseShieldRanged currentState;
-    public BaseShieldRanged prevState {  get; set; }
+    public BaseShieldRanged prevState { get; set; }
 
     public WanderShieldRanged wanderState = new WanderShieldRanged();
     public ChaseShieldRanged chaseState = new ChaseShieldRanged();
@@ -58,12 +58,14 @@ public class ManagerShieldRanged : Enemy
     [HideInInspector]
     public int attackDmg;
 
+    public Animator MainAnimator;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         EventSystem.Current.OnDamageEnemy += TakeDamage;
         EventSystem.Current.OnApplyEffect += ReceiveEffect;
 
+        MainAnimator = GetComponent<Animator>();
         weakSpotBox = transform.Find("weakSpot").GetComponent<BoxCollider2D>();
         hitDetect = transform.Find("weakSpot").GetComponent<HitDetect>();
         enemyCollider = GetComponent<Collider2D>();
@@ -109,5 +111,14 @@ public class ManagerShieldRanged : Enemy
     {
         EventSystem.Current.OnDamageEnemy -= TakeDamage;
         EventSystem.Current.OnApplyEffect -= ReceiveEffect;
+    }
+    
+    public string currentMainAnimation = "";
+
+    public void PlayMainAnimation(string newAnimation)
+    {
+        if (newAnimation == currentMainAnimation) return;
+        MainAnimator.Play(newAnimation);
+        currentMainAnimation = newAnimation;
     }
 }

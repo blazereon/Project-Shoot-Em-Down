@@ -9,8 +9,11 @@ public class StunStaticRanged : BaseStaticRanged
 
     public override void UpdateState(ManagerStaticRanged enemy)
     {
+        enemy.PlayMainAnimation("Static_Ranged_Nodetect");
+
         if (!enemy.IsStunned)
         {
+
             if (enemy.prevState == null)
             {
                 enemy.SwitchState(enemy.scanState);

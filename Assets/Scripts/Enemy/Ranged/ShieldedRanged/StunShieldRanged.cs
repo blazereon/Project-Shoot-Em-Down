@@ -9,8 +9,12 @@ public class StunShieldRanged : BaseShieldRanged
 
     public override void UpdateState(ManagerShieldRanged enemy)
     {
+        enemy.PlayMainAnimation("Shielded_Ranged_Stun_v1");
+
         if (!enemy.IsStunned)
         {
+            enemy.PlayMainAnimation("Shielded_Ranged_Stun_v3");
+
             if (enemy.prevState == null)
             {
                 enemy.SwitchState(enemy.wanderState);

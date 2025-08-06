@@ -1,0 +1,976 @@
+fileFormatVersion: 2
+guid: 368650538c51bf24086c0dbfa21cda8b
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -6588609266448582299
+    second: Shielded_Ranged_Shield_0
+  - first:
+      213: -9191599991212561459
+    second: Shielded_Ranged_Shield_1
+  - first:
+      213: -8956867353952153089
+    second: Shielded_Ranged_Shield_2
+  - first:
+      213: 5453741908879883608
+    second: Shielded_Ranged_Shield_3
+  - first:
+      213: -4378190670093430042
+    second: Shielded_Ranged_Shield_4
+  - first:
+      213: -7238993568086933606
+    second: Shielded_Ranged_Shield_5
+  - first:
+      213: 3098612756275787717
+    second: Shielded_Ranged_Shield_6
+  - first:
+      213: -710067483319658883
+    second: Shielded_Ranged_Shield_7
+  - first:
+      213: -2688471506147478447
+    second: Shielded_Ranged_Shield_8
+  - first:
+      213: -4467859240586877175
+    second: Shielded_Ranged_Shield_9
+  - first:
+      213: 8227916435037563567
+    second: Shielded_Ranged_Shield_10
+  - first:
+      213: 2181343126367827268
+    second: Shielded_Ranged_Shield_11
+  - first:
+      213: 8026453865400603597
+    second: Shielded_Ranged_Shield_12
+  - first:
+      213: 5314183617382052377
+    second: Shielded_Ranged_Shield_13
+  - first:
+      213: 6614565896468201413
+    second: Shielded_Ranged_Shield_14
+  - first:
+      213: -2574726630130617154
+    second: Shielded_Ranged_Shield_15
+  - first:
+      213: 4645217098554619651
+    second: Shielded_Ranged_Shield_16
+  - first:
+      213: 5651867197363343425
+    second: Shielded_Ranged_Shield_17
+  - first:
+      213: 6586501814259146645
+    second: Shielded_Ranged_Shield_18
+  - first:
+      213: -5076093313422639939
+    second: Shielded_Ranged_Shield_19
+  - first:
+      213: 2423378064953870166
+    second: Shielded_Ranged_Shield_20
+  - first:
+      213: 8243357988435869560
+    second: Shielded_Ranged_Shield_21
+  - first:
+      213: -5230723446002050569
+    second: Shielded_Ranged_Shield_22
+  - first:
+      213: 9064266480056124758
+    second: Shielded_Ranged_Shield_23
+  - first:
+      213: -2232541235511281210
+    second: Shielded_Ranged_Shield_24
+  - first:
+      213: 4859295972570744607
+    second: Shielded_Ranged_Shield_25
+  - first:
+      213: -4823801843821289213
+    second: Shielded_Ranged_Shield_26
+  - first:
+      213: -5880258719379396269
+    second: Shielded_Ranged_Shield_27
+  - first:
+      213: -6766514909627261490
+    second: Shielded_Ranged_Shield_28
+  - first:
+      213: -4240123253609193292
+    second: Shielded_Ranged_Shield_29
+  - first:
+      213: -5367521361477805297
+    second: Shielded_Ranged_Shield_30
+  - first:
+      213: -2179942957045788209
+    second: Shielded_Ranged_Shield_31
+  - first:
+      213: -989524385665379911
+    second: Shielded_Ranged_Shield_32
+  - first:
+      213: -4563130429331654230
+    second: Shielded_Ranged_Shield_33
+  - first:
+      213: 8987404910953159539
+    second: Shielded_Ranged_Shield_34
+  - first:
+      213: 2160398954680227399
+    second: Shielded_Ranged_Shield_35
+  - first:
+      213: -8325756683671280151
+    second: Shielded_Ranged_Shield_36
+  - first:
+      213: 5065323879053205130
+    second: Shielded_Ranged_Shield_37
+  - first:
+      213: -7825197686222595130
+    second: Shielded_Ranged_Shield_38
+  - first:
+      213: 92258440129028076
+    second: Shielded_Ranged_Shield_39
+  - first:
+      213: -6108518917529766093
+    second: Shielded_Ranged_Shield_40
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 10
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: 4
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Shielded_Ranged_Shield_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5693c75b7ce8094a0800000000000000
+      internalID: -6588609266448582299
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shielded_Ranged_Shield_1
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dcbaa46d180e07080800000000000000
+      internalID: -9191599991212561459
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shielded_Ranged_Shield_2
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ff1936bd890d2b380800000000000000
+      internalID: -8956867353952153089
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shielded_Ranged_Shield_3
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 85d3277fe559fab40800000000000000
+      internalID: 5453741908879883608
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shielded_Ranged_Shield_4
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6e2d62e38ca8d33c0800000000000000
+      internalID: -4378190670093430042
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shielded_Ranged_Shield_5
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a9f37d224bde98b90800000000000000
+      internalID: -7238993568086933606
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shielded_Ranged_Shield_6
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5c7ff4a72eb700b20800000000000000
+      internalID: 3098612756275787717
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shielded_Ranged_Shield_7
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d761d22d2655526f0800000000000000
+      internalID: -710067483319658883
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shielded_Ranged_Shield_8
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 154f157c861a0bad0800000000000000
+      internalID: -2688471506147478447
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shielded_Ranged_Shield_9
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9076f5241b9fef1c0800000000000000
+      internalID: -4467859240586877175
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shielded_Ranged_Shield_10
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: faa2300876e6f2270800000000000000
+      internalID: 8227916435037563567
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shielded_Ranged_Shield_11
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 445f4642400b54e10800000000000000
+      internalID: 2181343126367827268
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shielded_Ranged_Shield_12
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dc3934db341b36f60800000000000000
+      internalID: 8026453865400603597
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shielded_Ranged_Shield_13
+      rect:
+        serializedVersion: 2
+        x: 416
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 912f14128d5cfb940800000000000000
+      internalID: 5314183617382052377
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shielded_Ranged_Shield_14
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5cf766a23a8abcb50800000000000000
+      internalID: 6614565896468201413
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shielded_Ranged_Shield_15
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eb4735975cbb44cd0800000000000000
+      internalID: -2574726630130617154
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shielded_Ranged_Shield_16
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3073be7f650277040800000000000000
+      internalID: 4645217098554619651
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shielded_Ranged_Shield_17
+      rect:
+        serializedVersion: 2
+        x: 544
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 140568865477f6e40800000000000000
+      internalID: 5651867197363343425
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shielded_Ranged_Shield_18
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 59fd167d084f76b50800000000000000
+      internalID: 6586501814259146645
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shielded_Ranged_Shield_19
+      rect:
+        serializedVersion: 2
+        x: 608
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dbc35b696081e89b0800000000000000
+      internalID: -5076093313422639939
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shielded_Ranged_Shield_20
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6578c0ea28191a120800000000000000
+      internalID: 2423378064953870166
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shielded_Ranged_Shield_21
+      rect:
+        serializedVersion: 2
+        x: 672
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 87f39115a6a466270800000000000000
+      internalID: 8243357988435869560
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shielded_Ranged_Shield_22
+      rect:
+        serializedVersion: 2
+        x: 704
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7f99dba4dbcb867b0800000000000000
+      internalID: -5230723446002050569
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shielded_Ranged_Shield_23
+      rect:
+        serializedVersion: 2
+        x: 736
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 655c93dc65ebacd70800000000000000
+      internalID: 9064266480056124758
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shielded_Ranged_Shield_24
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6c930f6239b6401e0800000000000000
+      internalID: -2232541235511281210
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shielded_Ranged_Shield_25
+      rect:
+        serializedVersion: 2
+        x: 800
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f17c09ff0ffaf6340800000000000000
+      internalID: 4859295972570744607
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shielded_Ranged_Shield_26
+      rect:
+        serializedVersion: 2
+        x: 832
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3016828d7c96e0db0800000000000000
+      internalID: -4823801843821289213
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shielded_Ranged_Shield_27
+      rect:
+        serializedVersion: 2
+        x: 864
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3596ff389df156ea0800000000000000
+      internalID: -5880258719379396269
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shielded_Ranged_Shield_28
+      rect:
+        serializedVersion: 2
+        x: 896
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ecd584c4a828812a0800000000000000
+      internalID: -6766514909627261490
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shielded_Ranged_Shield_29
+      rect:
+        serializedVersion: 2
+        x: 928
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4b020c0bd5e0825c0800000000000000
+      internalID: -4240123253609193292
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shielded_Ranged_Shield_30
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6995e75029c39504aa336e11687dd743
+      internalID: 1042507832
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shielded_Ranged_Shield_31
+      rect:
+        serializedVersion: 2
+        x: 992
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d1b5fdbf999e28c43ad4679fe3871df6
+      internalID: 1436808921
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 96479943c3892bd4ca3044dfac54225a
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Shielded_Ranged_Shield_0: -6588609266448582299
+      Shielded_Ranged_Shield_1: -9191599991212561459
+      Shielded_Ranged_Shield_10: 8227916435037563567
+      Shielded_Ranged_Shield_11: 2181343126367827268
+      Shielded_Ranged_Shield_12: 8026453865400603597
+      Shielded_Ranged_Shield_13: 5314183617382052377
+      Shielded_Ranged_Shield_14: 6614565896468201413
+      Shielded_Ranged_Shield_15: -2574726630130617154
+      Shielded_Ranged_Shield_16: 4645217098554619651
+      Shielded_Ranged_Shield_17: 5651867197363343425
+      Shielded_Ranged_Shield_18: 6586501814259146645
+      Shielded_Ranged_Shield_19: -5076093313422639939
+      Shielded_Ranged_Shield_2: -8956867353952153089
+      Shielded_Ranged_Shield_20: 2423378064953870166
+      Shielded_Ranged_Shield_21: 8243357988435869560
+      Shielded_Ranged_Shield_22: -5230723446002050569
+      Shielded_Ranged_Shield_23: 9064266480056124758
+      Shielded_Ranged_Shield_24: -2232541235511281210
+      Shielded_Ranged_Shield_25: 4859295972570744607
+      Shielded_Ranged_Shield_26: -4823801843821289213
+      Shielded_Ranged_Shield_27: -5880258719379396269
+      Shielded_Ranged_Shield_28: -6766514909627261490
+      Shielded_Ranged_Shield_29: -4240123253609193292
+      Shielded_Ranged_Shield_3: 5453741908879883608
+      Shielded_Ranged_Shield_30: 1042507832
+      Shielded_Ranged_Shield_31: 1436808921
+      Shielded_Ranged_Shield_4: -4378190670093430042
+      Shielded_Ranged_Shield_5: -7238993568086933606
+      Shielded_Ranged_Shield_6: 3098612756275787717
+      Shielded_Ranged_Shield_7: -710067483319658883
+      Shielded_Ranged_Shield_8: -2688471506147478447
+      Shielded_Ranged_Shield_9: -4467859240586877175
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

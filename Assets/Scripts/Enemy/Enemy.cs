@@ -49,6 +49,8 @@ public class Enemy : Entity
 
     private int _pneumaDamageStore, _aggressionDamageStore;
 
+    public UnityEngine.Transform projectileSpawnPoint;
+
     private void Start()
     {
         player = GameObject.FindWithTag("Player");
@@ -290,7 +292,11 @@ public class Enemy : Entity
     public void InstantiateProjectile(int attackDmg, float projectileSpd, Vector2 trajectory, GameObject projectile)
     {
         AudioManager.instance.RandomSFX(AudioManager.instance.enemyAttackRanged);
-        GameObject _spawnProjectile = GameObject.Instantiate(projectile, transform.position, transform.rotation);
+
+        Vector3 spawnPosition = projectileSpawnPoint != null ? projectileSpawnPoint.position : transform.position;
+        Quaternion rotation = Quaternion.FromToRotation(Vector3.right, trajectory.normalized); // or Quaternion.identity for no rotation
+
+        GameObject _spawnProjectile = Instantiate(projectile, spawnPosition, rotation);
 
         Projectile _projectileScript = _spawnProjectile.GetComponent<Projectile>();
 

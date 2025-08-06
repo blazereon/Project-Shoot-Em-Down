@@ -184,6 +184,10 @@ MonoBehaviour:
   rayStartAngle: -22.5
   detectionRange: 12
   delayScanTime: 0.5
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 0
+  shootYOffset: {x: 0, y: 0, z: 0}
   isPlayerDetected: 0
   hasPlayerDetected: 0
   hitRays: 
@@ -197,8 +201,6 @@ MonoBehaviour:
   explosionRadius: 6
   MainAnimator: {fileID: 0}
   EffectsAnimator: {fileID: 0}
-  currentMainAnimation: 
-  currentEffectsAnimation: 
 --- !u!95 &7411923905268606289
 Animator:
   serializedVersion: 7

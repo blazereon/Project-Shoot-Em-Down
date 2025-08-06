@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &4929158099664410290
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6010994190287109895}
+  m_Layer: 7
+  m_Name: projectileSpawnPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6010994190287109895
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4929158099664410290}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.46, y: 0.3, z: 0}
+  m_LocalScale: {x: 1.1999999, y: 1.1999999, z: 1.1999999}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 16334354220689217}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7144354307194853485
 GameObject:
   m_ObjectHideFlags: 0
@@ -20,7 +51,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &16334354220689217
 Transform:
   m_ObjectHideFlags: 0
@@ -34,6 +65,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 6010994190287109895}
   - {fileID: 1811346636701902203}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -126,7 +158,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.0024061203, y: -0.3100531}
+  m_Offset: {x: -0.0024061203, y: 0.148067}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -136,7 +168,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1.8055553, y: 2.036789}
+  m_Size: {x: 1.8055553, y: 1.1205487}
   m_EdgeRadius: 0
 --- !u!50 &7255823586710530253
 Rigidbody2D:
@@ -153,7 +185,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDamping: 0
   m_AngularDamping: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -200,12 +232,13 @@ MonoBehaviour:
   isPlayerDetected: 0
   hasPlayerDetected: 0
   hitRays: 
+  projectileSpawnPoint: {fileID: 6010994190287109895}
   enemyRb: {fileID: 0}
   wanderSpeed: 60
   chaseSpeed: 80
   wallDistanceLimit: 2.5
   startEngagementRange: 6
-  projectile: {fileID: 2293672932219427466, guid: e05d3644ec341dc4eb06436dcb3e0904, type: 3}
+  projectile: {fileID: 2293672932219427466, guid: 7896e852f99bfb84f962bc53d519c0e6, type: 3}
   attackSpd: 0.4
   projectileSpd: 5
   shootMode: 1
@@ -259,19 +292,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6046277041924922542, guid: 9f2740f211050cace901a51c50664858, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6046277041924922542, guid: 9f2740f211050cace901a51c50664858, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6046277041924922542, guid: 9f2740f211050cace901a51c50664858, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 6046277041924922542, guid: 9f2740f211050cace901a51c50664858, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -0.25
       objectReference: {fileID: 0}
     - target: {fileID: 8175704673654115721, guid: 9f2740f211050cace901a51c50664858, type: 3}
       propertyPath: m_Pivot.x
@@ -355,35 +388,35 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8304420385997727355, guid: 9f2740f211050cace901a51c50664858, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8304420385997727355, guid: 9f2740f211050cace901a51c50664858, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8304420385997727355, guid: 9f2740f211050cace901a51c50664858, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8304420385997727355, guid: 9f2740f211050cace901a51c50664858, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -0.25
       objectReference: {fileID: 0}
     - target: {fileID: 9076123388180992791, guid: 9f2740f211050cace901a51c50664858, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9076123388180992791, guid: 9f2740f211050cace901a51c50664858, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9076123388180992791, guid: 9f2740f211050cace901a51c50664858, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 2.5000002
       objectReference: {fileID: 0}
     - target: {fileID: 9076123388180992791, guid: 9f2740f211050cace901a51c50664858, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -0.25
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
