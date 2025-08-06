@@ -37,6 +37,11 @@ public class AudioManager : MonoBehaviour
     public AudioClip explosion;
     public AudioClip enemyDeath;
 
+    [Header("Other Audio Clips")]
+    public AudioClip tab;
+    public AudioClip HoldSelect;
+    public AudioClip select;
+
     [Header("Music BGM")]
     public AudioClip levelBGM;
 

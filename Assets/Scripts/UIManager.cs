@@ -123,6 +123,7 @@ public class UIManager : MonoBehaviour
     {
         GameManager.Current.SetState(GameState.Paused);
         SkillTreeMenu.SetActive(true);
+        // AudioManager.instance.PlayFX(AudioManager.instance.select, false);
         if (!CancelAction.triggered) return;
         CurrentState = UIState.None;
         return;
