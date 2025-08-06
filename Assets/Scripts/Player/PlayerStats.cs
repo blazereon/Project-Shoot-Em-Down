@@ -8,6 +8,8 @@ public struct PlayerStats
     //Can be edited using inspector menu
     public int Health;
     public int MaxHealth;
+    public int MeleeDamage;
+    public int RangedDamage;
     public int Violence;
     public int SkillPoint;
     public int MaxMomentum;

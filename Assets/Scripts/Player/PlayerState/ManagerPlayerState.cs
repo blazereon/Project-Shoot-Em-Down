@@ -63,6 +63,8 @@ public class ManagerPlayerState : Player
         {
             Health = PlayerBaseStats.Health,
             MaxHealth = PlayerBaseStats.MaxHealth,
+            MeleeDamage = PlayerBaseStats.MeleeDamage,
+            RangedDamage = PlayerBaseStats.RangedDamage,
             Violence = PlayerBaseStats.Violence,
             MaxMomentum = PlayerBaseStats.MaxMomentum,
             MaxPneumatic = PlayerBaseStats.MaxPneumatic,
