@@ -7949,7 +7949,15 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 8300000, guid: df8db6036f824e54e8b1ff27b9c0cd2c, type: 3}
     - target: {fileID: 1942204295011232120, guid: 137cc6ae3dcf69e4488a1ca21fa63680, type: 3}
+      propertyPath: noAccess
+      value: 
+      objectReference: {fileID: 8300000, guid: 6f4aba4d66ed969489d92cb31e55f428, type: 3}
+    - target: {fileID: 1942204295011232120, guid: 137cc6ae3dcf69e4488a1ca21fa63680, type: 3}
       propertyPath: HoldSelect
+      value: 
+      objectReference: {fileID: 8300000, guid: f2fa539371185574fb0a21dba7a0f3c1, type: 3}
+    - target: {fileID: 1942204295011232120, guid: 137cc6ae3dcf69e4488a1ca21fa63680, type: 3}
+      propertyPath: holdSelect
       value: 
       objectReference: {fileID: 8300000, guid: f2fa539371185574fb0a21dba7a0f3c1, type: 3}
     - target: {fileID: 3687795523081152696, guid: 137cc6ae3dcf69e4488a1ca21fa63680, type: 3}
