@@ -116,6 +116,10 @@ public class AttackPlayerCombatState : BasePlayerCombatState
         Vector2 _playerToMouseDistance = (Vector2)(Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue()) - player.transform.position).normalized;
         var _projectileProps = _projectile.GetComponent<Projectile>();
 
+        var _projectileAnimator = _projectile.GetComponent<Animator>();
+
+        _projectileAnimator.Play("Bullet_v0");
+
         _projectileProps.ProjectileCurrentProperties = new ProjectileProps
         {
             Trajectory = _playerToMouseDistance.normalized,
@@ -130,6 +134,7 @@ public class AttackPlayerCombatState : BasePlayerCombatState
         if (player.DestructiveBoltAbility.UpgradeTier >= 1)
         {
             _projectileProps.ProjectileCurrentProperties.isPiercing = true;
+            _projectileAnimator.Play("Bullet_v1");
 
             if (player.DestructiveBoltAbility.IsNextBulletEmpowered)
             {
@@ -139,6 +144,7 @@ public class AttackPlayerCombatState : BasePlayerCombatState
 
         if (player.DestructiveBoltAbility.UpgradeTier >= 2)
         {
+            _projectileAnimator.Play("Bullet_v2");
             if (Random.value < 0.25f)
             {
                 var _stun = new Stun(null, 1f);
