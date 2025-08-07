@@ -9,6 +9,6 @@ Tristan Paul Globio                 – Designer <br />
 Isaiah Nathan Rola                  – Programmer <br /> 
 Roel Castro                         – Programmer <br /> 
 Franco Alfonso Lazaro               – Artist <br /> 
-John Franky Nathaniel Batisla-Ong   – Artist <br /> 
-John Paul Beltran                   – Artist <br /> 
+John Franky Nathaniel Batisla-Ong   – Artist/Programmer <br /> 
+John Paul Beltran                   – Artist/Programmer <br /> 
 </pre>
