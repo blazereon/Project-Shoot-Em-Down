@@ -102,6 +102,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4615189925964510198}
   - component: {fileID: 4833912181100675596}
+  - component: {fileID: 8783189934523054403}
+  - component: {fileID: 7038775247061967582}
   m_Layer: 7
   m_Name: GunArm
   m_TagString: Untagged
@@ -179,6 +181,41 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &8783189934523054403
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1160778936533778490}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 857857ed25313b34d99c4dd25c4b91aa, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &7038775247061967582
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1160778936533778490}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ebc149beab513e74bb8e2a31ffbfc0d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ArmAnimator: {fileID: 8783189934523054403}
 --- !u!1 &2374370681469952072
 GameObject:
   m_ObjectHideFlags: 0
@@ -899,6 +936,7 @@ MonoBehaviour:
   CanAtack: 1
   DashAttackBox: {fileID: 2374370681469952072}
   groundBox: {fileID: 6397718521625496067}
+  GunArmInstance: {fileID: 7038775247061967582}
   PlayerCollider: {fileID: 0}
   BodyAnimator: {fileID: 0}
   ArmAnimator: {fileID: 0}

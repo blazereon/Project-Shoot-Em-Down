@@ -58,14 +58,14 @@ TagManager:
   - name: Orb
     uniqueID: 1521147471
     locked: 0
+  - name: Projectile
+    uniqueID: 3321139105
+    locked: 0
   - name: Player
     uniqueID: 327654801
     locked: 0
   - name: Enemy
     uniqueID: 2274764581
-    locked: 0
-  - name: Projectile
-    uniqueID: 3321139105
     locked: 0
   - name: UI
     uniqueID: 1463348695

@@ -10,7 +10,7 @@ public class IdlePlayerState : BasePlayerState
     private int _momentumDecayPerSecond = 14;
     public override void EnterState(ManagerPlayerState player)
     {
-
+        // player.GunArmInstance.UpdateArm(true, player.DestructiveBoltAbility.UpgradeTier);
     }
 
     public override void UpdateState(ManagerPlayerState player)

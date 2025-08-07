@@ -16,6 +16,8 @@ public class AttackPlayerCombatState : BasePlayerCombatState
             return;
         }
 
+        player.GunArmInstance.UpdateArm(false, player.DestructiveBoltAbility.UpgradeTier);
+
         //Put sprite and audio logic below this line
         switch (player.PlayerCurrentStats.CurrentAttackType)
         {

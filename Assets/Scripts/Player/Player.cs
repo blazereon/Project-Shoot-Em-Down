@@ -70,6 +70,7 @@ public class Player : Entity
     public GameObject DashAttackBox;
     public GroundBox groundBox;
     public Coroutine AttackDelayInstance;
+    public GunArm GunArmInstance;
 
     [NonSerialized] public bool IsEmpowerementInvoke;
 
