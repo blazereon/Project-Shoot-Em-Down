@@ -39,16 +39,24 @@ public class ParallaxController : MonoBehaviour
     void LateUpdate()
     {
         _distance = _cam.position.x - _camStartPos.x;
-        float _distanceY = _cam.position.y - _camStartPos.y;
 
         transform.position = new Vector3(_cam.position.x, _cam.position.y, 0);
         Debug.Log("Cam pos: " + transform.position + " " + _cam.position); 
 
-        for (int i = 0; i < _backspeed.Length; i++)
+        if(_backspeed.Length > 1)
         {
-            float speed = _backspeed[i] * parallaxSpeed;
-            _mat[i].SetTextureOffset("_MainTex", new Vector2(_distance, 0) * speed);
+            for (int i = 0; i < _backspeed.Length; i++)
+            {
+                float speed = _backspeed[i] * parallaxSpeed;
+                _mat[i].SetTextureOffset("_MainTex", new Vector2(_distance, 0) * speed);
+            }
         }
+        else
+        {
+            _mat[0].SetTextureOffset("_MainTex", new Vector2(_distance, 0) * parallaxSpeed);
+        }
+
+        
     }
 
     void BackSpeedCalculate(int backCount)
@@ -60,10 +68,10 @@ public class ParallaxController : MonoBehaviour
                 _farthestBack = _backgrounds[i].transform.position.z - _cam.position.z;
             }
         }
-
+        
         for (int i = 0; i < backCount; i++)
         {
-            _backspeed[i] = 1 - (_backgrounds[i].transform.position.z - _cam.position.z);
+            _backspeed[i] = 1 - (_backgrounds[i].transform.position.z - _cam.position.z) / _farthestBack;
         }
     }
 }
