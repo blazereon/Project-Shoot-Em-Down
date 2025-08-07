@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 1e3155498803a05479f5a1ee9acf8201
+guid: 891e3666a44627745afc78d6c363d9a1
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -9174737044273860825
-    second: ui_StunMark_0
+      213: -8294852312992250699
+    second: ui_AetherMark_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -98,12 +98,34 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: ui_AetherMark_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5b405c3f4c3c2ec80800000000000000
+      internalID: -8294852312992250699
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 95a78cbffce3eea408a31896fbda98e7
+    spriteID: 348c260efd059ae44bb26732fbb3073a
     internalID: 0
     vertices: []
     indices: 
@@ -112,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      ui_AetherMark_0: -8294852312992250699
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
