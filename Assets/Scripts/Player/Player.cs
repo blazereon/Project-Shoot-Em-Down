@@ -72,6 +72,9 @@ public class Player : Entity
     public Coroutine AttackDelayInstance;
     public GunArm GunArmInstance;
 
+    public GameObject SlashObject;
+    public GameObject SlashAnimator;
+
     [NonSerialized] public bool IsEmpowerementInvoke;
 
     public void TriggerEmpowerment(ComponentAbility ability)
