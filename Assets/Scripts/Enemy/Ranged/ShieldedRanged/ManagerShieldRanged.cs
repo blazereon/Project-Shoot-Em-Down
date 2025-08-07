@@ -64,6 +64,7 @@ public class ManagerShieldRanged : Enemy
     {
         EventSystem.Current.OnDamageEnemy += TakeDamage;
         EventSystem.Current.OnApplyEffect += ReceiveEffect;
+        EventSystem.Current.OnReleaseStunningField += DetectStunningField;
 
         MainAnimator = GetComponent<Animator>();
         weakSpotBox = transform.Find("weakSpot").GetComponent<BoxCollider2D>();
@@ -111,6 +112,7 @@ public class ManagerShieldRanged : Enemy
     {
         EventSystem.Current.OnDamageEnemy -= TakeDamage;
         EventSystem.Current.OnApplyEffect -= ReceiveEffect;
+        EventSystem.Current.OnReleaseStunningField -= DetectStunningField;
     }
     
     public string currentMainAnimation = "";

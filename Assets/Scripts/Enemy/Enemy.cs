@@ -150,6 +150,11 @@ public class Enemy : Entity
 
     }
 
+    public void DetectStunningField()
+    {
+        EventSystem.Current.ApplyEffect(this.gameObject, new Stun(this, 4f));
+    }
+
     public void TakeDamageOld(GameObject pObject, int damage)
     {
         if (pObject == gameObject)

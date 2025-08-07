@@ -68,6 +68,7 @@ public class ManagerRangedGrounded : Enemy
     {
         EventSystem.Current.OnDamageEnemy += TakeDamage;
         EventSystem.Current.OnApplyEffect += ReceiveEffect;
+        EventSystem.Current.OnReleaseStunningField += DetectStunningField;
         
         // Main Animator
         MainAnimator = GetComponent<Animator>();
@@ -124,6 +125,7 @@ public class ManagerRangedGrounded : Enemy
     {
         EventSystem.Current.OnDamageEnemy -= TakeDamage;
         EventSystem.Current.OnApplyEffect -= ReceiveEffect;
+        EventSystem.Current.OnReleaseStunningField -= DetectStunningField;
     }
     
     public string currentMainAnimation = "";

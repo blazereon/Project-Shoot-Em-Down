@@ -55,6 +55,7 @@ public class ManagerStaticRanged : Enemy
     {
         EventSystem.Current.OnDamageEnemy += TakeDamage;
         EventSystem.Current.OnApplyEffect += ReceiveEffect;
+        EventSystem.Current.OnReleaseStunningField += DetectStunningField;
 
         MainAnimator = GetComponent<Animator>();
         scanBox = transform.Find("ScanBox").GetComponent<BoxCollider2D>();
@@ -93,6 +94,7 @@ public class ManagerStaticRanged : Enemy
     {
         EventSystem.Current.OnDamageEnemy -= TakeDamage;
         EventSystem.Current.OnApplyEffect -= ReceiveEffect;
+        EventSystem.Current.OnReleaseStunningField -= DetectStunningField;
     }
 
     public string currentMainAnimation = "";

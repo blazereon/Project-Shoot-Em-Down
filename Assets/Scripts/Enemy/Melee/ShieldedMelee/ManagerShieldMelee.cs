@@ -41,6 +41,7 @@ public class ManagerShieldMelee : Enemy
     {
         EventSystem.Current.OnDamageEnemy += TakeDamage;
         EventSystem.Current.OnApplyEffect += ReceiveEffect;
+        EventSystem.Current.OnReleaseStunningField += DetectStunningField;
         enemyRb = GetComponent<Rigidbody2D>();
 
         // Main Animator
@@ -137,6 +138,7 @@ public class ManagerShieldMelee : Enemy
     {
         EventSystem.Current.OnDamageEnemy -= TakeDamage;
         EventSystem.Current.OnApplyEffect -= ReceiveEffect;
+        EventSystem.Current.OnReleaseStunningField -= DetectStunningField;
     }
 
     private string currentMainAnimation = "";

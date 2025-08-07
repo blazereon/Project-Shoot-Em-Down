@@ -35,6 +35,8 @@ public class ManagerExplosive : Enemy
     {
         EventSystem.Current.OnDamageEnemy += TakeDamage;
         EventSystem.Current.OnApplyEffect += ReceiveEffect;
+        EventSystem.Current.OnReleaseStunningField += DetectStunningField;
+
         enemyRb = GetComponent<Rigidbody2D>();
 
         // Main Animator
@@ -91,12 +93,14 @@ public class ManagerExplosive : Enemy
     {
         StopAllCoroutines();
 
-        if (AudioManager.instance != null) {
+        if (AudioManager.instance != null)
+        {
             AudioManager.instance.StopSFX();
         }
-        
+
         EventSystem.Current.OnDamageEnemy -= TakeDamage;
         EventSystem.Current.OnApplyEffect -= ReceiveEffect;
+        EventSystem.Current.OnReleaseStunningField -= DetectStunningField;
     }
 
     

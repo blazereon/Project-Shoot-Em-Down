@@ -32,6 +32,7 @@ public class ManagerGenericEnemy : Enemy
     {
         EventSystem.Current.OnDamageEnemy += TakeDamage;
         EventSystem.Current.OnApplyEffect += ReceiveEffect;
+        EventSystem.Current.OnReleaseStunningField += DetectStunningField;
 
         GenericEnemyRb = GetComponent<Rigidbody2D>();
         // Main Animator
@@ -87,6 +88,7 @@ public class ManagerGenericEnemy : Enemy
     {
         EventSystem.Current.OnDamageEnemy -= TakeDamage;
         EventSystem.Current.OnApplyEffect -= ReceiveEffect;
+        EventSystem.Current.OnReleaseStunningField -= DetectStunningField;
     }
 
     private string currentMainAnimation = "";
