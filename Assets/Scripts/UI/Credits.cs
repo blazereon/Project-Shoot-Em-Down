@@ -18,6 +18,10 @@ public class Credits : MonoBehaviour
         
     }
 
+    public void SkipCredits()
+    {
+        GameManager.Current.LoadScene("Main");
+    }
     // Update is called once per frame
     void Update()
     {
