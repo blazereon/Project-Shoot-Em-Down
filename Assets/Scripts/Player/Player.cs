@@ -71,9 +71,8 @@ public class Player : Entity
     public GroundBox groundBox;
     public Coroutine AttackDelayInstance;
     public GunArm GunArmInstance;
-
     public GameObject SlashObject;
-    public GameObject SlashAnimator;
+    public Animator SlashAnimator;
 
     [NonSerialized] public bool IsEmpowerementInvoke;
 

@@ -1,5 +1,6 @@
 using Unity.VisualScripting;
 using UnityEditor;
+using UnityEditor.Tilemaps;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -63,9 +64,23 @@ public class AttackPlayerCombatState : BasePlayerCombatState
 
     private void MeleeAttack(ManagerPlayerState player)
     {
+        player.SlashAnimator.Play("Slash");
+
+        SpriteRenderer slashSprite = player.SlashObject.GetComponent<SpriteRenderer>();
+
+        if (player.facing == Facing.left)
+        {
+            slashSprite.flipX = true;
+            player.SlashObject.transform.position = player.transform.position + new Vector3(-1, 0, 0);
+        }
+        else
+        {
+            slashSprite.flipX = false;
+            player.SlashObject.transform.position = player.transform.position + new Vector3(1, 0, 0);
+        }
         // _player = player;
-        // Debug.Log("Melee attack invoked");
-        _layerMask = LayerMask.GetMask("Wall", "Enemy", "NonCollideEnemy", "Projectile");
+            // Debug.Log("Melee attack invoked");
+            _layerMask = LayerMask.GetMask("Wall", "Enemy", "NonCollideEnemy", "Projectile");
         Collider2D[] hits;
 
         if (player.facing == Facing.right)
