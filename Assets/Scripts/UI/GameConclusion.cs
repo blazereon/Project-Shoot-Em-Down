@@ -76,4 +76,9 @@ public class GameConclusion : MonoBehaviour
     {
         GameManager.Current.LoadScene(GameManager.Current.CurrentSceneCode);
     }
+
+    public void ReturnMainMenu()
+    {
+        GameManager.Current.LoadScene("Main");
+    }
 }

@@ -261,6 +261,7 @@ MonoBehaviour:
   PausePanel: {fileID: 1805272809512151906}
   ResumeButton: {fileID: 8859778830164412686}
   RestartButton: {fileID: 7036689931268102954}
+  ExitButton: {fileID: 5768538155974291455}
 --- !u!1 &7363396507249949072
 GameObject:
   m_ObjectHideFlags: 0
@@ -697,6 +698,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4d82d89f381dc1fcea62fd6aeec1d8f5, type: 3}
+--- !u!114 &5768538155974291455 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1839431607149111625, guid: 4d82d89f381dc1fcea62fd6aeec1d8f5, type: 3}
+  m_PrefabInstance: {fileID: 5299346629761812150}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &7833269803813181154 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 2683673466611814484, guid: 4d82d89f381dc1fcea62fd6aeec1d8f5, type: 3}

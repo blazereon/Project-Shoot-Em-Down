@@ -45,6 +45,7 @@ public class GameManager : MonoBehaviour
         PlayerInput = InputSystem.actions.FindActionMap("Player");
         UIInput = InputSystem.actions.FindActionMap("UI");
 
+        SceneList.Add("Main", "Assets/Levels/MainMenu/MainMenu.unity");
         //Scene Initialization
         SceneCodeSequence.Add("Tutorial");
         SceneList.Add("Tutorial", "Assets/Levels/Tutorial/TutorialScene.unity");
