@@ -63,15 +63,36 @@ public class OrbManager : MonoBehaviour
         switch (type)
         {
             case OrbType.Pneuma:
-                orbObject = PneumaOrbs.Pop();
+                if (!PneumaOrbs.TryPop(out orbObject))
+                {
+                    orbObject = Instantiate(Orb, this.transform);
+                    PneumaOrbs.Push(orbObject);
+                    OrbDictionary[orbObject] = orbObject.GetComponent<Orb>();
+                    OrbDictionary[orbObject].Type = OrbType.Pneuma;
+                    OrbDictionary[orbObject].orbManagerInstance = this;
+                }
                 orb = OrbDictionary[orbObject];
                 break;
             case OrbType.Aggression:
-                orbObject = AggressionOrbs.Pop();
+                if (!AggressionOrbs.TryPop(out orbObject))
+                {
+                    orbObject = Instantiate(Orb, this.transform);
+                    AggressionOrbs.Push(orbObject);
+                    OrbDictionary[orbObject] = orbObject.GetComponent<Orb>();
+                    OrbDictionary[orbObject].Type = OrbType.Aggression;
+                    OrbDictionary[orbObject].orbManagerInstance = this;
+                }
                 orb = OrbDictionary[orbObject];
                 break;
             case OrbType.Xp:
-                orbObject = XpOrbs.Pop();
+                if (!XpOrbs.TryPop(out orbObject))
+                {
+                    orbObject = Instantiate(Orb, this.transform);
+                    AggressionOrbs.Push(orbObject);
+                    OrbDictionary[orbObject] = orbObject.GetComponent<Orb>();
+                    OrbDictionary[orbObject].Type = OrbType.Xp;
+                    OrbDictionary[orbObject].orbManagerInstance = this;
+                }
                 orb = OrbDictionary[orbObject];
                 break;
             default:
