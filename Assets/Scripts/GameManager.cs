@@ -53,6 +53,9 @@ public class GameManager : MonoBehaviour
         SceneCodeSequence.Add("LV1");
         SceneList.Add("LV1", "Assets/Levels/Level1/LV1_Scene.unity");
 
+        SceneCodeSequence.Add("Credits");
+        SceneList.Add("Credits", "Assets/Levels/Credits/Credits.unity");
+
 
     }
 
