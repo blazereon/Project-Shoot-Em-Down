@@ -106,7 +106,7 @@ public class Player : Entity
         switch (type)
         {
             case OrbType.Pneuma:
-                int _PnGain = value * (1 + (PlayerCurrentStats.Momentum / PlayerCurrentStats.MaxMomentum)) + (value * PlayerCurrentStats.Chain);
+                int _PnGain = value * (5 + (PlayerCurrentStats.Momentum / PlayerCurrentStats.MaxMomentum)) + (value * PlayerCurrentStats.Chain);
                 int _PnDiff = (PlayerCurrentStats.Pneumatic + _PnGain) - PlayerCurrentStats.MaxPneumatic;
                 PlayerCurrentStats.Pneumatic = Mathf.Clamp(PlayerCurrentStats.Pneumatic + _PnGain, 0, PlayerCurrentStats.MaxPneumatic);
                 if (PlayerCurrentStats.Pneumatic == PlayerCurrentStats.MaxPneumatic)
@@ -121,7 +121,7 @@ public class Player : Entity
                 break;
             case OrbType.Aggression:
                 int _prevAggroStat = PlayerCurrentStats.Aggression;
-                int _AggrGain = value * (1 + (PlayerCurrentStats.Momentum / PlayerCurrentStats.MaxMomentum)) + (value * PlayerCurrentStats.Chain);
+                int _AggrGain = value * (10 + (PlayerCurrentStats.Momentum / PlayerCurrentStats.MaxMomentum)) + (value * PlayerCurrentStats.Chain);
                 PlayerCurrentStats.Aggression = Mathf.Min(100, PlayerCurrentStats.Aggression + _AggrGain);
 
                 //If Aggression meter is full

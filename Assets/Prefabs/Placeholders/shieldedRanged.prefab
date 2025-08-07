@@ -447,7 +447,7 @@ MonoBehaviour:
   MaxHealth: 100
   MeleeResistancePercentage: 0
   RangeResistancePercentage: 60
-  AttackDamage: 2
+  AttackDamage: 1
   PneumaAmount: 0
   rayNumber: 20
   rayMaxAngle: 40
