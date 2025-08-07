@@ -71,7 +71,7 @@ public class AttackStaticRanged : BaseStaticRanged
 
                         for (int i = 0; i < enemy.burstCount; i++)
                         {
-                            _projectileTrajectory = (Quaternion.Euler(0, 0, _startAngle + (i * _burstStep)) * enemy.transform.right);
+                            _projectileTrajectory = (Quaternion.Euler(0, 0, _startAngle + (i * _burstStep)) * Vector2.right);
                             // InstantiateProjectile(enemy, _projectileTrajectory);
                             enemy.InstantiateProjectile(enemy.attackDmg, enemy.projectileSpd, _projectileTrajectory, enemy.projectile);
                         }
@@ -122,7 +122,7 @@ public class AttackStaticRanged : BaseStaticRanged
                         float _startAngle = (Mathf.Atan2(_direction2player.y, _direction2player.x) * Mathf.Rad2Deg) - (enemy.burstSpread / 2);
 
 
-                        _attackCoroutine = enemy.StartCoroutine(enemy.TwirlBurst(_startAttack, enemy.attackDmg, enemy.projectileSpd, enemy.burstCount, _startAngle, _burstStep, enemy.attackSpd, enemy.transform.right, enemy.projectile));
+                        _attackCoroutine = enemy.StartCoroutine(enemy.TwirlBurst(_startAttack, enemy.attackDmg, enemy.projectileSpd, enemy.burstCount, _startAngle, _burstStep, enemy.attackSpd, Vector3.right, enemy.projectile));
                     }
 
                     _attackTimer = 0f;
