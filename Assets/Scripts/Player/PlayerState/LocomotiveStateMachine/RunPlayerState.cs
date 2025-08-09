@@ -1,8 +1,6 @@
 using System;
 using System.Collections;
-using UnityEditor.Callbacks;
 using UnityEngine;
-using UnityEngine.Rendering;
 
 public class RunPlayerState : BasePlayerState
 {
